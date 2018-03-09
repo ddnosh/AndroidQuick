@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="act"
+            type="la.xiong.androidquick.demo.ui.fragment.DatabindingFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_databinding_empty"
+            style="@style/textview_common_style" />
+
+        <Button
+            android:id="@+id/btn_databinding_confirm"
+            style="@style/button_common_style"
+            android:layout_marginTop="40dp"
+            android:onClick="@{()-> act.onConfirmClick()}"
+            android:text="确定" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="la.xiong.androidquick.demo">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.UIActivity" />
+        <activity android:name=".ui.activity.AdapterActivity" />
+        <activity android:name=".ui.activity.DialogActivity" />
+        <activity android:name=".ui.activity.NetworkActivity" />
+        <activity android:name=".ui.activity.FrameActivity" />
+        <activity android:name=".ui.activity.DatabaseActivity" />
+        <activity android:name=".ui.activity.TabActivity" />
+        <activity android:name=".ui.activity.ToolbarActivity" />
+        <activity android:name=".ui.activity.ToolsActivity" />
+        <activity android:name=".ui.activity.PermissionActivity" />
+        <activity android:name=".ui.activity.WebViewActivity" />
+        <activity android:name=".ui.activity.HostActivity" />
+        <activity
+            android:name=".ui.activity.DownloadActivity"
+            android:theme="@style/ProgressBarTheme" />
+
+        <service android:name=".service.DownloadService" />
+    </application>
+
+</manifest>

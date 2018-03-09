@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="la.xiong.androidquick.demo.ui.activity.DownloadActivity">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_download"
+        android:layout_centerVertical="true"
+        android:text="Start Download"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/pb_download"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginTop="48dp"
+        android:layout_below="@id/btn_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_download"
+        android:layout_below="@id/pb_download"
+        android:textAlignment="center"
+        android:text="aaaaaaaaaa"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

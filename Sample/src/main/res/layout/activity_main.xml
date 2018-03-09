@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_main_ui"
+            android:text="UI"
+            style="@style/button_common_style"/>
+        <Button
+            android:id="@+id/btn_main_network"
+            android:layout_below="@+id/btn_main_ui"
+            android:text="Network"
+            style="@style/button_common_style"/>
+        <Button
+            android:id="@+id/btn_main_database"
+            android:layout_below="@+id/btn_main_network"
+            android:text="Database"
+            style="@style/button_common_style"/>
+        <Button
+            android:id="@+id/btn_main_tools"
+            android:layout_below="@+id/btn_main_database"
+            android:text="Tools"
+            style="@style/button_common_style"/>
+        <Button
+            android:id="@+id/btn_main_test"
+            android:layout_below="@+id/btn_main_tools"
+            android:text="Test"
+            style="@style/button_common_style"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</RelativeLayout>

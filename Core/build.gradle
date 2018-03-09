@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    //解决library中BuildConfig.DEBUG始终为false的问题
+    publishNonDefault true
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.dependencies["appcompatv7"]
+    compile rootProject.ext.dependencies["design"]
+    //eventbus
+    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    //butterknife
+    compile "com.jakewharton:butterknife:8.6.0"
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
+    //rxJava
+    compile 'io.reactivex:rxjava:latest.release'
+    compile 'io.reactivex:rxandroid:latest.release'
+    //network - squareup
+    compile 'com.squareup.retrofit2:retrofit:latest.release'
+    compile 'com.squareup.retrofit2:adapter-rxjava:latest.release'
+    compile 'com.squareup.okhttp3:okhttp:latest.release'
+    compile 'com.squareup.okhttp3:logging-interceptor:latest.release'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.2.0'
+    //gson
+    compile 'com.google.code.gson:gson:2.4'
+    //纯色沉浸式标题栏
+    compile 'spa.lyh.cn:immersion-sdk:1.0.6'
+    //glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //smarttablayout
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    //adapter
+    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24"
+}

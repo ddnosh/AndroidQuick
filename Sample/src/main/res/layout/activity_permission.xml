@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_permission_camera"
+            style="@style/button_common_style"
+            android:text="Camera" />
+
+        <Button
+            android:id="@+id/btn_permission_fragment"
+            style="@style/button_common_style"
+            android:layout_below="@id/btn_permission_camera"
+            android:text="Try in fragment" />
+
+    </RelativeLayout>
+</RelativeLayout>

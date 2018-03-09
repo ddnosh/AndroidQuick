@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AndroidQuick</string>
+
+    <string-array name="tabs">
+        <item>Tab1</item>
+        <item>Tab2</item>
+        <item>Tab3</item>
+    </string-array>
+    <string-array name="subtabs">
+        <item>SubTab1</item>
+        <item>SubTab2</item>
+    </string-array>
+    <string name="dialog_camera_permission">为了使APP能正常运行，请允许APP获得以下权限：\n摄像头</string>
+    <string name="dialog_phone_permission">为了使APP能正常运行，请允许APP获得以下权限：\n电话</string>
+    <string name="dialog_storage_permission">为了使APP能正常运行，请允许APP获得以下权限：\n存储</string>
+    <string name="dialog_rationale_ask_again">APP缺少正常运行时所必须的权限，请在系统设置内允许APP获得以下权限: %s</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.ogaclejapan.smarttablayout.SmartTabLayout
+        android:id="@+id/stl_main_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:stl_defaultTabTextSize="@dimen/big_small_text"
+        app:stl_distributeEvenly="true"
+        app:stl_dividerColor="@android:color/transparent"
+        app:stl_indicatorColor="@android:color/transparent"
+        app:stl_indicatorThickness="0dp"
+        app:stl_underlineColor="@android:color/transparent" />
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_adapter_common"
+            style="@style/button_common_style"
+            android:text="Common Adapter" />
+
+        <Button
+            android:id="@+id/btn_adapter_multiviewtype"
+            style="@style/button_common_style"
+            android:text="Multi ViewType Adapter"
+            android:layout_below="@id/btn_adapter_common"/>
+
+        <Button
+            android:id="@+id/btn_adapter_brvah"
+            style="@style/button_common_style"
+            android:text="BaseRecyclerViewAdapterHelper"
+            android:layout_below="@id/btn_adapter_multiviewtype"/>
+
+    </RelativeLayout>
+</LinearLayout>

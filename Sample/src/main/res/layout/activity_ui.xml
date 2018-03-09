@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <la.xiong.androidquick.demo.view.expandablelistview.AnimatedExpandableListView
+            android:id="@+id/explv_ui"
+            style="@style/match_match"
+            android:divider="@null">
+
+        </la.xiong.androidquick.demo.view.expandablelistview.AnimatedExpandableListView>
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_fragment"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:text="Fragment" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_adapter"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_fragment"-->
+        <!--android:text="Adapter" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_dialog"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_adapter"-->
+        <!--android:text="Dialog" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_databinding"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_dialog"-->
+        <!--android:text="Databinding" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_toolbar"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_databinding"-->
+        <!--android:text="Toolbar" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_tab"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_toolbar"-->
+        <!--android:text="Tab" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_code"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_tab"-->
+        <!--android:text="Code" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_permission"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_code"-->
+        <!--android:text="Permission" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_refresh"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_permission"-->
+        <!--android:text="Refresh" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_webview"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_refresh"-->
+        <!--android:text="WebView" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_ui_go"-->
+        <!--style="@style/button_common_style"-->
+        <!--android:layout_below="@id/btn_ui_webview"-->
+        <!--android:text="New Go Way" />-->
+
+    </RelativeLayout>
+</RelativeLayout>
