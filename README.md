@@ -1,5 +1,11 @@
 # AndroidQuick
-Android快速开发框架
+![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
+## Release Notes
+### 20180315 -> v1.0.1
+1. 增加对Fragmentation开源组件的支持；
+2. 增加开源组件Banner的实现；
+3. 增加底部tab栏的两种实现（RadioButton、BottomBar）
+
 ## 项目简介
 AndroidQuick项目旨在提供一套让能Android开发者快速开发APP的框架。  
 AndroidQuick从开发一个APP所涉及到的架构、UI、网络、数据库、工具等方面出发，给Android开发者提供一套快速开发框架，
@@ -65,13 +71,16 @@ Sample包含以下几个模块：UI、Network、Database、Tools。
 ##### UI
 1. Fragment
 2. Adapter
-3. Dialog
-4. DataBinding
-5. Toolbar
+3. Toolbar
+4. BottomBar
+5. Dialog
 6. Tab
-7. Code
-8. Permission
-9. WebView
+7. Banner
+8. Code
+9. Permission
+10. Refresh
+11. WebView
+12. DataBinding
 ##### Network
 1. Retrofit+OkHttp+RxJava
 2. Retrofit+OkHttp
@@ -89,7 +98,9 @@ Sample包含以下几个模块：UI、Network、Database、Tools。
 > 抽象类，引入DataBinding的支持；
 4. BaseTVActivity
 > 抽象类，相比BaseTActivity，增加了DataBinding的支持；
-5. BaseFragment、BaseTFragment、BaseVFragment、BaseTVFragment
+5. BaseFActivity
+> 抽象类，用于配合Fragmentation组件使用；
+6. BaseFragment、BaseTFragment、BaseVFragment、BaseTVFragment、BaseFFragment
 > 功能类同于对应的Activity；
 ### GreenDao
 GreenDao生成数据库文件示例工程
