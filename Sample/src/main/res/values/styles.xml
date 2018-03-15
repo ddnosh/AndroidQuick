@@ -35,4 +35,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ControllerStyle">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/controller_text_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

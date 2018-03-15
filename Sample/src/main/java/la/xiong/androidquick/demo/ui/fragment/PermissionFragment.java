@@ -21,6 +21,9 @@ import la.xiong.androidquick.ui.permission.EasyPermissions;
  * @website http://blog.csdn.net/ddnosh
  */
 public class PermissionFragment extends BaseFragment {
+
+    public static final String TAG = "PermissionFragment";
+
     @Override
     protected void initViewsAndEvents() {
 

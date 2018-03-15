@@ -24,6 +24,8 @@ import la.xiong.androidquick.ui.adapter.CommonViewHolder;
  */
 public class GreenDaoFragment extends BaseTFragment {
 
+    public static final String TAG = "GreenDaoFragment";
+
     @BindView(R.id.et_greendao_input)
     EditText mEditText;
 

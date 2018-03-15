@@ -35,6 +35,7 @@
         <activity
             android:name=".ui.activity.DownloadActivity"
             android:theme="@style/ProgressBarTheme" />
+        <activity android:name=".ui.activity.FragmentationActivity" />
 
         <service android:name=".service.DownloadService" />
     </application>

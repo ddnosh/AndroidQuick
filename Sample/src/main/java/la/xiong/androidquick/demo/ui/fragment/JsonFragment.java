@@ -23,6 +23,8 @@ import la.xiong.androidquick.tool.ToastUtil;
  */
 public class JsonFragment extends BaseTFragment {
 
+    public static final String TAG = "JsonFragment";
+
     private String testJsonString;
 
     @Override

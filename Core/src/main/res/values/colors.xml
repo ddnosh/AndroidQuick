@@ -36,6 +36,10 @@
     <color name="red">#ee3b3b</color>
     <color name="pink">#ff6666</color>
     <color name="yellow">#ffd400</color>
+
+    <color name="tab_unselect">#c9c9c9</color>
+
+
     <!-- Start: from outer -->
     <color name="alpha_complete">#0000</color>
     <color name="alpha_9">#9000</color>

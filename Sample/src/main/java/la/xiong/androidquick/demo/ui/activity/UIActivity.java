@@ -10,12 +10,15 @@ import java.util.List;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
+import la.xiong.androidquick.demo.ui.fragment.BannerFragment;
 import la.xiong.androidquick.demo.ui.fragment.BaseRecyclerViewAdapterHelperFragment;
+import la.xiong.androidquick.demo.ui.fragment.BottomBarFragment;
 import la.xiong.androidquick.demo.ui.fragment.CodeFragment;
 import la.xiong.androidquick.demo.ui.fragment.CommonAdapterFragment;
 import la.xiong.androidquick.demo.ui.fragment.DatabindingFragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.demo.ui.fragment.MultiViewTypeAdapterFragment;
+import la.xiong.androidquick.demo.ui.fragment.RadioButtonFragment;
 import la.xiong.androidquick.demo.ui.fragment.TabFTLFragment;
 import la.xiong.androidquick.demo.ui.fragment.TabSTLFragment;
 import la.xiong.androidquick.demo.view.expandablelistview.AnimatedExpandableListView;
@@ -47,6 +50,8 @@ public class UIActivity extends BaseActivity {
 
         GroupItem groupItem0 = new GroupItem();
         groupItem0.title = "Fragment";
+        groupItem0.childList.add("CommonFragment");
+        groupItem0.childList.add("Fragmentation");
         parentList.add(groupItem0);
 
         GroupItem groupItem1 = new GroupItem();
@@ -57,17 +62,19 @@ public class UIActivity extends BaseActivity {
         parentList.add(groupItem1);
 
         GroupItem groupItem2 = new GroupItem();
-        groupItem2.title = "Dialog";
-        groupItem2.childList.add("LoadingDialog");
-        groupItem2.childList.add("CommonDialog");
+        groupItem2.title = "Toolbar";
         parentList.add(groupItem2);
 
         GroupItem groupItem3 = new GroupItem();
-        groupItem3.title = "DataBinding";
+        groupItem3.title = "BottomBar";
+        groupItem3.childList.add("RadioButton");
+        groupItem3.childList.add("BottomBar");
         parentList.add(groupItem3);
 
         GroupItem groupItem4 = new GroupItem();
-        groupItem4.title = "Toolbar";
+        groupItem4.title = "Dialog";
+        groupItem4.childList.add("LoadingDialog");
+        groupItem4.childList.add("CommonDialog");
         parentList.add(groupItem4);
 
         GroupItem groupItem5 = new GroupItem();
@@ -77,24 +84,28 @@ public class UIActivity extends BaseActivity {
         parentList.add(groupItem5);
 
         GroupItem groupItem6 = new GroupItem();
-        groupItem6.title = "Code";
+        groupItem6.title = "Banner";
         parentList.add(groupItem6);
 
         GroupItem groupItem7 = new GroupItem();
-        groupItem7.title = "Permission";
+        groupItem7.title = "Code";
         parentList.add(groupItem7);
 
         GroupItem groupItem8 = new GroupItem();
-        groupItem8.title = "Refresh";
+        groupItem8.title = "Permission";
         parentList.add(groupItem8);
 
         GroupItem groupItem9 = new GroupItem();
-        groupItem9.title = "WebView";
+        groupItem9.title = "Refresh";
         parentList.add(groupItem9);
 
         GroupItem groupItem10 = new GroupItem();
-        groupItem10.title = "New Go Way";
+        groupItem10.title = "WebView";
         parentList.add(groupItem10);
+
+        GroupItem groupItem11 = new GroupItem();
+        groupItem11.title = "DataBinding";
+        parentList.add(groupItem11);
 
         mAnimatedExpandableListView.setAdapter(new AnimatedListAdapter(this, parentList));
 
@@ -114,29 +125,26 @@ public class UIActivity extends BaseActivity {
                     }
                 }
                 switch (groupPosition) {
-                    case 0:
-                        readyGo(Example1Fragment.class);
-                        break;
-                    case 3:
-                        readyGo(DatabindingFragment.class);
-                        break;
-                    case 4:
+                    case 2:
                         readyGo(ToolbarActivity.class);
                         break;
                     case 6:
-                        readyGo(CodeFragment.class);
+                        readyGo(BannerFragment.class);
                         break;
                     case 7:
-                        readyGo(PermissionActivity.class);
+                        readyGo(CodeFragment.class);
                         break;
                     case 8:
-                        readyGo(Example1Fragment.class);
+                        readyGo(PermissionActivity.class);
                         break;
                     case 9:
-                        readyGo(WebViewActivity.class);
+                        readyGo(Example1Fragment.class);
                         break;
                     case 10:
-                        readyGo(HostActivity.class);
+                        readyGo(WebViewActivity.class);
+                        break;
+                    case 11:
+                        readyGo(DatabindingFragment.class);
                         break;
                 }
 
@@ -149,6 +157,17 @@ public class UIActivity extends BaseActivity {
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
                 Log.i(TAG, "group" + groupPosition + " with child" + childPosition + " was clicked!");
                 switch (groupPosition) {
+                    case 0:
+                        switch (childPosition)
+                        {
+                            case 0:
+                                readyGo(Example1Fragment.class);
+                                break;
+                            case 1:
+                                readyGo(FragmentationActivity.class);
+                                break;
+                        }
+                        break;
                     case 1:
                         switch (childPosition)
                         {
@@ -164,6 +183,28 @@ public class UIActivity extends BaseActivity {
                         }
                         break;
                     case 2:
+                        switch (childPosition)
+                        {
+                            case 0:
+                                readyGo(CommonAdapterFragment.class);
+                                break;
+                            case 1:
+                                readyGo(MultiViewTypeAdapterFragment.class);
+                                break;
+                        }
+                        break;
+                    case 3:
+                        switch (childPosition)
+                        {
+                            case 0:
+                                readyGo(RadioButtonFragment.class);
+                                break;
+                            case 1:
+                                readyGo(BottomBarFragment.class);
+                                break;
+                        }
+                        break;
+                    case 4:
                         switch (childPosition)
                         {
                             case 0:
@@ -187,16 +228,6 @@ public class UIActivity extends BaseActivity {
                         }
                         break;
                     case 5:
-                        switch (childPosition) {
-                            case 0:
-                                readyGo(TabSTLFragment.class);
-                                break;
-                            case 1:
-                                readyGo(TabFTLFragment.class);
-                                break;
-                        }
-                        break;
-                    case 7:
                         switch (childPosition) {
                             case 0:
                                 readyGo(TabSTLFragment.class);
