@@ -1,16 +1,18 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     //解决library中BuildConfig.DEBUG始终为false的问题
     publishNonDefault true
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -27,6 +29,16 @@ android {
         }
     }
 
+    lintOptions{
+        abortOnError false
+    }
+
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
 }
 
 dependencies {
@@ -36,8 +48,8 @@ dependencies {
     //eventbus
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
     //butterknife
-    compile "com.jakewharton:butterknife:8.6.0"
-    annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
+    compile "com.jakewharton:butterknife:8.4.0"
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.4.0"
     //rxJava
     compile 'io.reactivex:rxjava:latest.release'
     compile 'io.reactivex:rxandroid:latest.release'
@@ -59,3 +71,38 @@ dependencies {
     //adapter
     compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24"
 }
+
+publish {
+    userOrg = 'ddnosh'
+    groupId = 'la.xiong.androidquick'
+    artifactId = 'AndroidQuick'
+    version = '1.0.1'
+    description = 'AndroidQuick is a quick architecture to make an app.'
+    website = "https://github.com/ddnosh/AndroidQuick"
+}
+
+//tasks.withType(Javadoc) {//防止编码问题
+//    options.addStringOption('Xdoclint:none', '-quiet')
+//    options.addStringOption('encoding', 'UTF-8')
+//    options.addStringOption('charSet', 'UTF-8')
+//}
+//
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}

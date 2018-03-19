@@ -19,12 +19,16 @@ android {
     dataBinding {
         enabled = true
     }
+    lintOptions{
+        abortOnError false
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    releaseCompile project(path: ':Core', configuration: 'release')
-    debugCompile project(path: ':Core', configuration: 'debug')
+//    releaseCompile project(path: ':Core', configuration: 'release')
+//    debugCompile project(path: ':Core', configuration: 'debug')
+    compile project(':Core')
     //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
     //dagger2

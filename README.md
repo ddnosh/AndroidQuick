@@ -3,6 +3,10 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
+### 20180319 -> v1.0.2
+1. 升级gradle和android gradle plugin的version;
+2. 增加通过novoda上传JCenter的支持;
+3. 更新app icon;
 ### 20180315 -> v1.0.1
 1. 增加对Fragmentation开源组件的支持；
 2. 增加开源组件Banner的实现；
