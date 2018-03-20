@@ -4,18 +4,17 @@ apply plugin: 'maven'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     //解决library中BuildConfig.DEBUG始终为false的问题
     publishNonDefault true
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
     }
 
     dataBinding {
@@ -50,10 +49,10 @@ dependencies {
     //butterknife
     compile "com.jakewharton:butterknife:8.4.0"
     annotationProcessor "com.jakewharton:butterknife-compiler:8.4.0"
-    //rxJava
+    //rxjava
     compile 'io.reactivex:rxjava:latest.release'
     compile 'io.reactivex:rxandroid:latest.release'
-    //network - squareup
+    //retrofit+okhttp
     compile 'com.squareup.retrofit2:retrofit:latest.release'
     compile 'com.squareup.retrofit2:adapter-rxjava:latest.release'
     compile 'com.squareup.okhttp3:okhttp:latest.release'
@@ -66,8 +65,6 @@ dependencies {
     compile 'spa.lyh.cn:immersion-sdk:1.0.6'
     //glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //smarttablayout
-    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     //adapter
     compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24"
 }

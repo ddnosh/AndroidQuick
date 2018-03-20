@@ -10,6 +10,6 @@
         android:id="@+id/textView"
         style="@style/textview_common_style"
         android:gravity="center"
-        android:text="this is a fragmentation"
+        android:text="this is a fragment2"
         android:textColor="@android:color/black" />
 </LinearLayout>

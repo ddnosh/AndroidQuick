@@ -29,7 +29,8 @@ AndroidQuick从开发一个APP所涉及到的架构、UI、网络、数据库、
 2. Sample
 3. GreenDao
 ### Core
-Core是一个核心基础库，包含各种跟业务无关的通用功能，实际使用过程中也可以将其打包成一个aar包，提供给各个APP开发使用。
+Core是AndroidQuick快速开发框架的核心库，包含各种跟业务无关的通用功能，我们将其打包成一个aar包，提供给APP开发使用。
+引用方式：compile 'la.xiong.androidquick:AndroidQuick:latest.release'
 #### 功能说明
 目前Core所提供的的功能如下：
 1. QuickActivity
@@ -54,24 +55,31 @@ Core是一个核心基础库，包含各种跟业务无关的通用功能，实�
 > 增加ItemType支持的通用adapter类
 > - BaseRecyclerViewAdapterHelper
 > 第三方开源adapter库
-4. Tab
-> - smarttablayout  
-> 第三方开源tab库
-5. Dialog
+4. Dialog
 > - LoadingDialog
 > - CommonDialog
-6. 多分辨率适配  
+5. 多分辨率适配  
 > 实现原理：http://blog.csdn.net/ddnosh/article/details/78941302
-7. 网络请求  
+6. 网络请求  
 > 加入Retrofit2支持
-8. 图片处理  
+7. 图片处理  
 > 加入Glide支持
-9. styles.xml  
+8. styles.xml  
 > 提供上百种style支持，满足各种UI风格设计
-10. tools  
+9. tools  
 > DialogUtil、FileUtil、GsonHelper、IOUtil、LogUtil、NetUtil、ReflectUtil、SpUtil、StringUtil、ToastUtil  
+#### 开源组件
+> 1. EvnentBus
+> 2. ButterKnife
+> 3. RxJava
+> 4. Retrofit+OkHttp
+> 5. Gson
+> 6. Glide
+> 7. BaseRecyclerViewAdapterHelper
 ### Sample  
-Sample工程是实现QuickAndroid快速开发框架的示例工程，除了引用Core库工程的代码外，还引入了一些主流的开源库。  
+Sample工程是QuickAndroid快速开发框架的示例工程，作用如下：
+1. 验证Core工程提供的功能;
+2. 引入更多主流开源库;
 #### 模块说明
 Sample包含以下几个模块：UI、Network、Database、Tools。
 ##### UI
@@ -108,6 +116,15 @@ Sample包含以下几个模块：UI、Network、Database、Tools。
 > 抽象类，用于配合Fragmentation组件使用；
 6. BaseFragment、BaseTFragment、BaseVFragment、BaseTVFragment、BaseFFragment
 > 功能类同于对应的Activity；
+#### 开源组件
+> 1. Dagger2
+> 2. GreenDao
+> 3. MarkDown
+> 4. Banner
+> 5. SmartTabLayout
+> 6. FlycoTabLayout
+> 7. FastJson
+> 8. Fragmentation
 ### GreenDao
 GreenDao生成数据库文件示例工程
 

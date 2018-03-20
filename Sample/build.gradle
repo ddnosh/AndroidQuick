@@ -40,10 +40,8 @@ dependencies {
     compile 'us.feras.mdv:markdownview:1.1.0'
     //banner
     compile 'com.youth.banner:banner:1.4.10'
-
-    /**
-     * add-ons
-     */
+    //smarttablayout
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     //flycotablayout
     compile "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
     //fastjson

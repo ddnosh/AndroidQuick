@@ -15,6 +15,7 @@ import la.xiong.androidquick.demo.ui.fragment.BaseRecyclerViewAdapterHelperFragm
 import la.xiong.androidquick.demo.ui.fragment.BottomBarFragment;
 import la.xiong.androidquick.demo.ui.fragment.CodeFragment;
 import la.xiong.androidquick.demo.ui.fragment.CommonAdapterFragment;
+import la.xiong.androidquick.demo.ui.fragment.CommonToolBarFragment;
 import la.xiong.androidquick.demo.ui.fragment.DatabindingFragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.demo.ui.fragment.MultiViewTypeAdapterFragment;
@@ -63,6 +64,8 @@ public class UIActivity extends BaseActivity {
 
         GroupItem groupItem2 = new GroupItem();
         groupItem2.title = "Toolbar";
+        groupItem2.childList.add("DefaultToolbar");
+        groupItem2.childList.add("CommonToolbar");
         parentList.add(groupItem2);
 
         GroupItem groupItem3 = new GroupItem();
@@ -125,9 +128,6 @@ public class UIActivity extends BaseActivity {
                     }
                 }
                 switch (groupPosition) {
-                    case 2:
-                        readyGo(ToolbarActivity.class);
-                        break;
                     case 6:
                         readyGo(BannerFragment.class);
                         break;
@@ -186,10 +186,10 @@ public class UIActivity extends BaseActivity {
                         switch (childPosition)
                         {
                             case 0:
-                                readyGo(CommonAdapterFragment.class);
+                                readyGo(ToolbarActivity.class);
                                 break;
                             case 1:
-                                readyGo(MultiViewTypeAdapterFragment.class);
+                                readyGo(CommonToolBarFragment.class);
                                 break;
                         }
                         break;
