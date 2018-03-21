@@ -49,9 +49,6 @@ dependencies {
     //butterknife
     compile "com.jakewharton:butterknife:8.4.0"
     annotationProcessor "com.jakewharton:butterknife-compiler:8.4.0"
-    //rxjava
-    compile 'io.reactivex:rxjava:latest.release'
-    compile 'io.reactivex:rxandroid:latest.release'
     //retrofit+okhttp
     compile 'com.squareup.retrofit2:retrofit:latest.release'
     compile 'com.squareup.retrofit2:adapter-rxjava:latest.release'
@@ -65,8 +62,6 @@ dependencies {
     compile 'spa.lyh.cn:immersion-sdk:1.0.6'
     //glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //adapter
-    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24"
 }
 
 publish {
@@ -78,28 +73,28 @@ publish {
     website = "https://github.com/ddnosh/AndroidQuick"
 }
 
-//tasks.withType(Javadoc) {//防止编码问题
-//    options.addStringOption('Xdoclint:none', '-quiet')
-//    options.addStringOption('encoding', 'UTF-8')
-//    options.addStringOption('charSet', 'UTF-8')
-//}
-//
-//task sourcesJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier = 'sources'
-//}
-//
-//task javadoc(type: Javadoc) {
-//    source = android.sourceSets.main.java.srcDirs
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//}
-//
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-//
-//artifacts {
-//    archives javadocJar
-//    archives sourcesJar
-//}
+tasks.withType(Javadoc) {//防止编码问题
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}

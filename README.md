@@ -71,11 +71,9 @@ Core是AndroidQuick快速开发框架的核心库，包含各种跟业务无关�
 #### 开源组件
 > 1. EvnentBus
 > 2. ButterKnife
-> 3. RxJava
-> 4. Retrofit+OkHttp
-> 5. Gson
-> 6. Glide
-> 7. BaseRecyclerViewAdapterHelper
+> 3. Retrofit+OkHttp
+> 4. Gson
+> 5. Glide
 ### Sample  
 Sample工程是QuickAndroid快速开发框架的示例工程，作用如下：
 1. 验证Core工程提供的功能;
@@ -125,6 +123,8 @@ Sample包含以下几个模块：UI、Network、Database、Tools。
 > 6. FlycoTabLayout
 > 7. FastJson
 > 8. Fragmentation
+> 9. RxJava
+> 10. BaseRecyclerViewAdapterHelper
 ### GreenDao
 GreenDao生成数据库文件示例工程
 
