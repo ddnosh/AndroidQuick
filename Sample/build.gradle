@@ -22,6 +22,18 @@ android {
     lintOptions{
         abortOnError false
     }
+    dexOptions {
+        //是否支持大工程模式
+        jumboMode true
+        //最大堆内存
+        javaMaxHeapSize "4g"
+        //使用增量模式构建
+//        incremental true
+        //预编译
+        preDexLibraries = true
+        //线程数
+        threadCount = 8
+    }
 }
 
 dependencies {

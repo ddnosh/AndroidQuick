@@ -21,12 +21,35 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<CommonViewHo
     protected List<T> mDatas;
     protected LayoutInflater mInflater;
 
-
     public CommonAdapter(Context context, int layoutId, List<T> datas) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mLayoutId = layoutId;
         mDatas = datas;
+    }
+
+    /**
+     * data的更新方法
+     *
+     * @param data
+     */
+    public void update(List<T> data) {
+        if (data != null) {
+            mDatas = data;
+            this.notifyDataSetChanged();
+        }
+    }
+
+    /**
+     * data的增加方法
+     *
+     * @param data
+     */
+    public void add(List<T> data) {
+        if (data != null) {
+            mDatas.addAll(data);
+            this.notifyDataSetChanged();
+        }
     }
 
     @Override

@@ -86,9 +86,12 @@ public class Network2Fragment extends BaseFragment {
                         DialogUtil.dismissLoadingDialog(mContext);
                         LogUtil.i(TAG, list.toString());
                         //不能这样赋值:mTestBeanList = list;
-                        mTestBeanList.clear();
-                        mTestBeanList.addAll(list);
-                        mCommonAdapter.notifyDataSetChanged();
+                        //方法一
+//                        mTestBeanList.clear();
+//                        mTestBeanList.addAll(list);
+//                        mCommonAdapter.notifyDataSetChanged();
+                        //方法二
+                        mCommonAdapter.update(list);
                     }
 
                     @Override
