@@ -3,6 +3,9 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
+### 20180407 -> v1.0.3
+1. 增加异步任务处理机制;
+2. 增加部分demo实例;
 ### 20180319 -> v1.0.2
 1. 升级gradle和android gradle plugin的version;
 2. 增加通过novoda上传JCenter的支持;
@@ -68,6 +71,8 @@ Core是AndroidQuick快速开发框架的核心库，包含各种跟业务无关�
 > 提供上百种style支持，满足各种UI风格设计
 9. tools  
 > DialogUtil、FileUtil、GsonHelper、IOUtil、LogUtil、NetUtil、ReflectUtil、SpUtil、StringUtil、ToastUtil  
+10. task
+> 异步任务处理机制
 #### 开源组件
 > 1. EvnentBus
 > 2. ButterKnife

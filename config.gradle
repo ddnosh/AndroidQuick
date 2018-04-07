@@ -5,7 +5,7 @@ ext {
             minSdkVersion           : 19,
             targetSdkVersion        : 26,
             versionCode             : 1,
-            versionName             : "1.0.0",
+            versionName             : "1.0.3",
     ]
 
     dependencies = [

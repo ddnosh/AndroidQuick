@@ -7,6 +7,7 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.ui.fragment.JsonFragment;
 import la.xiong.androidquick.demo.ui.fragment.RxjavaFragment;
+import la.xiong.androidquick.demo.ui.fragment.SPFragment;
 
 /**
  * @author  ddnosh
@@ -24,7 +25,7 @@ public class ToolsActivity extends BaseActivity {
         getToolbar().setTitleTextColor(getResources().getColor(R.color.white));
     }
 
-    @OnClick({R.id.btn_tools_json, R.id.btn_tools_rxjava})
+    @OnClick({R.id.btn_tools_json, R.id.btn_tools_rxjava, R.id.btn_tools_sf})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_tools_json:
@@ -32,6 +33,9 @@ public class ToolsActivity extends BaseActivity {
                 break;
             case R.id.btn_tools_rxjava:
                 readyGo(RxjavaFragment.class);
+                break;
+            case R.id.btn_tools_sf:
+                readyGo(SPFragment.class);
                 break;
         }
     }

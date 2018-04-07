@@ -12,28 +12,45 @@
 
         <Button
             android:id="@+id/btn_main_ui"
-            android:text="UI"
-            style="@style/button_common_style"/>
+            style="@style/button_common_style"
+            android:text="UI" />
+
         <Button
             android:id="@+id/btn_main_network"
+            style="@style/button_common_style"
             android:layout_below="@+id/btn_main_ui"
-            android:text="Network"
-            style="@style/button_common_style"/>
+            android:text="Network" />
+
         <Button
             android:id="@+id/btn_main_database"
+            style="@style/button_common_style"
             android:layout_below="@+id/btn_main_network"
-            android:text="Database"
-            style="@style/button_common_style"/>
+            android:text="Database" />
+
         <Button
             android:id="@+id/btn_main_tools"
+            style="@style/button_common_style"
             android:layout_below="@+id/btn_main_database"
-            android:text="Tools"
-            style="@style/button_common_style"/>
+            android:text="Tools" />
+
+        <Button
+            android:id="@+id/btn_main_task"
+            style="@style/button_common_style"
+            android:layout_below="@+id/btn_main_tools"
+            android:text="Task" />
+
         <Button
             android:id="@+id/btn_main_test"
-            android:layout_below="@+id/btn_main_tools"
-            android:text="Test"
             style="@style/button_common_style"
-            android:visibility="gone"/>
+            android:layout_below="@+id/btn_main_task"
+            android:text="Test"
+            android:visibility="gone" />
+
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_main_version"
+        style="@style/textview_common_style"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorAccent"/>
 </RelativeLayout>

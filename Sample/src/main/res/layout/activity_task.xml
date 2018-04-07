@@ -11,21 +11,27 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/btn_tools_json"
+            android:id="@+id/btn_task_noresult"
             style="@style/button_common_style"
-            android:text="Json" />
+            android:text="NoResult" />
 
         <Button
-            android:id="@+id/btn_tools_rxjava"
+            android:id="@+id/btn_task_withresult"
             style="@style/button_common_style"
-            android:layout_below="@id/btn_tools_json"
-            android:text="Rxjava" />
+            android:layout_below="@id/btn_task_noresult"
+            android:text="WithResult" />
 
         <Button
-            android:id="@+id/btn_tools_sf"
+            android:id="@+id/btn_task_cancelresult"
             style="@style/button_common_style"
-            android:layout_below="@id/btn_tools_rxjava"
-            android:text="SharedPreferences" />
+            android:layout_below="@id/btn_task_withresult"
+            android:text="CancelResult" />
+
+        <Button
+            android:id="@+id/btn_task_timeoutresult"
+            style="@style/button_common_style"
+            android:layout_below="@id/btn_task_cancelresult"
+            android:text="TimeOutResult" />
 
     </RelativeLayout>
 </RelativeLayout>
