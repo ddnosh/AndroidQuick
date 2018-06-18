@@ -3,6 +3,8 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
+### 20180618 -> v1.0.4
+1. 新增HttpURLConnect封装框架;
 ### 20180407 -> v1.0.3
 1. 增加异步任务处理机制;
 2. 增加部分demo实例;
