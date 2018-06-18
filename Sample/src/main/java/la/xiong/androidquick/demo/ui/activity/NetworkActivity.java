@@ -13,6 +13,7 @@ import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.constant.Constants;
 import la.xiong.androidquick.demo.ui.fragment.network1.Network1Fragment;
 import la.xiong.androidquick.demo.ui.fragment.network2.Network2Fragment;
+import la.xiong.androidquick.demo.ui.fragment.network3.Network3Fragment;
 import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -38,7 +39,7 @@ public class NetworkActivity extends BaseActivity {
         changeStatusBarColor(R.color.colorAccent);
     }
 
-    @OnClick({R.id.btn_network_common, R.id.btn_network_diff_url, R.id.btn_network_ro_get, R.id.btn_network_download})
+    @OnClick({R.id.btn_network_common, R.id.btn_network_diff_url, R.id.btn_network_download, R.id.btn_network_to_get, R.id.btn_network_httpurlconnection})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_network_common:
@@ -50,10 +51,12 @@ public class NetworkActivity extends BaseActivity {
             case R.id.btn_network_download:
                 permissionsCheck();
                 break;
-            case R.id.btn_network_ro_get:
-                Bundle bundle2 = new Bundle();
-                bundle2.putString("type", "get");
-                readyGo(Network1Fragment.class, bundle2);
+            case R.id.btn_network_to_get:
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("type", "get");
+                readyGo(Network1Fragment.class, bundle1);
+            case R.id.btn_network_httpurlconnection:
+                readyGo(Network3Fragment.class);
                 break;
         }
     }

@@ -73,6 +73,7 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_main_task:
                 readyGo(TaskActivity.class);
+                break;
             case R.id.btn_main_test:
                 toggleShowEmpty(true, "test", new View.OnClickListener() {
                     @Override

@@ -28,9 +28,15 @@
             style="@style/button_common_style"/>
 
         <Button
-            android:id="@+id/btn_network_ro_get"
+            android:id="@+id/btn_network_to_get"
             android:layout_below="@+id/btn_network_download"
             android:text="(Retrofit+OkHttp)Http Get"
+            style="@style/button_common_style"/>
+
+        <Button
+            android:id="@+id/btn_network_httpurlconnection"
+            android:layout_below="@+id/btn_network_to_get"
+            android:text="(HttpURLConnection)HttpRequest + Builder"
             style="@style/button_common_style"/>
 
     </RelativeLayout>
