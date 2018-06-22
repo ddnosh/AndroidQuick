@@ -10,7 +10,6 @@ android {
     //解决library中BuildConfig.DEBUG始终为false的问题
     publishNonDefault true
 
-    useLibrary 'org.apache.http.legacy' //optional, if use HttpURLConnection
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -42,7 +41,9 @@ allprojects {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    provided files('libs/org.apache.http.legacy.jar')
+
     compile rootProject.ext.dependencies["appcompatv7"]
     compile rootProject.ext.dependencies["design"]
     //eventbus
@@ -69,7 +70,7 @@ publish {
     userOrg = 'ddnosh'
     groupId = 'la.xiong.androidquick'
     artifactId = 'AndroidQuick'
-    version = '1.0.3'
+    version = '1.0.4'
     description = 'AndroidQuick is a quick architecture to make an app.'
     website = "https://github.com/ddnosh/AndroidQuick"
 }
