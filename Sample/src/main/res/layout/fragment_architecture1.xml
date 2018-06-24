@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- view_stub_page1 -->
+    <ViewStub
+        android:id="@+id/view_stub_page1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/view_stub_page1" />
+    <!-- view_stub_page2 -->
+    <ViewStub
+        android:id="@+id/view_stub_page2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/view_stub_page2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/view_stub_page_show1"
+            style="@style/button_common_style"
+            android:layout_weight="1"
+            android:text="Show Page1" />
+        <Button
+            android:id="@+id/view_stub_page_show2"
+            style="@style/button_common_style"
+            android:layout_weight="1"
+            android:text="Show Page2" />
+    </LinearLayout>
+
+</RelativeLayout>

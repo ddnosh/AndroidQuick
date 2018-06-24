@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.ui.activity;
 
+import android.os.Bundle;
 import android.view.View;
 
 import butterknife.OnClick;
@@ -25,7 +26,7 @@ public class ToolsActivity extends BaseActivity {
         getToolbar().setTitleTextColor(getResources().getColor(R.color.white));
     }
 
-    @OnClick({R.id.btn_tools_json, R.id.btn_tools_rxjava, R.id.btn_tools_sf})
+    @OnClick({R.id.btn_tools_json, R.id.btn_tools_rxjava, R.id.btn_tools_sf, R.id.btn_tools_more})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_tools_json:
@@ -36,6 +37,11 @@ public class ToolsActivity extends BaseActivity {
                 break;
             case R.id.btn_tools_sf:
                 readyGo(SPFragment.class);
+                break;
+            case R.id.btn_tools_more:
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "https://github.com/Blankj/AndroidUtilCode");
+                readyGo(WebViewActivity.class, bundle);
                 break;
         }
     }

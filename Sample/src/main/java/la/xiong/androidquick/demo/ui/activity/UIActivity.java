@@ -19,6 +19,7 @@ import la.xiong.androidquick.demo.ui.fragment.CommonToolBarFragment;
 import la.xiong.androidquick.demo.ui.fragment.DatabindingFragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.demo.ui.fragment.MultiViewTypeAdapterFragment;
+import la.xiong.androidquick.demo.ui.fragment.PageStatusFragment;
 import la.xiong.androidquick.demo.ui.fragment.RadioButtonFragment;
 import la.xiong.androidquick.demo.ui.fragment.TabFTLFragment;
 import la.xiong.androidquick.demo.ui.fragment.TabSTLFragment;
@@ -110,6 +111,10 @@ public class UIActivity extends BaseActivity {
         groupItem11.title = "DataBinding";
         parentList.add(groupItem11);
 
+        GroupItem groupItem12 = new GroupItem();
+        groupItem12.title = "PageStatus";
+        parentList.add(groupItem12);
+
         mAnimatedExpandableListView.setAdapter(new AnimatedListAdapter(this, parentList));
 
         //默认第一组打开
@@ -145,6 +150,9 @@ public class UIActivity extends BaseActivity {
                         break;
                     case 11:
                         readyGo(DatabindingFragment.class);
+                        break;
+                    case 12:
+                        readyGo(PageStatusFragment.class);
                         break;
                 }
 

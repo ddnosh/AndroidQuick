@@ -40,11 +40,10 @@
             android:text="Task" />
 
         <Button
-            android:id="@+id/btn_main_test"
+            android:id="@+id/btn_main_architecture"
             style="@style/button_common_style"
             android:layout_below="@+id/btn_main_task"
-            android:text="Test"
-            android:visibility="gone" />
+            android:text="Architecture" />
 
     </RelativeLayout>
 

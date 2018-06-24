@@ -2,6 +2,7 @@ package la.xiong.androidquick.demo.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -25,6 +26,10 @@ public class WebViewActivity extends BaseActivity {
     @BindView(R.id.pbWebView)
     ProgressBar pbWebView;
 
+    private Bundle mBundle;
+
+    public static final String URL = "https://github.com/ddnosh";
+
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.activity_webview;
@@ -37,6 +42,10 @@ public class WebViewActivity extends BaseActivity {
 
     @SuppressLint({"SetJavaScriptEnabled", "JavascriptInterface"})
     public void initData() {
+        String url = mBundle.getString("url");
+        if (StringUtil.isEmpty(url)) {
+            url = URL;
+        }
 
         WebSettings webSettings = wvWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -80,7 +89,12 @@ public class WebViewActivity extends BaseActivity {
             }
         });
 
-        wvWebView.loadUrl("http://www.github.com");
+        wvWebView.loadUrl(url);
+    }
+
+    @Override
+    protected void getBundleExtras(Bundle extras) {
+        mBundle = extras;
     }
 
     @Override

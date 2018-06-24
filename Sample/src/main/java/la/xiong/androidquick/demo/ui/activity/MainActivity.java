@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -29,8 +28,6 @@ public class MainActivity extends BaseActivity {
     RelativeLayout mContainer;
     @BindView(R.id.btn_main_ui)
     Button btnMainUI;
-    @BindView(R.id.btn_main_test)
-    Button btnMainTest;
     @BindView(R.id.tv_main_version)
     TextView tvMainVersion;
 
@@ -56,7 +53,7 @@ public class MainActivity extends BaseActivity {
         tvMainVersion.setText(version);
     }
 
-    @OnClick({R.id.btn_main_ui, R.id.btn_main_network, R.id.btn_main_database, R.id.btn_main_tools, R.id.btn_main_task, R.id.btn_main_test})
+    @OnClick({R.id.btn_main_ui, R.id.btn_main_network, R.id.btn_main_database, R.id.btn_main_tools, R.id.btn_main_task, R.id.btn_main_architecture})
     public void click(View v) {
         switch (v.getId()) {
             case R.id.btn_main_ui:
@@ -74,14 +71,8 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_main_task:
                 readyGo(TaskActivity.class);
                 break;
-            case R.id.btn_main_test:
-                toggleShowEmpty(true, "test", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(MainActivity.this, "test", Toast.LENGTH_LONG).show();
-                        toggleRestore();
-                    }
-                });
+            case R.id.btn_main_architecture:
+                readyGo(ArchitectureActivity.class);
                 break;
         }
     }

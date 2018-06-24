@@ -27,5 +27,12 @@
             android:layout_below="@id/btn_tools_rxjava"
             android:text="SharedPreferences" />
 
+        <Button
+            android:id="@+id/btn_tools_more"
+            style="@style/button_common_style"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/btn_tools_sf"
+            android:text="More: AndroidUtilCode" />
+
     </RelativeLayout>
 </RelativeLayout>

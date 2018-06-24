@@ -2,6 +2,8 @@ package la.xiong.androidquick.demo;
 
 import android.app.Application;
 
+import com.blankj.utilcode.util.Utils;
+
 import la.xiong.androidquick.demo.db.DBManager;
 import la.xiong.androidquick.demo.injector.component.ApplicationComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerApplicationComponent;
@@ -41,6 +43,8 @@ public class MyApplication extends Application {
                 .setColor(R.color.base_bg)//默认标题栏颜色
                 .build();
         ImmersionMode.getInstance().init(configuration);
+        //初始化AndroidUtilCode
+        Utils.init(this);
     }
 
     public static synchronized MyApplication getInstance() {
