@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/module_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_module1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click 1"/>
+
+    <Button
+        android:id="@+id/btn_module2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click 2"/>
+
+    <TextView
+        android:id="@+id/tv_module1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello, I'm Module1 Text"/>
+
+    <TextView
+        android:id="@+id/tv_module2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello, I'm Module2 Text"/>
+
+</LinearLayout>

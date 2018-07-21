@@ -3,10 +3,12 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
+### 20180624 -> v1.0.5(Core未变动)
+1. 新增Architecture类型：one_view_with_multiple_modules;
 ### 20180624 -> v1.0.5
 1. 新增页面状态的demo;
 2. 引入AndroidUtilCode开源工具类;
-3. 新增Architecture架构分类,介绍一些常用的开发架构;
+3. 新增Architecture架构分类,介绍一些常用的开发架构(one_layout_with_multiple_views);
 ### 20180618 -> v1.0.4
 1. 新增HttpURLConnect封装框架;
 ### 20180407 -> v1.0.3

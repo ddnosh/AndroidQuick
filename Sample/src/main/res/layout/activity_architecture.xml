@@ -15,11 +15,11 @@
             style="@style/button_common_style"
             android:text="One Layout With Multiple Views" />
 
-        <!--<Button-->
-            <!--android:id="@+id/btn_task_withresult"-->
-            <!--style="@style/button_common_style"-->
-            <!--android:layout_below="@id/btn_task_noresult"-->
-            <!--android:text="WithResult" />-->
+        <Button
+            android:id="@+id/btn_architecture_one_view_with_multiple_modules"
+            android:layout_below="@+id/btn_architecture_one_layout_with_multiple_views"
+            style="@style/button_common_style"
+            android:text="One View With Multiple Modules" />
 
     </RelativeLayout>
 </RelativeLayout>
