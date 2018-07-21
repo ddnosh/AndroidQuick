@@ -3,22 +3,26 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
-### 20180721 -> v1.0.5(Core未变动)
+### 20180721 -> sdk版本: v1.0.5
 1. 新增Architecture类型：one_view_with_multiple_modules;
-### 20180624 -> v1.0.5
+   一个页面分成为多个模块进行开发实现的另一种方式;
+2. 新增Architecture类型：webview_with_javascript;
+   异步处理js和native多次交互请求;
+### 20180624 -> sdk版本: v1.0.5
 1. 新增页面状态的demo;
 2. 引入AndroidUtilCode开源工具类;
-3. 新增Architecture架构分类,介绍一些常用的开发架构(one_layout_with_multiple_views);
-### 20180618 -> v1.0.4
+3. 新增Architecture架构分类,介绍一些常用的开发架构(one_layout_with_multiple_pages);
+   一个页面分成多个模块进行开发实现的一种方式;
+### 20180618 -> sdk版本: v1.0.4
 1. 新增HttpURLConnect封装框架;
-### 20180407 -> v1.0.3
+### 20180407 -> sdk版本: v1.0.3
 1. 增加异步任务处理机制;
 2. 增加部分demo实例;
-### 20180319 -> v1.0.2
+### 20180319 -> sdk版本: v1.0.2
 1. 升级gradle和android gradle plugin的version;
 2. 增加通过novoda上传JCenter的支持;
 3. 更新app icon;
-### 20180315 -> v1.0.1
+### 20180315 -> sdk版本: v1.0.1
 1. 增加对Fragmentation开源组件的支持；
 2. 增加开源组件Banner的实现；
 3. 增加底部tab栏的两种实现（RadioButton、BottomBar）

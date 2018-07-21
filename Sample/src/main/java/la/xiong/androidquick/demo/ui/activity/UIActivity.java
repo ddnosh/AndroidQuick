@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.ui.activity;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -146,7 +147,9 @@ public class UIActivity extends BaseActivity {
                         readyGo(Example1Fragment.class);
                         break;
                     case 10:
-                        readyGo(WebViewActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("url", "https://github.com/ddnosh");
+                        readyGo(WebViewActivity.class, bundle);
                         break;
                     case 11:
                         readyGo(DatabindingFragment.class);

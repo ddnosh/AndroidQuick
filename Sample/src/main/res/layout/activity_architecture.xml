@@ -11,15 +11,21 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/btn_architecture_one_layout_with_multiple_views"
+            android:id="@+id/btn_architecture_one_layout_with_multiple_pages"
             style="@style/button_common_style"
             android:text="One Layout With Multiple Views" />
 
         <Button
             android:id="@+id/btn_architecture_one_view_with_multiple_modules"
-            android:layout_below="@+id/btn_architecture_one_layout_with_multiple_views"
+            android:layout_below="@+id/btn_architecture_one_layout_with_multiple_pages"
             style="@style/button_common_style"
             android:text="One View With Multiple Modules" />
+
+        <Button
+            android:id="@+id/btn_architecture_webview_with_javascript"
+            android:layout_below="@+id/btn_architecture_one_view_with_multiple_modules"
+            style="@style/button_common_style"
+            android:text="Webview with Javascript" />
 
     </RelativeLayout>
 </RelativeLayout>

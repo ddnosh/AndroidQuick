@@ -34,6 +34,7 @@
         <activity android:name=".ui.activity.HostActivity" />
         <activity android:name=".ui.activity.TaskActivity" />
         <activity android:name=".ui.activity.ArchitectureActivity" />
+        <activity android:name=".ui.activity.architecture3.WebViewJavascriptActivity" />
         <activity
             android:name=".ui.activity.DownloadActivity"
             android:theme="@style/ProgressBarTheme" />

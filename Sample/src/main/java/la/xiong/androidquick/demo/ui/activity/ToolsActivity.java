@@ -40,7 +40,7 @@ public class ToolsActivity extends BaseActivity {
                 break;
             case R.id.btn_tools_more:
                 Bundle bundle = new Bundle();
-                bundle.putString("url", "https://github.com/Blankj/AndroidUtilCode");
+                bundle.putString("url", "https://github.com/ddnosh");
                 readyGo(WebViewActivity.class, bundle);
                 break;
         }

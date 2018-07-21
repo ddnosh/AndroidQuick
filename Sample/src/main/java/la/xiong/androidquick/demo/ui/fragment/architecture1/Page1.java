@@ -1,5 +1,7 @@
 package la.xiong.androidquick.demo.ui.fragment.architecture1;
 
+import la.xiong.androidquick.tool.ToastUtil;
+
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
@@ -18,11 +20,13 @@ public class Page1 extends PageController {
     @Override
     public void enter() {
         super.enter();
+        ToastUtil.showToast("Page1 entered!");
     }
 
     @Override
     public void out() {
         super.out();
+        ToastUtil.showToast("Page1 outed!");
     }
 
     @Override
