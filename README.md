@@ -3,7 +3,7 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
-### 20180624 -> v1.0.5(Core未变动)
+### 20180721 -> v1.0.5(Core未变动)
 1. 新增Architecture类型：one_view_with_multiple_modules;
 ### 20180624 -> v1.0.5
 1. 新增页面状态的demo;
