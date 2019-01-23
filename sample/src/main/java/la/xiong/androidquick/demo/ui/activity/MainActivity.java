@@ -226,6 +226,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/Blankj/AndroidUtilCode");
                 readyGo(WebViewActivity.class, bundle);
+            } else if (name.equals("Database")) {
+                readyGo(DatabaseActivity.class);
+            } else if (name.equals("Architecture")) {
+                readyGo(ArchitectureActivity.class);
             }
         }
     }

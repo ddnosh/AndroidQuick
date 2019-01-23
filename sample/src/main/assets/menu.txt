@@ -2,8 +2,8 @@
 1001,Network,0;
 1002,Database,0;
 1003,Tools,0;
-1004,Task,0;
-1005,Architecture,0;
+1004,Architecture,0;
+1005,Others,0;
 20000,Fragment,1000;
 300000,CommonFragment,20000;
 300001,Fragmentation,20000;
