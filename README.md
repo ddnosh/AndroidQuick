@@ -3,6 +3,8 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
+### 20190123 -> sdk版本: v1.0.5
+1. 全新改版主界面UI;
 ### 20180721 -> sdk版本: v1.0.5
 1. 新增Architecture类型：one_view_with_multiple_modules;
    一个页面分成为多个模块进行开发实现的另一种方式;
