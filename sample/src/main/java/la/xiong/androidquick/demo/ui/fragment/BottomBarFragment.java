@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
+import la.xiong.androidquick.demo.module.db.GreenDaoFragment;
 import la.xiong.androidquick.ui.view.BottomBar;
 import la.xiong.androidquick.ui.view.BottomBarTab;
 

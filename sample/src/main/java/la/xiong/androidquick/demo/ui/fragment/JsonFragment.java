@@ -12,7 +12,7 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
 import la.xiong.androidquick.demo.bean.FuliBean;
 import la.xiong.androidquick.demo.bean.GankFuliBean;
-import la.xiong.androidquick.demo.network.GankRes;
+import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
 import la.xiong.androidquick.demo.tool.FastJsonHelper;
 import la.xiong.androidquick.tool.GsonHelper;
 import la.xiong.androidquick.tool.ToastUtil;

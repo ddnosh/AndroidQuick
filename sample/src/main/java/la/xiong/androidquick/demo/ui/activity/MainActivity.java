@@ -17,6 +17,17 @@ import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.bean.MenuBean;
+import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
+import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
+import la.xiong.androidquick.demo.module.bus.BusActivity;
+import la.xiong.androidquick.demo.module.db.DatabaseActivity;
+import la.xiong.androidquick.demo.module.image.ImageActivity;
+import la.xiong.androidquick.demo.module.ioc.IocActivity;
+import la.xiong.androidquick.demo.module.mvp.activity.MvpActivity;
+import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
+import la.xiong.androidquick.demo.module.network.common.CommonHttpFragment;
+import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
+import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.demo.ui.fragment.BannerFragment;
 import la.xiong.androidquick.demo.ui.fragment.BaseRecyclerViewAdapterHelperFragment;
@@ -34,9 +45,6 @@ import la.xiong.androidquick.demo.ui.fragment.RxjavaFragment;
 import la.xiong.androidquick.demo.ui.fragment.SPFragment;
 import la.xiong.androidquick.demo.ui.fragment.TabFTLFragment;
 import la.xiong.androidquick.demo.ui.fragment.TabSTLFragment;
-import la.xiong.androidquick.demo.ui.fragment.network1.Network1Fragment;
-import la.xiong.androidquick.demo.ui.fragment.network2.Network2Fragment;
-import la.xiong.androidquick.demo.ui.fragment.network3.Network3Fragment;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -74,10 +82,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     @Override
     protected void initViewsAndEvents() {
         root = TreeNode.root();
-        menuList = MenuUtil.getPositions(this, "menu.txt");
+        menuList = MenuUtil.getPositions(getApplicationContext(), "menu.txt");
         initMenus();
         //init AndroidTreeView
-        tView = new AndroidTreeView(this, root);
+        tView = new AndroidTreeView(getApplicationContext(), root);
         tView.setDefaultAnimation(true);
         tView.setUse2dScroll(true);
         tView.setDefaultContainerStyle(R.style.TreeNodeStyleCustom);
@@ -109,18 +117,14 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
 
     private void initMenus() {
         for (MenuBean bean : menuList) {
-            if (bean.treeNode == null) {
-                getTreeNode(bean);
-            }
+            getTreeNode(bean);
         }
     }
 
     private TreeNode getTreeNode(MenuBean menuBean) {
         //root
         if (menuBean.upperId == 0) {
-            if (menuBean.treeNode == null) {
-                return menuBean.treeNode = addTreeNode(root, menuBean.name);
-            }
+            return menuBean.treeNode = addTreeNode(root, menuBean.name);
         } else {
             for (MenuBean bean : menuList) {
                 if (bean.currentId == menuBean.upperId) {
@@ -139,7 +143,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     private TreeNode addTreeNode(TreeNode treeNode, String nodeName) {
         if (treeNode == null) return null;
         TreeNode node = new TreeNode(new IconTreeItemHolder.IconTreeItem(R.string.ic_folder, nodeName)).setViewHolder(
-                new SelectableHeaderHolder(this));
+                new SelectableHeaderHolder(getApplicationContext()));
         treeNode.addChild(node);
         return node;
     }
@@ -148,8 +152,32 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     public void onClick(TreeNode node, Object value) {
         String name = ((IconTreeItemHolder.IconTreeItem) value).text;
         if (!TextUtils.isEmpty(name)) {
-            if (name.equals("CommonFragment")) {
-                readyGo(Example1Fragment.class);
+            if (name.equals("MVP for Activity")) {
+                readyGo(MvpActivity.class);
+            } else if (name.equals("MVP for Fragment")) {
+                readyGo(MvpFragment.class);
+            } else if (name.equals("Common Http")) {
+                readyGo(CommonHttpFragment.class);
+            } else if (name.equals("Retrofit+CommonUrl")) {
+                readyGo(Network1Fragment.class);
+            } else if (name.equals("Retrofit+DifferentUrl")) {
+                readyGo(Network2Fragment.class);
+            } else if (name.equals("Retrofit+Download")) {
+                readyGo(NetworkActivity.class);
+            } else if (name.equals("Retrofit+CommonUrl+Get")) {
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("type", "get");
+                readyGo(Network1Fragment.class, bundle1);
+            } else if (name.equals("Database")) {
+                readyGo(DatabaseActivity.class);
+            } else if (name.equals("Image")) {
+                readyGo(ImageActivity.class);
+            } else if (name.equals("Bus")) {
+                readyGo(BusActivity.class);
+            } else if (name.equals("IOC")) {
+                readyGo(IocActivity.class);
+            } if (name.equals("CommonFragment")) {
+                readyGo(CommonFragment.class);
             } else if (name.equals("Fragmentation")) {
                 readyGo(FragmentationActivity.class);
             } else if (name.equals("CommonAdapter")) {
@@ -202,20 +230,6 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(DatabindingFragment.class);
             } else if (name.equals("PageStatus")) {
                 readyGo(PageStatusFragment.class);
-            } else if (name.equals("(Retrofit+OkHttp+RxJava)Common Url")) {
-                readyGo(Network1Fragment.class);
-            } else if (name.equals("(Retrofit+OkHttp+RxJava)Different Url")) {
-                readyGo(Network2Fragment.class);
-            } else if (name.equals("(Retrofit+OkHttp+RxJava)Download")) {
-                readyGo(NetworkActivity.class);
-            } else if (name.equals("(Retrofit+OkHttp)Http Get")) {
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("type", "get");
-                readyGo(Network1Fragment.class, bundle1);
-            } else if (name.equals("(HttpURLConnection)HttpRequest + Builder")) {
-                readyGo(Network3Fragment.class);
-            } else if (name.equals("Database")) {
-                readyGo(DatabaseActivity.class);
             } else if (name.equals("Json")) {
                 readyGo(JsonFragment.class);
             } else if (name.equals("Rxjava")) {
@@ -226,8 +240,6 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/Blankj/AndroidUtilCode");
                 readyGo(WebViewActivity.class, bundle);
-            } else if (name.equals("Database")) {
-                readyGo(DatabaseActivity.class);
             } else if (name.equals("Architecture")) {
                 readyGo(ArchitectureActivity.class);
             }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
-import la.xiong.androidquick.demo.network.download.Download;
+import la.xiong.androidquick.demo.module.network.retrofit.download.Download;
 import la.xiong.androidquick.demo.service.DownloadService;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.StringUtil;

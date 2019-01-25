@@ -36,10 +36,10 @@ public class BaseRecyclerViewAdapterHelperFragment extends BaseFragment {
     @Override
     protected void initViewsAndEvents() {
         mBBeanList = new ArrayList<BBean>();
-        BBean b1 = new BBean("left", "111");
+        BBean b1 = new BBean("111");
         b1.itemType = 1;
         mBBeanList.add(b1);
-        BBean b2 = new BBean("right", "222");
+        BBean b2 = new BBean("222");
         b2.itemType = 2;
         mBBeanList.add(b2);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

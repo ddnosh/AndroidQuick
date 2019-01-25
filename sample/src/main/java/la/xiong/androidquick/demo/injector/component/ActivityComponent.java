@@ -6,6 +6,7 @@ import android.content.Context;
 import dagger.Component;
 import la.xiong.androidquick.demo.injector.ActivityScope;
 import la.xiong.androidquick.demo.injector.module.ActivityModule;
+import la.xiong.androidquick.demo.module.mvp.activity.MvpActivity;
 import la.xiong.androidquick.demo.ui.activity.NetworkActivity;
 
 /**
@@ -20,4 +21,5 @@ public interface ActivityComponent {
     Context getContext();
 
     void inject(NetworkActivity networkActivity);
+    void inject(MvpActivity mvpActivity);
 }

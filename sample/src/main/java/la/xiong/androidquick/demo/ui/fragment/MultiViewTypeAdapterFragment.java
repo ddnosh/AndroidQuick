@@ -11,7 +11,6 @@ import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.bean.BBean;
-import la.xiong.androidquick.ui.adapter.CommonAdapter;
 import la.xiong.androidquick.ui.adapter.CommonViewHolder;
 import la.xiong.androidquick.ui.adapter.MultiItemCommonAdapter;
 import la.xiong.androidquick.ui.adapter.MultiItemTypeSupport;
@@ -27,8 +26,6 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
     @BindView(R.id.rv_adapter)
     RecyclerView mRecyclerView;
 
-    private CommonAdapter mCommonAdapter;
-
     private List<BBean> mBBeanList;
 
     @Override
@@ -39,8 +36,8 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
     @Override
     protected void initViewsAndEvents() {
         mBBeanList = new ArrayList<BBean>();
-        mBBeanList.add(new BBean("left", "here is left"));
-        mBBeanList.add(new BBean("right", "here is right"));
+        mBBeanList.add(new BBean("left", "here is left loaded"));
+        mBBeanList.add(new BBean("right", "here is right loaded"));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(new ChatAdapter(getActivity(), mBBeanList));
@@ -52,16 +49,18 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
             super(context, datas, new MultiItemTypeSupport<BBean>() {
                 @Override
                 public int getLayoutId(int itemType) {
-                    if (itemType == 1)
+                    if (itemType == 1) {
                         return R.layout.item_multiviewtype_left;
-                    else
+                    } else {
                         return R.layout.item_multiviewtype_right;
+                    }
                 }
 
                 @Override
                 public int getItemViewType(int position, BBean bean) {
-                    if (bean.getType().equals("left"))
+                    if (bean.getType().equals("left")) {
                         return 1;
+                    }
                     return 2;
                 }
 
@@ -71,7 +70,11 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
 
         @Override
         public void convert(CommonViewHolder holder, BBean bean) {
-
+            if (holder.getItemViewType() == 1) {
+                holder.setText(R.id.tv_left, bean.getValue());
+            } else {
+                holder.setText(R.id.tv_right, bean.getValue());
+            }
         }
     }
 }

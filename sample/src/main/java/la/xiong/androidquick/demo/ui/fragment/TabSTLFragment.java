@@ -20,8 +20,8 @@ import butterknife.BindView;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
-import la.xiong.androidquick.demo.ui.fragment.network1.Network1Fragment;
-import la.xiong.androidquick.demo.ui.fragment.network2.Network2Fragment;
+import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
+import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 
 /**
  * @author ddnosh

@@ -5,7 +5,8 @@ import android.app.Activity;
 import dagger.Component;
 import la.xiong.androidquick.demo.injector.FragmentScope;
 import la.xiong.androidquick.demo.injector.module.FragmentModule;
-import la.xiong.androidquick.demo.ui.fragment.network1.Network1Fragment;
+import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
+import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 
 /**
  * @author  ddnosh
@@ -18,4 +19,5 @@ public interface FragmentComponent {
     Activity getActivity();
 
     void inject(Network1Fragment network1Fragment);
+    void inject(MvpFragment mvpFragment);
 }

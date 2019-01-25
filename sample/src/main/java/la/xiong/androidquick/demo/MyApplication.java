@@ -3,12 +3,14 @@ package la.xiong.androidquick.demo;
 import android.app.Application;
 
 import com.blankj.utilcode.util.Utils;
+import com.facebook.stetho.Stetho;
+import com.squareup.leakcanary.LeakCanary;
 
-import la.xiong.androidquick.demo.db.DBManager;
 import la.xiong.androidquick.demo.injector.component.ApplicationComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerApplicationComponent;
 import la.xiong.androidquick.demo.injector.module.ApplicationModule;
-import la.xiong.androidquick.network.RetrofitManager;
+import la.xiong.androidquick.demo.module.db.greendao.DBManager;
+import la.xiong.androidquick.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import spa.lyh.cn.statusbarlightmode.ImmersionConfiguration;
@@ -25,6 +27,12 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
         //get application
         if (INSTANCE == null) {
             INSTANCE = this;
@@ -45,6 +53,8 @@ public class MyApplication extends Application {
         ImmersionMode.getInstance().init(configuration);
         //init AndroidUtilCode
         Utils.init(this);
+        //init stetho
+        Stetho.initializeWithDefaults(this);
     }
 
     public static synchronized MyApplication getInstance() {

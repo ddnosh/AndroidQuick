@@ -11,6 +11,7 @@ import java.util.List;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
+import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
 import la.xiong.androidquick.demo.ui.fragment.BannerFragment;
 import la.xiong.androidquick.demo.ui.fragment.BaseRecyclerViewAdapterHelperFragment;
 import la.xiong.androidquick.demo.ui.fragment.BottomBarFragment;

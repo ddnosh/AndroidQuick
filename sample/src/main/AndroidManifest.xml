@@ -20,11 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".module.mvp.activity.MvpActivity" />
+        <activity android:name=".module.db.DatabaseActivity" />
+        <activity android:name=".module.image.ImageActivity" />
+        <activity android:name=".module.bus.BusActivity" />
+        <activity android:name=".module.ioc.IocActivity" />
+        <activity android:name=".function.ui.fragment.FragmentationActivity" />
         <activity android:name=".ui.activity.AdapterActivity" />
         <activity android:name=".ui.activity.DialogActivity" />
         <activity android:name=".ui.activity.NetworkActivity" />
         <activity android:name=".ui.activity.FrameActivity" />
-        <activity android:name=".ui.activity.DatabaseActivity" />
+
         <activity android:name=".ui.activity.TabActivity" />
         <activity android:name=".ui.activity.ToolbarActivity" />
         <activity android:name=".ui.activity.ToolsActivity" />
@@ -37,8 +43,6 @@
         <activity
             android:name=".ui.activity.DownloadActivity"
             android:theme="@style/ProgressBarTheme" />
-        <activity android:name=".ui.activity.FragmentationActivity" />
-
         <service android:name=".service.DownloadService" />
     </application>
 

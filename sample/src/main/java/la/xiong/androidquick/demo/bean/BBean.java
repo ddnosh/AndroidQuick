@@ -14,6 +14,10 @@ public class BBean implements Serializable, MultiItemEntity {
 
     private String value;
 
+    public BBean(String value) {
+        this.value = value;
+    }
+
     public BBean(String type, String value) {
         this.type = type;
         this.value = value;

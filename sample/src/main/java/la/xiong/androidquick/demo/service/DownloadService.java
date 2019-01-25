@@ -8,10 +8,10 @@ import android.util.Log;
 
 import java.io.File;
 
-import la.xiong.androidquick.demo.network.download.Download;
-import la.xiong.androidquick.demo.network.download.DownloadManager;
-import la.xiong.androidquick.demo.network.download.DownloadProgressListener;
-import la.xiong.androidquick.demo.ui.fragment.network1.Network1Fragment;
+import la.xiong.androidquick.demo.module.network.retrofit.download.Download;
+import la.xiong.androidquick.demo.module.network.retrofit.download.DownloadManager;
+import la.xiong.androidquick.demo.module.network.retrofit.download.DownloadProgressListener;
+import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.tool.StringUtil;
 import rx.Subscriber;
 

@@ -6,6 +6,7 @@ import android.view.View;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
+import la.xiong.androidquick.demo.module.db.GreenDaoFragment;
 
 /**
  * @author ddnosh
