@@ -17,8 +17,19 @@ import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.bean.MenuBean;
+import la.xiong.androidquick.demo.function.json.JsonFragment;
+import la.xiong.androidquick.demo.function.permission.PermissionActivity;
+import la.xiong.androidquick.demo.function.permission.PermissionFragment;
+import la.xiong.androidquick.demo.function.ui.adapter.BaseRecyclerViewAdapterHelperFragment;
+import la.xiong.androidquick.demo.function.ui.adapter.CommonAdapterFragment;
+import la.xiong.androidquick.demo.function.ui.adapter.MultiViewTypeAdapterFragment;
+import la.xiong.androidquick.demo.function.ui.bartop.CommonToolBarFragment;
+import la.xiong.androidquick.demo.function.ui.bartop.ToolbarActivity;
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
+import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
+import la.xiong.androidquick.demo.function.ui.tab.TabSTLFragment;
+import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.module.bus.BusActivity;
 import la.xiong.androidquick.demo.module.db.DatabaseActivity;
 import la.xiong.androidquick.demo.module.image.ImageActivity;
@@ -26,25 +37,19 @@ import la.xiong.androidquick.demo.module.ioc.IocActivity;
 import la.xiong.androidquick.demo.module.mvp.activity.MvpActivity;
 import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
 import la.xiong.androidquick.demo.module.network.common.CommonHttpFragment;
+import la.xiong.androidquick.demo.module.network.retrofit.NetworkActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
-import la.xiong.androidquick.demo.ui.fragment.BannerFragment;
-import la.xiong.androidquick.demo.ui.fragment.BaseRecyclerViewAdapterHelperFragment;
-import la.xiong.androidquick.demo.ui.fragment.BottomBarFragment;
+import la.xiong.androidquick.demo.function.ui.banner.BannerFragment;
+import la.xiong.androidquick.demo.function.ui.barbottom.BottomBarFragment;
 import la.xiong.androidquick.demo.ui.fragment.CodeFragment;
-import la.xiong.androidquick.demo.ui.fragment.CommonAdapterFragment;
-import la.xiong.androidquick.demo.ui.fragment.CommonToolBarFragment;
-import la.xiong.androidquick.demo.ui.fragment.DatabindingFragment;
+import la.xiong.androidquick.demo.function.ui.databinding.DatabindingFragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
-import la.xiong.androidquick.demo.ui.fragment.JsonFragment;
-import la.xiong.androidquick.demo.ui.fragment.MultiViewTypeAdapterFragment;
-import la.xiong.androidquick.demo.ui.fragment.PageStatusFragment;
-import la.xiong.androidquick.demo.ui.fragment.RadioButtonFragment;
-import la.xiong.androidquick.demo.ui.fragment.RxjavaFragment;
-import la.xiong.androidquick.demo.ui.fragment.SPFragment;
-import la.xiong.androidquick.demo.ui.fragment.TabFTLFragment;
-import la.xiong.androidquick.demo.ui.fragment.TabSTLFragment;
+import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
+import la.xiong.androidquick.demo.function.ui.barbottom.RadioButtonFragment;
+import la.xiong.androidquick.demo.function.rxjava.RxjavaFragment;
+import la.xiong.androidquick.demo.function.sharedpreferences.SPFragment;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -195,9 +200,9 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("BottomBar")) {
                 readyGo(BottomBarFragment.class);
             } else if (name.equals("LoadingDialog")) {
-                DialogUtil.showLoadingDialog(MainActivity.this);
+                DialogUtil.showLoadingDialog(getApplicationContext());
             } else if (name.equals("CommonDialog")) {
-                DialogUtil.getDialogBuilder(MainActivity.this)
+                DialogUtil.getDialogBuilder(getApplicationContext())
                         .setTitle(R.string.app_name)
                         .setMessage("this is an information")
                         .setPositiveButton("Confirm")
@@ -218,8 +223,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(BannerFragment.class);
             } else if (name.equals("Code")) {
                 readyGo(CodeFragment.class);
-            } else if (name.equals("Permission")) {
+            } else if (name.equals("Permission-Camera")) {
                 readyGo(PermissionActivity.class);
+            } else if (name.equals("Permission-Fragment-Call")) {
+                readyGo(PermissionFragment.class);
             } else if (name.equals("Refresh")) {
                 readyGo(Example1Fragment.class);
             } else if (name.equals("WebView")) {
@@ -228,8 +235,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(WebViewActivity.class, bundle);
             } else if (name.equals("DataBinding")) {
                 readyGo(DatabindingFragment.class);
-            } else if (name.equals("PageStatus")) {
-                readyGo(PageStatusFragment.class);
+            } else if (name.equals("VaryPageStatus")) {
+                readyGo(VaryPageStatusFragment.class);
             } else if (name.equals("Json")) {
                 readyGo(JsonFragment.class);
             } else if (name.equals("Rxjava")) {

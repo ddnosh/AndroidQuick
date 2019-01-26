@@ -7,8 +7,8 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_tools_rxjava_1"
+        android:id="@+id/btn_rxjava_1"
         style="@style/button_common_style"
-        android:text="Rxjava" />
+        android:text="RxJava" />
 
 </LinearLayout>

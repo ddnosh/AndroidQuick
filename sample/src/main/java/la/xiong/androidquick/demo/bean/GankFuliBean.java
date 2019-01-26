@@ -111,5 +111,28 @@ public class GankFuliBean implements Serializable {
         public void setWho(String who) {
             this.who = who;
         }
+
+        @Override
+        public String toString() {
+            return "FuliBean{" +
+                    "_id='" + _id + '\'' +
+                    ", createdAt='" + createdAt + '\'' +
+                    ", desc='" + desc + '\'' +
+                    ", publishedAt='" + publishedAt + '\'' +
+                    ", source='" + source + '\'' +
+                    ", type='" + type + '\'' +
+                    ", url='" + url + '\'' +
+                    ", used='" + used + '\'' +
+                    ", who='" + who + '\'' +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "GankFuliBean{" +
+                "error=" + error +
+                ", results=" + results +
+                '}';
     }
 }
