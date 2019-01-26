@@ -20,15 +20,22 @@ import la.xiong.androidquick.demo.bean.MenuBean;
 import la.xiong.androidquick.demo.function.json.JsonFragment;
 import la.xiong.androidquick.demo.function.permission.PermissionActivity;
 import la.xiong.androidquick.demo.function.permission.PermissionFragment;
+import la.xiong.androidquick.demo.function.rxjava.RxjavaFragment;
+import la.xiong.androidquick.demo.function.sharedpreferences.SPFragment;
 import la.xiong.androidquick.demo.function.ui.adapter.BaseRecyclerViewAdapterHelperFragment;
 import la.xiong.androidquick.demo.function.ui.adapter.CommonAdapterFragment;
 import la.xiong.androidquick.demo.function.ui.adapter.MultiViewTypeAdapterFragment;
+import la.xiong.androidquick.demo.function.ui.banner.BannerFragment;
+import la.xiong.androidquick.demo.function.ui.barbottom.BottomBarFragment;
+import la.xiong.androidquick.demo.function.ui.barbottom.RadioButtonFragment;
 import la.xiong.androidquick.demo.function.ui.bartop.CommonToolBarFragment;
 import la.xiong.androidquick.demo.function.ui.bartop.ToolbarActivity;
+import la.xiong.androidquick.demo.function.ui.databinding.DatabindingFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
 import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabSTLFragment;
+import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.module.bus.BusActivity;
 import la.xiong.androidquick.demo.module.db.DatabaseActivity;
@@ -41,15 +48,11 @@ import la.xiong.androidquick.demo.module.network.retrofit.NetworkActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
-import la.xiong.androidquick.demo.function.ui.banner.BannerFragment;
-import la.xiong.androidquick.demo.function.ui.barbottom.BottomBarFragment;
+import la.xiong.androidquick.demo.ui.activity.architecture3.WebViewJavascriptActivity;
 import la.xiong.androidquick.demo.ui.fragment.CodeFragment;
-import la.xiong.androidquick.demo.function.ui.databinding.DatabindingFragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
-import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
-import la.xiong.androidquick.demo.function.ui.barbottom.RadioButtonFragment;
-import la.xiong.androidquick.demo.function.rxjava.RxjavaFragment;
-import la.xiong.androidquick.demo.function.sharedpreferences.SPFragment;
+import la.xiong.androidquick.demo.ui.fragment.architecture1.Architecture1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.architecture2.Architecture2Fragment;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -243,12 +246,12 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(RxjavaFragment.class);
             } else if (name.equals("SharedPreferences")) {
                 readyGo(SPFragment.class);
-            } else if (name.equals("More: AndroidUtilCode")) {
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "https://github.com/Blankj/AndroidUtilCode");
-                readyGo(WebViewActivity.class, bundle);
-            } else if (name.equals("Architecture")) {
-                readyGo(ArchitectureActivity.class);
+            } else if (name.equals("OneLayout-MultipleViews")) {
+                readyGo(Architecture1Fragment.class);
+            } else if (name.equals("OneView-MultipleModules")) {
+                readyGo(Architecture2Fragment.class);
+            } else if (name.equals("WebView-JavaScripts")) {
+                readyGo(WebViewJavascriptActivity.class);
             }
         }
     }

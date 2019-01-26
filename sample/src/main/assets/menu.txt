@@ -1,6 +1,7 @@
 10,Module,0;
 11,Function,0;
 12,Architecture,0;
+14,Other,0;
 200,MVP,10;
 201,Network,10;
 202,Database,10;
@@ -8,11 +9,10 @@
 204,Bus,10;
 205,IOC,10;
 206,UI,11;
-207,Code,11;
 208,Permission,11;
 209,Json,11;
 210,Rxjava,11;
-205,SharedPreferences,11;
+211,SharedPreferences,11;
 3000,Fragment,206;
 40000,CommonFragment,3000;
 40001,Fragmentation,3000;
@@ -46,3 +46,7 @@
 3017,MVP for Fragment,200;
 3018,Permission-Camera,208;
 3019,Permission-Fragment-Call,208;
+212,OneLayout-MultipleViews,12;
+213,OneView-MultipleModules,12;
+214,WebView-JavaScripts,12;
+215,Code,14;
