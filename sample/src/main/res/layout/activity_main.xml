@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     android:background="@color/base_bg">
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="An app will always use"
+        style="@style/text_large"
+        />
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tv_title"
         android:layout_above="@+id/ll_description"
         android:layout_marginTop="20dp">
 

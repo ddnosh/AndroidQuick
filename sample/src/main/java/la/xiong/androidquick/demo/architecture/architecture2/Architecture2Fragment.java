@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.ui.fragment.architecture2;
+package la.xiong.androidquick.demo.architecture.architecture2;
 
 import android.view.View;
 

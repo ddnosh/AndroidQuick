@@ -2,7 +2,6 @@ package la.xiong.androidquick.demo;
 
 import android.app.Application;
 
-import com.blankj.utilcode.util.Utils;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
@@ -51,8 +50,6 @@ public class MyApplication extends Application {
                 .setColor(R.color.base_bg)//默认标题栏颜色
                 .build();
         ImmersionMode.getInstance().init(configuration);
-        //init AndroidUtilCode
-        Utils.init(this);
         //init stetho
         Stetho.initializeWithDefaults(this);
     }

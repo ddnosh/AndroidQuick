@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.ui.fragment.architecture1;
+package la.xiong.androidquick.demo.architecture.architecture1;
 
 /**
  * @author ddnosh

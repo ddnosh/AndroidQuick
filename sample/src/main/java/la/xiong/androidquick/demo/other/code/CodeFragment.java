@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.ui.fragment;
+package la.xiong.androidquick.demo.other.code;
 
 import android.os.Bundle;
 

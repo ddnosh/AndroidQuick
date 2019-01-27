@@ -3,12 +3,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/base_bg"
-    android:gravity="center"
     android:orientation="vertical">
 
+    <TextView
+        style="@style/text_large_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="These are operators you must use" />
+
     <Button
-        android:id="@+id/btn_rxjava_1"
-        style="@style/button_common_style"
-        android:text="RxJava" />
+        android:id="@+id/btn_rxjava_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="create"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_rxjava_just"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="just"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_rxjava_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="from"
+        android:textAllCaps="false" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rxjava_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="map"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_testmap"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rxjava_flatmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="flatmap"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_testflat"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_rxjava_thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="thread transfer"
+        android:textAllCaps="false" />
 
 </LinearLayout>

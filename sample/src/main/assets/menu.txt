@@ -32,8 +32,8 @@
 3005,Tab,206;
 40000,SmartTabLayout,3005;
 40001,FlycoTabLayout,3005;
-3006,Banner,206;
-3007,Refresh,206;
+3006,Refresh,206;
+3007,Banner,206;
 3008,WebView,206;
 3009,DataBinding,206;
 3010,VaryPageStatus,206;

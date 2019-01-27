@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.ui.activity.architecture3;
+package la.xiong.androidquick.demo.architecture.architecture3;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;

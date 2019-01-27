@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.ui.activity.architecture3;
+package la.xiong.androidquick.demo.architecture.architecture3;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;

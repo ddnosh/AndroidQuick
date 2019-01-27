@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
+
 import la.xiong.androidquick.demo.module.network.retrofit.DownloadApis;
 import la.xiong.androidquick.demo.module.network.retrofit.exception.CustomizeException;
 import la.xiong.androidquick.tool.FileUtil;
