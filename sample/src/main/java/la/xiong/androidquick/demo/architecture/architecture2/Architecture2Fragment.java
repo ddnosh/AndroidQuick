@@ -21,8 +21,16 @@ public class Architecture2Fragment extends BaseFragment implements IModuleCallba
 
     private void initModule() {
         View search_root = getActivity().findViewById(R.id.module_root);
-        mModule1 = new Module1(search_root, this);
+        mModule1 = new Module1(search_root);
         mModule2 = new Module2(search_root, this);
+
+        BaseModule.initModulesView();
+    }
+
+    @Override
+    public void onDestroy() {
+        BaseModule.releaseModules();
+        super.onDestroy();
     }
 
     @Override

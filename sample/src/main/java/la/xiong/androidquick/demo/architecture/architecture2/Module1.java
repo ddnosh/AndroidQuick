@@ -10,17 +10,30 @@ import la.xiong.androidquick.demo.R;
  * @website http://blog.csdn.net/ddnosh
  */
 
-public class Module1 {
+public class Module1 extends BaseModule{
 
-    private IModuleCallback moduleCallback;
     private TextView mTextView;
 
-    public Module1(View rootView, IModuleCallback callback) {
-        moduleCallback = callback;
-        mTextView = rootView.findViewById(R.id.tv_module1);
+    public Module1(View rootView) {
+        super(rootView);
     }
 
     public void hideView() {
         mTextView.setVisibility(View.GONE);
+    }
+
+    public String getContent() {
+        return "this is from module1";
+    }
+
+    @Override
+    protected void initView() {
+        mTextView = (TextView) findViewById(R.id.tv_module1);
+        mTextView.setText("Module1 loaded!");
+    }
+
+    @Override
+    protected void release() {
+        System.out.println("Module1 released!");
     }
 }

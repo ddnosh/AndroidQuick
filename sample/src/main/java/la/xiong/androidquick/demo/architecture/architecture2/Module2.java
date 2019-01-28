@@ -10,17 +10,29 @@ import la.xiong.androidquick.demo.R;
  * @website http://blog.csdn.net/ddnosh
  */
 
-public class Module2 {
+public class Module2 extends BaseModule{
     private IModuleCallback moduleCallback;
     private TextView mTextView;
 
     public Module2(View rootView, IModuleCallback callback) {
+        super(rootView);
         moduleCallback = callback;
-        mTextView = rootView.findViewById(R.id.tv_module2);
     }
 
     public void modify(String content) {
         mTextView.setText(content);
+        content = getModule(Module1.class).getContent();
         moduleCallback.doModify(content);
+    }
+
+    @Override
+    protected void initView() {
+        mTextView =(TextView) findViewById(R.id.tv_module2);
+        mTextView.setText("Module2 loaded!");
+    }
+
+    @Override
+    protected void release() {
+        System.out.println("Module2 released!");
     }
 }

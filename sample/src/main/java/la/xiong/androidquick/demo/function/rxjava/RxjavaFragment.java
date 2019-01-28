@@ -71,6 +71,7 @@ public class RxjavaFragment extends BaseTFragment {
         }
     }
 
+    private Disposable disposable;
     private void testCreate() {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
@@ -83,7 +84,7 @@ public class RxjavaFragment extends BaseTFragment {
         }).subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                disposable = d;
             }
 
             @Override
@@ -99,6 +100,7 @@ public class RxjavaFragment extends BaseTFragment {
             @Override
             public void onComplete() {
                 ToastUtil.showToast("create done!");
+                disposable.dispose();
             }
         });
     }
