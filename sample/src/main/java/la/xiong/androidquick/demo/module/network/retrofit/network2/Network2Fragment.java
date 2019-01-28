@@ -52,7 +52,7 @@ public class Network2Fragment extends BaseFragment {
 
     @Override
     protected void initViewsAndEvents() {
-        DialogUtil.showLoadingDialog(mContext, "加载中...");
+        DialogUtil.showLoadingDialog(mContext.getApplicationContext(), "加载中...");
 
         mTestBeanList = new ArrayList<>();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -36,6 +36,7 @@ import la.xiong.androidquick.demo.function.ui.bartop.ToolbarActivity;
 import la.xiong.androidquick.demo.function.ui.databinding.DatabindingFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
+import la.xiong.androidquick.demo.function.ui.refresh.SmartRefreshLayoutFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabSTLFragment;
 import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
@@ -232,8 +233,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(PermissionActivity.class);
             } else if (name.equals("Permission-Fragment-Call")) {
                 readyGo(PermissionFragment.class);
-            } else if (name.equals("Refresh")) {
+            } else if (name.equals("SwipeRefreshLayout")) {
                 readyGo(Example1Fragment.class);
+            } else if (name.equals("SmartRefreshLayout")) {
+                readyGo(SmartRefreshLayoutFragment.class);
             } else if (name.equals("WebView")) {
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/ddnosh");

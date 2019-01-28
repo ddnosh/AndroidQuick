@@ -75,4 +75,6 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     //stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
+    //smartrefreshlayout
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
 }
