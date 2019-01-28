@@ -15,7 +15,6 @@ import la.xiong.androidquick.demo.bean.TestBean;
 import la.xiong.androidquick.demo.module.network.retrofit.TestApis;
 import la.xiong.androidquick.demo.module.network.retrofit.base.BaseSubscriber;
 import la.xiong.androidquick.network.retrofit.RetrofitManager;
-import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.adapter.CommonAdapter;
@@ -52,7 +51,7 @@ public class Network2Fragment extends BaseFragment {
 
     @Override
     protected void initViewsAndEvents() {
-        DialogUtil.showLoadingDialog(mContext.getApplicationContext(), "加载中...");
+        showLoadingDialog("加载中...");
 
         mTestBeanList = new ArrayList<>();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -85,7 +84,7 @@ public class Network2Fragment extends BaseFragment {
                 .subscribe(new BaseSubscriber<List<TestBean>>() {
                     @Override
                     public void onNext(List<TestBean> list) {
-                        DialogUtil.dismissLoadingDialog(mContext);
+                        dismissLoadingDialog();
                         LogUtil.i(TAG, list.toString());
                         //不能这样赋值:mTestBeanList = list;
                         //方法一
@@ -99,7 +98,7 @@ public class Network2Fragment extends BaseFragment {
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
-                        DialogUtil.dismissLoadingDialog(mContext);
+                        dismissLoadingDialog();
                     }
                 });
         mCompositeSubscription.add(subscription);

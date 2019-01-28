@@ -57,7 +57,6 @@ import la.xiong.androidquick.demo.other.code.CodeFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.tool.AppUtil;
-import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.dialog.CommonDialog;
 
@@ -124,6 +123,11 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void initMenus() {
@@ -206,9 +210,9 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("BottomBar")) {
                 readyGo(BottomBarFragment.class);
             } else if (name.equals("LoadingDialog")) {
-                DialogUtil.showLoadingDialog(getApplicationContext());
+                showLoadingDialog();
             } else if (name.equals("CommonDialog")) {
-                DialogUtil.getDialogBuilder(getApplicationContext())
+                getDialogBuilder(MainActivity.this)
                         .setTitle(R.string.app_name)
                         .setMessage("this is an information")
                         .setPositiveButton("Confirm")

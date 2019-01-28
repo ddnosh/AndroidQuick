@@ -10,7 +10,6 @@ import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.constant.Constants;
-import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.dialog.CommonDialog;
@@ -71,7 +70,7 @@ public class PermissionActivity extends BaseActivity {
             public void showDialog(int dialogType, final EasyPermissions.DialogCallback callback) {
                 switch (dialogType) {
                     case 1:
-                        DialogUtil.getDialogBuilder(mContext).
+                        getDialogBuilder(mContext).
                                 setTitle(getString(R.string.app_name)).
                                 setMessage(getString(R.string.dialog_camera_permission)).
                                 setPositiveButton("OK").
@@ -84,7 +83,7 @@ public class PermissionActivity extends BaseActivity {
                                 }).show().setCancelable(false);
                         break;
                     case 2:
-                        DialogUtil.getDialogBuilder(mContext).
+                        getDialogBuilder(mContext).
                                 setTitle(getString(R.string.app_name)).
                                 setMessage(getString(R.string.dialog_rationale_ask_again, deniedPermsString)).
                                 setPositiveButton("Go to setting").

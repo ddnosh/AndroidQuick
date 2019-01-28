@@ -12,7 +12,6 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.constant.Constants;
-import la.xiong.androidquick.tool.DialogUtil;
 import la.xiong.androidquick.ui.dialog.CommonDialog;
 import la.xiong.androidquick.ui.permission.EasyPermissions;
 
@@ -63,7 +62,7 @@ public class PermissionFragment extends BaseFragment {
             public void showDialog(int dialogType, final EasyPermissions.DialogCallback callback) {
                 switch (dialogType){
                     case 1:
-                        DialogUtil.getDialogBuilder(mContext).
+                        getDialogBuilder(mContext).
                                 setTitle(getString(R.string.app_name)).
                                 setMessage(getString(R.string.dialog_phone_permission)).
                                 setPositiveButton("OK").
@@ -76,7 +75,7 @@ public class PermissionFragment extends BaseFragment {
                                 }).show().setCancelable(false);
                         break;
                     case 2:
-                        DialogUtil.getDialogBuilder(mContext).
+                        getDialogBuilder(mContext).
                                 setTitle(getString(R.string.app_name)).
                                 setMessage(getString(R.string.dialog_phone_permission)).
                                 setPositiveButton("Go to setting").

@@ -24,6 +24,7 @@ import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 import la.xiong.androidquick.tool.StringUtil;
+import la.xiong.androidquick.ui.dialog.CommonDialog;
 import la.xiong.androidquick.ui.eventbus.EventCenter;
 import la.xiong.androidquick.ui.viewstatus.VaryViewHelperController;
 
@@ -416,5 +417,33 @@ public abstract class QuickFragment extends Fragment {
         if (getActivity() != null && getActivity() instanceof QuickActivity) {
             ((QuickActivity) getActivity()).performCodeWithPermission(dialogType, requestCode, perms, callback);
         }
+    }
+
+    /**
+     * dialog
+     */
+    public void showLoadingDialog() {
+        if (getActivity() != null && getActivity() instanceof QuickActivity) {
+            ((QuickActivity) getActivity()).showLoadingDialog();
+        }
+    }
+
+    public void showLoadingDialog(String tips) {
+        if (getActivity() != null && getActivity() instanceof QuickActivity) {
+            ((QuickActivity) getActivity()).showLoadingDialog(tips);
+        }
+    }
+
+    public void dismissLoadingDialog() {
+        if (getActivity() != null && getActivity() instanceof QuickActivity) {
+            ((QuickActivity) getActivity()).dismissLoadingDialog();
+        }
+    }
+
+    public CommonDialog.Builder getDialogBuilder(Context context) {
+        if (getActivity() != null && getActivity() instanceof QuickActivity) {
+            return ((QuickActivity) getActivity()).getDialogBuilder(context);
+        }
+        throw new IllegalStateException("CommonDialog can only be used in a class which extends QuickActivity!");
     }
 }

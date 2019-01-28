@@ -1,7 +1,6 @@
 /**
  * @Description: Activity的一个基类, 提供丰富的功能, 旨在开发一款新APP应用的时候直接继承使用
- * @Detail:
- * 1.   默认提供六种转场动画, 如需自定义, 请在子类调用父类的onCreate后添加overridePendingTransition
+ * @Detail: 1.   默认提供六种转场动画, 如需自定义, 请在子类调用父类的onCreate后添加overridePendingTransition
  * 2.   封装页面跳转传参
  * 3.   EventBus事件总线
  * 4.   管理所有启动的activity
@@ -10,7 +9,7 @@
  * 7.   支持butterknife 8+, databinding
  * 8.   页面跳转: readyGo, readyGoThenKill, readyGoForResult
  * 9.   提供页面状态展示: loading, network error, error, empty
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 
@@ -48,6 +47,8 @@ import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 import la.xiong.androidquick.R;
 import la.xiong.androidquick.tool.StringUtil;
+import la.xiong.androidquick.ui.dialog.CommonDialog;
+import la.xiong.androidquick.ui.dialog.LoadingDialog;
 import la.xiong.androidquick.ui.eventbus.EventCenter;
 import la.xiong.androidquick.ui.manager.QuickAppManager;
 import la.xiong.androidquick.ui.permission.EasyPermissions;
@@ -57,10 +58,10 @@ import spa.lyh.cn.statusbarlightmode.ImmersionConfiguration;
 import spa.lyh.cn.statusbarlightmode.ImmersionMode;
 
 /**
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class QuickActivity extends AppCompatActivity implements EasyPermissions.PermissionWithDialogCallbacks{
+public abstract class QuickActivity extends AppCompatActivity implements EasyPermissions.PermissionWithDialogCallbacks {
 
     /**
      * log tag
@@ -116,6 +117,10 @@ public abstract class QuickActivity extends AppCompatActivity implements EasyPer
     protected Toolbar toolbar;
     protected FrameLayout toolbarLayout;
     private LinearLayout contentView;
+    /**
+     * dialog
+     */
+    protected LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -300,6 +305,7 @@ public abstract class QuickActivity extends AppCompatActivity implements EasyPer
         }
         NetStateReceiver.unRegisterNetworkStateReceiver(mContext);
         EventBus.getDefault().unregister(this);
+        dismissLoadingDialog();
     }
 
     /**
@@ -558,8 +564,8 @@ public abstract class QuickActivity extends AppCompatActivity implements EasyPer
         }
     }
 
-    protected void changeStatusBarColor(int ResId){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+    protected void changeStatusBarColor(int ResId) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             ImmersionConfiguration tConfig = new ImmersionConfiguration.Builder(this)
                     .setColor(ResId)
                     .build();
@@ -679,5 +685,50 @@ public abstract class QuickActivity extends AppCompatActivity implements EasyPer
             return;
         }
         mPermissonCallbacks.get(requestCode).showDialog(dialogType, callback);
+    }
+
+    public void showLoadingDialog() {
+        showLoadingDialog(null);
+    }
+
+    public void showLoadingDialog(String tips) {
+        if (!isFinishing()) {
+            try {
+                if (loadingDialog == null) {
+                    loadingDialog = new LoadingDialog(this);
+                    if (!StringUtil.isEmpty(tips)) {
+                        loadingDialog.setTip(tips);
+                    }
+                    loadingDialog.show();
+                } else {
+                    //相同的上下文，无需重新创建
+                    if (loadingDialog.getLoadingDialogContext() == this) {
+                        loadingDialog.show();
+                    } else {
+                        loadingDialog.dismiss();
+                        loadingDialog = new LoadingDialog(this);
+                        if (!StringUtil.isEmpty(tips)) {
+                            loadingDialog.setTip(tips);
+                        }
+                        loadingDialog.show();
+                    }
+                }
+
+            } catch (Throwable e) {
+            }
+        }
+    }
+
+    public void dismissLoadingDialog() {
+        try {
+            if (!isFinishing() && loadingDialog != null && loadingDialog.isShowing()) {
+                loadingDialog.dismiss();
+            }
+        } catch (Throwable e) {
+        }
+    }
+
+    public CommonDialog.Builder getDialogBuilder(Context context) {
+        return new CommonDialog.Builder(context);
     }
 }
