@@ -15,5 +15,11 @@
             android:text="ButterKnife"
             style="@style/button_common_style"/>
 
+        <Button
+            android:id="@+id/btn_module_dagger2"
+            android:text="Dagger2"
+            style="@style/button_common_style"
+            android:layout_below="@+id/btn_module_butterknife"/>
+
     </RelativeLayout>
 </RelativeLayout>

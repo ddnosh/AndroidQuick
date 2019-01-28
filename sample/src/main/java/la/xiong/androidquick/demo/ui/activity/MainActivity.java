@@ -41,10 +41,11 @@ import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabSTLFragment;
 import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
-import la.xiong.androidquick.demo.module.bus.BusActivity;
-import la.xiong.androidquick.demo.module.db.DatabaseActivity;
-import la.xiong.androidquick.demo.module.image.ImageActivity;
-import la.xiong.androidquick.demo.module.ioc.IocActivity;
+import la.xiong.androidquick.demo.module.bus.eventbus.EventBusFragment;
+import la.xiong.androidquick.demo.module.db.greendao.GreenDaoFragment;
+import la.xiong.androidquick.demo.module.image.glide.GlideFragment;
+import la.xiong.androidquick.demo.module.ioc.butterknife.ButterKnifeFragment;
+import la.xiong.androidquick.demo.module.ioc.dagger2.Dagger2Fragment;
 import la.xiong.androidquick.demo.module.mvp.activity.MvpActivity;
 import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
 import la.xiong.androidquick.demo.module.network.common.CommonHttpFragment;
@@ -183,15 +184,17 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("type", "get");
                 readyGo(Network1Fragment.class, bundle1);
-            } else if (name.equals("Database")) {
-                readyGo(DatabaseActivity.class);
-            } else if (name.equals("Image")) {
-                readyGo(ImageActivity.class);
-            } else if (name.equals("Bus")) {
-                readyGo(BusActivity.class);
-            } else if (name.equals("IOC")) {
-                readyGo(IocActivity.class);
-            } if (name.equals("CommonFragment")) {
+            } else if (name.equals("GreenDao")) {
+                readyGo(GreenDaoFragment.class);
+            } else if (name.equals("Glide")) {
+                readyGo(GlideFragment.class);
+            } else if (name.equals("EventBus")) {
+                readyGo(EventBusFragment.class);
+            } else if (name.equals("ButterKnife")) {
+                readyGo(ButterKnifeFragment.class);
+            } else if (name.equals("Dagger2")) {
+                readyGo(Dagger2Fragment.class);
+            } else if (name.equals("CommonFragment")) {
                 readyGo(CommonFragment.class);
             } else if (name.equals("Fragmentation")) {
                 readyGo(FragmentationActivity.class);

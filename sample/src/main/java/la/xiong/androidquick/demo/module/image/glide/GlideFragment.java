@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.module.image;
+package la.xiong.androidquick.demo.module.image.glide;
 
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +8,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
-import la.xiong.androidquick.demo.module.image.glide.GlideUtils;
 
 /**
  * @author  ddnosh

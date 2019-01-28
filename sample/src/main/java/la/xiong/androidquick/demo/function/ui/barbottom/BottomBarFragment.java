@@ -8,7 +8,7 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.function.json.JsonFragment;
 import la.xiong.androidquick.demo.function.permission.PermissionFragment;
-import la.xiong.androidquick.demo.module.db.GreenDaoFragment;
+import la.xiong.androidquick.demo.module.db.greendao.GreenDaoFragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.ui.view.BottomBar;
 import la.xiong.androidquick.ui.view.BottomBarTab;

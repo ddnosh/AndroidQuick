@@ -14,7 +14,7 @@ import la.xiong.androidquick.demo.base.BaseTFragment;
  */
 public class ButterKnifeFragment extends BaseTFragment {
 
-    public static final String TAG = "GreenDaoFragment";
+    public static final String TAG = "ButterKnifeFragment";
 
     @BindView(R.id.btn_bf1)
     Button btn1;

@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.module.bus;
+package la.xiong.androidquick.demo.module.bus.eventbus;
 
 import android.view.View;
 import android.widget.Button;

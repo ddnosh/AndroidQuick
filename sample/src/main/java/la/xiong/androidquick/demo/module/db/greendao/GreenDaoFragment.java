@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.module.db;
+package la.xiong.androidquick.demo.module.db.greendao;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,8 +13,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
-import la.xiong.androidquick.demo.module.db.greendao.RealUserDao;
-import la.xiong.androidquick.demo.module.db.greendao.User;
 import la.xiong.androidquick.ui.adapter.CommonAdapter;
 import la.xiong.androidquick.ui.adapter.CommonViewHolder;
 
