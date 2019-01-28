@@ -46,7 +46,7 @@ public class Network1Presenter extends Network1Contract.Presenter {
             call.enqueue(new Callback<GankRes<List<String>>>() {
                 @Override
                 public void onResponse(Call<GankRes<List<String>>> call, Response<GankRes<List<String>>> response) {
-                    mView.updateView(response.body().getResults().toString());
+                    getView().updateView(response.body().getResults().toString());
                 }
 
                 @Override
@@ -63,7 +63,7 @@ public class Network1Presenter extends Network1Contract.Presenter {
                         @Override
                         public void onNext(GankRes<List<String>> list) {
                             LogUtil.i(TAG, list.getResults().toString());
-                            mView.updateView(list.getResults().toString());
+                            getView().updateView(list.getResults().toString());
                         }
                     }));
         }

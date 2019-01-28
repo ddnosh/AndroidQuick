@@ -5,6 +5,7 @@ import android.app.Application;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
+import la.xiong.androidquick.demo.crash.CrashHandler;
 import la.xiong.androidquick.demo.injector.component.ApplicationComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerApplicationComponent;
 import la.xiong.androidquick.demo.injector.module.ApplicationModule;
@@ -52,6 +53,8 @@ public class MyApplication extends Application {
         ImmersionMode.getInstance().init(configuration);
         //init stetho
         Stetho.initializeWithDefaults(this);
+        //init crashhandler
+        CrashHandler.getInstance().init(this);
     }
 
     public static synchronized MyApplication getInstance() {

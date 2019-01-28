@@ -23,7 +23,7 @@ public class MvpPresenter extends MvpContract.Presenter {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                mView.refreshView("do in background after 3 seconds");
+                getView().refreshView("do in background after 3 seconds");
             }
         }).start();
     }
