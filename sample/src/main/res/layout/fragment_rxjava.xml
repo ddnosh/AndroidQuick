@@ -77,4 +77,9 @@
         android:text="thread transfer"
         android:textAllCaps="false" />
 
+    <TextView
+        android:id="@+id/tv_rxjava_more"
+        style="@style/text_large_black"
+        android:text="Click to get more: https://github.com/amitshekhariitbhu/RxJava2-Android-Samples" />
+
 </LinearLayout>

@@ -17,6 +17,7 @@ import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.architecture.architecture1.Architecture1Fragment;
 import la.xiong.androidquick.demo.architecture.architecture2.Architecture2Fragment;
+import la.xiong.androidquick.demo.architecture.architecture3.WebViewJavascriptActivity;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.bean.MenuBean;
 import la.xiong.androidquick.demo.function.json.JsonFragment;
@@ -49,9 +50,10 @@ import la.xiong.androidquick.demo.module.network.common.CommonHttpFragment;
 import la.xiong.androidquick.demo.module.network.retrofit.NetworkActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
-import la.xiong.androidquick.demo.tool.MenuUtil;
-import la.xiong.androidquick.demo.architecture.architecture3.WebViewJavascriptActivity;
+import la.xiong.androidquick.demo.module.task.TaskRxJavaFragment;
+import la.xiong.androidquick.demo.module.task.TaskSchedulerFragment;
 import la.xiong.androidquick.demo.other.code.CodeFragment;
+import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.DialogUtil;
@@ -252,6 +254,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(Architecture2Fragment.class);
             } else if (name.equals("WebView-JavaScripts")) {
                 readyGo(WebViewJavascriptActivity.class);
+            } else if (name.equals("Task-Scheduler")) {
+                readyGo(TaskSchedulerFragment.class);
+            } else if (name.equals("Task-RxJava")) {
+                readyGo(TaskRxJavaFragment.class);
             }
         }
     }

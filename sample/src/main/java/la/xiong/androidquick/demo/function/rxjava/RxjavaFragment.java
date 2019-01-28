@@ -2,6 +2,7 @@ package la.xiong.androidquick.demo.function.rxjava;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.tool.AssetsUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
@@ -40,7 +42,7 @@ public class RxjavaFragment extends BaseTFragment {
         return R.layout.fragment_rxjava;
     }
 
-    @OnClick( {R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map, R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread})
+    @OnClick( {R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map, R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -60,6 +62,11 @@ public class RxjavaFragment extends BaseTFragment {
                 break;
             case R.id.btn_rxjava_thread:
                 testThread();
+                break;
+            case R.id.tv_rxjava_more:
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "https://github.com/amitshekhariitbhu/RxJava2-Android-Samples");
+                readyGo(WebViewActivity.class, bundle);
                 break;
         }
     }
