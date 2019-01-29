@@ -55,6 +55,7 @@ import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragm
 import la.xiong.androidquick.demo.module.task.TaskRxJavaFragment;
 import la.xiong.androidquick.demo.module.task.TaskSchedulerFragment;
 import la.xiong.androidquick.demo.other.code.CodeFragment;
+import la.xiong.androidquick.demo.other.rxlifecycle.RxLifecycleFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.tool.AppUtil;
@@ -268,6 +269,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(TaskSchedulerFragment.class);
             } else if (name.equals("Task-RxJava")) {
                 readyGo(TaskRxJavaFragment.class);
+            } else if (name.equals("RxLifecycle")) {
+                readyGo(RxLifecycleFragment.class);
             }
         }
     }

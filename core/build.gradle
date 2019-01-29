@@ -64,6 +64,8 @@ dependencies {
     compile 'spa.lyh.cn:immersion-sdk:1.0.6'
     //glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //rxlifecycle
+    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
 }
 
 publish {

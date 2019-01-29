@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.trello.rxlifecycle2.components.support.RxFragment;
+
 import java.lang.reflect.Field;
 
 import butterknife.ButterKnife;
@@ -32,7 +34,7 @@ import la.xiong.androidquick.ui.viewstatus.VaryViewHelperController;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class QuickFragment extends Fragment {
+public abstract class QuickFragment extends RxFragment {
 
     /**
      * Log tag

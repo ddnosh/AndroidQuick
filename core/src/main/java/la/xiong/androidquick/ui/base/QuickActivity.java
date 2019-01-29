@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -33,6 +32,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,7 +62,7 @@ import spa.lyh.cn.statusbarlightmode.ImmersionMode;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class QuickActivity extends AppCompatActivity implements EasyPermissions.PermissionWithDialogCallbacks {
+public abstract class QuickActivity extends RxAppCompatActivity implements EasyPermissions.PermissionWithDialogCallbacks {
 
     /**
      * log tag

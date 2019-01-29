@@ -29,6 +29,6 @@ public class CodeFragment extends BaseFragment {
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.fragment_code;
+        return R.layout.fragment_other_code;
     }
 }
