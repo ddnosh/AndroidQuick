@@ -61,3 +61,4 @@
 3023,GreenDao,202;
 3024,EventBus,204;
 217,RxLifecycle,14;
+218,Lambda,14;
