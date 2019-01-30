@@ -9,6 +9,8 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
+        multiDexEnabled true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -27,23 +29,21 @@ android {
         abortOnError false
     }
     dexOptions {
-        //是否支持大工程模式
+        //support big project mode
         jumboMode true
-        //最大堆内存
+        //max heap size
         javaMaxHeapSize "4g"
-        //使用增量模式构建
-//        incremental true
-        //预编译
+        //65536
+        incremental true
+        //pre build
         preDexLibraries = true
-        //线程数
+        //thread count
         threadCount = 8
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    releaseCompile project(path: ':Core', configuration: 'release')
-//    debugCompile project(path: ':Core', configuration: 'debug')
     compile project(':core')
     compile project(':treeview')
     //butterknife
@@ -81,4 +81,6 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.0'
     //smartrefreshlayout
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+    //ormlite
+    compile 'com.j256.ormlite:ormlite-android:5.1'
 }

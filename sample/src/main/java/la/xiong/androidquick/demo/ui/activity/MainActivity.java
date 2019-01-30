@@ -43,6 +43,7 @@ import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragm
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.module.bus.eventbus.EventBusFragment;
 import la.xiong.androidquick.demo.module.db.greendao.GreenDaoFragment;
+import la.xiong.androidquick.demo.module.db.ormlite.OrmLiteFragment;
 import la.xiong.androidquick.demo.module.image.glide.GlideFragment;
 import la.xiong.androidquick.demo.module.ioc.butterknife.ButterKnifeFragment;
 import la.xiong.androidquick.demo.module.ioc.dagger2.Dagger2Fragment;
@@ -274,6 +275,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(RxLifecycleFragment.class);
             } else if (name.equals("Lambda")) {
                 readyGo(LambdaFragment.class);
+            } else if (name.equals("OrmLite")) {
+                readyGo(OrmLiteFragment.class);
             }
         }
     }

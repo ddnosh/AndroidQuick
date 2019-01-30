@@ -1,7 +1,6 @@
 package la.xiong.androidquick.demo;
 
 import android.app.Activity;
-import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
@@ -22,7 +21,7 @@ import spa.lyh.cn.statusbarlightmode.ImmersionMode;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MyApplication extends Application {
+public class MyApplication extends android.support.multidex.MultiDexApplication {
 
     private static MyApplication INSTANCE;
 

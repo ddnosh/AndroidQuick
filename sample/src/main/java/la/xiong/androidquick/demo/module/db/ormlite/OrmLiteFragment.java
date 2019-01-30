@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.module.db.greendao;
+package la.xiong.androidquick.demo.module.db.ormlite;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,9 +20,9 @@ import la.xiong.androidquick.ui.adapter.CommonViewHolder;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class GreenDaoFragment extends BaseTFragment {
+public class OrmLiteFragment extends BaseTFragment {
 
-    public static final String TAG = "GreenDaoFragment";
+    public static final String TAG = "OrmLiteFragment";
 
     @BindView(R.id.et_greendao_input)
     EditText mEditText;
@@ -45,7 +45,7 @@ public class GreenDaoFragment extends BaseTFragment {
 
     @Override
     protected void initViewsAndEvents() {
-        mUserList = new ArrayList<User>();
+        mUserList = new ArrayList<>();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
         mCommonAdapter = new CommonAdapter<User>(getActivity(), R.layout.item_common_adapter_1, mUserList) {
@@ -59,24 +59,24 @@ public class GreenDaoFragment extends BaseTFragment {
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.fragment_database_greendao;
+        return R.layout.fragment_database_ormlite;
     }
 
     @OnClick({R.id.btn_add, R.id.btn_delete, R.id.btn_update, R.id.btn_query})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_add:
-                RealUserDao.getInstance().addUser(new User(null, mEditText.getText().toString(), 20));
+                UserDao.getInstance().createUser(mEditText.getText().toString());
                 query();
                 break;
             case R.id.btn_delete:
-                RealUserDao.getInstance().deleteUser(mEditText.getText().toString());
+                UserDao.getInstance().delete();
                 query();
                 break;
             case R.id.btn_update:
-                User user = RealUserDao.getInstance().queryUser(2);
+                User user = UserDao.getInstance().getUserById(1);
                 user.setName(mEditText.getText().toString());
-                RealUserDao.getInstance().updateUser(user);
+                UserDao.getInstance().update(user);
                 query();
                 break;
             case R.id.btn_query:
@@ -87,7 +87,7 @@ public class GreenDaoFragment extends BaseTFragment {
 
     private void query() {
         mUserList.clear();
-        mUserList.addAll(RealUserDao.getInstance().queryAllUsers());
+        mUserList.addAll(UserDao.getInstance().getAllUser());
         mCommonAdapter.notifyDataSetChanged();
     }
 }
