@@ -65,3 +65,4 @@
 3025,OrmLite,202;
 500000,LoadingDialog,40008;
 500001,CommonDialog,40008;
+3026,Resolution,206;

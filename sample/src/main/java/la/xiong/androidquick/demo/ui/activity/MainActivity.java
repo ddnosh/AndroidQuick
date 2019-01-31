@@ -38,6 +38,7 @@ import la.xiong.androidquick.demo.function.ui.dialog.dialogfragment.DialogFragme
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
 import la.xiong.androidquick.demo.function.ui.refresh.SmartRefreshLayoutFragment;
+import la.xiong.androidquick.demo.function.ui.resolution.ResolutionAdaptionFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabSTLFragment;
 import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
@@ -276,6 +277,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(OrmLiteFragment.class);
             } else if (name.equals("DialogFragment")) {
                 readyGo(DialogFragmentDemo.class);
+            } else if (name.equals("Resolution")) {
+                readyGo(ResolutionAdaptionFragment.class);
             }
         }
     }

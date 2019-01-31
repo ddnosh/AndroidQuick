@@ -24,7 +24,7 @@ public class DownloadService extends IntentService {
 
     int downloadCount = 0;
 
-    private String apkUrl = "http://pro-app-qn.fir.im/2d8148745babc31bf8f706892048aa8b38665fc1.apk?e=1518069560&token=LOvmia8oXF4xnLh0IdH05XMYpH6ENHNpARlmPc-T:-6MIIF4F5KKeFAHHU8R0vMA1PA0=";
+    private String apkUrl = "https://imtt.dd.qq.com/16891/D92DD871CD08F11CE8F053EF61B0D40B.apk?fsname=net.csdn.csdnplus_3.5.0_50.apk&csr=1bbd";
     public DownloadService() {
         super("DownloadService");
     }

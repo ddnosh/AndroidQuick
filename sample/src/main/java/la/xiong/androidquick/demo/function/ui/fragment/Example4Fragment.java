@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.ui.fragment;
+package la.xiong.androidquick.demo.function.ui.fragment;
 
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFFragment;

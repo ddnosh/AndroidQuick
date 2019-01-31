@@ -8,8 +8,6 @@ import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFActivity;
 import la.xiong.androidquick.demo.base.BaseFFragment;
-import la.xiong.androidquick.demo.ui.fragment.Example2Fragment;
-import la.xiong.androidquick.demo.ui.fragment.Example3Fragment;
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
