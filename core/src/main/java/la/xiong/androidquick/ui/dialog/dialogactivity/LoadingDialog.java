@@ -1,4 +1,4 @@
-package la.xiong.androidquick.ui.dialog;
+package la.xiong.androidquick.ui.dialog.dialogactivity;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -12,7 +12,7 @@ import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.constant.Constants;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
-import la.xiong.androidquick.ui.dialog.CommonDialog;
+import la.xiong.androidquick.ui.dialog.dialogactivity.CommonDialog;
 import la.xiong.androidquick.ui.permission.EasyPermissions;
 
 /**

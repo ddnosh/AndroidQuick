@@ -34,6 +34,7 @@ import la.xiong.androidquick.demo.function.ui.barbottom.RadioButtonFragment;
 import la.xiong.androidquick.demo.function.ui.bartop.CommonToolBarFragment;
 import la.xiong.androidquick.demo.function.ui.bartop.ToolbarActivity;
 import la.xiong.androidquick.demo.function.ui.databinding.DatabindingFragment;
+import la.xiong.androidquick.demo.function.ui.dialog.dialogfragment.DialogFragmentDemo;
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
 import la.xiong.androidquick.demo.function.ui.refresh.SmartRefreshLayoutFragment;
@@ -62,7 +63,6 @@ import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.ToastUtil;
-import la.xiong.androidquick.ui.dialog.CommonDialog;
 
 /**
  * @author ddnosh
@@ -223,12 +223,9 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                         .setMessage("this is an information")
                         .setPositiveButton("Confirm")
                         .setNegativeButton("Cancel")
-                        .setBtnClickCallBack(new CommonDialog.DialogBtnCallBack() {
-                            @Override
-                            public void onDialogButClick(boolean isConfirm) {
-                                if (isConfirm) {
-                                    ToastUtil.showToast("Confirm clicked");
-                                }
+                        .setBtnClickCallBack(isConfirm -> {
+                            if (isConfirm) {
+                                ToastUtil.showToast("Confirm clicked");
                             }
                         }).show();
             } else if (name.equals("SmartTabLayout")) {
@@ -277,6 +274,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(LambdaFragment.class);
             } else if (name.equals("OrmLite")) {
                 readyGo(OrmLiteFragment.class);
+            } else if (name.equals("DialogFragment")) {
+                readyGo(DialogFragmentDemo.class);
             }
         }
     }

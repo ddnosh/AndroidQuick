@@ -27,8 +27,8 @@
 40006,RadioButton,3003;
 40007,BottomBar,3003;
 3004,Dialog,206;
-40008,LoadingDialog,3004;
-40009,CommonDialog,3004;
+40008,DialogActivity,3004;
+40009,DialogFragment,3004;
 3005,Tab,206;
 40010,SmartTabLayout,3005;
 40011,FlycoTabLayout,3005;
@@ -63,3 +63,5 @@
 217,RxLifecycle,14;
 218,Lambda,14;
 3025,OrmLite,202;
+500000,LoadingDialog,40008;
+500001,CommonDialog,40008;
