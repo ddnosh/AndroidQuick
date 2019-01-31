@@ -58,71 +58,71 @@ core封装了通用的实现，我们将其打包成一个aar包，提供给APP�
     1. 目录结构
         1. Module
             1. MVP
-                1. MVP for Activity
-                2. MVP for Fragment
+                > 1. MVP for Activity
+                > 2. MVP for Fragment
             2. Network
-                1. Retrofit+CommonUrl
-                2. Retrofit+DifferentUrl
-                3. Retrofit+Download
-                4. Retrofit+CommonUrl+Get
-                5. Common Http
+                > 1. Retrofit+CommonUrl
+                > 2. Retrofit+DifferentUrl
+                > 3. Retrofit+Download
+                > 4. Retrofit+CommonUrl+Get
+                > 5. Common Http
             3. Database
-                1. GreenDao
-                2. OrmLite
+                > 1. GreenDao
+                > 2. OrmLite
             4. Image
-                1. Glide
+                > 1. Glide
             5. Bus
-                1. EventBus
+                > 1. EventBus
             6. IOC
-                1. ButterKnife
-                2. Dagger2
+                > 1. ButterKnife
+                > 2. Dagger2
             7. Task
-                1. Task-Scheduler
-                2. Task-RxJava
+                > 1. Task-Scheduler
+                > 2. Task-RxJava
         2. Function
             1. UI
                 1. Fragment
-                    1. CommonFragment
-                    2. Fragmentation
+                    > 1. CommonFragment
+                    > 2. Fragmentation
                 2. Adapter
-                    1. CommonAdapter
-                    2. MultiViewTypeAdapter
-                    3. BaseRecycleViewAdapterHelper
+                    > 1. CommonAdapter
+                    > 2. MultiViewTypeAdapter
+                    > 3. BaseRecycleViewAdapterHelper
                 3. Bar-Top
-                    1. DefaultToolbar
-                    2. CommonToolbar
+                    > 1. DefaultToolbar
+                    > 2. CommonToolbar
                 4. Bar-Bottom
-                    1. RadioButton
-                    2. BottomBar
+                    > 1. RadioButton
+                    > 2. BottomBar
                 5. Dialog
                     1. DialogActivity
-                        1. LoadingDialog
-                        2. CommonDialog
+                        > 1. LoadingDialog
+                        > 2. CommonDialog
                     2. DialogFragment
                 6. Tab
-                    1. SmartTabLayout
-                    2. FlycoTabLayout
+                    > 1. SmartTabLayout
+                    > 2. FlycoTabLayout
                 7. Refresh
-                    1. SwipeRefreshLayout
-                    2. SmartRefreshLayout
+                    > 1. SwipeRefreshLayout
+                    > 2. SmartRefreshLayout
                 8. Banner
                 9. WebView
                 10. DataBinding
                 11. VaryPageStatus
             2. Permission
-                1. Permission-Camara
-                2. Permission-Fragment-Call
+                > 1. Permission-Camara
+                > 2. Permission-Fragment-Call
             3. Json
             4. RaJava
             5. SharedPreferences
         3. Architecture
-            1. OneLayout-MultipleViews
-            2. OneView-MultipleModules
-            3. WebView-JavaScripts
+            > 1. OneLayout-MultipleViews
+            > 2. OneView-MultipleModules
+            > 3. WebView-JavaScripts
         4. Other
-            1. Code
-            2. RxLifecycle
-            3. Lambda
+            > 1. Code
+            > 2. RxLifecycle
+            > 3. Lambda
     2. 功能说明
         1. BaseActivity
         > 抽象类，继承自QuickActivity，实现了一些QuickActivity的抽象方法；
