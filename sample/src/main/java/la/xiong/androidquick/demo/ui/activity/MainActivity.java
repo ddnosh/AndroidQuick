@@ -33,6 +33,7 @@ import la.xiong.androidquick.demo.function.ui.barbottom.BottomBarFragment;
 import la.xiong.androidquick.demo.function.ui.barbottom.RadioButtonFragment;
 import la.xiong.androidquick.demo.function.ui.bartop.CommonToolBarFragment;
 import la.xiong.androidquick.demo.function.ui.bartop.ToolbarActivity;
+import la.xiong.androidquick.demo.function.ui.constraintlayout.ConstraintLayoutFragment;
 import la.xiong.androidquick.demo.function.ui.databinding.DatabindingFragment;
 import la.xiong.androidquick.demo.function.ui.dialog.dialogfragment.DialogFragmentDemo;
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
@@ -279,6 +280,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(DialogFragmentDemo.class);
             } else if (name.equals("Resolution")) {
                 readyGo(ResolutionAdaptionFragment.class);
+            } else if (name.equals("ConstraintLayout")) {
+                readyGo(ConstraintLayoutFragment.class);
             }
         }
     }

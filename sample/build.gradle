@@ -83,4 +83,6 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
     //ormlite
     compile 'com.j256.ormlite:ormlite-android:5.1'
+    //constraintlayout
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
 }
