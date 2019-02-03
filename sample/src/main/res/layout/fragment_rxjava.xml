@@ -71,6 +71,13 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_rxjava_compose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="compose and trigger by manual"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_rxjava_thread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

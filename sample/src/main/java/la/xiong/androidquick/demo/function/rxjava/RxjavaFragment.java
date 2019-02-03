@@ -20,10 +20,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.PublishSubject;
+import io.reactivex.subjects.Subject;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.tool.AssetsUtil;
+import la.xiong.androidquick.tool.RxUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
 /**
@@ -42,7 +45,7 @@ public class RxjavaFragment extends BaseTFragment {
         return R.layout.fragment_rxjava;
     }
 
-    @OnClick( {R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map, R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more})
+    @OnClick( {R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map, R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -63,6 +66,9 @@ public class RxjavaFragment extends BaseTFragment {
             case R.id.btn_rxjava_thread:
                 testThread();
                 break;
+            case R.id.btn_rxjava_compose:
+                testCompose();
+                break;
             case R.id.tv_rxjava_more:
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/amitshekhariitbhu/RxJava2-Android-Samples");
@@ -72,6 +78,7 @@ public class RxjavaFragment extends BaseTFragment {
     }
 
     private Disposable disposable;
+
     private void testCreate() {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
@@ -130,7 +137,7 @@ public class RxjavaFragment extends BaseTFragment {
         });
     }
 
-    Integer[] items = { 0, 1, 2, 3, 4, 5 };
+    Integer[] items = {0, 1, 2, 3, 4, 5};
 
     private void testFrom() {
         Observable.fromArray(items).subscribe(new Observer<Integer>() {
@@ -348,5 +355,37 @@ public class RxjavaFragment extends BaseTFragment {
 
                     }
                 });
+    }
+
+    private Subject<String> lifecycle = PublishSubject.create();
+
+    private void testCompose() {
+        lifecycle
+                .compose(RxUtil.applySchedulers())
+                .compose(bindToLifecycle())
+                .subscribe(new Observer<String>() {
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        System.out.println(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+        lifecycle.onNext("compose test finished.");
     }
 }
