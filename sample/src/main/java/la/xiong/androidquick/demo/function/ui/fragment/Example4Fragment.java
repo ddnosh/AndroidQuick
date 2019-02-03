@@ -1,5 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.fragment;
 
+import android.os.Bundle;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFFragment;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
@@ -16,7 +18,7 @@ public class Example4Fragment extends BaseFFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

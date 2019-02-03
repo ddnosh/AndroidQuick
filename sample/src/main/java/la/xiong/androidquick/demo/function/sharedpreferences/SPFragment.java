@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.sharedpreferences;
 
+import android.os.Bundle;
 import android.view.View;
 
 import butterknife.OnClick;
@@ -17,7 +18,7 @@ public class SPFragment extends BaseTFragment {
     private String testJsonString;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

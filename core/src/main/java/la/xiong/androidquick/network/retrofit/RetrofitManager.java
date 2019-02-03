@@ -7,7 +7,7 @@ import la.xiong.androidquick.tool.LogUtil;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -66,7 +66,7 @@ public class RetrofitManager {
                     builder.baseUrl(BASE_URL)
                             .client(okHttpClient)
                             .addConverterFactory(GsonConverterFactory.create())//定义转化器,用Gson将服务器返回的Json格式解析成实体
-                            .addCallAdapterFactory(RxJavaCallAdapterFactory.create());//关联Rxjava
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create());//关联Rxjava
                     singleton = builder.build();
                 }
             }

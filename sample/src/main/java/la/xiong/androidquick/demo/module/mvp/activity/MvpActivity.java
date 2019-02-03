@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.mvp.activity;
 
+import android.os.Bundle;
 import android.widget.TextView;
 
 import la.xiong.androidquick.demo.R;
@@ -23,7 +24,7 @@ public class MvpActivity extends BaseTActivity<MvpPresenter> implements MvpContr
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mContent = findViewById(R.id.tv_activity_mvp);
         mContent.setText("this is MvpActivity");
         mPresenter.initData();

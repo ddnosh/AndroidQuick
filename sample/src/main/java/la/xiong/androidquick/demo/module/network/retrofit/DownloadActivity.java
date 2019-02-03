@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
@@ -39,7 +40,7 @@ public class DownloadActivity extends BaseActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
         registerReceiver();
 

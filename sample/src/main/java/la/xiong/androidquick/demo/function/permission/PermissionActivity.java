@@ -2,6 +2,7 @@ package la.xiong.androidquick.demo.function.permission;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class PermissionActivity extends BaseActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

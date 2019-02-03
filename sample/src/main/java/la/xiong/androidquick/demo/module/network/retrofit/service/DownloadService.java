@@ -8,15 +8,16 @@ import android.util.Log;
 
 import java.io.File;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import la.xiong.androidquick.demo.module.network.retrofit.download.Download;
 import la.xiong.androidquick.demo.module.network.retrofit.download.DownloadManager;
 import la.xiong.androidquick.demo.module.network.retrofit.download.DownloadProgressListener;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.tool.StringUtil;
-import rx.Subscriber;
 
 /**
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 public class DownloadService extends IntentService {
@@ -25,6 +26,7 @@ public class DownloadService extends IntentService {
     int downloadCount = 0;
 
     private String apkUrl = "https://imtt.dd.qq.com/16891/D92DD871CD08F11CE8F053EF61B0D40B.apk?fsname=net.csdn.csdnplus_3.5.0_50.apk&csr=1bbd";
+
     public DownloadService() {
         super("DownloadService");
     }
@@ -62,17 +64,23 @@ public class DownloadService extends IntentService {
 
         String baseUrl = StringUtil.getHostName(apkUrl);
 
-        new DownloadManager(baseUrl, listener).downloadAPK(apkUrl, outputFile, new Subscriber() {
-            @Override
-            public void onCompleted() {
-                downloadCompleted();
-            }
+        new DownloadManager(baseUrl, listener).downloadAPK(apkUrl, outputFile, new Observer() {
 
             @Override
             public void onError(Throwable e) {
                 e.printStackTrace();
                 downloadCompleted();
                 Log.e(TAG, "onError: " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                downloadCompleted();
+            }
+
+            @Override
+            public void onSubscribe(Disposable d) {
+
             }
 
             @Override

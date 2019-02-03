@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.ioc.dagger2;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,7 +29,7 @@ public class Dagger2Fragment extends BaseFragment {
     Dagger2Test2Bean mDagger2Test2Bean;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 //        getTest1Component().inject(this);
 //        mDagger2TestBean.setName("Jack");
         getTest2Component().inject(this);

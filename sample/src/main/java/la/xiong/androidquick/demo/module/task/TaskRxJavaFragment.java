@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.task;
 
+import android.os.Bundle;
 import android.view.View;
 
 import butterknife.OnClick;
@@ -29,7 +30,7 @@ public class TaskRxJavaFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

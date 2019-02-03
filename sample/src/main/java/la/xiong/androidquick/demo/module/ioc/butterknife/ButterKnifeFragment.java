@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.ioc.butterknife;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,7 +21,7 @@ public class ButterKnifeFragment extends BaseTFragment {
     Button btn1;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
     }
 
     @Override

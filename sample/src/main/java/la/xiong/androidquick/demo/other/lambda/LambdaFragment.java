@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.other.lambda;
 
+import android.os.Bundle;
 import android.widget.Button;
 
 import io.reactivex.Observable;
@@ -15,7 +16,7 @@ public class LambdaFragment extends BaseFragment {
 
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         Button btn = getActivity().findViewById(R.id.btn_lambda);
         btn.setOnClickListener(v -> {
             ToastUtil.showToast("lambda clicked!");

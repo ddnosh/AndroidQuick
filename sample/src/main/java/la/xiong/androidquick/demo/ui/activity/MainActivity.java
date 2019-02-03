@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         root = TreeNode.root();
         menuList = MenuUtil.getPositions(getApplicationContext(), "menu.txt");
         initMenus();

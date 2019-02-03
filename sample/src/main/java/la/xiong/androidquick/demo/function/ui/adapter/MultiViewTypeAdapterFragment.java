@@ -1,6 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -34,7 +35,7 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mBBeanList = new ArrayList<BBean>();
         mBBeanList.add(new BBean("left", "here is left loaded"));
         mBBeanList.add(new BBean("right", "here is right loaded"));

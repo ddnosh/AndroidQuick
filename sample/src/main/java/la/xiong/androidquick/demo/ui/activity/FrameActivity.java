@@ -28,7 +28,7 @@ public class FrameActivity extends BaseTActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         String className = bundle.getString("fragmentName");
         LogUtil.i(TAG, "the fragment class name is->" + className);
         if (className != null) {

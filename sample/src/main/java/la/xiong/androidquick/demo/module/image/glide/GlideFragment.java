@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.image.glide;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,7 +25,7 @@ public class GlideFragment extends BaseTFragment {
     ImageView imageView1;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
     }
 
     @Override

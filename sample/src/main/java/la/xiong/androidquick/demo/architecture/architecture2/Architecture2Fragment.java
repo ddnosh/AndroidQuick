@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.architecture.architecture2;
 
+import android.os.Bundle;
 import android.view.View;
 
 import butterknife.OnClick;
@@ -15,7 +16,7 @@ public class Architecture2Fragment extends BaseFragment implements IModuleCallba
     private Module1 mModule1;
     private Module2 mModule2;
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         initModule();
     }
 

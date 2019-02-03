@@ -1,5 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.fragment;
 
+import android.os.Bundle;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFFragment;
 
@@ -14,7 +16,7 @@ public class Example3Fragment extends BaseFFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         if (findChildFragment(Example4Fragment.class) == null) {
             // false:  不加入回退栈;  false: 不显示动画
             loadRootFragment(R.id.fl_content_container, Example4Fragment.newInstance(), false, false);

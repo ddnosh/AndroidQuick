@@ -33,7 +33,7 @@ import la.xiong.androidquick.tool.ToastUtil;
 public class RxjavaFragment extends BaseTFragment {
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

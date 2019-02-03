@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.barbottom;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
@@ -20,7 +21,7 @@ public class RadioButtonFragment extends BaseFragment {
     private Fragment mCatalogue1Fragment;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mCatalogue1Fragment = new Example1Fragment();
         getSupportFragmentManager().beginTransaction().add(R.id.container, mCatalogue1Fragment, Example1Fragment.TAG).commit();
     }

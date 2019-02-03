@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.other.rxlifecycle;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,7 @@ public class RxLifecycleFragment extends BaseFragment {
     Button btnRxLifecycle;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

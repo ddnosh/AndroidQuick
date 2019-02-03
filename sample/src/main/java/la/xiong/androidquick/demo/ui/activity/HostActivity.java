@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.ui.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -21,7 +22,7 @@ public class HostActivity extends BaseActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         FragmentManager fm = getSupportFragmentManager();
         mContentFragment = (Fragment) fm.findFragmentById(R.id.content_frame);
 

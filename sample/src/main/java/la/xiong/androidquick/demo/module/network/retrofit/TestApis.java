@@ -2,10 +2,10 @@ package la.xiong.androidquick.demo.module.network.retrofit;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import la.xiong.androidquick.demo.bean.TestBean;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
-import rx.Observable;
 
 /**
  * @author  ddnosh

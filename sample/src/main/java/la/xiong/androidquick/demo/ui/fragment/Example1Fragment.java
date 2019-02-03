@@ -40,7 +40,7 @@ public class Example1Fragment extends BaseTFragment implements SwipeRefreshLayou
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
         //设置进度条的颜色主题，最多能设置四种 加载颜色是循环播放的，只要没有完成刷新就会一直循环，holo_blue_bright>holo_green_light>holo_orange_light>holo_red_light
         // mSwipeLayout.setColorScheme(android.R.color.holo_blue_bright,

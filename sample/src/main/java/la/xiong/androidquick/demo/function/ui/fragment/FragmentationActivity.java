@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.fragment;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,11 +29,19 @@ public class FragmentationActivity extends BaseFActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
-        BaseFFragment fragment = findFragment(Example2Fragment.class);
-        if (fragment == null) {
-            loadRootFragment(R.id.fl_container, Example2Fragment.newInstance());
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+        BaseFFragment fragment;
+        if (savedInstanceState == null) {
+            fragment = Example2Fragment.newInstance();
+            loadRootFragment(R.id.fl_container, fragment);
+        } else {
+            fragment = findFragment(Example2Fragment.class);
         }
+//        //or another way
+//        BaseFFragment fragment = findFragment(Example2Fragment.class);
+//        if (fragment == null) {
+//            loadRootFragment(R.id.fl_container, Example2Fragment.newInstance());
+//        }
     }
 
     @OnClick({R.id.btn_fragmentation_test1, R.id.btn_fragmentation_test2})

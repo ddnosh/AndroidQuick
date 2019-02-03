@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.json;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
@@ -33,7 +34,7 @@ public class JsonFragment extends BaseTFragment {
     private String testJsonString;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         testJsonString = "{\n" +
                 "  \"error\": false, \n" +
                 "  \"results\": [\n" +

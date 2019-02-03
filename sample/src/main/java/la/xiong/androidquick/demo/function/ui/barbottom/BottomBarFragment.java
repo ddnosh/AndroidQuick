@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.barbottom;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.FrameLayout;
 
@@ -28,7 +29,7 @@ public class BottomBarFragment extends BaseFragment {
     private Fragment mFragment;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mStrings[0] = Example1Fragment.TAG;
         mStrings[1] = PermissionFragment.TAG;
         mStrings[2] = JsonFragment.TAG;

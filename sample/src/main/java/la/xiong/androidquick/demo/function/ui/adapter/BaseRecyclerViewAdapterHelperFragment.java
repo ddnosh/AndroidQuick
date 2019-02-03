@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.adapter;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -34,7 +35,7 @@ public class BaseRecyclerViewAdapterHelperFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mBBeanList = new ArrayList<BBean>();
         BBean b1 = new BBean("111");
         b1.itemType = 1;

@@ -1,5 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.banner;
 
+import android.os.Bundle;
+
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -22,7 +24,7 @@ public class BannerFragment extends BaseFragment {
     Banner mBanner;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         List<String> imageUrls = new ArrayList<>();
         imageUrls.add("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3356121154,1179528716&fm=27&gp=0.jpg");
         imageUrls.add("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2533643392,3611141887&fm=27&gp=0.jpg");

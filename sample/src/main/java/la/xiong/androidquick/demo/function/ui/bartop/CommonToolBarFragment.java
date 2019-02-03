@@ -1,5 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.bartop;
 
+import android.os.Bundle;
+
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
@@ -14,7 +16,7 @@ public class CommonToolBarFragment extends BaseFragment {
     CommonToolBar mCommonToolBar;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
     }
 
     @Override

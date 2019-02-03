@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.architecture.architecture1;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
 
@@ -14,7 +15,7 @@ import la.xiong.androidquick.tool.LogUtil;
 public class Architecture1Fragment extends BasePageFragment {
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
         final boolean v = getPageController(Page1.class).getVisibility() == View.VISIBLE;
         if (!v) {

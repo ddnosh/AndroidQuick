@@ -48,7 +48,7 @@ public class Network1Fragment extends BaseTFragment<Network1Presenter> implement
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mBundle = getActivity().getIntent().getExtras();
 //        toggleShowLoading(true, "loading...");
         mPresenter.initData(mBundle.getString("type"));

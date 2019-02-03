@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.tab;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -41,7 +42,7 @@ public class TabSTLFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         final List<String> tabs = Arrays.asList(MyApplication.getInstance().getResources()
                 .getStringArray(R.array.tabs));
         mViewPager.setOffscreenPageLimit(tabs.size());

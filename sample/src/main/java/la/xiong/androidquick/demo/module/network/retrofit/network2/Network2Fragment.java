@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.network.retrofit.network2;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -8,26 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.bean.TestBean;
 import la.xiong.androidquick.demo.module.network.retrofit.TestApis;
-import la.xiong.androidquick.demo.module.network.retrofit.base.BaseSubscriber;
+import la.xiong.androidquick.demo.module.network.retrofit.base.BaseObserver;
 import la.xiong.androidquick.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.adapter.CommonAdapter;
 import la.xiong.androidquick.ui.adapter.CommonViewHolder;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * (Retrofit+OkHttp+RxJava)Different Url
  *
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 public class Network2Fragment extends BaseFragment {
@@ -42,7 +41,7 @@ public class Network2Fragment extends BaseFragment {
     private List<TestBean> mTestBeanList;
 
     private RetrofitManager mRetrofitManager;
-    private CompositeSubscription mCompositeSubscription;
+//    private CompositeSubscription mCompositeSubscription;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -50,7 +49,7 @@ public class Network2Fragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         showLoadingDialog("加载中...");
 
         mTestBeanList = new ArrayList<>();
@@ -75,40 +74,36 @@ public class Network2Fragment extends BaseFragment {
         };
         mRecyclerView.setAdapter(mCommonAdapter);
 
-        mCompositeSubscription = new CompositeSubscription();
+//        mCompositeSubscription = new CompositeSubscription();
         mRetrofitManager = new RetrofitManager();
-        Subscription subscription =  mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+//        Subscription subscription =
+        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
                 .getOctocat("https://api.github.com/repos/octocat/Hello-World/contributors")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new BaseSubscriber<List<TestBean>>() {
-                    @Override
-                    public void onNext(List<TestBean> list) {
-                        dismissLoadingDialog();
-                        LogUtil.i(TAG, list.toString());
-                        //不能这样赋值:mTestBeanList = list;
-                        //方法一
+                .subscribe(new BaseObserver<List<TestBean>>() {
+                               @Override
+                               public void onNext(List<TestBean> list) {
+                                   dismissLoadingDialog();
+                                   LogUtil.i(TAG, list.toString());
+                                   //不能这样赋值:mTestBeanList = list;
+                                   //方法一
 //                        mTestBeanList.clear();
 //                        mTestBeanList.addAll(list);
 //                        mCommonAdapter.notifyDataSetChanged();
-                        //方法二
-                        mCommonAdapter.update(list);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        dismissLoadingDialog();
-                    }
-                });
-        mCompositeSubscription.add(subscription);
+                                   //方法二
+                                   mCommonAdapter.update(list);
+                               }
+                           }
+                );
+//        mCompositeSubscription.add(subscription);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (null != mCompositeSubscription) {
-            mCompositeSubscription.unsubscribe();
-        }
+//        if (null != mCompositeSubscription) {
+//            mCompositeSubscription.unsubscribe();
+//        }
     }
 }

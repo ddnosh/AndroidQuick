@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.bus.eventbus;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,7 +24,7 @@ public class EventBusFragment extends BaseTFragment {
     Button btn1;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
     }
 
     @Override

@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.mvp.fragment;
 
+import android.os.Bundle;
 import android.widget.TextView;
 
 import la.xiong.androidquick.demo.R;
@@ -24,7 +25,7 @@ public class MvpFragment extends BaseTFragment<MvpPresenter> implements MvpContr
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mContent = getActivity().findViewById(R.id.tv_fragment_mvp);
         mContent.setText("this is MvpFragment");
         mPresenter.initData("hello");

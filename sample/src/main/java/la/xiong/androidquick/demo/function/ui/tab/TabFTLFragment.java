@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.tab;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -29,7 +30,7 @@ public class TabFTLFragment extends BaseFragment {
     private MyPagerAdapter mAdapter;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
         mAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mAdapter);

@@ -3,6 +3,7 @@ package la.xiong.androidquick.demo.function.permission;
 import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.View;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class PermissionFragment extends BaseFragment {
     public static final String TAG = "PermissionFragment";
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

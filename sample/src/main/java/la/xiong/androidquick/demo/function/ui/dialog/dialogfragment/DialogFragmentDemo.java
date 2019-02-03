@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.dialog.dialogfragment;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ public class DialogFragmentDemo extends BaseFragment {
     Button btn2;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
 
     }
 

@@ -1,5 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.databinding;
 
+import android.os.Bundle;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseVFragment;
 import la.xiong.androidquick.demo.databinding.FragmentDatabindingBinding;
@@ -17,7 +19,7 @@ public class DatabindingFragment extends BaseVFragment<FragmentDatabindingBindin
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         getBinding().setAct(this);
         getBinding().tvDatabindingEmpty.setText("this is a databinding view");
     }

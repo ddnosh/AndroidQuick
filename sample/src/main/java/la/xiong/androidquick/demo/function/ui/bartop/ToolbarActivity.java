@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.bartop;
 
+import android.os.Bundle;
 import android.view.View;
 
 import butterknife.OnClick;
@@ -17,7 +18,7 @@ public class ToolbarActivity extends BaseActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         getToolbar().setTitle(getString(R.string.app_name));
         getToolbar().setTitleTextColor(getResources().getColor(R.color.white));
     }

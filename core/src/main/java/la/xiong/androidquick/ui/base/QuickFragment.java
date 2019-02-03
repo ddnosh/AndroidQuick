@@ -118,7 +118,7 @@ public abstract class QuickFragment extends RxFragment {
         mScreenHeight = displayMetrics.heightPixels;
         mScreenWidth = displayMetrics.widthPixels;
 
-        initViewsAndEvents();
+        initViewsAndEvents(savedInstanceState);
     }
 
     @Override
@@ -235,7 +235,7 @@ public abstract class QuickFragment extends RxFragment {
     /**
      * init all views and add events
      */
-    protected abstract void initViewsAndEvents();
+    protected abstract void initViewsAndEvents(Bundle savedInstanceState);
 
     /**
      * bind layout resource file

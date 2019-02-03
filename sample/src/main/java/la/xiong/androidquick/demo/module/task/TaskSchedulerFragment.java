@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.task;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
@@ -26,7 +27,7 @@ public class TaskSchedulerFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         mDemoTask = new Task<String>() {
 
             @Override

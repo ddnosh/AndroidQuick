@@ -6,18 +6,18 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.module.network.retrofit.Gank2Apis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankApis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
-import la.xiong.androidquick.demo.module.network.retrofit.base.BaseSubscriber;
+import la.xiong.androidquick.demo.module.network.retrofit.base.BaseObserver;
 import la.xiong.androidquick.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.LogUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * @author ddnosh
@@ -55,17 +55,17 @@ public class Network1Presenter extends Network1Contract.Presenter {
                 }
             });
         } else {
-            addSubscription(mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), GankApis.class)
+            mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), GankApis.class)
                     .getHistoryDate()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new BaseSubscriber<GankRes<List<String>>>() {
+                    .subscribe(new BaseObserver<GankRes<List<String>>>() {
                         @Override
                         public void onNext(GankRes<List<String>> list) {
                             LogUtil.i(TAG, list.getResults().toString());
                             getView().updateView(list.getResults().toString());
                         }
-                    }));
+                    });
         }
     }
 }

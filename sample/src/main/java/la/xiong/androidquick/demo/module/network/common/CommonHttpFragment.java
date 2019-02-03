@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.module.network.common;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,7 +47,7 @@ public class CommonHttpFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         initUI();
         initData();
     }

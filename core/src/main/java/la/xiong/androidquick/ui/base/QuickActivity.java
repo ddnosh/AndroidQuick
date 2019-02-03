@@ -190,7 +190,7 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
         // network status
         NetStateReceiver.registerNetworkStateReceiver(mContext);
 
-        initViewsAndEvents();
+        initViewsAndEvents(savedInstanceState);
     }
 
     @Override
@@ -338,7 +338,7 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
     /**
      * init all views and add events
      */
-    protected abstract void initViewsAndEvents();
+    protected abstract void initViewsAndEvents(Bundle savedInstanceState);
 
     /**
      * toggle overridePendingTransition

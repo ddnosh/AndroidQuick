@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.module.network.retrofit.DownloadApis;
 import la.xiong.androidquick.demo.module.network.retrofit.exception.CustomizeException;
 import la.xiong.androidquick.tool.FileUtil;
@@ -14,16 +19,10 @@ import la.xiong.androidquick.tool.LogUtil;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 public class DownloadManager {
@@ -46,27 +45,26 @@ public class DownloadManager {
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .client(client)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
-    public Subscription downloadAPK(@NonNull String url, final File file, Subscriber subscriber) {
+    public void downloadAPK(@NonNull String url, final File file, Observer observer) {
         LogUtil.d(TAG, "downloadAPK step1(download url): " + url);
-
-        return retrofit.create(DownloadApis.class)
+        retrofit.create(DownloadApis.class)
                 .downloadFile(url)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
-                .map(new Func1<ResponseBody, InputStream>() {
+                .map(new Function<ResponseBody, InputStream>() {
                     @Override
-                    public InputStream call(ResponseBody responseBody) {
+                    public InputStream apply(ResponseBody responseBody) {
                         return responseBody.byteStream();
                     }
                 })
                 .observeOn(Schedulers.computation())
-                .doOnNext(new Action1<InputStream>() {
+                .doOnNext(new Consumer<InputStream>() {
                     @Override
-                    public void call(InputStream inputStream) {
+                    public void accept(InputStream inputStream) {
                         try {
                             FileUtil.writeFile(inputStream, file);
                         } catch (IOException e) {
@@ -76,8 +74,7 @@ public class DownloadManager {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
+                .subscribe(observer);
     }
-
 
 }

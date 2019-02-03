@@ -20,7 +20,7 @@ public class ResolutionAdaptionFragment extends BaseFragment {
     Button btnClick;
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
     }
 
     @Override

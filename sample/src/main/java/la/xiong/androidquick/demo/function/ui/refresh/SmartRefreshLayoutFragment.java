@@ -1,6 +1,7 @@
 package la.xiong.androidquick.demo.function.ui.refresh;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -67,7 +68,7 @@ public class SmartRefreshLayoutFragment extends BaseTFragment {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         RecyclerView recyclerView = getActivity().findViewById(R.id.recyclerView);
         List<String> datas = new ArrayList<>();
         for (int i =0; i < 50; i++) {
