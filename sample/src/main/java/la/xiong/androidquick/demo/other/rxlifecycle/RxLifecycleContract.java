@@ -1,23 +1,22 @@
-package la.xiong.androidquick.demo.module.mvp.activity;
+package la.xiong.androidquick.demo.other.rxlifecycle;
 
 import la.xiong.androidquick.demo.base.BaseContract;
 import la.xiong.androidquick.demo.base.BaseModel;
-import la.xiong.androidquick.demo.base.BasePresenter;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public interface MvpContract {
+public interface RxLifecycleContract {
     interface Model extends BaseModel {
 
     }
 
     interface View extends BaseContract.BaseView {
-        void refreshView(String result);
+        void updateView(String result);
     }
 
-    abstract class Presenter extends BasePresenter<View> {
-        public abstract void initData();
+    interface Presenter extends BaseContract.BasePresenter<View> {
+        void initData();
     }
 }

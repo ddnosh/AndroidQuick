@@ -36,14 +36,14 @@ public abstract class BaseTVFragment<T extends BasePresenter, V extends ViewData
         super.onCreate(savedInstanceState);
         //dagger2
         initInjector();
-        if (this instanceof BaseView)
-            mPresenter.initVM(this);
+        if (this instanceof BaseContract.BaseView)
+            mPresenter.attachView(this);
     }
 
     @Override
     public void onDestroy() {
         if (mPresenter != null) {
-            mPresenter.onDestroy();
+            mPresenter.detachView();
             mPresenter = null;
         }
         super.onDestroy();

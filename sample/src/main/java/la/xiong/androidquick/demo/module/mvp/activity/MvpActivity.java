@@ -39,4 +39,5 @@ public class MvpActivity extends BaseTActivity<MvpPresenter> implements MvpContr
             }
         });
     }
+
 }

@@ -111,4 +111,5 @@ public class PermissionActivity extends BaseActivity {
             permissionsCheck();
         }
     }
+
 }

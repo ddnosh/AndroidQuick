@@ -113,4 +113,5 @@ public class NetworkActivity extends BaseActivity {
             permissionsCheck();
         }
     }
+
 }

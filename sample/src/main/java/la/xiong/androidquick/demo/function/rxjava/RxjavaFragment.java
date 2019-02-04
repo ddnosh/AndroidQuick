@@ -361,8 +361,8 @@ public class RxjavaFragment extends BaseTFragment {
 
     private void testCompose() {
         lifecycle
-                .compose(RxUtil.applySchedulers())
-                .compose(bindToLifecycle())
+                .compose(RxUtil.<String>applySchedulers())
+                .compose(this.<String>bindToLife())
                 .subscribe(new Observer<String>() {
 
                     @Override

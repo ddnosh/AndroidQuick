@@ -9,7 +9,7 @@ import la.xiong.androidquick.demo.constant.Constants;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class BasePresenter<V> {
+public class BasePresenter<V extends BaseContract.BaseView> implements BaseContract.BasePresenter<V> {
     protected Reference<V> mRefView;
 
 //    protected CompositeSubscription mCompositeSubscription;
@@ -36,14 +36,13 @@ public class BasePresenter<V> {
         return mRefView != null && mRefView.get() != null;
     }
 
-    //attach
-    protected void initVM(V v) {
-        mRefView = new WeakReference<>(v);
+    @Override
+    public void attachView(V view) {
+        mRefView = new WeakReference<>(view);
     }
 
-    //detach
-    public void onDestroy() {
-//        unSubscribe();
+    @Override
+    public void detachView() {
         if (mRefView != null) {
             mRefView.clear();
             mRefView = null;

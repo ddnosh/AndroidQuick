@@ -1,8 +1,8 @@
 package la.xiong.androidquick.demo.module.mvp.fragment;
 
+import la.xiong.androidquick.demo.base.BaseContract;
 import la.xiong.androidquick.demo.base.BaseModel;
 import la.xiong.androidquick.demo.base.BasePresenter;
-import la.xiong.androidquick.demo.base.BaseView;
 
 /**
  * @author  ddnosh
@@ -13,7 +13,7 @@ public interface MvpContract {
 
     }
 
-    interface View extends BaseView {
+    interface View extends BaseContract.BaseView {
         void refreshView(String result);
     }
 

@@ -27,4 +27,5 @@ public class DatabindingFragment extends BaseVFragment<FragmentDatabindingBindin
     public void onConfirmClick() {
         ToastUtil.showToast("clicked");
     }
+
 }

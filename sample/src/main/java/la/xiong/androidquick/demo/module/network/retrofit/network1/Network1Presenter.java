@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.MyApplication;
+import la.xiong.androidquick.demo.base.BasePresenter;
 import la.xiong.androidquick.demo.module.network.retrofit.Gank2Apis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankApis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
@@ -23,7 +24,7 @@ import retrofit2.Response;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class Network1Presenter extends Network1Contract.Presenter {
+public class Network1Presenter extends BasePresenter<Network1Contract.View> implements Network1Contract.Presenter {
 
     private static final String TAG = "MvpPresenter";
     private RetrofitManager mRetrofitManager;
@@ -68,4 +69,5 @@ public class Network1Presenter extends Network1Contract.Presenter {
                     });
         }
     }
+
 }

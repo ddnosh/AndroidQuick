@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.lang.reflect.Field;
@@ -447,5 +448,14 @@ public abstract class QuickFragment extends RxFragment {
             return ((QuickActivity) getActivity()).getDialogBuilder(context);
         }
         throw new IllegalStateException("CommonDialog can only be used in a class which extends QuickActivity!");
+    }
+
+    /**
+     * lifecycle
+     * @param <T>
+     * @return
+     */
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.<T>bindToLifecycle();
     }
 }

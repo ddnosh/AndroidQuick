@@ -55,4 +55,5 @@ public class Architecture2Fragment extends BaseFragment implements IModuleCallba
     public void doModify(String content) {
         ToastUtil.showToast("Modify Content is: " + content);
     }
+
 }
