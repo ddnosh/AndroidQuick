@@ -3,8 +3,6 @@ package la.xiong.androidquick.demo.base;
 import android.content.Context;
 import android.view.View;
 
-import com.trello.rxlifecycle2.LifecycleTransformer;
-
 import la.xiong.androidquick.ui.base.QuickFragment;
 import la.xiong.androidquick.ui.eventbus.EventCenter;
 
@@ -12,7 +10,7 @@ import la.xiong.androidquick.ui.eventbus.EventCenter;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class BaseFragment extends QuickFragment implements BaseContract.BaseView{
+public abstract class BaseFragment extends QuickFragment {
 
     @Override
     public void onAttach(Context context) {
@@ -45,18 +43,4 @@ public abstract class BaseFragment extends QuickFragment implements BaseContract
 
     }
 
-    @Override
-    public <T> LifecycleTransformer<T> bindToLife() {
-        return this.<T>bindToLifecycle();
-    }
-
-    @Override
-    public void showSuccess() {
-
-    }
-
-    @Override
-    public void showFail() {
-
-    }
 }

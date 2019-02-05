@@ -4,6 +4,7 @@ import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
 import la.xiong.androidquick.demo.constant.Constants;
+import la.xiong.androidquick.ui.base.BaseContract;
 
 /**
  * @author ddnosh

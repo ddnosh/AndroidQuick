@@ -33,6 +33,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ import spa.lyh.cn.statusbarlightmode.ImmersionMode;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class QuickActivity extends RxAppCompatActivity implements EasyPermissions.PermissionWithDialogCallbacks {
+public abstract class QuickActivity extends RxAppCompatActivity implements EasyPermissions.PermissionWithDialogCallbacks, BaseContract.BaseView {
 
     /**
      * log tag
@@ -731,5 +732,35 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
 
     public CommonDialog.Builder getDialogBuilder(Context context) {
         return new CommonDialog.Builder(context);
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showSuccess() {
+
+    }
+
+    @Override
+    public void showFail() {
+
+    }
+
+    @Override
+    public void showRetry() {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.<T>bindToLifecycle();
     }
 }

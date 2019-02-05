@@ -35,7 +35,7 @@ import la.xiong.androidquick.ui.viewstatus.VaryViewHelperController;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class QuickFragment extends RxFragment {
+public abstract class QuickFragment extends RxFragment implements BaseContract.BaseView {
 
     /**
      * Log tag
@@ -450,11 +450,32 @@ public abstract class QuickFragment extends RxFragment {
         throw new IllegalStateException("CommonDialog can only be used in a class which extends QuickActivity!");
     }
 
-    /**
-     * lifecycle
-     * @param <T>
-     * @return
-     */
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showSuccess() {
+
+    }
+
+    @Override
+    public void showFail() {
+
+    }
+
+    @Override
+    public void showRetry() {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
     public <T> LifecycleTransformer<T> bindToLife() {
         return this.<T>bindToLifecycle();
     }

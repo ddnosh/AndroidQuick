@@ -36,8 +36,9 @@ public abstract class BaseTVFragment<T extends BasePresenter, V extends ViewData
         super.onCreate(savedInstanceState);
         //dagger2
         initInjector();
-        if (this instanceof BaseContract.BaseView)
+        if (mPresenter != null) {
             mPresenter.attachView(this);
+        }
     }
 
     @Override

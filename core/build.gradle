@@ -72,7 +72,7 @@ publish {
     userOrg = 'ddnosh'
     groupId = 'la.xiong.androidquick'
     artifactId = 'AndroidQuick'
-    version = '1.1.2'
+    version = '1.1.4'
     description = 'AndroidQuick is a quick architecture to make an app.'
     website = "https://github.com/ddnosh/AndroidQuick"
 }

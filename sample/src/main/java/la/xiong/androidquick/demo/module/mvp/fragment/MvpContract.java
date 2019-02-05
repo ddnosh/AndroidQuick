@@ -1,6 +1,6 @@
 package la.xiong.androidquick.demo.module.mvp.fragment;
 
-import la.xiong.androidquick.demo.base.BaseContract;
+import la.xiong.androidquick.ui.base.BaseContract;
 import la.xiong.androidquick.demo.base.BaseModel;
 import la.xiong.androidquick.demo.base.BasePresenter;
 

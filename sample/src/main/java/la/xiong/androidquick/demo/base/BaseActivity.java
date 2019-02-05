@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.trello.rxlifecycle2.LifecycleTransformer;
-
 import la.xiong.androidquick.demo.ui.activity.FrameActivity;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.ui.base.QuickActivity;
@@ -18,7 +16,7 @@ import la.xiong.androidquick.ui.eventbus.EventCenter;
  * @Author: ddnosh
  * @Website http://blog.csdn.net/ddnosh
  */
-public abstract class BaseActivity extends QuickActivity implements BaseContract.BaseView{
+public abstract class BaseActivity extends QuickActivity {
 
     protected static String TAG = "BaseActivity";
 
@@ -67,18 +65,4 @@ public abstract class BaseActivity extends QuickActivity implements BaseContract
         }
     }
 
-    @Override
-    public <T> LifecycleTransformer<T> bindToLife() {
-        return this.<T>bindToLifecycle();
-    }
-
-    @Override
-    public void showSuccess() {
-
-    }
-
-    @Override
-    public void showFail() {
-
-    }
 }
