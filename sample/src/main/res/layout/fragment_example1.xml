@@ -15,7 +15,7 @@
             android:id="@+id/textView"
             style="@style/textview_common_style"
             android:gravity="center"
-            android:text="this is a fragment"
+            android:text="this is a fragment, click to go to another fragment"
             android:textColor="@android:color/black" />
 
     </android.support.v4.widget.SwipeRefreshLayout>

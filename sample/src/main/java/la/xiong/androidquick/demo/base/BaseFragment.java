@@ -1,8 +1,10 @@
 package la.xiong.androidquick.demo.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
+import la.xiong.androidquick.demo.ui.activity.FrameActivity;
 import la.xiong.androidquick.ui.base.QuickFragment;
 import la.xiong.androidquick.ui.eventbus.EventCenter;
 
@@ -41,6 +43,17 @@ public abstract class BaseFragment extends QuickFragment {
     @Override
     protected void onEventComing(EventCenter eventCenter) {
 
+    }
+
+    @Override
+    protected Intent getGoIntent(Class<?> clazz) {
+        if (BaseFragment.class.isAssignableFrom(clazz)) {
+            Intent intent = new Intent(getActivity(), FrameActivity.class);
+            intent.putExtra("fragmentName", clazz.getName());
+            return intent;
+        } else {
+            return super.getGoIntent(clazz);
+        }
     }
 
 }

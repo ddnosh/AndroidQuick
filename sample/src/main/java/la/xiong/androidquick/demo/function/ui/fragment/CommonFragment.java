@@ -4,11 +4,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -66,11 +69,20 @@ public class CommonFragment extends BaseTFragment implements SwipeRefreshLayout.
         //设置下拉刷新的监听
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
-
         if (getArguments() == null) return;
         type = getArguments().getString("Type");
-        if (StringUtil.isEmpty(type))
+        if (StringUtil.isEmpty(type)) {
             ToastUtil.showToast("this is a new way go");
+        }
+    }
+
+    @OnClick(R.id.textView)
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.textView:
+                readyGo(Network2Fragment.class);
+                break;
+        }
     }
 
     @Override

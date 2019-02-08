@@ -261,13 +261,17 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
         return getActivity().getSupportFragmentManager();
     }
 
+    protected Intent getGoIntent(Class<?> clazz) {
+        return new Intent(getActivity(), clazz);
+    }
+
     /**
      * startActivity
      *
      * @param clazz
      */
     protected void readyGo(Class<?> clazz) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent = getGoIntent(clazz);
         startActivity(intent);
     }
 
@@ -278,7 +282,7 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
      * @param bundle
      */
     protected void readyGo(Class<?> clazz, Bundle bundle) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent = getGoIntent(clazz);
         if (null != bundle) {
             intent.putExtras(bundle);
         }
@@ -292,7 +296,7 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
      * @param requestCode
      */
     protected void readyGoForResult(Class<?> clazz, int requestCode) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent = getGoIntent(clazz);
         startActivityForResult(intent, requestCode);
     }
 
@@ -304,7 +308,7 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
      * @param bundle
      */
     protected void readyGoForResult(Class<?> clazz, int requestCode, Bundle bundle) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent = getGoIntent(clazz);
         if (null != bundle) {
             intent.putExtras(bundle);
         }
