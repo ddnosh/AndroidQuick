@@ -26,8 +26,10 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.tool.AssetsUtil;
+import la.xiong.androidquick.network.retrofit.exeception.ApiException;
 import la.xiong.androidquick.tool.RxUtil;
 import la.xiong.androidquick.tool.ToastUtil;
+import la.xiong.androidquick.ui.base.BaseObserver;
 
 /**
  * @author ddnosh
@@ -334,25 +336,15 @@ public class RxjavaFragment extends BaseTFragment {
                 })
                 .subscribeOn(Schedulers.io())//let all the observables which haven't assign to special thread in the front run in io thread
                 .observeOn(AndroidSchedulers.mainThread())//let the next call run in main thread
-                .subscribe(new Observer<String>() {
+                .subscribe(new BaseObserver<String>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
-
+                    public void onError(ApiException exception) {
+                        Log.e("tag", "error" + exception.getMessage());
                     }
 
                     @Override
-                    public void onNext(String s) {
-                        Log.d("RxJava", s + Thread.currentThread().getName());
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        e.printStackTrace();
-                    }
-
-                    @Override
-                    public void onComplete() {
-
+                    public void onSuccess(String s) {
+                        Log.e("tag", "onSuccess");
                     }
                 });
     }

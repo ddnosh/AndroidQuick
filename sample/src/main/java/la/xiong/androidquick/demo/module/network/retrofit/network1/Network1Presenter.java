@@ -13,9 +13,10 @@ import la.xiong.androidquick.demo.base.BasePresenter;
 import la.xiong.androidquick.demo.module.network.retrofit.Gank2Apis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankApis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
-import la.xiong.androidquick.demo.module.network.retrofit.base.BaseObserver;
 import la.xiong.androidquick.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.network.retrofit.exeception.ApiException;
 import la.xiong.androidquick.tool.LogUtil;
+import la.xiong.androidquick.ui.base.BaseObserver;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,10 +62,16 @@ public class Network1Presenter extends BasePresenter<Network1Contract.View> impl
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new BaseObserver<GankRes<List<String>>>() {
+
                         @Override
-                        public void onNext(GankRes<List<String>> list) {
-                            LogUtil.i(TAG, list.getResults().toString());
-                            getView().updateView(list.getResults().toString());
+                        public void onError(ApiException exception) {
+                            LogUtil.e(TAG, "error:" + exception.getMessage());
+                        }
+
+                        @Override
+                        public void onSuccess(GankRes<List<String>> listGankRes) {
+                            LogUtil.i(TAG, listGankRes.getResults().toString());
+                            getView().updateView(listGankRes.getResults().toString());
                         }
                     });
         }
