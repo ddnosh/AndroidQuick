@@ -41,6 +41,7 @@ import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
 import la.xiong.androidquick.demo.function.ui.refresh.SmartRefreshLayoutFragment;
 import la.xiong.androidquick.demo.function.ui.resolution.ResolutionAdaptionFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
+import la.xiong.androidquick.demo.function.ui.tab.TabLayoutFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabSTLFragment;
 import la.xiong.androidquick.demo.function.ui.varypagestatus.VaryPageStatusFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
@@ -282,6 +283,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(ResolutionAdaptionFragment.class);
             } else if (name.equals("ConstraintLayout")) {
                 readyGo(ConstraintLayoutFragment.class);
+            } else if (name.equals("TabLayout")) {
+                readyGo(TabLayoutFragment.class);
             }
         }
     }
