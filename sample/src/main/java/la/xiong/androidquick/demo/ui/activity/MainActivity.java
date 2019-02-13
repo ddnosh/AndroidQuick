@@ -39,6 +39,7 @@ import la.xiong.androidquick.demo.function.ui.dialog.dialogfragment.DialogFragme
 import la.xiong.androidquick.demo.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.function.ui.fragment.FragmentationActivity;
 import la.xiong.androidquick.demo.function.ui.refresh.SmartRefreshLayoutFragment;
+import la.xiong.androidquick.demo.function.ui.refresh.SwipeRefreshLayoutFragment;
 import la.xiong.androidquick.demo.function.ui.resolution.ResolutionAdaptionFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabFTLFragment;
 import la.xiong.androidquick.demo.function.ui.tab.TabLayoutFragment;
@@ -63,7 +64,6 @@ import la.xiong.androidquick.demo.other.code.CodeFragment;
 import la.xiong.androidquick.demo.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.other.rxlifecycle.RxLifecycleFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
@@ -244,7 +244,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("Permission-Fragment-Call")) {
                 readyGo(PermissionFragment.class);
             } else if (name.equals("SwipeRefreshLayout")) {
-                readyGo(Example1Fragment.class);
+                readyGo(SwipeRefreshLayoutFragment.class);
             } else if (name.equals("SmartRefreshLayout")) {
                 readyGo(SmartRefreshLayoutFragment.class);
             } else if (name.equals("WebView")) {
