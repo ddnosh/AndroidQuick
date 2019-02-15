@@ -68,3 +68,6 @@
 3026,Resolution,206;
 3027,ConstraintLayout,206;
 40014,TabLayout,3005;
+15,Which app use AndroidQuick,0;
+219,QuickGank,15;
+220,QuickTV,15;

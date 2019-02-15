@@ -25,6 +25,11 @@ public class RxLifecycleFragment extends BaseTFragment<RxLifecyclePresenter> imp
     }
 
     @Override
+    protected void initInjector() {
+        getFragmentComponent().inject(this);
+    }
+
+    @Override
     protected int getContentViewLayoutID() {
         return R.layout.fragment_other_rxlifecycle;
     }

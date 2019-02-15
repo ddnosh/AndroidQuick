@@ -5,6 +5,7 @@ import la.xiong.androidquick.demo.injector.FragmentScope;
 import la.xiong.androidquick.demo.injector.module.FragmentModule;
 import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
+import la.xiong.androidquick.demo.other.rxlifecycle.RxLifecycleFragment;
 
 /**
  * @author  ddnosh
@@ -16,4 +17,5 @@ public interface FragmentComponent {
 
     void inject(Network1Fragment network1Fragment);
     void inject(MvpFragment mvpFragment);
+    void inject(RxLifecycleFragment rxLifecycleFragment);
 }

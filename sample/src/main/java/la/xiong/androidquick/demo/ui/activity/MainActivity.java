@@ -161,7 +161,6 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         return null;
     }
 
-
     private TreeNode addTreeNode(TreeNode treeNode, String nodeName) {
         if (treeNode == null) return null;
         TreeNode node = new TreeNode(new IconTreeItemHolder.IconTreeItem(R.string.ic_folder, nodeName)).setViewHolder(
@@ -285,6 +284,14 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(ConstraintLayoutFragment.class);
             } else if (name.equals("TabLayout")) {
                 readyGo(TabLayoutFragment.class);
+            } else if (name.equals("QuickGank")) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "https://github.com/ddnosh/QuickGank");
+                readyGo(WebViewActivity.class, bundle);
+            } else if (name.equals("QuickTV")) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "https://github.com/ddnosh/QuickTV");
+                readyGo(WebViewActivity.class, bundle);
             }
         }
     }
