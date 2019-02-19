@@ -3,6 +3,8 @@
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
 ![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
 ## Release Notes
+### 20190211 -> sdk版本: v1.1.6
+1. sdk版本更新, 新增baseObserver,Exeception,生命周期绑定等功能;
 ### 20190131 -> sdk版本: v1.1.1
 1. 优化代码目录结构;
 2. 升级sdk版本至v1.1.1, SDK版本功能见下方描述;
