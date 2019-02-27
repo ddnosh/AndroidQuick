@@ -38,7 +38,7 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         mBBeanList = new ArrayList<BBean>();
         mBBeanList.add(new BBean("left", "here is left loaded"));
-        mBBeanList.add(new BBean("right", "here is right loaded"));
+        mBBeanList.add(new BBean("right", "https://www.baidu.com/img/bd_logo1.png"));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(new ChatAdapter(getActivity(), mBBeanList));
@@ -51,9 +51,9 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
                 @Override
                 public int getLayoutId(int itemType) {
                     if (itemType == 1) {
-                        return R.layout.item_multiviewtype_left;
+                        return R.layout.item_multiviewtype_text;
                     } else {
-                        return R.layout.item_multiviewtype_right;
+                        return R.layout.item_multiviewtype_img;
                     }
                 }
 
@@ -72,9 +72,9 @@ public class MultiViewTypeAdapterFragment extends BaseFragment {
         @Override
         public void convert(CommonViewHolder holder, BBean bean) {
             if (holder.getItemViewType() == 1) {
-                holder.setText(R.id.tv_left, bean.getValue());
+                holder.setText(R.id.tv_text, bean.getValue());
             } else {
-                holder.setText(R.id.tv_right, bean.getValue());
+                holder.setImageResourceWithGlide(R.id.iv_img, bean.getValue());
             }
         }
     }

@@ -10,6 +10,6 @@
         android:id="@+id/iv_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/ic_launcher_background"/>
 
 </LinearLayout>
