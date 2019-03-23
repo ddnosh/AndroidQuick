@@ -1,14 +1,18 @@
 package la.xiong.androidquick.tool;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 
 /**
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 public class AppUtil {
+
+    private final static String TAG = "AppUtil";
 
     /**
      * get App versionCode
@@ -44,5 +48,23 @@ public class AppUtil {
             e.printStackTrace();
         }
         return versionName;
+    }
+
+    public static boolean isContextValid(Context context) {
+        if (context == null) {
+            LogUtil.d(TAG, "context is null");
+            return false;
+        }
+        if (context instanceof Activity) {
+            if (((Activity) context).isFinishing()) {
+                LogUtil.d(TAG, "context is finishing");
+                return false;
+            }
+            if (((Activity) context).isDestroyed()) {
+                LogUtil.d(TAG, "context is destroyed");
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -37,7 +37,7 @@ public class GlideFragment extends BaseTFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_glide1:
-                GlideUtils.loadImageView(getContext(), "https://www.baidu.com/img/bd_logo1.png", imageView1);
+                GlideUtils.loadImageView("https://www.baidu.com/img/bd_logo1.png", imageView1);
                 break;
         }
     }
