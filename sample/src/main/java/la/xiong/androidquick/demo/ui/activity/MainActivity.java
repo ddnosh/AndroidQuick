@@ -60,6 +60,7 @@ import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragm
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.module.task.TaskRxJavaFragment;
 import la.xiong.androidquick.demo.module.task.TaskSchedulerFragment;
+import la.xiong.androidquick.demo.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.other.code.CodeFragment;
 import la.xiong.androidquick.demo.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.other.rxlifecycle.RxLifecycleFragment;
@@ -292,6 +293,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/ddnosh/QuickTV");
                 readyGo(WebViewActivity.class, bundle);
+            } else if (name.equals("CallBack")) {
+                readyGo(CallBackFragment.class);
             }
         }
     }
