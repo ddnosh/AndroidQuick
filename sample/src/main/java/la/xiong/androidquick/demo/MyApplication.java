@@ -12,6 +12,7 @@ import la.xiong.androidquick.demo.injector.module.ApplicationModule;
 import la.xiong.androidquick.demo.module.db.greendao.DBManager;
 import la.xiong.androidquick.demo.ui.AQActivityLifecycleCallbacks;
 import la.xiong.androidquick.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import spa.lyh.cn.statusbarlightmode.ImmersionConfiguration;
@@ -40,6 +41,8 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
         if (INSTANCE == null) {
             INSTANCE = this;
         }
+        //log switcher
+        LogUtil.setLogOn(true);
         //lifecyclecallback
         lifecycleCallback = new AQActivityLifecycleCallbacks();
         registerActivityLifecycleCallbacks(lifecycleCallback);

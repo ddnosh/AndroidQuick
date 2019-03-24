@@ -11,6 +11,8 @@ public class LogUtil {
     public static final String TAG = "LogUtil";
     public static final int LOG_LEVEL = Log.VERBOSE;
 
+    private static boolean logOn = true;
+
     public static void dumpException(Throwable t) {
         if (isLoggable(Log.WARN)) {
             final int maxLen = 256;
@@ -80,7 +82,7 @@ public class LogUtil {
      * @param aThrowable An exception to log
      */
     public static void log(int aLogLevel, String aTag, String aMessage, Throwable aThrowable) {
-        if (isLoggable(aLogLevel)) {
+        if (logOn && isLoggable(aLogLevel)) {
             switch (aLogLevel) {
                 case Log.VERBOSE:
                     Log.v(TAG, aTag + ": " + aMessage, aThrowable);
@@ -170,4 +172,7 @@ public class LogUtil {
         }
     }
 
+    public static void setLogOn(boolean logOn) {
+        LogUtil.logOn = logOn;
+    }
 }
