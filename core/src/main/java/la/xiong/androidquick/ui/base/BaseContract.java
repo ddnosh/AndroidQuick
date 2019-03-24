@@ -3,9 +3,8 @@ package la.xiong.androidquick.ui.base;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
- * desc:
- * author: Will .
- * date: 2017/9/2 .
+ * @author  ddnosh
+ * @website http://blog.csdn.net/ddnosh
  */
 public interface BaseContract {
 

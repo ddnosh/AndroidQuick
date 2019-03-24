@@ -58,7 +58,7 @@ public class CallBackFragment extends BaseFragment {
                 DemoObserver.notifyObserver();
                 break;
             case R.id.btn_callback_eventbus:
-                EventBus.getDefault().post(new EventCenter(10003, "this is a event"));
+                EventBus.getDefault().post(new EventCenter(10003, "this is an event"));
                 break;
             case R.id.btn_callback_broadcast:
                 registerBroadcastReceiver();

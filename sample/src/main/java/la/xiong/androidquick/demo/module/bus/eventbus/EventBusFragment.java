@@ -36,7 +36,7 @@ public class EventBusFragment extends BaseTFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_bus1:
-                EventBus.getDefault().post(new EventCenter(10003, "this is a event"));
+                EventBus.getDefault().post(new EventCenter(10003, "this is an event"));
                 break;
         }
     }

@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:text="click 2"/>
 
+    <Button
+        android:id="@+id/btn_module3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click 3"/>
+
     <TextView
         android:id="@+id/tv_module1"
         android:layout_width="match_parent"
@@ -29,5 +35,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello, I'm Module2 Text"/>
+
+    <TextView
+        android:id="@+id/tv_module3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello, I'm Module3 Text"/>
 
 </LinearLayout>

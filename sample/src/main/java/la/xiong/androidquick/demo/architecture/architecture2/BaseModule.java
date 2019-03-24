@@ -26,7 +26,7 @@ public abstract class BaseModule {
         }
     }
 
-    public static void releaseModules() {
+    protected static void releaseModules() {
         for (BaseModule roomModule : modules.values()) {
             roomModule.release();
         }
