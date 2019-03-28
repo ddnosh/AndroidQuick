@@ -125,6 +125,11 @@ public class WebViewJavascriptActivity extends BaseActivity implements JsInterfa
     }
 
     @Override
+    public WebView getCurrentWebView() {
+        return mContentWv;
+    }
+
+    @Override
     public void invoke(String name, JSONObject request) {
         LogUtil.i(TAG, String.format("js invoke name:%s, request:%s", name, request));
 
@@ -134,7 +139,7 @@ public class WebViewJavascriptActivity extends BaseActivity implements JsInterfa
             return;
         }
 
-        handler.handle(request.get("params"), request.getString("callback"));
+        handler.handle(request.get("params"), request.getString("callback"), false);
     }
 
     protected void loadUrl(final String url) {
@@ -213,7 +218,7 @@ public class WebViewJavascriptActivity extends BaseActivity implements JsInterfa
                 jsonObject.put("name", name);
             if (!StringUtil.isEmpty(parameters))
                 jsonObject.put("parameters", parameters);
-            handler.handle(jsonObject, callback);
+            handler.handle(jsonObject, callback, false);
             return "{}";
         }
 

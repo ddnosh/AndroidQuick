@@ -59,7 +59,7 @@ import la.xiong.androidquick.demo.module.network.retrofit.NetworkActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.module.task.TaskRxJavaFragment;
-import la.xiong.androidquick.demo.module.task.TaskSchedulerFragment;
+import la.xiong.androidquick.demo.module.task.TaskTinyFragment;
 import la.xiong.androidquick.demo.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.other.code.CodeFragment;
 import la.xiong.androidquick.demo.other.lambda.LambdaFragment;
@@ -267,8 +267,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(Architecture2Fragment.class);
             } else if (name.equals("WebView-JavaScripts")) {
                 readyGo(WebViewJavascriptActivity.class);
-            } else if (name.equals("Task-Scheduler")) {
-                readyGo(TaskSchedulerFragment.class);
+            } else if (name.equals("Task-Tiny")) {
+                readyGo(TaskTinyFragment.class);
             } else if (name.equals("Task-RxJava")) {
                 readyGo(TaskRxJavaFragment.class);
             } else if (name.equals("RxLifecycle")) {

@@ -21,17 +21,13 @@
             android:layout_below="@id/btn_task_noresult"
             android:text="WithResult" />
 
-        <Button
-            android:id="@+id/btn_task_cancelresult"
-            style="@style/button_common_style"
-            android:layout_below="@id/btn_task_withresult"
-            android:text="CancelResult" />
-
-        <Button
-            android:id="@+id/btn_task_timeoutresult"
-            style="@style/button_common_style"
-            android:layout_below="@id/btn_task_cancelresult"
-            android:text="TimeOutResult" />
-
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:text="https://github.com/ddnosh/android-tiny-task"/>
 </RelativeLayout>

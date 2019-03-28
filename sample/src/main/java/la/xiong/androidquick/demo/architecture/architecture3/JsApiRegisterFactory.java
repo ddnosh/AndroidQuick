@@ -7,10 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author ddnosh
+ * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-
 public class JsApiRegisterFactory {
 
     private final Map<String, JsApiHandler> mApiHandlerMap = new HashMap<>();
@@ -51,11 +50,6 @@ public class JsApiRegisterFactory {
 
     private JsApiRegisterFactory(LoadJsCallback callback) {
         setLoadJsCallback(callback);
-        install();
-    }
-
-    private void install() {
-        register(new GetAppInfoHandler());
     }
 
 }

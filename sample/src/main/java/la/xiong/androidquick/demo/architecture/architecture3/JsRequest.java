@@ -3,25 +3,24 @@ package la.xiong.androidquick.demo.architecture.architecture3;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.androidwind.task.AdvancedTask;
+
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-
 public class JsRequest<T> {
 
     @Nullable
     private Object params;
     @Nullable
     private String mJsCallback;
-
     @Nullable
     private JsResponse<T> mJsResponse;
-
     @Nullable
-    private Runnable mJsRequestRunnable;
+    private AdvancedTask mTask;
     @Nullable
-    private Runnable mainThreadCallbackRunnable;
+    private boolean isPending;
 
     @Nullable
     public Object getParams() {
@@ -50,22 +49,22 @@ public class JsRequest<T> {
         mJsResponse = jsResponse;
     }
 
-    void setJsRequestRunnable(@NonNull Runnable jsRequestRunnable) {
-        mJsRequestRunnable = jsRequestRunnable;
+    @Nullable
+    public AdvancedTask getTask() {
+        return mTask;
     }
 
-    void setMainThreadCallbackRunnable(@NonNull Runnable mainThreadCallbackRunnable) {
-        this.mainThreadCallbackRunnable = mainThreadCallbackRunnable;
+    public void setTask(@Nullable AdvancedTask mTask) {
+        this.mTask = mTask;
     }
 
     @Nullable
-    Runnable getJsRequestRunnable() {
-        return mJsRequestRunnable;
+    public boolean isPending() {
+        return isPending;
     }
 
-    @Nullable
-    Runnable getMainThreadCallbackRunnable() {
-        return mainThreadCallbackRunnable;
+    public void setPending(@Nullable boolean pending) {
+        isPending = pending;
     }
 
     @Override
@@ -76,13 +75,13 @@ public class JsRequest<T> {
         JsRequest<?> request = (JsRequest<?>) o;
 
         if (params != null ? !params.equals(request.params) : request.params != null) return false;
-        if (mJsCallback != null ? !mJsCallback.equals(request.mJsCallback) : request.mJsCallback != null)
+        if (mJsCallback != null ? !mJsCallback.equals(request.mJsCallback) : request.mJsCallback != null) {
             return false;
-        if (mJsResponse != null ? !mJsResponse.equals(request.mJsResponse) : request.mJsResponse != null)
+        }
+        if (mJsResponse != null ? !mJsResponse.equals(request.mJsResponse) : request.mJsResponse != null) {
             return false;
-        if (mJsRequestRunnable != null ? !mJsRequestRunnable.equals(request.mJsRequestRunnable) : request.mJsRequestRunnable != null)
-            return false;
-        return mainThreadCallbackRunnable != null ? mainThreadCallbackRunnable.equals(request.mainThreadCallbackRunnable) : request.mainThreadCallbackRunnable == null;
+        }
+        return mTask != null ? !mTask.equals(request.mTask) : request.mTask != null;
     }
 
     @Override
@@ -90,8 +89,7 @@ public class JsRequest<T> {
         int result = params != null ? params.hashCode() : 0;
         result = 31 * result + (mJsCallback != null ? mJsCallback.hashCode() : 0);
         result = 31 * result + (mJsResponse != null ? mJsResponse.hashCode() : 0);
-        result = 31 * result + (mJsRequestRunnable != null ? mJsRequestRunnable.hashCode() : 0);
-        result = 31 * result + (mainThreadCallbackRunnable != null ? mainThreadCallbackRunnable.hashCode() : 0);
+        result = 31 * result + (mTask != null ? mTask.hashCode() : 0);
         return result;
     }
 }

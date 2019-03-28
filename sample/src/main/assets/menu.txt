@@ -51,7 +51,7 @@
 214,WebView-JavaScripts,12;
 215,Code,14;
 216,Task,10;
-3020,Task-Scheduler,216;
+3020,Task-Tiny,216;
 3021,Task-RxJava,216;
 40012,SwipeRefreshLayout,3006;
 40013,SmartRefreshLayout,3006;

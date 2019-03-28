@@ -9,17 +9,18 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Toast;
 
+import com.androidwind.task.AdvancedTask;
+import com.androidwind.task.TinyTaskExecutor;
+
 import java.util.ArrayList;
 
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
-import la.xiong.androidquick.constant.Constant;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
-import la.xiong.androidquick.task.Task;
-import la.xiong.androidquick.task.TaskScheduler;
 import la.xiong.androidquick.tool.LogUtil;
+import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.eventbus.EventCenter;
 
 /**
@@ -136,18 +137,24 @@ public class CallBackFragment extends BaseFragment {
         }
 
         public static void notifyObserver() {
-            TaskScheduler.execute(new Task<String>() {
-
+            TinyTaskExecutor.execute(new AdvancedTask<String>() {
                 @Override
-                public String doInBackground() throws InterruptedException {
+                public String doInBackground() {
+                    System.out.println("[new] thread id in tinytask: " + Thread.currentThread().getId());
                     for (Runnable runnable : observers) {
                         runnable.run();
                     }
-                    return null;
+                    System.out.println("[new] with callback after 5 sec");
+                    return "task with sleep 5 sec";
                 }
 
                 @Override
-                public void onSuccess(String result) {
+                public void onSuccess(String s) {
+                    ToastUtil.showToast(s);
+                }
+
+                @Override
+                public void onFail(Throwable throwable) {
 
                 }
             });

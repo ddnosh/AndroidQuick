@@ -2,21 +2,25 @@ package la.xiong.androidquick.demo.architecture.architecture3;
 
 import android.support.annotation.Nullable;
 
+
 /**
- * @author ddnosh
+ * js -> native
+ *
+ * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-
 public interface JsApiHandler {
 
     String name();
 
     /**
      * js 调用native的接口
+     *
      * @param params
      * @param jsCallback
+     * @param isPending
      */
-    void handle(@Nullable Object params, @Nullable String jsCallback);
+    void handle(@Nullable Object params, @Nullable String jsCallback, boolean isPending);
 
     void release();
 

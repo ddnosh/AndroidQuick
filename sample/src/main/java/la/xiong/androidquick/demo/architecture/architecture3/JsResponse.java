@@ -1,16 +1,14 @@
 package la.xiong.androidquick.demo.architecture.architecture3;
 
-import android.support.annotation.Keep;
 import android.support.annotation.Nullable;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
- * @author ddnosh
+ * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@Keep
-
 public class JsResponse<T> {
 
     private int code;
@@ -64,6 +62,6 @@ public class JsResponse<T> {
 
     @Override
     public String toString() {
-        return JsonToObject.toJsonString(this);
+        return JSON.toJSONString(this);
     }
 }

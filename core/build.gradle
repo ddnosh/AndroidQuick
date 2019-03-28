@@ -44,6 +44,7 @@ dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
     provided files('libs/org.apache.http.legacy.jar')
 
+    compile rootProject.ext.dependencies["appcompatv4"]
     compile rootProject.ext.dependencies["appcompatv7"]
     compile rootProject.ext.dependencies["design"]
     //eventbus
