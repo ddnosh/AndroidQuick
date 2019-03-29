@@ -6,7 +6,7 @@ import android.content.Context;
 import dagger.Component;
 import la.xiong.androidquick.demo.injector.ActivityScope;
 import la.xiong.androidquick.demo.injector.module.ActivityModule;
-import la.xiong.androidquick.demo.module.mvp.activity.MvpActivity;
+import la.xiong.androidquick.demo.architecture.mvp.activity.MvpActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.NetworkActivity;
 
 /**

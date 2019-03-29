@@ -14,7 +14,7 @@ import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
  */
 public class HostActivity extends BaseActivity {
 
-    private Fragment mContentFragment  ;
+    private Fragment mContentFragment;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -28,7 +28,7 @@ public class HostActivity extends BaseActivity {
 
         if(mContentFragment == null )
         {
-            mContentFragment = Example1Fragment.createIntent("");
+            mContentFragment = Example1Fragment.newInstance("");
             fm.beginTransaction().add(R.id.content_frame,mContentFragment).commit();
         }
     }

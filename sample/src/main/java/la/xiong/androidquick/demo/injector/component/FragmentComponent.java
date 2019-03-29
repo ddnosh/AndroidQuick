@@ -3,7 +3,7 @@ package la.xiong.androidquick.demo.injector.component;
 import dagger.Component;
 import la.xiong.androidquick.demo.injector.FragmentScope;
 import la.xiong.androidquick.demo.injector.module.FragmentModule;
-import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
+import la.xiong.androidquick.demo.architecture.mvp.fragment.MvpFragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
 import la.xiong.androidquick.demo.other.rxlifecycle.RxLifecycleFragment;
 

@@ -1,5 +1,6 @@
 package la.xiong.androidquick.demo.function.ui.constraintlayout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
@@ -20,7 +21,9 @@ public class ConstraintLayoutFragment extends BaseFragment {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         new Handler().postDelayed(() -> {
-            textView2.setText("Mike Bolton");
+            if (!((Activity) mContext).isFinishing() && !((Activity) mContext).isDestroyed()) {
+                textView2.setText("Mike Bolton");
+            }
         }, 2000);
     }
 

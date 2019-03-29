@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.mvp.activity.MvpActivity" />
+        <activity android:name=".architecture.mvp.activity.MvpActivity" />
         <activity android:name=".module.network.retrofit.NetworkActivity" />
         <activity
             android:name=".module.network.retrofit.DownloadActivity"
@@ -30,9 +30,10 @@
         <activity android:name=".function.ui.bartop.ToolbarActivity" />
         <activity android:name=".function.ui.webview.WebViewActivity" />
         <activity android:name=".function.permission.PermissionActivity" />
-        <activity android:name=".architecture.architecture3.WebViewJavascriptActivity" />
+        <activity android:name=".architecture.segment.type3.WebViewJavascriptActivity" />
         <activity android:name=".ui.activity.FrameActivity" />
         <activity android:name=".ui.activity.HostActivity" />
+        <activity android:name=".architecture.mvc.MvcActivity" />
 
     </application>
 

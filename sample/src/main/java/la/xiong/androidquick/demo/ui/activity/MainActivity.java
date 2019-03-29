@@ -15,9 +15,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.architecture.architecture1.Architecture1Fragment;
-import la.xiong.androidquick.demo.architecture.architecture2.Architecture2Fragment;
-import la.xiong.androidquick.demo.architecture.architecture3.WebViewJavascriptActivity;
+import la.xiong.androidquick.demo.architecture.mvc.MvcActivity;
+import la.xiong.androidquick.demo.architecture.segment.type1.Architecture1Fragment;
+import la.xiong.androidquick.demo.architecture.segment.type2.Architecture2Fragment;
+import la.xiong.androidquick.demo.architecture.segment.type3.WebViewJavascriptActivity;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.bean.MenuBean;
 import la.xiong.androidquick.demo.function.json.JsonFragment;
@@ -52,8 +53,8 @@ import la.xiong.androidquick.demo.module.db.ormlite.OrmLiteFragment;
 import la.xiong.androidquick.demo.module.image.glide.GlideFragment;
 import la.xiong.androidquick.demo.module.ioc.butterknife.ButterKnifeFragment;
 import la.xiong.androidquick.demo.module.ioc.dagger2.Dagger2Fragment;
-import la.xiong.androidquick.demo.module.mvp.activity.MvpActivity;
-import la.xiong.androidquick.demo.module.mvp.fragment.MvpFragment;
+import la.xiong.androidquick.demo.architecture.mvp.activity.MvpActivity;
+import la.xiong.androidquick.demo.architecture.mvp.fragment.MvpFragment;
 import la.xiong.androidquick.demo.module.network.common.CommonHttpFragment;
 import la.xiong.androidquick.demo.module.network.retrofit.NetworkActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.network1.Network1Fragment;
@@ -295,6 +296,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(WebViewActivity.class, bundle);
             } else if (name.equals("CallBack")) {
                 readyGo(CallBackFragment.class);
+            } else if (name.equals("MVC")) {
+                readyGo(MvcActivity.class);
             }
         }
     }

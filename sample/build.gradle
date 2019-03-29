@@ -44,9 +44,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    //library
     compile project(':core')
     compile project(':treeview')
-    //tinytask
+    //tiny series: tinytask
     compile 'com.androidwind:tinytask:1.0.0'
     //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"

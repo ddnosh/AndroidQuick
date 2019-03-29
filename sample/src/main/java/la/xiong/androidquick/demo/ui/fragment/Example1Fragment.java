@@ -31,7 +31,7 @@ public class Example1Fragment extends BaseTFragment implements SwipeRefreshLayou
         return new Example1Fragment();
     }
 
-    public static Example1Fragment createIntent(String type) {
+    public static Example1Fragment newInstance(String type) {
         Bundle args = new Bundle();
         args.putString("Type", type);
         Example1Fragment fragment = new Example1Fragment();
