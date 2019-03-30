@@ -1,4 +1,4 @@
-package la.xiong.androidquick.network.retrofit;
+package la.xiong.androidquick.module.network.retrofit;
 
 import la.xiong.androidquick.constant.Constant;
 

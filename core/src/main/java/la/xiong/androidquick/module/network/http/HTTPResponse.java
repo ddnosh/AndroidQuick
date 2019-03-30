@@ -1,4 +1,4 @@
-package la.xiong.androidquick.network.http;
+package la.xiong.androidquick.module.network.http;
 
 public class HTTPResponse {
     private int code;

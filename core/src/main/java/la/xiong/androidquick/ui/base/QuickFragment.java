@@ -26,9 +26,10 @@ import butterknife.Unbinder;
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
+import la.xiong.androidquick.ui.mvp.BaseContract;
 import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.ui.dialog.dialogactivity.CommonDialog;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
+import la.xiong.androidquick.eventbus.EventCenter;
 import la.xiong.androidquick.ui.viewstatus.VaryViewHelperController;
 
 /**

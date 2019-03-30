@@ -8,7 +8,7 @@ import android.content.IntentFilter;
 import de.greenrobot.event.EventBus;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.NetUtil;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
+import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @author  ddnosh

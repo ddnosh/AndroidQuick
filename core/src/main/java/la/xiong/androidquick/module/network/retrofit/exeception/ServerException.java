@@ -1,4 +1,4 @@
-package la.xiong.androidquick.network.retrofit.exeception;
+package la.xiong.androidquick.module.network.retrofit.exeception;
 
 /**
  * @author ddnosh

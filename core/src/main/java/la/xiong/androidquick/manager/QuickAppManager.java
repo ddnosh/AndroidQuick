@@ -1,4 +1,4 @@
-package la.xiong.androidquick.ui.manager;
+package la.xiong.androidquick.manager;
 
 import android.app.Activity;
 

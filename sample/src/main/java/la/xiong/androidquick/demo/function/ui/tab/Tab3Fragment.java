@@ -15,7 +15,7 @@ import butterknife.BindView;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 
 /**
  * @author  ddnosh
@@ -45,10 +45,10 @@ public class Tab3Fragment extends BaseTFragment {
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        fragment = new Example1Fragment();
+                        fragment = new ExampleFragment();
                         break;
                     case 1:
-                        fragment = new Example1Fragment();
+                        fragment = new ExampleFragment();
                         break;
                     default:
                         break;

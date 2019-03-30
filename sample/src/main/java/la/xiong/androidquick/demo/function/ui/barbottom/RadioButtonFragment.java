@@ -10,7 +10,7 @@ import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.function.json.JsonFragment;
 import la.xiong.androidquick.demo.function.permission.PermissionFragment;
 import la.xiong.androidquick.demo.module.db.greendao.GreenDaoFragment;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 
 /**
  * @author ddnosh
@@ -22,8 +22,8 @@ public class RadioButtonFragment extends BaseFragment {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        mCatalogue1Fragment = new Example1Fragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, mCatalogue1Fragment, Example1Fragment.TAG).commit();
+        mCatalogue1Fragment = new ExampleFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, mCatalogue1Fragment, ExampleFragment.TAG).commit();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class RadioButtonFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.catalogue1:
-                switchPage(Example1Fragment.TAG, Example1Fragment.class);
+                switchPage(ExampleFragment.TAG, ExampleFragment.class);
                 break;
             case R.id.catalogue2:
                 switchPage(PermissionFragment.TAG, PermissionFragment.class);

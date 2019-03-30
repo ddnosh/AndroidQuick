@@ -12,7 +12,7 @@ import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
@@ -22,7 +22,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  */
 public class CommonFragment extends BaseTFragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    public static final String TAG = "Example1Fragment";
+    public static final String TAG = "ExampleFragment";
 
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
@@ -31,14 +31,14 @@ public class CommonFragment extends BaseTFragment implements SwipeRefreshLayout.
     private String type;
     private boolean isRefresh = false;//是否刷新中
 
-    public static Example1Fragment newInstance() {
-        return new Example1Fragment();
+    public static ExampleFragment newInstance() {
+        return new ExampleFragment();
     }
 
-    public static Example1Fragment createIntent(String type) {
+    public static ExampleFragment createIntent(String type) {
         Bundle args = new Bundle();
         args.putString("Type", type);
-        Example1Fragment fragment = new Example1Fragment();
+        ExampleFragment fragment = new ExampleFragment();
         fragment.setArguments(args);
         return fragment;
     }

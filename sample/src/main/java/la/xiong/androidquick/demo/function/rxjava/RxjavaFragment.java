@@ -26,10 +26,10 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.tool.AssetsUtil;
-import la.xiong.androidquick.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.rxjava.BaseObserver;
 import la.xiong.androidquick.tool.RxUtil;
 import la.xiong.androidquick.tool.ToastUtil;
-import la.xiong.androidquick.ui.base.BaseObserver;
 
 /**
  * @author ddnosh

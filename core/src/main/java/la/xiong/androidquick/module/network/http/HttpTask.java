@@ -1,4 +1,4 @@
-package la.xiong.androidquick.network.http;
+package la.xiong.androidquick.module.network.http;
 
 import java.io.IOException;
 

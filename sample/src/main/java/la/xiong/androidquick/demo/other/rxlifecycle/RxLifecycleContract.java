@@ -1,7 +1,7 @@
 package la.xiong.androidquick.demo.other.rxlifecycle;
 
-import la.xiong.androidquick.ui.base.BaseContract;
-import la.xiong.androidquick.demo.base.BaseModel;
+import la.xiong.androidquick.ui.mvp.BaseContract;
+import la.xiong.androidquick.ui.mvp.BaseModel;
 
 /**
  * @author ddnosh

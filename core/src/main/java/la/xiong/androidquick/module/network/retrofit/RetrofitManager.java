@@ -1,4 +1,4 @@
-package la.xiong.androidquick.network.retrofit;
+package la.xiong.androidquick.module.network.retrofit;
 
 import android.content.Context;
 

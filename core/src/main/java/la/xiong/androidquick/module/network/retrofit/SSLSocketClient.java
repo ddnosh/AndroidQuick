@@ -1,4 +1,4 @@
-package la.xiong.androidquick.network.retrofit;
+package la.xiong.androidquick.module.network.retrofit;
 
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;

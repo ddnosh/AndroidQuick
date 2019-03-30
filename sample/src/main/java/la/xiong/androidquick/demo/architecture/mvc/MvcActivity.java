@@ -15,10 +15,10 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.GankApis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
-import la.xiong.androidquick.network.retrofit.RetrofitManager;
-import la.xiong.androidquick.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.rxjava.BaseObserver;
 import la.xiong.androidquick.tool.LogUtil;
-import la.xiong.androidquick.ui.base.BaseObserver;
 
 /**
  * @author ddnosh

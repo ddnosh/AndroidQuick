@@ -7,7 +7,7 @@ import android.view.View;
 import la.xiong.androidquick.demo.ui.activity.FrameActivity;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.ui.base.QuickActivity;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
+import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @Description: 第一种类型的BaseActivity

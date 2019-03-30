@@ -21,7 +21,7 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
+import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @author ddnosh

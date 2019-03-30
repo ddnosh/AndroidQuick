@@ -1,7 +1,7 @@
 package la.xiong.androidquick.demo.module.network.retrofit.network1;
 
-import la.xiong.androidquick.ui.base.BaseContract;
-import la.xiong.androidquick.demo.base.BaseModel;
+import la.xiong.androidquick.ui.mvp.BaseContract;
+import la.xiong.androidquick.ui.mvp.BaseModel;
 
 /**
  * @author  ddnosh

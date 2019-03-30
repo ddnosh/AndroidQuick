@@ -11,7 +11,7 @@ import com.flyco.tablayout.SlidingTabLayout;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 
 /**
  * @author  ddnosh
@@ -62,10 +62,10 @@ public class TabFTLFragment extends BaseFragment {
             Fragment fragment = null;
             switch (position) {
                 case 0:
-                    fragment = new Example1Fragment();
+                    fragment = new ExampleFragment();
                     break;
                 case 1:
-                    fragment = new Example1Fragment();
+                    fragment = new ExampleFragment();
                     break;
                 default:
                     break;

@@ -10,7 +10,7 @@ import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.function.json.JsonFragment;
 import la.xiong.androidquick.demo.function.permission.PermissionFragment;
 import la.xiong.androidquick.demo.module.db.greendao.GreenDaoFragment;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 import la.xiong.androidquick.ui.view.BottomBar;
 import la.xiong.androidquick.ui.view.BottomBarTab;
 
@@ -30,18 +30,18 @@ public class BottomBarFragment extends BaseFragment {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        mStrings[0] = Example1Fragment.TAG;
+        mStrings[0] = ExampleFragment.TAG;
         mStrings[1] = PermissionFragment.TAG;
         mStrings[2] = JsonFragment.TAG;
         mStrings[3] = GreenDaoFragment.TAG;
 
-        mFragments[0] = Example1Fragment.class;
+        mFragments[0] = ExampleFragment.class;
         mFragments[1] = PermissionFragment.class;
         mFragments[2] = JsonFragment.class;
         mFragments[3] = GreenDaoFragment.class;
 
-        mFragment = Example1Fragment.newInstance();
-        getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, mFragment, Example1Fragment.TAG).commit();
+        mFragment = ExampleFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, mFragment, ExampleFragment.TAG).commit();
 
         mBottomBar.addItem(new BottomBarTab(getActivity(), R.mipmap.ic_launcher, "富强"))
                 .addItem(new BottomBarTab(getActivity(), R.mipmap.ic_launcher, "民主"))

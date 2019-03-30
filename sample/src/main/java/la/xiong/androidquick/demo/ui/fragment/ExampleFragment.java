@@ -16,9 +16,9 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class Example1Fragment extends BaseTFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class ExampleFragment extends BaseTFragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    public static final String TAG = "Example1Fragment";
+    public static final String TAG = "ExampleFragment";
 
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
@@ -27,14 +27,14 @@ public class Example1Fragment extends BaseTFragment implements SwipeRefreshLayou
     private String type;
     private boolean isRefresh = false;//是否刷新中
 
-    public static Example1Fragment newInstance() {
-        return new Example1Fragment();
+    public static ExampleFragment newInstance() {
+        return new ExampleFragment();
     }
 
-    public static Example1Fragment newInstance(String type) {
+    public static ExampleFragment newInstance(String type) {
         Bundle args = new Bundle();
         args.putString("Type", type);
-        Example1Fragment fragment = new Example1Fragment();
+        ExampleFragment fragment = new ExampleFragment();
         fragment.setArguments(args);
         return fragment;
     }

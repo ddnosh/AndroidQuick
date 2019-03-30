@@ -6,7 +6,7 @@ import android.view.View;
 
 import la.xiong.androidquick.demo.ui.activity.FrameActivity;
 import la.xiong.androidquick.ui.base.QuickFragment;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
+import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @author  ddnosh

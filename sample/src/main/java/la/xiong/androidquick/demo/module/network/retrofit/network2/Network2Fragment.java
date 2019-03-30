@@ -16,13 +16,13 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.bean.TestBean;
 import la.xiong.androidquick.demo.module.network.retrofit.TestApis;
-import la.xiong.androidquick.network.retrofit.RetrofitManager;
-import la.xiong.androidquick.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.rxjava.BaseObserver;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.adapter.CommonAdapter;
 import la.xiong.androidquick.ui.adapter.CommonViewHolder;
-import la.xiong.androidquick.ui.base.BaseObserver;
 
 /**
  * (Retrofit+OkHttp+RxJava)Different Url

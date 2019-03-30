@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import javax.inject.Inject;
 
+import la.xiong.androidquick.ui.mvp.BasePresenter;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.injector.component.ActivityComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerActivityComponent;

@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.base;
+package la.xiong.androidquick.ui.mvp;
 
 /**
  * @author  ddnosh

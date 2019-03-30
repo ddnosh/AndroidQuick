@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
-import la.xiong.androidquick.demo.ui.fragment.Example1Fragment;
+import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 
 /**
  * @author  ddnosh
@@ -24,11 +24,11 @@ public class HostActivity extends BaseActivity {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         FragmentManager fm = getSupportFragmentManager();
-        mContentFragment = (Fragment) fm.findFragmentById(R.id.content_frame);
+        mContentFragment = fm.findFragmentById(R.id.content_frame);
 
         if(mContentFragment == null )
         {
-            mContentFragment = Example1Fragment.newInstance("");
+            mContentFragment = ExampleFragment.newInstance("");
             fm.beginTransaction().add(R.id.content_frame,mContentFragment).commit();
         }
     }

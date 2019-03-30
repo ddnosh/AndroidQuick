@@ -10,7 +10,7 @@ import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseTFragment;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
+import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @author ddnosh

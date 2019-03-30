@@ -12,8 +12,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import la.xiong.androidquick.demo.base.BasePresenter;
-import la.xiong.androidquick.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.ui.mvp.BasePresenter;
+import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
 
 /**
  * @author ddnosh

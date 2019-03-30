@@ -1,4 +1,4 @@
-package la.xiong.androidquick.ui.base;
+package la.xiong.androidquick.ui.mvp;
 
 import com.trello.rxlifecycle2.LifecycleTransformer;
 

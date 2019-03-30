@@ -1,8 +1,8 @@
 package la.xiong.androidquick.demo.architecture.mvp.fragment;
 
-import la.xiong.androidquick.ui.base.BaseContract;
-import la.xiong.androidquick.demo.base.BaseModel;
-import la.xiong.androidquick.demo.base.BasePresenter;
+import la.xiong.androidquick.ui.mvp.BaseContract;
+import la.xiong.androidquick.ui.mvp.BaseModel;
+import la.xiong.androidquick.ui.mvp.BasePresenter;
 
 /**
  * @author  ddnosh

@@ -11,7 +11,7 @@ import la.xiong.androidquick.demo.injector.component.DaggerApplicationComponent;
 import la.xiong.androidquick.demo.injector.module.ApplicationModule;
 import la.xiong.androidquick.demo.module.db.greendao.DBManager;
 import la.xiong.androidquick.demo.ui.AQActivityLifecycleCallbacks;
-import la.xiong.androidquick.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.ToastUtil;
