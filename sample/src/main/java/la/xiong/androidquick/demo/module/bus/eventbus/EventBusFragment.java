@@ -2,10 +2,8 @@ package la.xiong.androidquick.demo.module.bus.eventbus;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 import la.xiong.androidquick.demo.R;
@@ -20,9 +18,6 @@ public class EventBusFragment extends BaseTFragment {
 
     public static final String TAG = "EventBusFragment";
 
-    @BindView(R.id.btn_bus1)
-    Button btn1;
-
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
     }
@@ -32,10 +27,10 @@ public class EventBusFragment extends BaseTFragment {
         return R.layout.fragment_bus_eventbus;
     }
 
-    @OnClick( {R.id.btn_bus1})
+    @OnClick( {R.id.btn_eventbus})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_bus1:
+            case R.id.btn_eventbus:
                 EventBus.getDefault().post(new EventCenter(10003, "this is an event"));
                 break;
         }

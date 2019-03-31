@@ -6,10 +6,10 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_eventbus"
+        android:id="@+id/btn_rxbus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="click a trigger a eventbus event"/>
+        android:text="click a trigger a rxbus event"/>
 
 </LinearLayout>
