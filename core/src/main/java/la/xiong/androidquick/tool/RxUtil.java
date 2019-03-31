@@ -21,6 +21,9 @@ public class RxUtil {
     };
 
 
+    /**
+     * RxJava线程封装
+     */
     public static <T> ObservableTransformer<T, T> applySchedulers() {
         return (ObservableTransformer<T, T>) schedulersTransformer;
     }

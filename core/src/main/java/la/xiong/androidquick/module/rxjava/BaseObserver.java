@@ -6,7 +6,7 @@ import io.reactivex.disposables.Disposable;
 import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
 import la.xiong.androidquick.module.network.retrofit.exeception.ExeceptionEngine;
 
-/**
+/** RxJava订阅者封装,包括Exception
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */

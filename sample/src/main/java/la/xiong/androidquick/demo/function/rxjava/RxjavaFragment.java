@@ -13,6 +13,7 @@ import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 import java.io.File;
+import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -60,7 +61,8 @@ public class RxjavaFragment extends BaseTFragment {
     }
 
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
-            R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose, R.id.btn_rxjava_flowable})
+            R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose,
+            R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -92,7 +94,74 @@ public class RxjavaFragment extends BaseTFragment {
                 bundle.putString("url", "https://github.com/amitshekhariitbhu/RxJava2-Android-Samples");
                 readyGo(WebViewActivity.class, bundle);
                 break;
+            case R.id.btn_rxjava_concat:
+                testConcat();
+                break;
         }
+    }
+
+    private Observable<String> getObservable() {
+        return Observable.fromCallable(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return "3";
+            }
+        });
+    }
+
+    /**
+     * 将多个数据源连接起来一起处理
+     */
+    private void testConcat() {
+        Observable<String> o1 = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) {
+                e.onNext("1");
+                e.onComplete();//必须加这个, 否则o2出现不了
+            }
+        });
+        Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) {
+                e.onNext("2");
+                e.onComplete();
+            }
+        });
+        Observable.concat(o1, o2, getObservable())
+                .compose(RxUtil.applySchedulers())
+                .subscribeWith(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        if ("1".equals(s)) {
+                            ToastUtil.showToast("concat: 1");
+                        } else if ("2".equals(s)) {
+                            ToastUtil.showToast("concat: 2");
+                        } else if ("3".equals(s)) {
+                            ToastUtil.showToast("concat: 3");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        ToastUtil.showToast("concat done!");
+                    }
+                });
     }
 
     /**
