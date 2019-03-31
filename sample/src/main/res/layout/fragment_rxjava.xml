@@ -84,6 +84,21 @@
         android:text="thread transfer"
         android:textAllCaps="false" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_rxjava_flowable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="flowable"
+            android:textAllCaps="false" />
+        <TextView
+            android:id="@+id/tv_flowable_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tv_rxjava_more"
         style="@style/text_large_black"

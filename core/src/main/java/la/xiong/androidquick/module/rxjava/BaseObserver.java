@@ -1,10 +1,10 @@
-package la.xiong.androidquick.ui.base;
+package la.xiong.androidquick.module.rxjava;
 
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import la.xiong.androidquick.network.retrofit.exeception.ApiException;
-import la.xiong.androidquick.network.retrofit.exeception.ExeceptionEngine;
+import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
+import la.xiong.androidquick.module.network.retrofit.exeception.ExeceptionEngine;
 
 /**
  * @author ddnosh

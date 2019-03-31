@@ -1,4 +1,5 @@
 10,Architecture,0;
+15,Design Patterns,0;
 11,Module,0;
 12,Function,0;
 13,Other,0;

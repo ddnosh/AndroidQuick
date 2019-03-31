@@ -7,10 +7,19 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 
 import java.io.File;
 
+import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -37,6 +46,9 @@ import la.xiong.androidquick.tool.ToastUtil;
  */
 public class RxjavaFragment extends BaseTFragment {
 
+    @BindView(R.id.tv_flowable_result)
+    TextView mFlowableResult;
+
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
 
@@ -47,7 +59,8 @@ public class RxjavaFragment extends BaseTFragment {
         return R.layout.fragment_rxjava;
     }
 
-    @OnClick( {R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map, R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose})
+    @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
+            R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose, R.id.btn_rxjava_flowable})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -71,12 +84,58 @@ public class RxjavaFragment extends BaseTFragment {
             case R.id.btn_rxjava_compose:
                 testCompose();
                 break;
+            case R.id.btn_rxjava_flowable:
+                testFlowable();
+                break;
             case R.id.tv_rxjava_more:
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/amitshekhariitbhu/RxJava2-Android-Samples");
                 readyGo(WebViewActivity.class, bundle);
                 break;
         }
+    }
+
+    /**
+     * 注意：只有在有背压需求的时候才需要使用Flowable, 否则使用Observable, 不然会影响性能
+     */
+    private void testFlowable() {//flowable比observable多了一个缓冲池大小的限制
+        Flowable.create(new FlowableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(FlowableEmitter<Integer> e) throws Exception {
+                System.out.println("send----> 1");
+                e.onNext(1);
+                System.out.println("send----> 2");
+                e.onNext(2);
+                System.out.println("send----> 3");
+                e.onNext(3);
+                System.out.println("send----> Done");
+                e.onComplete();
+            }
+        }, BackpressureStrategy.BUFFER) //add param: BackpressureStrategy
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Integer>() {
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        s.request(Long.MAX_VALUE);
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        System.out.println("receive----> " + integer);
+                        mFlowableResult.setText("receive----> " + integer);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("receive----> Done");
+                        mFlowableResult.setText("receive----> Done");
+                    }
+                });
     }
 
     private Disposable disposable;
