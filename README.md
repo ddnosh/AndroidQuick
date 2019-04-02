@@ -1,7 +1,10 @@
 # AndroidQuick
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion)  
-![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)
+![image](https://github.com/ddnosh/AndroidQuick/blob/master/logo.png)  
+<br />
+欢迎加入QQ群：
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=5867e988b85eecbb8c50bedab9810624fc017ce71098ae9394e7c935a4125281"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Android开发技术交流" title="Android开发技术交流"></a>
 
 ## 项目简介
 AndroidQuick项目旨在提供一套进行Android APP快速开发的代码库。 
