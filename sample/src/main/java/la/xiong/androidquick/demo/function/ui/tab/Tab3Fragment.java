@@ -14,7 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 
 /**

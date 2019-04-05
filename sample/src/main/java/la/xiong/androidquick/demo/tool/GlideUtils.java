@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.module.image.glide;
+package la.xiong.androidquick.demo.tool;
 
 import android.content.Context;
 import android.widget.ImageView;

@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.architecture.mvp.activity;
+package la.xiong.androidquick.demo.architecture.mvp.activity_dagger;
 
 import javax.inject.Inject;
 
@@ -6,9 +6,9 @@ import javax.inject.Inject;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MvpPresenter extends MvpContract.Presenter {
+public class MVPDaggerPresenter extends MVPDaggerContract.Presenter {
     @Inject
-    public MvpPresenter() {
+    public MVPDaggerPresenter() {
     }
 
     @Override

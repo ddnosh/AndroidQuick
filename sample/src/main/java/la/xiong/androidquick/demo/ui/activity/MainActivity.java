@@ -15,9 +15,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.architecture.mvc.MvcActivity;
-import la.xiong.androidquick.demo.architecture.mvp.activity.MvpActivity;
-import la.xiong.androidquick.demo.architecture.mvp.fragment.MvpFragment;
+import la.xiong.androidquick.demo.architecture.mvc.MVCActivity;
+import la.xiong.androidquick.demo.architecture.mvp.activity.MVPActivity;
+import la.xiong.androidquick.demo.architecture.mvp.activity_dagger.MVPDaggerActivity;
+import la.xiong.androidquick.demo.architecture.mvp.fragment_dagger.MVPDaggerFragment;
 import la.xiong.androidquick.demo.architecture.segment.type1.Architecture1Fragment;
 import la.xiong.androidquick.demo.architecture.segment.type2.Architecture2Fragment;
 import la.xiong.androidquick.demo.architecture.segment.type3.WebViewJavascriptActivity;
@@ -177,9 +178,11 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         String name = ((IconTreeItemHolder.IconTreeItem) value).text;
         if (!TextUtils.isEmpty(name)) {
             if (name.equals("MVP for Activity")) {
-                readyGo(MvpActivity.class);
+                readyGo(MVPActivity.class);
+            } else if (name.equals("MVP with Dagger2 for Activity")) {
+                readyGo(MVPDaggerActivity.class);
             } else if (name.equals("MVP for Fragment")) {
-                readyGo(MvpFragment.class);
+                readyGo(MVPDaggerFragment.class);
             } else if (name.equals("Common Http")) {
                 readyGo(CommonHttpFragment.class);
             } else if (name.equals("Retrofit+CommonUrl")) {
@@ -298,7 +301,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("CallBack")) {
                 readyGo(CallBackFragment.class);
             } else if (name.equals("MVC")) {
-                readyGo(MvcActivity.class);
+                readyGo(MVCActivity.class);
             } else if (name.equals("RxBus")) {
                 readyGo(RxBusFragment.class);
             }

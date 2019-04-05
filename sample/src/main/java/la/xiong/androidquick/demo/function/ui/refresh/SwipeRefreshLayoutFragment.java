@@ -18,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_DRAGGING;
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_SETTLING;

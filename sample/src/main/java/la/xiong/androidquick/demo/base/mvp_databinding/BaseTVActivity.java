@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.base;
+package la.xiong.androidquick.demo.base.mvp_databinding;
 
 import android.content.Context;
 import android.databinding.ViewDataBinding;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import javax.inject.Inject;
 
+import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.ui.mvp.BasePresenter;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.injector.component.ActivityComponent;
@@ -14,6 +15,8 @@ import la.xiong.androidquick.demo.injector.module.ActivityModule;
 import la.xiong.androidquick.tool.LogUtil;
 
 /**
+ * mvp:集成dagger2 + databinding
+ *
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */

@@ -21,7 +21,7 @@ import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
  */
 public class RxLifecyclePresenter extends BasePresenter<RxLifecycleContract.View> implements RxLifecycleContract.Presenter {
 
-    private static final String TAG = "MvpPresenter";
+    private static final String TAG = "MVPPresenter";
     private RetrofitManager mRetrofitManager;
     private Context mContext;
 

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 
 /**
  * @author ddnosh

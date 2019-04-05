@@ -3,6 +3,7 @@ package la.xiong.androidquick.demo.architecture.segment.type2.mvp;
 import android.view.View;
 
 import la.xiong.androidquick.demo.architecture.segment.type2.BaseModule;
+import la.xiong.androidquick.demo.tool.TUtil;
 
 /**
  * @author ddnosh
@@ -18,7 +19,7 @@ public class BaseTModule<T extends BasePresenter> extends BaseModule {
 
     @Override
     protected void initView() {
-        mPresenter = MVPUtil.getT(this);
+        mPresenter = TUtil.getInstance(this, 0);
         mPresenter.initV(this);
     }
 

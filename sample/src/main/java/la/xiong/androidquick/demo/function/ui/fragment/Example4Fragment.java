@@ -3,7 +3,7 @@ package la.xiong.androidquick.demo.function.ui.fragment;
 import android.os.Bundle;
 
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseFFragment;
+import la.xiong.androidquick.demo.base.fragmentation.BaseFFragment;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 

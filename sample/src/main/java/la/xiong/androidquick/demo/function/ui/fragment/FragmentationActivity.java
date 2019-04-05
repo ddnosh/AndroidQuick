@@ -7,8 +7,8 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseFActivity;
-import la.xiong.androidquick.demo.base.BaseFFragment;
+import la.xiong.androidquick.demo.base.fragmentation.BaseFActivity;
+import la.xiong.androidquick.demo.base.fragmentation.BaseFFragment;
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 

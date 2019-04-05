@@ -27,7 +27,7 @@ import retrofit2.Response;
  */
 public class Network1Presenter extends BasePresenter<Network1Contract.View> implements Network1Contract.Presenter {
 
-    private static final String TAG = "MvpPresenter";
+    private static final String TAG = "MVPPresenter";
     private RetrofitManager mRetrofitManager;
     private Context mContext;
 

@@ -31,11 +31,11 @@ public class MenuUtil {
         String[] strings = industryString.split(";");
         position = new ArrayList<MenuBean>();
         for (int i = 0; i < strings.length; i++) {
-            String[] items = strings[i].split(",");
+            String[] items = strings[i].trim().split(",");
             MenuBean tmp = new MenuBean();
-            tmp.currentId = Integer.parseInt(items[0].trim());
+            tmp.currentId = Long.parseLong(items[0].trim());
             tmp.name = items[1];
-            tmp.upperId = Integer.parseInt(items[2].trim());
+            tmp.upperId = Long.parseLong(items[2].trim());
             position.add(tmp);
         }
     }

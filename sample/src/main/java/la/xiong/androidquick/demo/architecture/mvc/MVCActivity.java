@@ -12,7 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTActivity;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.GankApis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
 import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
@@ -24,7 +24,7 @@ import la.xiong.androidquick.tool.LogUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MvcActivity extends BaseTActivity {
+public class MVCActivity extends BaseTActivity {
 
     RetrofitManager mRetrofitManager;
     @BindView(R.id.tv_activity_mvc)
@@ -59,7 +59,7 @@ public class MvcActivity extends BaseTActivity {
                             @Override
                             public void onSuccess(GankRes<List<String>> listGankRes) {
                                 LogUtil.i(TAG, listGankRes.getResults().toString());
-                                if (!MvcActivity.this.isFinishing() && !MvcActivity.this.isDestroyed()) {
+                                if (!MVCActivity.this.isFinishing() && !MVCActivity.this.isDestroyed()) {
                                     mTextView.setText("yes, I get it from net!");
                                 }
                             }

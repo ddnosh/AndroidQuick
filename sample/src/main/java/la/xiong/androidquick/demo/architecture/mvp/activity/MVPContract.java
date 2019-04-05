@@ -1,14 +1,14 @@
-package la.xiong.androidquick.demo.architecture.mvp.fragment;
+package la.xiong.androidquick.demo.architecture.mvp.activity;
 
 import la.xiong.androidquick.ui.mvp.BaseContract;
 import la.xiong.androidquick.ui.mvp.BaseModel;
 import la.xiong.androidquick.ui.mvp.BasePresenter;
 
 /**
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public interface MvpContract {
+public interface MVPContract {
     interface Model extends BaseModel {
 
     }
@@ -18,6 +18,6 @@ public interface MvpContract {
     }
 
     abstract class Presenter extends BasePresenter<View> {
-        public abstract void initData(String data);
+        public abstract void initData();
     }
 }

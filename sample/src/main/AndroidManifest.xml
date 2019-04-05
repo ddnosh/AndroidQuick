@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".architecture.mvp.activity.MvpActivity" />
+        <activity android:name=".architecture.mvp.activity.MVPActivity" />
+        <activity android:name=".architecture.mvp.activity_dagger.MVPDaggerActivity" />
         <activity android:name=".module.network.retrofit.NetworkActivity" />
         <activity
             android:name=".module.network.retrofit.DownloadActivity"
@@ -33,7 +34,7 @@
         <activity android:name=".architecture.segment.type3.WebViewJavascriptActivity" />
         <activity android:name=".ui.activity.FrameActivity" />
         <activity android:name=".ui.activity.HostActivity" />
-        <activity android:name=".architecture.mvc.MvcActivity" />
+        <activity android:name=".architecture.mvc.MVCActivity" />
 
     </application>
 

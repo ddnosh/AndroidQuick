@@ -3,7 +3,7 @@ package la.xiong.androidquick.demo.ui.activity;
 import android.os.Bundle;
 
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTActivity;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTActivity;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ReflectUtil;
 import la.xiong.androidquick.ui.base.QuickFragment;

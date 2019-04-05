@@ -5,7 +5,7 @@ import android.view.View;
 
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 

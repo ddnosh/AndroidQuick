@@ -10,7 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 import la.xiong.androidquick.demo.module.network.retrofit.network2.Network2Fragment;
 import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
 import la.xiong.androidquick.tool.StringUtil;

@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.architecture.mvp.fragment;
+package la.xiong.androidquick.demo.architecture.mvp.fragment_dagger;
 
 import javax.inject.Inject;
 
@@ -6,10 +6,10 @@ import javax.inject.Inject;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MvpPresenter extends MvpContract.Presenter {
+public class MVPDaggerPresenter extends MVPDaggerContract.Presenter {
 
     @Inject
-    public MvpPresenter() {
+    public MVPDaggerPresenter() {
 
     }
 

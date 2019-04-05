@@ -1,10 +1,11 @@
-package la.xiong.androidquick.demo.base;
+package la.xiong.androidquick.demo.base.fragmentation;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 
+import la.xiong.androidquick.demo.base.BaseActivity;
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportActivity;
 import me.yokeyword.fragmentation.ISupportFragment;
@@ -13,6 +14,8 @@ import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
+ * 集成fragmentation
+ *
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */

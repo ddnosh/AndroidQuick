@@ -1,16 +1,16 @@
-package la.xiong.androidquick.demo.architecture.mvp.fragment;
+package la.xiong.androidquick.demo.architecture.mvp.fragment_dagger;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.BaseTFragment;
+import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 
 /**
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MvpFragment extends BaseTFragment<MvpPresenter> implements MvpContract.View{
+public class MVPDaggerFragment extends BaseTFragment<MVPDaggerPresenter> implements MVPDaggerContract.View{
 
     private TextView mContent;
 
@@ -27,7 +27,7 @@ public class MvpFragment extends BaseTFragment<MvpPresenter> implements MvpContr
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         mContent = getActivity().findViewById(R.id.tv_fragment_mvp);
-        mContent.setText("this is MvpFragment");
+        mContent.setText("this is MVPDaggerFragment");
         mPresenter.initData("hello");
     }
 
