@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.tool.GlideUtils;
 
 /**
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class GlideFragment extends BaseTFragment {
+public class GlideFragment extends BaseFragment {
 
     public static final String TAG = "GreenDaoFragment";
 

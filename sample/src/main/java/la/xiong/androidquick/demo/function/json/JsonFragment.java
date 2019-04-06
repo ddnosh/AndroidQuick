@@ -12,7 +12,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.bean.FuliBean;
 import la.xiong.androidquick.demo.bean.GankFuliBean;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
@@ -24,7 +24,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class JsonFragment extends BaseTFragment {
+public class JsonFragment extends BaseFragment {
 
     public static final String TAG = "JsonFragment";
 

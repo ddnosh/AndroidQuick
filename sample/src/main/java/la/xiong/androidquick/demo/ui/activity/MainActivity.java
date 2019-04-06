@@ -19,6 +19,7 @@ import la.xiong.androidquick.demo.architecture.mvc.MVCActivity;
 import la.xiong.androidquick.demo.architecture.mvp.activity.MVPActivity;
 import la.xiong.androidquick.demo.architecture.mvp.activity_dagger.MVPDaggerActivity;
 import la.xiong.androidquick.demo.architecture.mvp.fragment_dagger.MVPDaggerFragment;
+import la.xiong.androidquick.demo.architecture.mvvm.activity.MVVMActivity;
 import la.xiong.androidquick.demo.architecture.segment.type1.Architecture1Fragment;
 import la.xiong.androidquick.demo.architecture.segment.type2.Architecture2Fragment;
 import la.xiong.androidquick.demo.architecture.segment.type3.WebViewJavascriptActivity;
@@ -77,7 +78,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  */
 public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClickListener {
 
-    private static String TAG = "MainActivity";
+    private static String TAG = "MVVMActivity";
 
     private long DOUBLE_CLICK_TIME = 0L;
 
@@ -304,6 +305,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(MVCActivity.class);
             } else if (name.equals("RxBus")) {
                 readyGo(RxBusFragment.class);
+            } else if (name.equals("MVVM for Activity")) {
+                readyGo(MVVMActivity.class);
             }
         }
     }

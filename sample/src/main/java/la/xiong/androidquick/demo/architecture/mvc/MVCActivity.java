@@ -12,7 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTActivity;
+import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.module.network.retrofit.GankApis;
 import la.xiong.androidquick.demo.module.network.retrofit.GankRes;
 import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
@@ -24,7 +24,7 @@ import la.xiong.androidquick.tool.LogUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MVCActivity extends BaseTActivity {
+public class MVCActivity extends BaseActivity {
 
     RetrofitManager mRetrofitManager;
     @BindView(R.id.tv_activity_mvc)

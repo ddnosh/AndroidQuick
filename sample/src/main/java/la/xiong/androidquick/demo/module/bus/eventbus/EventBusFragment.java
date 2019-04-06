@@ -7,14 +7,14 @@ import android.widget.Toast;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class EventBusFragment extends BaseTFragment {
+public class EventBusFragment extends BaseFragment {
 
     public static final String TAG = "EventBusFragment";
 

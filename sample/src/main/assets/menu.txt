@@ -5,6 +5,7 @@
         3210101,MVP with Dagger2 for Activity,21001;
         3210102,MVP for Fragment,21001;
     21002,MVVM,10;
+        3210200,MVVM for Activity,21002;
     21003,Segment,10;
         32100300,OneLayout-MultipleViews,21003;
         32100301,OneView-MultipleModules,21003;

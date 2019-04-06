@@ -18,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_DRAGGING;
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_SETTLING;
@@ -27,7 +27,7 @@ import static android.support.v7.widget.RecyclerView.SCROLL_STATE_SETTLING;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class SwipeRefreshLayoutFragment extends BaseTFragment {
+public class SwipeRefreshLayoutFragment extends BaseFragment {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;

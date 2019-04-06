@@ -5,7 +5,7 @@ import android.view.View;
 
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
@@ -13,7 +13,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class SPFragment extends BaseTFragment {
+public class SPFragment extends BaseFragment {
 
     private String testJsonString;
 

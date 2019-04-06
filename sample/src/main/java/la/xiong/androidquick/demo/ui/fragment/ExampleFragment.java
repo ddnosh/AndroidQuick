@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
@@ -16,7 +16,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class ExampleFragment extends BaseTFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class ExampleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     public static final String TAG = "ExampleFragment";
 

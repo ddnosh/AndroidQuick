@@ -3,7 +3,7 @@ package la.xiong.androidquick.demo.ui.activity;
 import android.os.Bundle;
 
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTActivity;
+import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ReflectUtil;
 import la.xiong.androidquick.ui.base.QuickFragment;
@@ -12,7 +12,7 @@ import la.xiong.androidquick.ui.base.QuickFragment;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class FrameActivity extends BaseTActivity {
+public class FrameActivity extends BaseActivity {
 
     protected static String TAG = "FrameActivity";
     private Bundle bundle;
@@ -44,8 +44,4 @@ public class FrameActivity extends BaseTActivity {
         }
     }
 
-    @Override
-    protected void initInjector() {
-
-    }
 }

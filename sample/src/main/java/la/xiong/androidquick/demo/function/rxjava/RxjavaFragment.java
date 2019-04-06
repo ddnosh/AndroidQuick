@@ -33,7 +33,7 @@ import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.tool.AssetsUtil;
 import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
@@ -45,7 +45,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class RxjavaFragment extends BaseTFragment {
+public class RxjavaFragment extends BaseFragment {
 
     @BindView(R.id.tv_flowable_result)
     TextView mFlowableResult;
@@ -135,6 +135,7 @@ public class RxjavaFragment extends BaseTFragment {
         });
         Observable.concat(o1, o2, getObservable())
                 .compose(RxUtil.applySchedulers())
+                .compose(this.<String>bindToLife())
                 .subscribeWith(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {

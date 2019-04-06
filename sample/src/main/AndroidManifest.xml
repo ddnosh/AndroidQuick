@@ -35,6 +35,7 @@
         <activity android:name=".ui.activity.FrameActivity" />
         <activity android:name=".ui.activity.HostActivity" />
         <activity android:name=".architecture.mvc.MVCActivity" />
+        <activity android:name=".architecture.mvvm.activity.MVVMActivity" />
 
     </application>
 

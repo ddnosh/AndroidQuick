@@ -26,13 +26,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTFragment;
+import la.xiong.androidquick.demo.base.BaseFragment;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class SmartRefreshLayoutFragment extends BaseTFragment {
+public class SmartRefreshLayoutFragment extends BaseFragment {
 
     //static 代码段可以防止内存泄露
     static {
