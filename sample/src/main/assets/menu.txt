@@ -11,6 +11,8 @@
         32100301,OneView-MultipleModules,21003;
         32100302,WebView-JavaScripts,21003;
     21004,Design Patterns,10;
+        32100400,Facade,21004;
+        32100401,Factory,21004;
 11,Module,0;
     21100,Network,11;
         32110000,Retrofit+CommonUrl,21100;
