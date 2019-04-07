@@ -1,16 +1,14 @@
 package la.xiong.androidquick.demo.base.mvp_dagger2;
 
-import android.os.Bundle;
-
 import javax.inject.Inject;
 
-import la.xiong.androidquick.demo.base.BaseActivity;
-import la.xiong.androidquick.ui.mvp.BasePresenter;
 import la.xiong.androidquick.demo.MyApplication;
+import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.injector.component.ActivityComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerActivityComponent;
 import la.xiong.androidquick.demo.injector.module.ActivityModule;
 import la.xiong.androidquick.tool.LogUtil;
+import la.xiong.androidquick.ui.mvp.BasePresenter;
 
 /**
  * mvp:集成dagger2
@@ -26,24 +24,22 @@ public abstract class BaseTActivity<T extends BasePresenter> extends BaseActivit
     public T mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void initCreate() {
         LogUtil.i(TAG, "onCreate:" + getClass().getSimpleName());
         //dagger2
         initInjector();
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
-        super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void onDestroy() {
+    protected void initDestroy() {
+        LogUtil.i(TAG, "onDestroy:" + getClass().getSimpleName());
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
-        super.onDestroy();
-        LogUtil.i(TAG, "onDestroy:" + getClass().getSimpleName());
     }
 
     protected void initInjector() {

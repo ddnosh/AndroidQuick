@@ -10,15 +10,24 @@ import la.xiong.androidquick.ui.base.QuickActivity;
 import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
- * @Description: 第一种类型的BaseActivity
- * @Detail: 不是每个activity都要用到的方法均保留在此;
- * 每个activity都要用到的方法则在每个activity中实现;
- * @Author: ddnosh
- * @Website http://blog.csdn.net/ddnosh
+ * 通用抽象方法的实现集合
+ *
+ * @author  ddnosh
+ * @website http://blog.csdn.net/ddnosh
  */
 public abstract class BaseActivity extends QuickActivity {
 
     protected static String TAG = "BaseActivity";
+
+    @Override
+    protected void initCreate() {
+
+    }
+
+    @Override
+    protected void initDestroy() {
+
+    }
 
     @Override
     protected void getBundleExtras(Bundle extras) {

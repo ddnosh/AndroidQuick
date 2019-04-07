@@ -80,6 +80,7 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initCreate();
         EventBus.getDefault().register(this);
     }
 
@@ -131,6 +132,7 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
     @Override
     public void onDestroy() {
         super.onDestroy();
+        initDestroy();
         if (mUnbinder != null) {
             mUnbinder.unbind();
         }
@@ -206,6 +208,9 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
             isPrepared = true;
         }
     }
+
+    protected abstract void initCreate();
+    protected abstract void initDestroy();
 
     /**
      * when fragment is visible for the first time, here we can do some initialized work or refresh data only once

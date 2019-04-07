@@ -16,6 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.architecture.design_patterns.factory.FactoryFragment;
+import la.xiong.androidquick.demo.architecture.design_patterns.proxy.ProxyFragment;
 import la.xiong.androidquick.demo.architecture.mvc.MVCActivity;
 import la.xiong.androidquick.demo.architecture.mvp.activity.MVPActivity;
 import la.xiong.androidquick.demo.architecture.mvp.activity_dagger.MVPDaggerActivity;
@@ -312,6 +313,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(FactoryFragment.class);
             } else if (name.equals("Facade")) {
                 readyGo(FactoryFragment.class);
+            } else if (name.equals("Proxy")) {
+                readyGo(ProxyFragment.class);
             }
         }
     }

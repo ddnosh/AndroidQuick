@@ -128,6 +128,7 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initCreate();
         // system status bar immersion
         if (isApplySystemBarTint()) {
             immersionMode = ImmersionMode.getInstance();
@@ -226,6 +227,9 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
         }
     }
 
+    protected abstract void initCreate();
+    protected abstract void initDestroy();
+
     protected abstract boolean isLoadDefaultTitleBar();
 
     protected View getContentView(int layoutResID, LinearLayout contentView) {
@@ -303,6 +307,7 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        initDestroy();
         if (mUnbinder != null) {
             mUnbinder.unbind();
         }

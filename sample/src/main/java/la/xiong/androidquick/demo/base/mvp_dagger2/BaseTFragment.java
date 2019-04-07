@@ -1,15 +1,13 @@
 package la.xiong.androidquick.demo.base.mvp_dagger2;
 
-import android.os.Bundle;
-
 import javax.inject.Inject;
 
-import la.xiong.androidquick.demo.base.BaseFragment;
-import la.xiong.androidquick.ui.mvp.BasePresenter;
 import la.xiong.androidquick.demo.MyApplication;
+import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.injector.component.DaggerFragmentComponent;
 import la.xiong.androidquick.demo.injector.component.FragmentComponent;
 import la.xiong.androidquick.demo.injector.module.FragmentModule;
+import la.xiong.androidquick.ui.mvp.BasePresenter;
 
 /**
  * mvp:集成dagger2
@@ -23,8 +21,7 @@ public abstract class BaseTFragment<T extends BasePresenter> extends BaseFragmen
     protected String TAG = "BaseTFragment";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initCreate() {
         //dagger2
         initInjector();
         if (mPresenter != null) {
@@ -33,12 +30,11 @@ public abstract class BaseTFragment<T extends BasePresenter> extends BaseFragmen
     }
 
     @Override
-    public void onDestroy() {
+    protected void initDestroy() {
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
-        super.onDestroy();
     }
 
     protected void initInjector() {

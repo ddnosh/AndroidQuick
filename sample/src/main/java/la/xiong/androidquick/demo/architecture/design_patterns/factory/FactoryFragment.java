@@ -14,7 +14,7 @@ public class FactoryFragment extends BaseFragment {
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.fragment_design_pattern_fatory;
+        return R.layout.fragment_design_pattern_factory;
     }
 
     @Override

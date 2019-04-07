@@ -1,7 +1,5 @@
 package la.xiong.androidquick.demo.base.mvp;
 
-import android.os.Bundle;
-
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.tool.TUtil;
 import la.xiong.androidquick.ui.mvp.BasePresenter;
@@ -18,9 +16,7 @@ public abstract class BaseTFragment<T extends BasePresenter> extends BaseFragmen
     protected String TAG = "BaseTFragment";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void initCreate() {
         mPresenter = TUtil.getInstance(this, 0);
 
         if (mPresenter != null) {
@@ -29,11 +25,10 @@ public abstract class BaseTFragment<T extends BasePresenter> extends BaseFragmen
     }
 
     @Override
-    public void onDestroy() {
+    protected void initDestroy() {
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
-        super.onDestroy();
     }
 }

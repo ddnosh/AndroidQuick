@@ -13,6 +13,15 @@ import la.xiong.androidquick.eventbus.EventCenter;
  * @website http://blog.csdn.net/ddnosh
  */
 public abstract class BaseFragment extends QuickFragment {
+    @Override
+    protected void initCreate() {
+
+    }
+
+    @Override
+    protected void initDestroy() {
+
+    }
 
     @Override
     public void onAttach(Context context) {
