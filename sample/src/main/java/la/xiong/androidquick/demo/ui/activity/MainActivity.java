@@ -313,7 +313,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(FactoryFragment.class);
             } else if (name.equals("Facade")) {
                 readyGo(FactoryFragment.class);
-            } else if (name.equals("Proxy")) {
+            } else if (name.equals("Proxy(with AOP)")) {
                 readyGo(ProxyFragment.class);
             }
         }

@@ -22,4 +22,9 @@
         style="@style/button_common_style"
         android:text="动态代理+简单工厂" />
 
+    <Button
+        android:id="@+id/btn_proxy_aop"
+        style="@style/button_common_style"
+        android:text="AOP" />
+
 </LinearLayout>

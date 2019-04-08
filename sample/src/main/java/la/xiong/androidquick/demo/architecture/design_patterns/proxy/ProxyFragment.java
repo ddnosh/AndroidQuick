@@ -1,16 +1,24 @@
 package la.xiong.androidquick.demo.architecture.design_patterns.proxy;
 
+import android.Manifest;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.List;
 
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
+import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.base.BaseFragment;
+import la.xiong.androidquick.demo.constant.Constants;
 import la.xiong.androidquick.tool.ToastUtil;
+import la.xiong.androidquick.ui.dialog.dialogactivity.CommonDialog;
+import la.xiong.androidquick.ui.permission.EasyPermissions;
 
 /**
  * @author ddnosh
@@ -28,7 +36,7 @@ public class ProxyFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_proxy_static, R.id.btn_proxy_dynamic, R.id.btn_proxy_dynamic_factory})
+    @OnClick({R.id.btn_proxy_static, R.id.btn_proxy_dynamic, R.id.btn_proxy_dynamic_factory, R.id.btn_proxy_aop})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_proxy_static:
@@ -45,7 +53,7 @@ public class ProxyFragment extends BaseFragment {
                 break;
             case R.id.btn_proxy_dynamic_factory:
                 //动态代理+简单工厂
-                ProxyFactory factory = new ProxyFactory();//创建工厂
+                ProxyFactory factory = new ProxyFactory();
                 factory.setBefore(new IBefore() {
                     @Override
                     public void doBefore() {
@@ -61,6 +69,18 @@ public class ProxyFragment extends BaseFragment {
                 });
                 ICar car2 = (ICar) factory.createProxy();
                 car2.move();
+                break;
+            case R.id.btn_proxy_aop:
+                ProxyAOPFactory aopFactory = new ProxyAOPFactory();
+                aopFactory.setClient(new Benz());
+                aopFactory.setBefore(new IBefore() {
+                    @Override
+                    public void doBefore() {
+                        permissionsCheck();
+                    }
+                });
+                ICar car3 = (ICar) aopFactory.createProxy();
+                car3.move();
                 break;
         }
     }
@@ -136,6 +156,9 @@ public class ProxyFragment extends BaseFragment {
             InvocationHandler h = new InvocationHandler() {
                 public Object invoke(Object proxy, Method method, Object[] args)
                         throws Throwable {
+                    if("getName".equals(method.getName())){
+                        //可根据name值过滤方法
+                    }
                     //前置
                     if (before != null) {
                         before.doBefore();
@@ -171,4 +194,93 @@ public class ProxyFragment extends BaseFragment {
         void doAfter();
     }
 
+    //AOP
+    public class ProxyAOPFactory<T> {
+
+        private T client;//目标对象
+        private IBefore before; // 前置增强
+        private IAfter after; // 后置增强
+
+        @SuppressWarnings("unchecked")
+        public <T> T createProxy() {
+            ClassLoader loader = client.getClass().getClassLoader();
+            Class[] interfaces = client.getClass().getInterfaces();
+            InvocationHandler h = new InvocationHandler() {
+                public Object invoke(Object proxy, Method method, Object[] args)
+                        throws Throwable {
+                    if("getName".equals(method.getName())){
+                        //可根据name值过滤方法
+                    }
+                    //前置
+                    if (before != null) {
+                        before.doBefore();
+                    }
+                    Object result = method.invoke(client, args);//执行目标对象的目标方法
+                    return result;
+                }
+            };
+            return (T) Proxy.newProxyInstance(loader, interfaces, h);
+        }
+
+        public void setClient(T client) {
+            this.client = client;
+        }
+
+        public void setBefore(IBefore before) {
+            this.before = before;
+        }
+    }
+
+
+    private void permissionsCheck() {
+        String[] perms = {Manifest.permission.CALL_PHONE//电话
+        };
+        performCodeWithPermission(1, Constants.RC_PERMISSION_PERMISSION_FRAGMENT, perms, new BaseActivity.PermissionCallback() {
+            @Override
+            public void hasPermission(List<String> allPerms) {
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:000")));
+            }
+
+            @Override
+            public void noPermission(List<String> deniedPerms, List<String> grantedPerms, Boolean hasPermanentlyDenied) {
+                if (hasPermanentlyDenied) {
+                    EasyPermissions.goSettingsPermissions(getActivity(), 2, Constants.RC_PERMISSION_PERMISSION_FRAGMENT, Constants.RC_PERMISSION_BASE);
+                }
+            }
+
+            @Override
+            public void showDialog(int dialogType, final EasyPermissions.DialogCallback callback) {
+                switch (dialogType){
+                    case 1:
+                        getDialogBuilder(mContext).
+                                setTitle(getString(R.string.app_name)).
+                                setMessage(getString(R.string.dialog_phone_permission)).
+                                setPositiveButton("OK").
+                                setBtnClickCallBack(new CommonDialog.DialogBtnCallBack() {
+                                    @Override
+                                    public void onDialogButClick(boolean isConfirm) {
+                                        if (isConfirm)
+                                            callback.onGranted();
+                                    }
+                                }).show().setCancelable(false);
+                        break;
+                    case 2:
+                        getDialogBuilder(mContext).
+                                setTitle(getString(R.string.app_name)).
+                                setMessage(getString(R.string.dialog_phone_permission)).
+                                setPositiveButton("Go to setting").
+                                setBtnClickCallBack(new CommonDialog.DialogBtnCallBack() {
+                                    @Override
+                                    public void onDialogButClick(boolean isConfirm) {
+                                        if (isConfirm)
+                                            callback.onGranted();
+                                    }
+                                }).show().setCancelable(false);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    }
 }
