@@ -44,37 +44,37 @@ dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
     provided files('libs/org.apache.http.legacy.jar')
 
-    compile rootProject.ext.dependencies["appcompatv4"]
-    compile rootProject.ext.dependencies["appcompatv7"]
-    compile rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["appcompatv4"]
+    api rootProject.ext.dependencies["appcompatv7"]
+    api rootProject.ext.dependencies["design"]
     //eventbus
-    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    api 'de.greenrobot:eventbus:3.0.0-beta1'
     //butterknife
-    compile "com.jakewharton:butterknife:8.4.0"
+    api "com.jakewharton:butterknife:8.4.0"
     annotationProcessor "com.jakewharton:butterknife-compiler:8.4.0"
     //retrofit+okhttp
-    compile 'com.squareup.retrofit2:retrofit:2.5.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
-    compile 'com.squareup.okhttp3:okhttp:3.12.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-    compile 'com.squareup.retrofit2:converter-gson:2.5.0'
-    compile 'com.jakewharton.rxbinding:rxbinding:0.2.0'
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    api 'com.squareup.okhttp3:okhttp:3.12.1'
+    api 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    api 'com.jakewharton.rxbinding:rxbinding:0.2.0'
     //gson
-    compile 'com.google.code.gson:gson:2.4'
+    api 'com.google.code.gson:gson:2.4'
     //纯色沉浸式标题栏
-    compile 'spa.lyh.cn:immersion-sdk:1.0.6'
+    api 'spa.lyh.cn:immersion-sdk:1.0.6'
     //glide
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    api 'com.github.bumptech.glide:glide:3.7.0'
     //rxlifecycle
-    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
 }
 
 publish {
     userOrg = 'ddnosh'
     groupId = 'la.xiong.androidquick'
     artifactId = 'AndroidQuick'
-    version = '1.2.0'
-    description = 'AndroidQuick is a library helps developers make an app easier.'
+    version = '1.2.1'
+    description = 'AndroidQuick is a code library helps developers make an app easier.'
     website = "https://github.com/ddnosh/AndroidQuick"
 }
 
