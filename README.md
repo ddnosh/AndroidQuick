@@ -12,12 +12,12 @@ AndroidQuick包含了开发一个APP所涉及到的常用的架构、模块、�
 开发者在开发的过程中可以从AndroidQuick项目中找到常用的实例进行参考。
 AndroidQuick还提供了一个库文件[![Download](https://api.bintray.com/packages/ddnosh/maven/AndroidQuick/images/download.svg) ](https://bintray.com/ddnosh/maven/AndroidQuick/_latestVersion) ，集合了通用的功能，供开发快速开发使用。
 
-AndroidQuick分为两大部分：sample和core，以下有具体介绍。
 ## 适用范围
 本项目适用于以下几种情形：
 - 开发一款新的APP;
 - 对现有APP进行重构设计;
 - 常用功能实现的代码demo;
+
 ## 工程目录
 1. core
 2. sample
@@ -31,7 +31,8 @@ core封装了通用的功能，我们将其打包成一个aar包，提供给APP�
 GreenDao生成数据库文件示例工程
 
 ### APP
-![image](https://raw.githubusercontent.com/ddnosh/AndroidQuick/master/art/screenshot.jpg)
+<img src="https://raw.githubusercontent.com/ddnosh/AndroidQuick/master/art/screenshot.jpg"  height="900" width="100">
 
-
-
+## 支持
+如果您觉得项目不错，请支持本项目。  
+<img src="https://github.com/ddnosh/AndroidQuick/blob/master/art/wxskm.jpg"  height="370" width="270">
