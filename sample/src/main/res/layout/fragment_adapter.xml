@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_adapter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_brvah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_brvah_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BRVAH demo 1"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_brvah_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BRVAH demo 2"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

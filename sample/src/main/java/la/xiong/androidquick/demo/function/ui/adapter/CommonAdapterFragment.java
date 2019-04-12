@@ -35,7 +35,7 @@ public class CommonAdapterFragment extends BaseFragment {
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.fragment_commonadapter;
+        return R.layout.fragment_adapter;
     }
 
     @Override
