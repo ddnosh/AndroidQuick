@@ -16,6 +16,7 @@ import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
+import la.xiong.androidquick.tool.ToastUtil;
 
 /**
  * @author  ddnosh
@@ -71,5 +72,11 @@ public class Tab3Fragment extends BaseFragment {
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.fragment_tab3;
+    }
+
+    //懒加载：只有在ViewPager+FragmentPagerAdapter+Fragment结合使用时才会用到
+    @Override
+    protected void onFirstUserVisible() {
+        ToastUtil.showToast("这是懒加载成功的提示");
     }
 }
