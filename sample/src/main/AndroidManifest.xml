@@ -20,22 +20,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".architecture.mvp.activity.MVPActivity" />
-        <activity android:name=".architecture.mvp.activity_dagger.MVPDaggerActivity" />
-        <activity android:name=".module.network.retrofit.NetworkActivity" />
+        <activity android:name=".features.architecture.mvp.activity.MVPActivity" />
+        <activity android:name=".features.architecture.mvp.activity_dagger.MVPDaggerActivity" />
+        <activity android:name=".features.module.network.retrofit.NetworkActivity" />
         <activity
-            android:name=".module.network.retrofit.DownloadActivity"
+            android:name=".features.module.network.retrofit.DownloadActivity"
             android:theme="@style/ProgressBarTheme" />
-        <service android:name=".module.network.retrofit.service.DownloadService" />
-        <activity android:name=".function.ui.fragment.FragmentationActivity" />
-        <activity android:name=".function.ui.bartop.ToolbarActivity" />
-        <activity android:name=".function.ui.webview.WebViewActivity" />
-        <activity android:name=".function.permission.PermissionActivity" />
-        <activity android:name=".architecture.segment.type3.WebViewJavascriptActivity" />
+        <service android:name=".features.module.network.retrofit.service.DownloadService" />
+        <activity android:name=".features.function.ui.fragment.FragmentationActivity" />
+        <activity android:name=".features.function.ui.bartop.ToolbarActivity" />
+        <activity android:name=".features.function.ui.webview.WebViewActivity" />
+        <activity android:name=".features.function.permission.PermissionActivity" />
+        <activity android:name=".features.architecture.segment.type3.WebViewJavascriptActivity" />
         <activity android:name=".ui.activity.FrameActivity" />
         <activity android:name=".ui.activity.HostActivity" />
-        <activity android:name=".architecture.mvc.MVCActivity" />
-        <activity android:name=".architecture.mvvm.activity.MVVMActivity" />
+        <activity android:name=".features.architecture.mvc.MVCActivity" />
+        <activity android:name=".features.architecture.mvvm.activity.MVVMActivity" />
 
     </application>
 
