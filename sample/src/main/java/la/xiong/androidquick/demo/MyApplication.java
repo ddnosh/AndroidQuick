@@ -2,14 +2,15 @@ package la.xiong.androidquick.demo;
 
 import android.app.Activity;
 
+import com.androidwind.log.TinyLog;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
 import la.xiong.androidquick.demo.crash.CrashHandler;
+import la.xiong.androidquick.demo.features.module.db.greendao.DBManager;
 import la.xiong.androidquick.demo.injector.component.ApplicationComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerApplicationComponent;
 import la.xiong.androidquick.demo.injector.module.ApplicationModule;
-import la.xiong.androidquick.demo.features.module.db.greendao.DBManager;
 import la.xiong.androidquick.demo.ui.AQActivityLifecycleCallbacks;
 import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.LogUtil;
@@ -64,6 +65,8 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
         Stetho.initializeWithDefaults(this);
         //init crashhandler
         CrashHandler.getInstance().init(this);
+        //init tinylog
+        TinyLog.config().setEnable(true).apply();
     }
 
     public static synchronized MyApplication getInstance() {

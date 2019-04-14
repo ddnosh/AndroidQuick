@@ -15,6 +15,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
+import la.xiong.androidquick.demo.base.BaseActivity;
+import la.xiong.androidquick.demo.bean.MenuBean;
 import la.xiong.androidquick.demo.features.architecture.design_patterns.factory.FactoryFragment;
 import la.xiong.androidquick.demo.features.architecture.design_patterns.proxy.ProxyFragment;
 import la.xiong.androidquick.demo.features.architecture.design_patterns.single.SingleFragment;
@@ -26,8 +28,6 @@ import la.xiong.androidquick.demo.features.architecture.mvvm.activity.MVVMActivi
 import la.xiong.androidquick.demo.features.architecture.segment.type1.Architecture1Fragment;
 import la.xiong.androidquick.demo.features.architecture.segment.type2.Architecture2Fragment;
 import la.xiong.androidquick.demo.features.architecture.segment.type3.WebViewJavascriptActivity;
-import la.xiong.androidquick.demo.base.BaseActivity;
-import la.xiong.androidquick.demo.bean.MenuBean;
 import la.xiong.androidquick.demo.features.function.json.JsonFragment;
 import la.xiong.androidquick.demo.features.function.permission.PermissionActivity;
 import la.xiong.androidquick.demo.features.function.permission.PermissionFragment;
@@ -71,6 +71,7 @@ import la.xiong.androidquick.demo.features.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.features.other.code.CodeFragment;
 import la.xiong.androidquick.demo.features.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.features.other.rxlifecycle.RxLifecycleFragment;
+import la.xiong.androidquick.demo.features.solution.switcher.SwitcherFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -318,6 +319,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(ProxyFragment.class);
             } else if (name.equals("SingleInstance")) {
                 readyGo(SingleFragment.class);
+            } else if (name.equals("Switcher")) {
+                readyGo(SwitcherFragment.class);
             }
         }
     }

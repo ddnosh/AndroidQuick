@@ -89,4 +89,6 @@ dependencies {
     //mvvm
     api 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    //tinylog
+    api 'com.androidwind:tinylog:1.0.1'
 }
