@@ -487,6 +487,6 @@ public abstract class QuickFragment extends RxFragment implements BaseContract.B
 
     @Override
     public <T> LifecycleTransformer<T> bindToLife() {
-        return this.<T>bindToLifecycle();
+        return bindToLifecycle();
     }
 }

@@ -106,6 +106,27 @@
         android:text="concat"
         android:textAllCaps="false" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rxjava_lifecycle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lifecycle(CompositeDisposable)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_rxjava_lifecycle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lifecycle(RxLifecycle)"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tv_rxjava_more"
         style="@style/text_large_black"

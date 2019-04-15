@@ -27,8 +27,10 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
+import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
@@ -39,13 +41,14 @@ import la.xiong.androidquick.demo.tool.AssetsUtil;
 import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
 import la.xiong.androidquick.module.rxjava.BaseObserver;
 import la.xiong.androidquick.tool.RxUtil;
+import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class RxjavaFragment extends BaseFragment {
+public class RxJavaFragment extends BaseFragment {
 
     @BindView(R.id.tv_flowable_result)
     TextView mFlowableResult;
@@ -62,7 +65,7 @@ public class RxjavaFragment extends BaseFragment {
 
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
             R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose,
-            R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat})
+            R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -97,8 +100,78 @@ public class RxjavaFragment extends BaseFragment {
             case R.id.btn_rxjava_concat:
                 testConcat();
                 break;
+            case R.id.btn_rxjava_lifecycle1:
+                testLifeCycle1();
+                break;
+            case R.id.btn_rxjava_lifecycle2:
+                testLifeCycle2();
+                break;
         }
     }
+
+    //--------Lifecycle CompositeDisposable
+    private final CompositeDisposable disposables = new CompositeDisposable();
+
+    private void testLifeCycle1() {
+        Observable<Boolean> observable = Observable.create(emitter -> {
+            emitter.onNext(true);
+        });
+        DisposableObserver<Boolean> observer = new DisposableObserver<Boolean>() {
+            @Override
+            public void onNext(Boolean s) {
+                ToastUtil.showToast("CompositeDisposable");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+        observable
+                .compose(RxUtil.applySchedulers())
+                .subscribe(observer);
+        disposables.add(observer);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        disposables.clear();
+    }
+    //--------Lifecycle CompositeDisposable
+
+    //--------Lifecycle RxLifecycle
+    private void testLifeCycle2() {
+        Observable.create((ObservableOnSubscribe<Boolean>) emitter -> {
+                    try {
+                        Thread.sleep(2000); // 假设此处是耗时操作
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        emitter.onError(new RuntimeException());
+                    }
+                    emitter.onNext(true);
+                }
+        )
+                .compose(RxUtil.applySchedulers())
+                .compose(bindToLife())
+                .subscribe(new BaseObserver<Boolean>() {
+                    @Override
+                    public void onError(ApiException exception) {
+                        ToastUtil.showToast("LifeCycle Error");
+                    }
+
+                    @Override
+                    public void onSuccess(Boolean b) {
+                        ToastUtil.showToast("LifeCycle");
+                    }
+                });
+    }
+    //--------Lifecycle RxLifecycle
 
     private Observable<String> getObservable() {
         return Observable.fromCallable(new Callable<String>() {
@@ -135,7 +208,7 @@ public class RxjavaFragment extends BaseFragment {
         });
         Observable.concat(o1, o2, getObservable())
                 .compose(RxUtil.applySchedulers())
-                .compose(this.<String>bindToLife())
+                .compose(bindToLife())
                 .subscribeWith(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -208,13 +281,14 @@ public class RxjavaFragment extends BaseFragment {
                 });
     }
 
-    private Disposable disposable;
+    private Disposable disposable;//主动阻断订阅,
 
     private void testCreate() {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) {
                 e.onNext("1");
+                e.onNext("");
                 e.onNext("2");
                 e.onComplete();
 //                e.onError(new NullPointerException());
@@ -228,6 +302,9 @@ public class RxjavaFragment extends BaseFragment {
             @Override
             public void onNext(String s) {
                 System.out.println("RxJava:" + s);
+                if (StringUtil.isEmpty(s)) {//s为空不符合条件, 阻断此条订阅
+                    disposable.dispose();
+                }
             }
 
             @Override
@@ -238,7 +315,6 @@ public class RxjavaFragment extends BaseFragment {
             @Override
             public void onComplete() {
                 ToastUtil.showToast("create done!");
-                disposable.dispose();
             }
         });
     }
@@ -483,7 +559,7 @@ public class RxjavaFragment extends BaseFragment {
     private void testCompose() {
         lifecycle
                 .compose(RxUtil.<String>applySchedulers())
-                .compose(this.<String>bindToLife())
+                .compose(bindToLife())
                 .subscribe(new Observer<String>() {
 
                     @Override

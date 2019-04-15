@@ -31,7 +31,7 @@ import la.xiong.androidquick.demo.features.architecture.segment.type3.WebViewJav
 import la.xiong.androidquick.demo.features.function.json.JsonFragment;
 import la.xiong.androidquick.demo.features.function.permission.PermissionActivity;
 import la.xiong.androidquick.demo.features.function.permission.PermissionFragment;
-import la.xiong.androidquick.demo.features.function.rxjava.RxjavaFragment;
+import la.xiong.androidquick.demo.features.function.rxjava.RxJavaFragment;
 import la.xiong.androidquick.demo.features.function.sharedpreferences.SPFragment;
 import la.xiong.androidquick.demo.features.function.ui.adapter.BaseRecyclerViewAdapterHelperFragment;
 import la.xiong.androidquick.demo.features.function.ui.adapter.CommonAdapterFragment;
@@ -267,8 +267,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(VaryPageStatusFragment.class);
             } else if (name.equals("Json")) {
                 readyGo(JsonFragment.class);
-            } else if (name.equals("Rxjava")) {
-                readyGo(RxjavaFragment.class);
+            } else if (name.equals("RxJava")) {
+                readyGo(RxJavaFragment.class);
             } else if (name.equals("SharedPreferences")) {
                 readyGo(SPFragment.class);
             } else if (name.equals("OneLayout-MultipleViews")) {
