@@ -1,4 +1,4 @@
-package la.xiong.androidquick.module.network.http;
+package la.xiong.androidquick.demo.features.module.network.common.http;
 
 /**
  * @author ddnosh

@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
-import la.xiong.androidquick.module.network.http.HTTPRequest;
-import la.xiong.androidquick.module.network.http.HttpCallback;
+import la.xiong.androidquick.demo.features.module.network.common.http.HTTPRequest;
+import la.xiong.androidquick.demo.features.module.network.common.http.HttpCallback;
 
 /**
  * @author  ddnosh

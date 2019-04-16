@@ -41,9 +41,6 @@ allprojects {
 }
 
 dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided files('libs/org.apache.http.legacy.jar')
-
     api rootProject.ext.dependencies["appcompatv4"]
     api rootProject.ext.dependencies["appcompatv7"]
     api rootProject.ext.dependencies["design"]

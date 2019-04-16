@@ -41,7 +41,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    provided files('libs/org.apache.http.legacy.jar')
     //library
     api project(':core')
     api project(':treeview')
