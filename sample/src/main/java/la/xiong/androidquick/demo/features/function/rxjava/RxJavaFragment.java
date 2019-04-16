@@ -64,7 +64,7 @@ public class RxJavaFragment extends BaseFragment {
     }
 
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
-            R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_compose,
+            R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_by_manual,
             R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -86,8 +86,8 @@ public class RxJavaFragment extends BaseFragment {
             case R.id.btn_rxjava_thread:
                 testThread();
                 break;
-            case R.id.btn_rxjava_compose:
-                testCompose();
+            case R.id.btn_rxjava_by_manual:
+                testManual();
                 break;
             case R.id.btn_rxjava_flowable:
                 testFlowable();
@@ -109,179 +109,8 @@ public class RxJavaFragment extends BaseFragment {
         }
     }
 
-    //--------Lifecycle CompositeDisposable
-    private final CompositeDisposable disposables = new CompositeDisposable();
-
-    private void testLifeCycle1() {
-        Observable<Boolean> observable = Observable.create(emitter -> {
-            emitter.onNext(true);
-        });
-        DisposableObserver<Boolean> observer = new DisposableObserver<Boolean>() {
-            @Override
-            public void onNext(Boolean s) {
-                ToastUtil.showToast("CompositeDisposable");
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        };
-        observable
-                .compose(RxUtil.applySchedulers())
-                .subscribe(observer);
-        disposables.add(observer);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        disposables.clear();
-    }
-    //--------Lifecycle CompositeDisposable
-
-    //--------Lifecycle RxLifecycle
-    private void testLifeCycle2() {
-        Observable.create((ObservableOnSubscribe<Boolean>) emitter -> {
-                    try {
-                        Thread.sleep(2000); // 假设此处是耗时操作
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        emitter.onError(new RuntimeException());
-                    }
-                    emitter.onNext(true);
-                }
-        )
-                .compose(RxUtil.applySchedulers())
-                .compose(bindToLife())
-                .subscribe(new BaseObserver<Boolean>() {
-                    @Override
-                    public void onError(ApiException exception) {
-                        ToastUtil.showToast("LifeCycle Error");
-                    }
-
-                    @Override
-                    public void onSuccess(Boolean b) {
-                        ToastUtil.showToast("LifeCycle");
-                    }
-                });
-    }
-    //--------Lifecycle RxLifecycle
-
-    private Observable<String> getObservable() {
-        return Observable.fromCallable(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                try {
-                    Thread.sleep(1000); // 假设此处是耗时操作
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                return "3";
-            }
-        });
-    }
-
-    /**
-     * 将多个数据源连接起来一起处理
-     */
-    private void testConcat() {
-        Observable<String> o1 = Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) {
-                e.onNext("1");
-                e.onComplete();//必须加这个, 否则o2出现不了
-            }
-        });
-        Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) {
-                e.onNext("2");
-                e.onComplete();
-            }
-        });
-        Observable.concat(o1, o2, getObservable())
-                .compose(RxUtil.applySchedulers())
-                .compose(bindToLife())
-                .subscribeWith(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        if ("1".equals(s)) {
-                            ToastUtil.showToast("concat: 1");
-                        } else if ("2".equals(s)) {
-                            ToastUtil.showToast("concat: 2");
-                        } else if ("3".equals(s)) {
-                            ToastUtil.showToast("concat: 3");
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        ToastUtil.showToast("concat done!");
-                    }
-                });
-    }
-
-    /**
-     * 注意：只有在有背压需求的时候才需要使用Flowable, 否则使用Observable, 不然会影响性能
-     */
-    private void testFlowable() {//flowable比observable多了一个缓冲池大小的限制
-        Flowable.create(new FlowableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(FlowableEmitter<Integer> e) throws Exception {
-                System.out.println("send----> 1");
-                e.onNext(1);
-                System.out.println("send----> 2");
-                e.onNext(2);
-                System.out.println("send----> 3");
-                e.onNext(3);
-                System.out.println("send----> Done");
-                e.onComplete();
-            }
-        }, BackpressureStrategy.BUFFER) //add param: BackpressureStrategy
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Integer>() {
-                    @Override
-                    public void onSubscribe(Subscription s) {
-                        s.request(Long.MAX_VALUE);
-                    }
-
-                    @Override
-                    public void onNext(Integer integer) {
-                        System.out.println("receive----> " + integer);
-                        mFlowableResult.setText("receive----> " + integer);
-                    }
-
-                    @Override
-                    public void onError(Throwable t) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        System.out.println("receive----> Done");
-                        mFlowableResult.setText("receive----> Done");
-                    }
-                });
-    }
-
-    private Disposable disposable;//主动阻断订阅,
+    //--------Create
+    private Disposable disposable;//主动阻断本次和后面的所有订阅
 
     private void testCreate() {
         Observable.create(new ObservableOnSubscribe<String>() {
@@ -302,7 +131,7 @@ public class RxJavaFragment extends BaseFragment {
             @Override
             public void onNext(String s) {
                 System.out.println("RxJava:" + s);
-                if (StringUtil.isEmpty(s)) {//s为空不符合条件, 阻断此条订阅
+                if (StringUtil.isEmpty(s)) {//s为空不符合条件, 阻断本次和后面的所有订阅
                     disposable.dispose();
                 }
             }
@@ -319,6 +148,8 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
+    //--------Create
+    //--------Just
     private void testJust() {
         Observable.just("A", "B", "C", "D").subscribe(new Observer<String>() {
             @Override
@@ -344,6 +175,8 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
+    //--------Just
+    //--------From
     Integer[] items = {0, 1, 2, 3, 4, 5};
 
     private void testFrom() {
@@ -371,6 +204,8 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
+    //--------From
+    //--------Map
     private void testMap() {
 //        String pathString = Environment.getExternalStorageDirectory() + File.separator + "Pictures" + File.separator + "test.png";
 //        Observable.just(pathString)
@@ -473,6 +308,8 @@ public class RxJavaFragment extends BaseFragment {
 //                });
     }
 
+    //--------Map
+    //--------FlatMap
     private void testFlatMap() {
         final String originalPath = Environment.getExternalStorageDirectory().getAbsolutePath();
         Observable.just(originalPath)
@@ -510,6 +347,8 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
+    //--------FlatMap
+    //--------Thread
     private void testThread() {
         //write way 1
 //        Observable.just("task result").
@@ -554,11 +393,18 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
+    //--------Thread
+    //--------Manual
     private Subject<String> lifecycle = PublishSubject.create();
 
-    private void testCompose() {
-        lifecycle
-                .compose(RxUtil.<String>applySchedulers())
+    private void testManual() {
+        lifecycle.fromCallable(new Callable<String>() {
+
+            @Override
+            public String call() throws Exception {
+                return "here is triggered by manual";
+            }
+        }).compose(RxUtil.applySchedulers())
                 .compose(bindToLife())
                 .subscribe(new Observer<String>() {
 
@@ -570,6 +416,7 @@ public class RxJavaFragment extends BaseFragment {
                     @Override
                     public void onNext(String s) {
                         System.out.println(s);
+                        ToastUtil.showToast(s);
                     }
 
                     @Override
@@ -582,7 +429,182 @@ public class RxJavaFragment extends BaseFragment {
 
                     }
                 });
-
-        lifecycle.onNext("compose test finished.");
     }
+    //--------Compose
+    //--------Flowable
+
+    /**
+     * 注意：只有在有背压需求的时候才需要使用Flowable, 否则使用Observable, 不然会影响性能
+     */
+    private void testFlowable() {//flowable比observable多了一个缓冲池大小的限制
+        Flowable.create(new FlowableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(FlowableEmitter<Integer> e) throws Exception {
+                System.out.println("send----> 1");
+                e.onNext(1);
+                System.out.println("send----> 2");
+                e.onNext(2);
+                System.out.println("send----> 3");
+                e.onNext(3);
+                System.out.println("send----> Done");
+                e.onComplete();
+            }
+        }, BackpressureStrategy.BUFFER) //add param: BackpressureStrategy
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Integer>() {
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        s.request(Long.MAX_VALUE);
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        System.out.println("receive----> " + integer);
+                        mFlowableResult.setText("receive----> " + integer);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("receive----> Done");
+                        mFlowableResult.setText("receive----> Done");
+                    }
+                });
+    }
+
+    //--------Flowable
+    //--------Concat
+    private Observable<String> getObservable() {
+        return Observable.fromCallable(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return "3";
+            }
+        });
+    }
+
+    /**
+     * 将多个数据源连接起来一起处理
+     */
+    private void testConcat() {
+        Observable<String> o1 = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) {
+                e.onNext("1");
+                e.onComplete();//必须加这个, 否则o2出现不了
+            }
+        });
+        Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) {
+                e.onNext("2");
+                e.onComplete();
+            }
+        });
+        Observable.concat(o1, o2, getObservable())
+                .compose(RxUtil.applySchedulers())
+                .compose(bindToLife())
+                .subscribeWith(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        if ("1".equals(s)) {
+                            ToastUtil.showToast("concat: 1");
+                        } else if ("2".equals(s)) {
+                            ToastUtil.showToast("concat: 2");
+                        } else if ("3".equals(s)) {
+                            ToastUtil.showToast("concat: 3");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        ToastUtil.showToast("concat done!");
+                    }
+                });
+    }
+
+    //--------Concat
+    //--------Lifecycle CompositeDisposable
+    private final CompositeDisposable disposables = new CompositeDisposable();
+
+    private void testLifeCycle1() {
+        Observable<Boolean> observable = Observable.create(emitter -> {
+            emitter.onNext(true);
+        });
+        DisposableObserver<Boolean> observer = new DisposableObserver<Boolean>() {
+            @Override
+            public void onNext(Boolean s) {
+                ToastUtil.showToast("CompositeDisposable");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+        observable
+                .compose(RxUtil.applySchedulers())
+                .subscribe(observer);
+        disposables.add(observer);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        disposables.clear();
+    }
+
+    //--------Lifecycle CompositeDisposable
+    //--------Lifecycle RxLifecycle
+    private void testLifeCycle2() {
+        Observable.create((ObservableOnSubscribe<Boolean>) emitter -> {
+                    try {
+                        Thread.sleep(2000); // 假设此处是耗时操作
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        emitter.onError(new RuntimeException());
+                    }
+                    emitter.onNext(true);
+                }
+        )
+                .compose(RxUtil.applySchedulers())
+                .compose(bindToLife())
+                .subscribe(new BaseObserver<Boolean>() {
+                    @Override
+                    public void onError(ApiException exception) {
+                        ToastUtil.showToast("LifeCycle Error");
+                    }
+
+                    @Override
+                    public void onSuccess(Boolean b) {
+                        ToastUtil.showToast("LifeCycle");
+                    }
+                });
+    }
+    //--------Lifecycle RxLifecycle
 }

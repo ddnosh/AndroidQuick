@@ -71,10 +71,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_rxjava_compose"
+        android:id="@+id/btn_rxjava_by_manual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="compose and trigger by manual"
+        android:text="trigger by manual"
         android:textAllCaps="false" />
 
     <Button

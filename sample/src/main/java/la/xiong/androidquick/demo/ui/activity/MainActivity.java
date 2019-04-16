@@ -71,7 +71,7 @@ import la.xiong.androidquick.demo.features.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.features.other.code.CodeFragment;
 import la.xiong.androidquick.demo.features.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.features.other.rxlifecycle.RxLifecycleFragment;
-import la.xiong.androidquick.demo.features.solution.switcher.SwitcherFragment;
+import la.xiong.androidquick.demo.features.solution.switcher.StrategyFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -320,7 +320,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("SingleInstance")) {
                 readyGo(SingleFragment.class);
             } else if (name.equals("Switcher")) {
-                readyGo(SwitcherFragment.class);
+                readyGo(StrategyFragment.class);
             }
         }
     }

@@ -11,7 +11,7 @@ import la.xiong.androidquick.demo.base.BaseFragment;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class SwitcherFragment extends BaseFragment {
+public class StrategyFragment extends BaseFragment {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
 

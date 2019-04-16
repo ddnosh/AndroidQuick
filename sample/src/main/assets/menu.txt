@@ -15,6 +15,7 @@
         32100401,Factory,21004;
         32100402,Proxy(with AOP),21004;
         32100403,SingleInstance,21004;
+        32100404,Strategy,21004;
 11,Module,0;
     21100,Network,11;
         32110000,Retrofit+CommonUrl,21100;
@@ -76,7 +77,6 @@
     21203,RxJava,12;
     21204,SharedPreferences,12;
 15,Solution,0;
-    21500,Switcher,15;
 13,Other,0;
     21300,Code,13;
     21301,RxLifecycle,13;
