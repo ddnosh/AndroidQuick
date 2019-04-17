@@ -110,8 +110,6 @@ public class RxJavaFragment extends BaseFragment {
     }
 
     //--------Create
-    private Disposable disposable;//主动阻断本次和后面的所有订阅
-
     private void testCreate() {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
@@ -123,6 +121,8 @@ public class RxJavaFragment extends BaseFragment {
 //                e.onError(new NullPointerException());
             }
         }).subscribe(new Observer<String>() {
+            private Disposable disposable;//主动阻断本次和后面的所有订阅
+
             @Override
             public void onSubscribe(Disposable d) {
                 disposable = d;
@@ -549,7 +549,17 @@ public class RxJavaFragment extends BaseFragment {
 
     private void testLifeCycle1() {
         Observable<Boolean> observable = Observable.create(emitter -> {
-            emitter.onNext(true);
+            try {
+                Thread.sleep(2000); // 假设此处是耗时操作
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (!emitter.isDisposed()) {
+                    emitter.onError(new RuntimeException());//onError和onSuccess不能同时调用
+                }
+            }
+            if (!emitter.isDisposed()) {
+                emitter.onNext(true);
+            }
         });
         DisposableObserver<Boolean> observer = new DisposableObserver<Boolean>() {
             @Override
