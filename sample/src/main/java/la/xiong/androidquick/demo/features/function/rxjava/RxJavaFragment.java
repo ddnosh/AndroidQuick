@@ -1,7 +1,10 @@
 package la.xiong.androidquick.demo.features.function.rxjava;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -9,10 +12,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
+
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.Callable;
 
 import butterknife.BindView;
@@ -29,6 +41,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -38,6 +51,7 @@ import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.features.function.ui.webview.WebViewActivity;
 import la.xiong.androidquick.demo.tool.AssetsUtil;
+import la.xiong.androidquick.demo.tool.GlideUtils;
 import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
 import la.xiong.androidquick.module.rxjava.BaseObserver;
 import la.xiong.androidquick.tool.RxUtil;
@@ -52,6 +66,8 @@ public class RxJavaFragment extends BaseFragment {
 
     @BindView(R.id.tv_flowable_result)
     TextView mFlowableResult;
+    @BindView(R.id.iv_example)
+    ImageView mExample;
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
@@ -65,7 +81,8 @@ public class RxJavaFragment extends BaseFragment {
 
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
             R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_by_manual,
-            R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2})
+            R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2,
+            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -105,6 +122,12 @@ public class RxJavaFragment extends BaseFragment {
                 break;
             case R.id.btn_rxjava_lifecycle2:
                 testLifeCycle2();
+                break;
+            case R.id.btn_rxjava_lifecycle3:
+                testLifeCycle3();
+                break;
+            case R.id.btn_rxjava_example:
+                testExample();
                 break;
         }
     }
@@ -564,7 +587,7 @@ public class RxJavaFragment extends BaseFragment {
         DisposableObserver<Boolean> observer = new DisposableObserver<Boolean>() {
             @Override
             public void onNext(Boolean s) {
-                ToastUtil.showToast("CompositeDisposable");
+                ToastUtil.showToast("CompositeDisposable with DisposableObserver");
             }
 
             @Override
@@ -583,6 +606,29 @@ public class RxJavaFragment extends BaseFragment {
         disposables.add(observer);
     }
 
+    private void testLifeCycle2() {
+        Observable<Boolean> observable = Observable.create(emitter -> {
+            try {
+                Thread.sleep(2000); // 假设此处是耗时操作
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (!emitter.isDisposed()) {
+                    emitter.onError(new RuntimeException());//onError和onSuccess不能同时调用
+                }
+            }
+            if (!emitter.isDisposed()) {
+                emitter.onNext(true);
+            }
+        });
+        Consumer<Boolean> observer = new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean path) throws Exception {
+                ToastUtil.showToast("CompositeDisposable with Consumer");
+            }
+        };
+        disposables.add(observable.compose(RxUtil.applySchedulers()).subscribe(observer));
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -591,7 +637,7 @@ public class RxJavaFragment extends BaseFragment {
 
     //--------Lifecycle CompositeDisposable
     //--------Lifecycle RxLifecycle
-    private void testLifeCycle2() {
+    private void testLifeCycle3() {
         Observable.create((ObservableOnSubscribe<Boolean>) emitter -> {
                     try {
                         Thread.sleep(2000); // 假设此处是耗时操作
@@ -616,5 +662,64 @@ public class RxJavaFragment extends BaseFragment {
                     }
                 });
     }
+
     //--------Lifecycle RxLifecycle
+    //--------Example
+    private void testExample() {
+        Observable<String> observable = Observable.create(new ObservableOnSubscribe<File>() {
+            @Override
+            public void subscribe(ObservableEmitter<File> emitter) throws Exception {
+                emitter.onNext(Glide.with(getContext())
+                        .load("https://hbimg.huabanimg.com/85966739547072c95d2ecd2ff60248e1d09be657c005-Dd5NrU_fw658")
+                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                        .get());
+            }
+        }).map(new Function<File, String>() {
+            @Override
+            public String apply(File file) throws Exception {
+                return savePicture(getContext(), file, new SimpleDateFormat("yyyyMMddHHmmss",
+                        Locale.getDefault()).format(new Date())
+                        + ".jpg");
+            }
+        });
+        Consumer<String> observer = new Consumer<String>() {
+            @Override
+            public void accept(String path) throws Exception {
+                ToastUtil.showToast(StringUtil.isEmpty(path) ? "保存失败" : "保存成功");
+                GlideUtils.loadImageView(path, mExample);
+            }
+        };
+        disposables.add(observable.compose(RxUtil.applySchedulers()).subscribe(observer));
+    }
+    private String savePicture(Context context, File sourceFile, String fileName) {
+        File save = new File(Environment.getExternalStorageDirectory() + File.separator + "AndroidQuick" +
+                File.separator + "Picture");
+        if (save != null && !save.exists()) {
+            save.mkdirs();
+        }
+        File destFile = new File(save, fileName);
+        FileInputStream fileInputStream = null;
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileInputStream = new FileInputStream(sourceFile);
+            fileOutputStream = new FileOutputStream(destFile);
+            byte[] buffer = new byte[1024];
+            while (fileInputStream.read(buffer) > 0) {
+                fileOutputStream.write(buffer);
+            }
+            context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(destFile))); //通知相册更新
+            return destFile.getAbsolutePath();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        } finally {
+            try {
+                fileInputStream.close();
+                fileOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    //--------Example
 }

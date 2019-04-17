@@ -11,26 +11,33 @@
         android:layout_height="wrap_content"
         android:text="These are operators you must use" />
 
-    <Button
-        android:id="@+id/btn_rxjava_create"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="create"
-        android:textAllCaps="false" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_rxjava_just"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="just"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_rxjava_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="create"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_rxjava_from"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="from"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_rxjava_just"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="just"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_rxjava_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="from"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -87,12 +94,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/btn_rxjava_flowable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="flowable"
             android:textAllCaps="false" />
+
         <TextView
             android:id="@+id/tv_flowable_result"
             android:layout_width="wrap_content"
@@ -109,22 +118,47 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_rxjava_lifecycle1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="lifecycle(CompositeDisposable)"
+            android:text="lifecycle(CompositeDisposable with DisposableObserver)"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_rxjava_lifecycle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="lifecycle(CompositeDisposable with Consumer)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_rxjava_lifecycle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="lifecycle(RxLifecycle)"
             android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rxjava_example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="实例：下载图片并存储、显示"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_example"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
     </LinearLayout>
 
     <TextView
