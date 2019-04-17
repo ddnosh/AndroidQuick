@@ -70,7 +70,7 @@ import la.xiong.androidquick.demo.features.module.task.TaskTinyFragment;
 import la.xiong.androidquick.demo.features.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.features.other.code.CodeFragment;
 import la.xiong.androidquick.demo.features.other.lambda.LambdaFragment;
-import la.xiong.androidquick.demo.features.other.rxlifecycle.RxLifecycleFragment;
+import la.xiong.androidquick.demo.features.other.rxlifecycle.RxJavaLifecycleFragment;
 import la.xiong.androidquick.demo.features.solution.switcher.StrategyFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.tool.AppUtil;
@@ -281,8 +281,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(TaskTinyFragment.class);
             } else if (name.equals("Task-RxJava")) {
                 readyGo(TaskRxJavaFragment.class);
-            } else if (name.equals("RxLifecycle")) {
-                readyGo(RxLifecycleFragment.class);
+            } else if (name.equals("RxJava_Lifecycle")) {
+                readyGo(RxJavaLifecycleFragment.class);
             } else if (name.equals("Lambda")) {
                 readyGo(LambdaFragment.class);
             } else if (name.equals("OrmLite")) {

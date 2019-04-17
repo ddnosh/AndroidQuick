@@ -5,7 +5,7 @@ import la.xiong.androidquick.demo.injector.FragmentScope;
 import la.xiong.androidquick.demo.injector.module.FragmentModule;
 import la.xiong.androidquick.demo.features.architecture.mvp.fragment_dagger.MVPDaggerFragment;
 import la.xiong.androidquick.demo.features.module.network.retrofit.network1.Network1Fragment;
-import la.xiong.androidquick.demo.features.other.rxlifecycle.RxLifecycleFragment;
+import la.xiong.androidquick.demo.features.other.rxlifecycle.RxJavaLifecycleFragment;
 
 /**
  * @author  ddnosh
@@ -17,5 +17,5 @@ public interface FragmentComponent {
 
     void inject(Network1Fragment network1Fragment);
     void inject(MVPDaggerFragment MVPDaggerFragment);
-    void inject(RxLifecycleFragment rxLifecycleFragment);
+    void inject(RxJavaLifecycleFragment rxJavaLifecycleFragment);
 }

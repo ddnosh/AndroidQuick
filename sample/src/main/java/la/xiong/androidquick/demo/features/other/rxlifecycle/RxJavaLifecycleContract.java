@@ -7,7 +7,7 @@ import la.xiong.androidquick.ui.mvp.BaseModel;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public interface RxLifecycleContract {
+public interface RxJavaLifecycleContract {
     interface Model extends BaseModel {
 
     }
@@ -17,6 +17,7 @@ public interface RxLifecycleContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void initData();
+        void initDataRxLifecycle();
+        void initDataCompositeDisposable();
     }
 }

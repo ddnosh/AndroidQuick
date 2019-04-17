@@ -9,5 +9,11 @@
         android:id="@+id/btn_rxlifecycle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click"/>
+        android:text="RxLifecycle"/>
+
+    <Button
+        android:id="@+id/btn_compositedisposable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CompositeDisposable"/>
 </LinearLayout>

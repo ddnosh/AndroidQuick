@@ -3,6 +3,8 @@ package la.xiong.androidquick.ui.mvp;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import la.xiong.androidquick.constant.Constant;
 
 /**
@@ -31,6 +33,23 @@ public class BasePresenter<V extends BaseContract.BaseView> implements BaseContr
         if (mRefView != null) {
             mRefView.clear();
             mRefView = null;
+        }
+        unSubscribe();
+    }
+
+    //增加使用CompositeDisposable方式处理防止RxJava内存泄漏的问题
+    private CompositeDisposable mCompositeDisposable;
+
+    public void addSubscribe(Disposable disposable){
+        if(mCompositeDisposable == null){
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(disposable);
+    }
+
+    private void unSubscribe() {
+        if(mCompositeDisposable != null){
+            mCompositeDisposable.dispose();//dispose防止下游(订阅者)收到观察者发送的消息
         }
     }
 }

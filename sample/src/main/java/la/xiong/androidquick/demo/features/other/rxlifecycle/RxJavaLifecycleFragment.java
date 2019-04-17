@@ -14,7 +14,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class RxLifecycleFragment extends BaseTFragment<RxLifecyclePresenter> implements RxLifecycleContract.View{
+public class RxJavaLifecycleFragment extends BaseTFragment<RxJavaLifecyclePresenter> implements RxJavaLifecycleContract.View{
 
     @BindView(R.id.btn_rxlifecycle)
     Button btnRxLifecycle;
@@ -34,11 +34,14 @@ public class RxLifecycleFragment extends BaseTFragment<RxLifecyclePresenter> imp
         return R.layout.fragment_other_rxlifecycle;
     }
 
-    @OnClick({R.id.btn_rxlifecycle})
+    @OnClick({R.id.btn_rxlifecycle, R.id.btn_compositedisposable})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxlifecycle:
-                mPresenter.initData();
+                mPresenter.initDataRxLifecycle();
+                break;
+            case R.id.btn_compositedisposable:
+                mPresenter.initDataCompositeDisposable();
                 break;
         }
     }
