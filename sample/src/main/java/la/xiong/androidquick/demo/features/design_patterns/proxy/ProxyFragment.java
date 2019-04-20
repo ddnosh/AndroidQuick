@@ -6,19 +6,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.List;
 
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.constant.Constants;
+import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import la.xiong.androidquick.ui.dialog.dialogactivity.CommonDialog;
 import la.xiong.androidquick.ui.permission.EasyPermissions;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * @author ddnosh
@@ -36,7 +41,7 @@ public class ProxyFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.btn_proxy_static, R.id.btn_proxy_dynamic, R.id.btn_proxy_dynamic_factory, R.id.btn_proxy_aop})
+    @OnClick({R.id.btn_proxy_static, R.id.btn_proxy_dynamic, R.id.btn_proxy_dynamic_factory, R.id.btn_proxy_aop, R.id.btn_proxy_aop_retrofit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_proxy_static:
@@ -81,6 +86,11 @@ public class ProxyFragment extends BaseFragment {
                 });
                 ICar car3 = (ICar) aopFactory.createProxy();
                 car3.move();
+                break;
+            case R.id.btn_proxy_aop_retrofit:
+                IRequestAPI api = create(IRequestAPI.class);
+                api.getHistory("123");
+                api.getNew();
                 break;
         }
     }
@@ -282,5 +292,39 @@ public class ProxyFragment extends BaseFragment {
                 }
             }
         });
+    }
+
+    public <T> T create(final Class<T> service) {
+        return (T) Proxy.newProxyInstance(service.getClassLoader(), new Class<?>[]{service},
+                new InvocationHandler() {
+
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object... args)
+                            throws Throwable {
+                        GET getType = method.getAnnotation(GET.class);
+                        LogUtil.i(TAG, "IRequestAPI---getType->" + getType.value());
+                        Annotation[][] parameterAnnotationsArray = method.getParameterAnnotations();
+                        for (int i = 0; i < parameterAnnotationsArray.length; i++) {
+                            Annotation[] annotations = parameterAnnotationsArray[i];
+                            if (annotations != null) {
+                                Query queryParam = (Query) annotations[0];
+                                LogUtil.i(TAG, "queryParam---queryParam->" + queryParam.value() + "==" + args[i]);
+                            }
+                        }
+                        //··这里开始处理网络请求
+                        // HttpGet、HttpPost
+                        //··网络请求处理完毕
+                        final Object object;
+
+                        if (String.class.equals(method.getReturnType())) {
+                            String result = "test";
+                            object = result;
+                            return object;
+                        } else if (Observable.class.equals(method.getReturnType())) {
+                            return Observable.just("123");
+                        }
+                        return null;
+                    }
+                });
     }
 }

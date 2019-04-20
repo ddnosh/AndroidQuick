@@ -27,4 +27,9 @@
         style="@style/button_common_style"
         android:text="AOP" />
 
+    <Button
+        android:id="@+id/btn_proxy_aop_retrofit"
+        style="@style/button_common_style"
+        android:text="仿Retrofit" />
+
 </LinearLayout>

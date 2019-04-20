@@ -72,7 +72,7 @@ import la.xiong.androidquick.demo.features.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.features.other.code.CodeFragment;
 import la.xiong.androidquick.demo.features.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.features.other.rxlifecycle.RxJavaLifecycleFragment;
-import la.xiong.androidquick.demo.features.solution.switcher.StrategyFragment;
+import la.xiong.androidquick.demo.features.design_patterns.switcher.StrategyFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -312,15 +312,13 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(RxBusFragment.class);
             } else if (name.equals("MVVM for Activity")) {
                 readyGo(MVVMActivity.class);
-            } else if (name.equals("Factory Method")) {
-                readyGo(FactoryFragment.class);
-            } else if (name.equals("Facade")) {
+            } else if (name.equals("Factory")) {
                 readyGo(FactoryFragment.class);
             } else if (name.equals("Proxy(with AOP)")) {
                 readyGo(ProxyFragment.class);
             } else if (name.equals("SingleInstance")) {
                 readyGo(SingleFragment.class);
-            } else if (name.equals("Switcher")) {
+            } else if (name.equals("Strategy")) {
                 readyGo(StrategyFragment.class);
             } else if (name.equals("Builder")) {
                 readyGo(BuilderFragment.class);

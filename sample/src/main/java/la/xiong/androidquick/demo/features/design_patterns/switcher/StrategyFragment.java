@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.features.solution.switcher;
+package la.xiong.androidquick.demo.features.design_patterns.switcher;
 
 import android.os.Bundle;
 import android.view.View;

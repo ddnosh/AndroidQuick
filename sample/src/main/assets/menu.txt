@@ -1,5 +1,4 @@
 16,Design Pattern,0;
-        32100400,Facade,16;
         32100401,Factory,16;
         32100402,Proxy(with AOP),16;
         32100403,SingleInstance,16;
