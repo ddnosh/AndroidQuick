@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.features.architecture.design_patterns.factory;
+package la.xiong.androidquick.demo.features.design_patterns.factory;
 
 import android.os.Bundle;
 

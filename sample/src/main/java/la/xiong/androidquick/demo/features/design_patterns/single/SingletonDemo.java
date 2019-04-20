@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.features.architecture.design_patterns.single;
+package la.xiong.androidquick.demo.features.design_patterns.single;
 
 /**
  * @author ddnosh

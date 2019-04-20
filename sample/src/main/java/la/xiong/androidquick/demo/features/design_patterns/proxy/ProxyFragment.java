@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.features.architecture.design_patterns.proxy;
+package la.xiong.androidquick.demo.features.design_patterns.proxy;
 
 import android.Manifest;
 import android.content.Intent;

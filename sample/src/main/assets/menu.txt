@@ -1,3 +1,10 @@
+16,Design Pattern,0;
+        32100400,Facade,16;
+        32100401,Factory,16;
+        32100402,Proxy(with AOP),16;
+        32100403,SingleInstance,16;
+        32100404,Strategy,16;
+        32100405,Builder,16;
 10,Architecture,0;
     21000,MVC,10;
     21001,MVP,10;
@@ -10,12 +17,6 @@
         32100300,OneLayout-MultipleViews,21003;
         32100301,OneView-MultipleModules,21003;
         32100302,WebView-JavaScripts,21003;
-    21004,Design Patterns,10;
-        32100400,Facade,21004;
-        32100401,Factory,21004;
-        32100402,Proxy(with AOP),21004;
-        32100403,SingleInstance,21004;
-        32100404,Strategy,21004;
 11,Module,0;
     21100,Network,11;
         32110000,Retrofit+CommonUrl,21100;
