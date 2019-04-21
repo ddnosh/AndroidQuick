@@ -79,7 +79,8 @@ public class Network2Fragment extends BaseFragment {
         mRetrofitManager = new RetrofitManager();
 //        Subscription subscription =
         mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
-                .getOctocat("https://api.github.com/repos/octocat/Hello-World/contributors")
+                // .getOctocat("https://api.github.com/repos/octocat/Hello-World/contributors")
+                .getOctocat()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseObserver<List<TestBean>>() {

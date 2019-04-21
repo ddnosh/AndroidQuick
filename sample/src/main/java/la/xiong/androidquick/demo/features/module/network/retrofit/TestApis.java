@@ -15,4 +15,7 @@ public interface TestApis {
 
     @GET
     Observable<List<TestBean>> getOctocat(@Url String url);
+
+    @GET("https://api.github.com/repos/octocat/Hello-World/contributors")
+    Observable<List<TestBean>> getOctocat();
 }
