@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.features.design_patterns.switcher;
+package la.xiong.androidquick.demo.features.design_patterns.strategy;
 
 import android.util.Log;
 

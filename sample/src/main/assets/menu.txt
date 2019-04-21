@@ -4,6 +4,7 @@
         32100403,SingleInstance,16;
         32100404,Strategy,16;
         32100405,Builder,16;
+        32100406,Observer,16;
 10,Architecture,0;
     21000,MVC,10;
     21001,MVP,10;
@@ -75,7 +76,8 @@
         32120101,Permission-Fragment-Call,21201;
     21202,Json,12;
     21203,RxJava,12;
-    21204,SharedPreferences,12;
+    21204,Annotation,12;
+    21205,SharedPreferences,12;
 15,Solution,0;
 13,Other,0;
     21300,Code,13;
