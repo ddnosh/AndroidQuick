@@ -37,7 +37,7 @@
         <activity android:name=".ui.activity.HostActivity" />
         <activity android:name=".features.architecture.mvc.MVCActivity" />
         <activity android:name=".features.architecture.mvvm.activity.MVVMActivity" />
-
+        <activity android:name=".features.function.immersion.ImmersionActivity" />
     </application>
 
 </manifest>

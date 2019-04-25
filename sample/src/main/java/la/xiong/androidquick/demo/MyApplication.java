@@ -26,8 +26,6 @@ import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
-import spa.lyh.cn.statusbarlightmode.ImmersionConfiguration;
-import spa.lyh.cn.statusbarlightmode.ImmersionMode;
 
 /**
  * @author ddnosh
@@ -66,11 +64,7 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
         //init retrofit url
         RetrofitManager.initBaseUrl("http://gank.io/api/");
         //init immersion
-        ImmersionConfiguration configuration = new ImmersionConfiguration.Builder(this)
-                .enableImmersionMode(ImmersionConfiguration.ENABLE)
-                .setColor(R.color.base_bg)//default color
-                .build();
-        ImmersionMode.getInstance().init(configuration);
+
         //init stetho
         Stetho.initializeWithDefaults(this);
         //init crashhandler

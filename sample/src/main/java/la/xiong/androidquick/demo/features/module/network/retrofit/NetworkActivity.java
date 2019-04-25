@@ -31,8 +31,7 @@ public class NetworkActivity extends BaseActivity {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        //动态更改状态栏沉浸式颜色
-        changeStatusBarColor(R.color.colorAccent);
+
     }
 
     @OnClick( {R.id.btn_network_download})

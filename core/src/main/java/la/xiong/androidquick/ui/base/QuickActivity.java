@@ -19,7 +19,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -48,17 +47,16 @@ import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 import la.xiong.androidquick.R;
-import la.xiong.androidquick.ui.mvp.BaseContract;
-import la.xiong.androidquick.tool.StringUtil;
-import la.xiong.androidquick.ui.dialog.dialogactivity.CommonDialog;
-import la.xiong.androidquick.ui.dialog.dialogactivity.LoadingDialog;
 import la.xiong.androidquick.eventbus.EventCenter;
 import la.xiong.androidquick.manager.QuickAppManager;
+import la.xiong.androidquick.tool.StringUtil;
+import la.xiong.androidquick.tool.immersion.StatusBarUtil;
+import la.xiong.androidquick.ui.dialog.dialogactivity.CommonDialog;
+import la.xiong.androidquick.ui.dialog.dialogactivity.LoadingDialog;
+import la.xiong.androidquick.ui.mvp.BaseContract;
 import la.xiong.androidquick.ui.permission.EasyPermissions;
 import la.xiong.androidquick.ui.receiver.NetStateReceiver;
 import la.xiong.androidquick.ui.viewstatus.VaryViewHelperController;
-import spa.lyh.cn.statusbarlightmode.ImmersionConfiguration;
-import spa.lyh.cn.statusbarlightmode.ImmersionMode;
 
 /**
  * @author ddnosh
@@ -107,12 +105,6 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
     protected ViewDataBinding binding;
 
     /**
-     * system bar color tint
-     */
-    public ImmersionMode immersionMode;
-    private boolean flag;
-
-    /**
      * default toolbar
      */
     protected TextView tvTitle;
@@ -129,12 +121,13 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initCreate();
-        // system status bar immersion
-        if (isApplySystemBarTint()) {
-            immersionMode = ImmersionMode.getInstance();
-            flag = immersionMode.execImmersionMode(this);
-        }
         mContext = this;
+        // system status bar immersion
+        StatusBarUtil.setRootViewFitsSystemWindows(this, true);
+        StatusBarUtil.setTranslucentStatus(this);
+        if (!StatusBarUtil.setStatusBarDarkTheme(this, true)) {
+            StatusBarUtil.setStatusBarColor(this, 0x55000000);
+        }
         // activity manager
         QuickAppManager.getInstance().addActivity(this);
         // animation
@@ -569,16 +562,6 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
     public void onEventBus(EventCenter eventCenter) {
         if (null != eventCenter) {
             onEventComing(eventCenter);
-        }
-    }
-
-    protected void changeStatusBarColor(int ResId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ImmersionConfiguration tConfig = new ImmersionConfiguration.Builder(this)
-                    .setColor(ResId)
-                    .build();
-            immersionMode.setTemporaryConfig(tConfig);
-            immersionMode.execImmersionMode(this);
         }
     }
 

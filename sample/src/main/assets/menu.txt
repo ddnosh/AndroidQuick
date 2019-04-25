@@ -78,6 +78,7 @@
     21203,RxJava,12;
     21204,Annotation,12;
     21205,SharedPreferences,12;
+    21206,Immersion,12;
 15,Solution,0;
 13,Other,0;
     21300,Code,13;

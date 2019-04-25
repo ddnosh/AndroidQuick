@@ -33,6 +33,7 @@ import la.xiong.androidquick.demo.features.design_patterns.proxy.ProxyFragment;
 import la.xiong.androidquick.demo.features.design_patterns.single.SingleFragment;
 import la.xiong.androidquick.demo.features.design_patterns.strategy.StrategyFragment;
 import la.xiong.androidquick.demo.features.function.annotation.AnnotationFragment;
+import la.xiong.androidquick.demo.features.function.immersion.ImmersionActivity;
 import la.xiong.androidquick.demo.features.function.json.JsonFragment;
 import la.xiong.androidquick.demo.features.function.permission.PermissionActivity;
 import la.xiong.androidquick.demo.features.function.permission.PermissionFragment;
@@ -330,6 +331,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(AnnotationFragment.class);
             } else if (name.equals("Observer")) {
                 readyGo(ObserverFragment.class);
+            } else if (name.equals("Immersion")) {
+                readyGo(ImmersionActivity.class);
             }
         }
     }

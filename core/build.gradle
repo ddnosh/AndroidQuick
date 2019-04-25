@@ -58,8 +58,6 @@ dependencies {
     api 'com.jakewharton.rxbinding:rxbinding:0.2.0'
     //gson
     api 'com.google.code.gson:gson:2.4'
-    //纯色沉浸式标题栏
-    api 'spa.lyh.cn:immersion-sdk:1.0.6'
     //glide
     api 'com.github.bumptech.glide:glide:3.7.0'
     //rxlifecycle
