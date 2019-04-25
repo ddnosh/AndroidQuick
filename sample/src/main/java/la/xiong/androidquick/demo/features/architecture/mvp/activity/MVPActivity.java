@@ -3,6 +3,8 @@ package la.xiong.androidquick.demo.features.architecture.mvp.activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.mvp.BaseTActivity;
 
@@ -10,6 +12,7 @@ import la.xiong.androidquick.demo.base.mvp.BaseTActivity;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag({"MVP"})
 public class MVPActivity extends BaseTActivity<MVPPresenter> implements MVPContract.View{
 
     private TextView mContent;

@@ -21,14 +21,11 @@ AndroidQuick还提供了一个库文件[![Download](https://api.bintray.com/pack
 ## 工程目录
 1. core
 2. sample
-3. GreenDaoGenerator
 ### sample
 sample提供了架构、模块、功能、技术点的实现示例;
 ### core
 core封装了通用的功能，我们将其打包成一个aar包，提供给APP引用。
 引用方式：compile 'la.xiong.androidquick:AndroidQuick:latest.release'
-### GreenDaoGenerator
-GreenDao生成数据库文件示例工程
 
 ### APP
 <img src="https://raw.githubusercontent.com/ddnosh/AndroidQuick/master/art/screenshot.jpg"  height="900" width="100">

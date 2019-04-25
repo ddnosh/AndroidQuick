@@ -13,7 +13,7 @@ import la.xiong.androidquick.tool.LogUtil;
 public class AnnotationFragment extends BaseFragment {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        AnnotationTool.getInstance().check(this);
+        AnnotationTool.getInstance().check(this, QuickCheck.class);
         login();
     }
 

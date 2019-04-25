@@ -1,2 +1,2 @@
-include ':sample', ':core', 'GreenDaoGenerator', ':treeview'
+include ':sample', ':core', ':compiler', ':annotation', ':treeview'
 project(":treeview").projectDir = new File("library/treeview")

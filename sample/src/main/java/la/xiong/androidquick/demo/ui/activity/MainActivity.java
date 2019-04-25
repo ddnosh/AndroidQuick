@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
 import com.unnamed.b.atv.holder.IconTreeItemHolder;
 import com.unnamed.b.atv.holder.SelectableHeaderHolder;
 import com.unnamed.b.atv.model.TreeNode;
@@ -83,6 +84,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag({"首页", "Main"})
 public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClickListener {
 
     private static String TAG = "MVVMActivity";
