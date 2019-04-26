@@ -9,6 +9,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidwind.annotation.annotation.BindTag;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.demo.features.module.network.common.http.HTTPRequest;
@@ -18,6 +20,7 @@ import la.xiong.androidquick.demo.features.module.network.common.http.HttpCallba
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag({"http", "网络请求"})
 public class CommonHttpFragment extends BaseFragment {
 
     protected static String TAG = "NetworkActivity";

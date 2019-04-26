@@ -10,31 +10,19 @@ import java.io.Serializable;
  * @website http://blog.csdn.net/ddnosh
  */
 @DatabaseTable(tableName = Tag.TABLE_NAME_TAG)
-
 public class Tag implements Serializable {
 
     public static final String TABLE_NAME_TAG = "tag";
-
-    public static final String FIELD_NAME_TID   = "tid";
+    
     public static final String FIELD_NAME_LOCATION   = "location";
     public static final String FIELD_NAME_DETAIL   = "detail";
 
-    @DatabaseField(columnName = FIELD_NAME_TID, generatedId = true)
-    private int mTid;
-    @DatabaseField(columnName = FIELD_NAME_LOCATION, uniqueIndex = true)
+    @DatabaseField(columnName = FIELD_NAME_LOCATION, id = true, uniqueIndex = true)
     private String mLocation;
     @DatabaseField(columnName = FIELD_NAME_DETAIL)
     private String mDetail;
 
     public Tag() {
-    }
-
-    public int getTid() {
-        return mTid;
-    }
-
-    public void setTid(int tid) {
-        mTid = tid;
     }
 
     public String getLocation() {
@@ -56,8 +44,7 @@ public class Tag implements Serializable {
     @Override
     public String toString() {
         return "Tag{" +
-                "mTid=" + mTid +
-                ", mLocation='" + mLocation + '\'' +
+                "mLocation='" + mLocation + '\'' +
                 ", mDetail='" + mDetail + '\'' +
                 '}';
     }

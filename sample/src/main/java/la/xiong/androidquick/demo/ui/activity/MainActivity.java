@@ -85,7 +85,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag({"首页", "Main"})
+@BindTag({"主页", "Main"})
 public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClickListener {
 
     private static String TAG = "MVVMActivity";
