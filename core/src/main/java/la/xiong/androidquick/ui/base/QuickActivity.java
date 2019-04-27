@@ -122,12 +122,6 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
         super.onCreate(savedInstanceState);
         initCreate();
         mContext = this;
-        // system status bar immersion
-        StatusBarUtil.setRootViewFitsSystemWindows(this, true);
-        StatusBarUtil.setTranslucentStatus(this);
-        if (!StatusBarUtil.setStatusBarDarkTheme(this, true)) {
-            StatusBarUtil.setStatusBarColor(this, 0x55000000);
-        }
         // activity manager
         QuickAppManager.getInstance().addActivity(this);
         // animation
@@ -183,6 +177,14 @@ public abstract class QuickActivity extends RxAppCompatActivity implements EasyP
         } else {
             throw new IllegalArgumentException("You must return a right contentView layout resource Id");
         }
+
+        // system status bar immersion
+        StatusBarUtil.setRootViewFitsSystemWindows(this, true);
+        StatusBarUtil.setTranslucentStatus(this);
+        if (!StatusBarUtil.setStatusBarDarkTheme(this, true)) {
+            StatusBarUtil.setStatusBarColor(this, 0x55000000);
+        }
+
         // network status
         NetStateReceiver.registerNetworkStateReceiver(mContext);
 
