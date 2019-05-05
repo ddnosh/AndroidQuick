@@ -7,6 +7,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
@@ -20,6 +23,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"fragment"}, description = "CommonFragment实例")
 public class CommonFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     public static final String TAG = "ExampleFragment";

@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.TypeReference;
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
@@ -24,6 +26,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"Json"}, description = "Json实例")
 public class JsonFragment extends BaseFragment {
 
     public static final String TAG = "JsonFragment";

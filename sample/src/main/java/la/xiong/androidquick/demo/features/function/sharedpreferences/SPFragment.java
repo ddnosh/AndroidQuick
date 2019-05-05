@@ -3,6 +3,9 @@ package la.xiong.androidquick.demo.features.function.sharedpreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
@@ -13,6 +16,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"sf", "SharedPreferences"}, description = "SharedPreferences实例")
 public class SPFragment extends BaseFragment {
 
     private String testJsonString;

@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import java.util.Arrays;
@@ -28,6 +30,7 @@ import la.xiong.androidquick.demo.features.module.network.retrofit.network2.Netw
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"tab"}, description = "SmartTabLayout实例")
 public class TabSTLFragment extends BaseFragment {
 
     @BindView(R.id.vp_tab)

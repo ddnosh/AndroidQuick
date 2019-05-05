@@ -3,6 +3,9 @@ package la.xiong.androidquick.demo.features.function.ui.bartop;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
@@ -11,6 +14,7 @@ import la.xiong.androidquick.demo.base.BaseActivity;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"toolbar"}, description = "自带toolbar实例")
 public class ToolbarActivity extends BaseActivity {
     @Override
     protected int getContentViewLayoutID() {

@@ -14,6 +14,8 @@ import android.widget.FrameLayout;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 
 import java.lang.ref.WeakReference;
 
@@ -23,9 +25,10 @@ import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.StringUtil;
 
 /**
- * @author ddnosh
+ * @author ddnoshV
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"web", "网络", "网页", "js", "javascript"}, description = "WebView + JavaScript实例")
 public class WebViewJavascriptActivity extends BaseActivity implements JsInterface, LoadJsCallback {
 
     private InternalWebView mContentWv;

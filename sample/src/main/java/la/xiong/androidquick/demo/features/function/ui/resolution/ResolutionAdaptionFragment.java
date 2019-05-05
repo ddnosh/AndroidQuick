@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
@@ -14,6 +17,7 @@ import la.xiong.androidquick.demo.features.function.ui.webview.WebViewActivity;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"resolution", "分辨率"}, description = "屏幕分辨率自动适配实例")
 public class ResolutionAdaptionFragment extends BaseFragment {
 
     @BindView(R.id.btn_click)

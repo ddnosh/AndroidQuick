@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import java.util.Arrays;
@@ -22,6 +24,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"tab"}, description = "SmartTabLayout实例")
 public class Tab3Fragment extends BaseFragment {
 
     @BindView(R.id.viewpager)

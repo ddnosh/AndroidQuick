@@ -6,7 +6,7 @@ dependencies {
     implementation 'com.google.auto.service:auto-service:1.0-rc2'
     implementation 'com.squareup:javapoet:1.10.0'
 
-    implementation project(':annotation')
+    implementation project(':aop-annotation')
 }
 
 sourceCompatibility = "8"

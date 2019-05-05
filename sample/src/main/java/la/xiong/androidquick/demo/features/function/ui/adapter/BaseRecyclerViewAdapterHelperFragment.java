@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 
@@ -28,6 +30,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"adapter"}, description = "BaseRecyclerViewAdapterHelper实例")
 public class BaseRecyclerViewAdapterHelperFragment extends BaseFragment {
 
     private static String TAG = "AdapterActivity";

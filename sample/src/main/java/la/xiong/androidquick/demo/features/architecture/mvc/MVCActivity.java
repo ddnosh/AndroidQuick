@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -24,6 +27,7 @@ import la.xiong.androidquick.tool.LogUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"MVC"}, description = "Activity + MVC实例")
 public class MVCActivity extends BaseActivity {
 
     RetrofitManager mRetrofitManager;

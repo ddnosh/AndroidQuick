@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
@@ -16,6 +19,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"fragment"}, description = "FragmentationActivity实例")
 public class FragmentationActivity extends BaseFActivity {
 
     @BindView(R.id.btn_fragmentation_test1)

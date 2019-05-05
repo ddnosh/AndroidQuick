@@ -3,6 +3,7 @@ package la.xiong.androidquick.demo.features.other.code;
 import android.os.Bundle;
 
 import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
@@ -14,7 +15,7 @@ import us.feras.mdv.MarkdownView;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag({"Code", "代码"})
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"Code", "代码"}, description = "一种好看的Android代码显示方式")
 public class CodeFragment extends BaseFragment {
     @BindView(R.id.common_tool_bar)
     CommonToolBar mCommonToolBar;

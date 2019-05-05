@@ -3,6 +3,9 @@ package la.xiong.androidquick.demo.features.other.lambda;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import io.reactivex.Observable;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
@@ -12,8 +15,8 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"lambda"}, description = "Lambda实例")
 public class LambdaFragment extends BaseFragment {
-
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
@@ -14,6 +17,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"lifecycle", "生命周期"}, description = "RxLifecycle + CompositeDisposable实例")
 public class RxJavaLifecycleFragment extends BaseTFragment<RxJavaLifecyclePresenter> implements RxJavaLifecycleContract.View{
 
     @BindView(R.id.btn_rxlifecycle)

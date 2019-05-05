@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,7 @@ import static android.support.v7.widget.RecyclerView.SCROLL_STATE_SETTLING;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"refresh", "下拉刷新"}, description = "Fragment + SwipeRefreshLayout实例")
 public class SwipeRefreshLayoutFragment extends BaseFragment {
 
     @BindView(R.id.recyclerView)

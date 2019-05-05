@@ -68,7 +68,7 @@ publish {
     userOrg = 'ddnosh'
     groupId = 'la.xiong.androidquick'
     artifactId = 'AndroidQuick'
-    version = '1.2.3'
+    version = '1.2.4'
     description = 'AndroidQuick is a code library helps developers make an app easier.'
     website = "https://github.com/ddnosh/AndroidQuick"
 }
@@ -77,7 +77,6 @@ tasks.withType(Javadoc) {//防止编码问题
     options.addStringOption('Xdoclint:none', '-quiet')
     options.addStringOption('encoding', 'UTF-8')
     options.addStringOption('charSet', 'UTF-8')
-
 }
 
 task sourcesJar(type: Jar) {

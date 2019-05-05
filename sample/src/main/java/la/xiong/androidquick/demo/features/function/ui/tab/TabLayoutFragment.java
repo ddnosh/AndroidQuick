@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,7 @@ import la.xiong.androidquick.demo.features.module.network.retrofit.network2.Netw
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"tab"}, description = "TabLayout实例")
 public class TabLayoutFragment extends BaseFragment {
 
     @BindView(R.id.viewpager)

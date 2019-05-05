@@ -2,6 +2,9 @@ package la.xiong.androidquick.demo.features.design_patterns.factory;
 
 import android.os.Bundle;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
 import la.xiong.androidquick.tool.ToastUtil;
@@ -10,6 +13,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"factory", "工厂"}, description = "简单工厂 + 工厂方法 + 抽象工厂")
 public class FactoryFragment extends BaseFragment {
 
     @Override

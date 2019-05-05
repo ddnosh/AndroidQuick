@@ -2,21 +2,13 @@ package la.xiong.androidquick.demo;
 
 import android.app.Activity;
 
-import com.alibaba.fastjson.JSONObject;
-import com.androidwind.annotation.TagService;
 import com.androidwind.log.TinyLog;
-import com.androidwind.task.AdvancedTask;
-import com.androidwind.task.TinyTaskExecutor;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
-import java.util.List;
-import java.util.Map;
-
 import la.xiong.androidquick.demo.crash.CrashHandler;
 import la.xiong.androidquick.demo.features.module.db.greendao.DBManager;
-import la.xiong.androidquick.demo.features.module.db.ormlite.Tag;
-import la.xiong.androidquick.demo.features.module.db.ormlite.TagDao;
+import la.xiong.androidquick.demo.features.search.SearchManager;
 import la.xiong.androidquick.demo.injector.component.ApplicationComponent;
 import la.xiong.androidquick.demo.injector.component.DaggerApplicationComponent;
 import la.xiong.androidquick.demo.injector.module.ApplicationModule;
@@ -24,7 +16,6 @@ import la.xiong.androidquick.demo.ui.AQActivityLifecycleCallbacks;
 import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.SpUtil;
-import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
 /**
@@ -72,57 +63,7 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
         //init tinylog
         TinyLog.config().setEnable(true).apply();
         //init tag
-        updateTag();
-    }
-
-    private void updateTag() {
-        TinyTaskExecutor.execute(new AdvancedTask<Void>() {
-            @Override
-            public Void doInBackground() {
-                try {
-                    Class<?> aClass = Class.forName("com.androidwind.annotation.TagService");
-                    TagService tagService = (TagService) aClass.newInstance();
-                    // TinyLog.d(Arrays.toString(tagService.map.entrySet().toArray()));
-                    JSONObject jsonObject = new JSONObject();
-                    for(Object entry: tagService.getMap().entrySet()) {
-                        if (entry instanceof Map.Entry) {
-                            Map.Entry mEntry = (Map.Entry)entry;
-                            String value = (String)mEntry.getValue();
-                            String sTemp = value.substring(1, value.length()-1);
-                            String[] sArray = sTemp.split(", ");
-                            int count = 0;
-                            for (String s : sArray) {
-                                count++;
-                                if (!StringUtil.isEmpty(s)) {
-                                    jsonObject.put("tag" + count, s);
-                                }
-                            }
-                            String key = (String)mEntry.getKey();
-                            TagDao.getInstance().createOrUpdate(key, jsonObject.toJSONString());
-                        }
-                    }
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-
-            @Override
-            public void onSuccess(Void s) {
-                ToastUtil.showToast("Tag updated!");
-                List<Tag> tagList = TagDao.getInstance().getAllTag();
-                LogUtil.i("MyApplication", tagList.toString());
-            }
-
-            @Override
-            public void onFail(Throwable throwable) {
-
-            }
-        });
+        SearchManager.getInstance().init();
     }
 
     public static synchronized MyApplication getInstance() {

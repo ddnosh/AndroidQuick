@@ -2,6 +2,9 @@ package la.xiong.androidquick.demo.features.function.ui.fragment;
 
 import android.os.Bundle;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.fragmentation.BaseFFragment;
 
@@ -9,6 +12,7 @@ import la.xiong.androidquick.demo.base.fragmentation.BaseFFragment;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"fragment"}, description = "Example3Fragment实例")
 public class Example3Fragment extends BaseFFragment {
 
     public static Example3Fragment newInstance() {

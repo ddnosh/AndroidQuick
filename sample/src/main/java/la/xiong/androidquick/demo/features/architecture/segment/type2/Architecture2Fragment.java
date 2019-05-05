@@ -3,16 +3,20 @@ package la.xiong.androidquick.demo.features.architecture.segment.type2;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
-import la.xiong.androidquick.demo.features.architecture.segment.type2.module3.Module3;
 import la.xiong.androidquick.demo.base.BaseFragment;
+import la.xiong.androidquick.demo.features.architecture.segment.type2.module3.Module3;
 import la.xiong.androidquick.tool.ToastUtil;
 
 /**
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"view", "module"}, description = "OneView + MultipleModules实例")
 public class Architecture2Fragment extends BaseFragment implements IModuleCallback{
     private Module1 mModule1;
     private Module2 mModule2;

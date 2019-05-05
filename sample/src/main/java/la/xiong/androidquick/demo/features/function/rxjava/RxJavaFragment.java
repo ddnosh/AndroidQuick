@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 
@@ -62,6 +64,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"rxjava"}, description = "RxJava多种实例")
 public class RxJavaFragment extends BaseFragment {
 
     @BindView(R.id.tv_flowable_result)

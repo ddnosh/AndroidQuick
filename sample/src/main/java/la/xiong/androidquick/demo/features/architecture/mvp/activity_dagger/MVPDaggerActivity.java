@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTActivity;
@@ -12,7 +13,7 @@ import la.xiong.androidquick.demo.base.mvp_dagger2.BaseTActivity;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag({"MVP", "Dagger", "Dagger2"})
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"MVP", "Dagger", "Dagger2"}, description = "Activity + MVP + Dagger2实例")
 public class MVPDaggerActivity extends BaseTActivity<MVPDaggerPresenter> implements MVPDaggerContract.View{
 
     private TextView mContent;

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.FrameLayout;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
@@ -18,6 +21,7 @@ import la.xiong.androidquick.ui.view.BottomBarTab;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"bottombar"}, description = "BottomBar实例")
 public class BottomBarFragment extends BaseFragment {
     @BindView(R.id.contentContainer)
     FrameLayout mContentContainer;

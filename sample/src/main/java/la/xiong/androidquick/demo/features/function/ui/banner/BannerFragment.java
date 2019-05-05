@@ -2,6 +2,8 @@ package la.xiong.androidquick.demo.features.function.ui.banner;
 
 import android.os.Bundle;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -19,6 +21,7 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"banner"}, description = "Banner实例")
 public class BannerFragment extends BaseFragment {
     @BindView(R.id.banner)
     Banner mBanner;

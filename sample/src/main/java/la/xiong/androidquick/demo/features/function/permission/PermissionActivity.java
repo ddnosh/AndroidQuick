@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import java.util.List;
 
 import butterknife.OnClick;
@@ -20,6 +23,7 @@ import la.xiong.androidquick.ui.permission.EasyPermissions;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"permission", "权限"}, description = "Activity + 权限实例")
 public class PermissionActivity extends BaseActivity {
 
     private String deniedPermsString;

@@ -9,6 +9,8 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Toast;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.androidwind.task.AdvancedTask;
 import com.androidwind.task.TinyTaskExecutor;
 
@@ -19,14 +21,15 @@ import de.greenrobot.event.EventBus;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
+import la.xiong.androidquick.eventbus.EventCenter;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ToastUtil;
-import la.xiong.androidquick.eventbus.EventCenter;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"callback", "回调"}, description = "CallBack + Observer + EventBus + Broadcast实例")
 public class CallBackFragment extends BaseFragment {
 
     public static final String TAG = "CallBackFragment";

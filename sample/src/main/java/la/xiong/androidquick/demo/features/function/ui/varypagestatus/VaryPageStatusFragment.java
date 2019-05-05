@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
@@ -15,6 +18,7 @@ import la.xiong.androidquick.demo.base.BaseFragment;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"状态"}, description = "多种页面状态(加载+空+错误)实例")
 public class VaryPageStatusFragment extends BaseFragment {
     @BindView(R.id.btn_ui_pagestatus_loading)
     Button mLoading;

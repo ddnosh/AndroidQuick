@@ -3,6 +3,8 @@ package la.xiong.androidquick.demo.features.function.immersion;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -20,6 +22,7 @@ import la.xiong.androidquick.tool.immersion.StatusBarUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"immersion", "沉浸式"}, description = "沉浸式实例")
 public class ImmersionActivity extends BaseActivity {
 
     @BindView(R.id.banner)

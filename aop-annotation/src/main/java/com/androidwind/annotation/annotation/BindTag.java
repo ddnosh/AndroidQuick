@@ -12,5 +12,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 @Target(ElementType.TYPE)
 public @interface BindTag {
-    String[] value();
+    TagInfo.Type type();
+    String[] tags();
+    String description();
 }

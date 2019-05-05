@@ -10,6 +10,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
@@ -19,6 +22,7 @@ import la.xiong.androidquick.tool.StringUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"webview", "网页"}, description = "WebView实例")
 public class WebViewActivity extends BaseActivity {
 
     @BindView(R.id.wvWebView)

@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -29,6 +32,7 @@ import retrofit2.http.Query;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"proxy", "代理", "AOP"}, description = "静态代理 + 动态代理 + AOP")
 public class ProxyFragment extends BaseFragment {
 
     @Override

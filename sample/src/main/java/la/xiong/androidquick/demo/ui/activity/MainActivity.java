@@ -1,12 +1,18 @@
 package la.xiong.androidquick.demo.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.core.SearchEngine;
 import com.unnamed.b.atv.holder.IconTreeItemHolder;
 import com.unnamed.b.atv.holder.SelectableHeaderHolder;
 import com.unnamed.b.atv.model.TreeNode;
@@ -48,7 +54,7 @@ import la.xiong.androidquick.demo.features.function.ui.barbottom.RadioButtonFrag
 import la.xiong.androidquick.demo.features.function.ui.bartop.CommonToolBarFragment;
 import la.xiong.androidquick.demo.features.function.ui.bartop.ToolbarActivity;
 import la.xiong.androidquick.demo.features.function.ui.constraintlayout.ConstraintLayoutFragment;
-import la.xiong.androidquick.demo.features.function.ui.databinding.DatabindingFragment;
+import la.xiong.androidquick.demo.features.function.ui.databinding.DataBindingFragment;
 import la.xiong.androidquick.demo.features.function.ui.dialog.dialogfragment.DialogFragmentDemo;
 import la.xiong.androidquick.demo.features.function.ui.fragment.CommonFragment;
 import la.xiong.androidquick.demo.features.function.ui.fragment.FragmentationActivity;
@@ -77,18 +83,21 @@ import la.xiong.androidquick.demo.features.other.callback.CallBackFragment;
 import la.xiong.androidquick.demo.features.other.code.CodeFragment;
 import la.xiong.androidquick.demo.features.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.features.other.rxlifecycle.RxJavaLifecycleFragment;
+import la.xiong.androidquick.demo.features.search.SearchAdapter;
+import la.xiong.androidquick.demo.features.search.SearchManager;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.tool.AppUtil;
+import la.xiong.androidquick.tool.StringUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag({"主页", "Main"})
+
 public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClickListener {
 
-    private static String TAG = "MVVMActivity";
+    private static String TAG = "MainActivity";
 
     private long DOUBLE_CLICK_TIME = 0L;
 
@@ -100,6 +109,12 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     private TreeNode root;
     private AndroidTreeView tView;
     private List<MenuBean> menuList;
+    //search
+    @BindView(R.id.sv_search)
+    SearchView mSearchView;
+    @BindView(R.id.lv_result)
+    ListView mListView;
+    private ArrayAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +142,52 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         String versionStr = getResources().getString(R.string.version);
         String version = String.format(versionStr, AppUtil.getVersionName(this));
         tvMainVersion.setText(version);
+        //search
+        mAdapter = new SearchAdapter(MainActivity.this, android.R.layout.simple_list_item_1, SearchManager.getInstance().searchResults);
+        mListView.setAdapter(mAdapter);
+        mListView.setTextFilterEnabled(true);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // ToastUtil.showToast("You clicked " + SearchManager.getInstance().searchResults.get(position));
+                mSearchView.clearFocus();
+                SearchEngine.getsInstance().jumpTo(MainActivity.this, SearchManager.getInstance().searchResults.get(position));
+            }
+        });
+
+        mSearchView.setIconified(false);
+        mSearchView.onActionViewExpanded();
+        mSearchView.setIconifiedByDefault(false);
+        mSearchView.clearFocus();
+        mSearchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Open", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String keyword) {
+                SearchManager.getInstance().searchResults.clear();
+                if (StringUtil.isEmpty(keyword)) {
+                    mListView.setVisibility(View.GONE);
+                    return false;
+                }
+                SearchManager.getInstance().getResults(keyword);
+                if (SearchManager.getInstance().searchResults.size() > 0) {
+                    mListView.setVisibility(View.VISIBLE);
+                    mAdapter.notifyDataSetChanged();
+                } else {
+                    mListView.setVisibility(View.GONE);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -177,7 +238,9 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     }
 
     private TreeNode addTreeNode(TreeNode treeNode, String nodeName) {
-        if (treeNode == null) return null;
+        if (treeNode == null) {
+            return null;
+        }
         TreeNode node = new TreeNode(new IconTreeItemHolder.IconTreeItem(R.string.ic_folder, nodeName)).setViewHolder(
                 new SelectableHeaderHolder(getApplicationContext()));
         treeNode.addChild(node);
@@ -268,7 +331,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 bundle.putString("url", "https://github.com/ddnosh");
                 readyGo(WebViewActivity.class, bundle);
             } else if (name.equals("DataBinding")) {
-                readyGo(DatabindingFragment.class);
+                readyGo(DataBindingFragment.class);
             } else if (name.equals("VaryPageStatus")) {
                 readyGo(VaryPageStatusFragment.class);
             } else if (name.equals("Json")) {

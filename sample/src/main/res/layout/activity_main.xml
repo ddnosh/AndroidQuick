@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/base_bg">
 
     <TextView
         android:id="@+id/tv_title"
+        style="@style/text_large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="An app will always use"
-        style="@style/text_large"
         />
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/sv_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        app:iconifiedByDefault="false"
+        app:queryHint="please input your keywords" />
+
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv_title"
         android:layout_above="@+id/ll_description"
-        android:layout_marginTop="20dp">
+        android:layout_below="@+id/sv_search"
+        android:layout_marginTop="20dp" />
 
-    </RelativeLayout>
-
-    <include
+    <ListView
+        android:id="@+id/lv_result"
+        android:background="@color/base_bg"
+        android:layout_below="@id/sv_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        layout="@layout/include_description" />
+        />
+
+    <include
+        layout="@layout/include_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

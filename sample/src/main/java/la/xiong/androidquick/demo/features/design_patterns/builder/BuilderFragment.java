@@ -3,6 +3,9 @@ package la.xiong.androidquick.demo.features.design_patterns.builder;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
@@ -11,6 +14,7 @@ import la.xiong.androidquick.demo.base.BaseFragment;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"builder", "建造", "构建"}, description = "Builder模式实例")
 public class BuilderFragment extends BaseFragment {
 
     @BindView(R.id.tv_output1)

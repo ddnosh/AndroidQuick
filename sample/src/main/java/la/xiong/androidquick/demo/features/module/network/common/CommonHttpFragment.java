@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
@@ -20,7 +21,7 @@ import la.xiong.androidquick.demo.features.module.network.common.http.HttpCallba
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag({"http", "网络请求"})
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"http", "网络请求"}, description = "一个简单的http封装实例")
 public class CommonHttpFragment extends BaseFragment {
 
     protected static String TAG = "NetworkActivity";

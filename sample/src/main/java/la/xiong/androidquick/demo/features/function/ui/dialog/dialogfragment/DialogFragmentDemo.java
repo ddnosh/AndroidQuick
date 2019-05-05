@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
@@ -16,6 +19,7 @@ import la.xiong.androidquick.ui.dialog.dialogfragment.ViewConvertListener;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"dialog", "对话框"}, description = "DialogFragment实例")
 public class DialogFragmentDemo extends BaseFragment {
 
     @BindView(R.id.btn_diaglogfragment_alert)

@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -18,6 +21,7 @@ import la.xiong.androidquick.demo.base.BaseActivity;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.ACTIVITY, tags = {"MVVM"}, description = "Activity + MVVM实例")
 public class MVVMActivity extends BaseActivity {
 
     @BindView(R.id.tv_activity_mvvm)

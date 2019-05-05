@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import butterknife.BindView;
@@ -17,6 +19,7 @@ import la.xiong.androidquick.demo.ui.fragment.ExampleFragment;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"tab"}, description = "SlidingTabLayout实例")
 public class TabFTLFragment extends BaseFragment {
 
     @BindView(R.id.vp_tab_ftl)

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.tool.LogUtil;
@@ -12,6 +15,7 @@ import la.xiong.androidquick.tool.LogUtil;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"view", "layout"}, description = "OneLayout + MultipleViews实例")
 public class Architecture1Fragment extends BasePageFragment {
 
     @Override

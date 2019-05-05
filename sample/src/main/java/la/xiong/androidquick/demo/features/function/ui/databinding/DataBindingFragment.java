@@ -2,6 +2,9 @@ package la.xiong.androidquick.demo.features.function.ui.databinding;
 
 import android.os.Bundle;
 
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.databinding.BaseTFragment;
 import la.xiong.androidquick.demo.databinding.FragmentDatabindingBinding;
@@ -11,7 +14,8 @@ import la.xiong.androidquick.tool.ToastUtil;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class DatabindingFragment extends BaseTFragment<FragmentDatabindingBinding> {
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"databinding"}, description = "DataBinding实例")
+public class DataBindingFragment extends BaseTFragment<FragmentDatabindingBinding> {
 
     @Override
     protected int getContentViewLayoutID() {

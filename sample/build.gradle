@@ -93,6 +93,7 @@ dependencies {
     //tinylog
     api 'com.androidwind:tinylog:1.0.1'
 
-    implementation project(':annotation')
-    annotationProcessor  project(':compiler')
+    implementation project(':aop-annotation')
+    annotationProcessor  project(':aop-compiler')
+    api project(':aop-core')
 }
