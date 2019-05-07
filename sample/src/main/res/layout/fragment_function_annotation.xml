@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_annotation_with_reflection"
+        style="@style/button_common_style"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btn_annotation_with_javapoet"
+        style="@style/button_common_style"
+        android:text="Annotation + JavaPoet" />
+
+    <Button
+        android:id="@+id/btn_annotation_with_aspectj"
+        style="@style/button_common_style"
+        android:text="Annotation + AspectJ(AOP)" />
+</LinearLayout>

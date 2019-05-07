@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -47,31 +48,31 @@ dependencies {
     api project(':core')
     api project(':treeview')
     //tiny series: tinytask
-    api 'com.androidwind:tinytask:1.0.0'
+    implementation 'com.androidwind:tinytask:1.0.0'
     //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
     //rxjava
-    api "io.reactivex.rxjava2:rxjava:2.2.4"
-    api "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.4"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
     //dagger2
-    api 'com.google.dagger:dagger:2.7'
+    implementation 'com.google.dagger:dagger:2.7'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
     //greendao
-    api 'de.greenrobot:greendao:2.1.0'
+    implementation 'de.greenrobot:greendao:2.1.0'
     //markdown
-    api 'us.feras.mdv:markdownview:1.1.0'
+    implementation 'us.feras.mdv:markdownview:1.1.0'
     //banner
-    api 'com.youth.banner:banner:1.4.10'
+    implementation 'com.youth.banner:banner:1.4.10'
     //smarttablayout
-    api 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     //flycotablayout
-    api "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
+    implementation "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
     //fastjson
-    api 'com.alibaba:fastjson:1.2.44'
+    implementation 'com.alibaba:fastjson:1.2.44'
     //fragmentation
-    api "me.yokeyword:fragmentation:1.3.1"
+    implementation "me.yokeyword:fragmentation:1.3.1"
     //adapter
-    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44"
     //leakcanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
@@ -80,20 +81,24 @@ dependencies {
     //stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
     //smartrefreshlayout
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
     //ormlite
-    api 'com.j256.ormlite:ormlite-android:5.1'
+    implementation 'com.j256.ormlite:ormlite-android:5.1'
     //constraintlayout
-    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     //for rxbus
-    api 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
     //mvvm
-    api 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     //tinylog
-    api 'com.androidwind:tinylog:1.0.1'
+    implementation 'com.androidwind:tinylog:1.0.1'
+    //AndroidUtilCode
+    implementation 'com.blankj:utilcode:1.23.7'
+    //aspectj
+    implementation 'org.aspectj:aspectjrt:1.8.9'
 
     implementation project(':aop-annotation')
     annotationProcessor  project(':aop-compiler')
-    api project(':aop-core')
+    implementation project(':aop-core')
 }

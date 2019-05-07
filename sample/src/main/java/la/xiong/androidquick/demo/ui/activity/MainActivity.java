@@ -85,6 +85,7 @@ import la.xiong.androidquick.demo.features.other.lambda.LambdaFragment;
 import la.xiong.androidquick.demo.features.other.rxlifecycle.RxJavaLifecycleFragment;
 import la.xiong.androidquick.demo.features.search.SearchAdapter;
 import la.xiong.androidquick.demo.features.search.SearchManager;
+import la.xiong.androidquick.demo.features.solution.aop.AOPFragment;
 import la.xiong.androidquick.demo.tool.MenuUtil;
 import la.xiong.androidquick.tool.AppUtil;
 import la.xiong.androidquick.tool.StringUtil;
@@ -396,6 +397,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(ObserverFragment.class);
             } else if (name.equals("Immersion")) {
                 readyGo(ImmersionActivity.class);
+            } else if (name.equals("AOP")) {
+                readyGo(AOPFragment.class);
             }
         }
     }

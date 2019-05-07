@@ -10,13 +10,9 @@ import la.xiong.androidquick.demo.adapter.DemoAdapter;
 import la.xiong.androidquick.demo.bean.CBean;
 
 /**
- * https://github.com/chaychan
- *
- * @author ChayChan
- * @description: Text ItemProvider
- * @date 2018/3/30  11:39
+ * @author  ddnosh
+ * @website http://blog.csdn.net/ddnosh
  */
-
 public class TextItemProvider extends BaseItemProvider<CBean, BaseViewHolder> {
 
     @Override

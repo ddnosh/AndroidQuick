@@ -25,11 +25,11 @@
     <Button
         android:id="@+id/btn_proxy_aop"
         style="@style/button_common_style"
-        android:text="AOP" />
+        android:text="简单AOP实现" />
 
     <Button
         android:id="@+id/btn_proxy_aop_retrofit"
         style="@style/button_common_style"
-        android:text="仿Retrofit" />
+        android:text="仿Retrofit的api实现" />
 
 </LinearLayout>

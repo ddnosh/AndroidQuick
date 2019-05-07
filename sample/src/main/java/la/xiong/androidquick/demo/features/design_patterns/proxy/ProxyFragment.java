@@ -32,7 +32,7 @@ import retrofit2.http.Query;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"proxy", "代理", "AOP"}, description = "静态代理 + 动态代理 + AOP")
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"proxy", "代理", "AOP", "静态", "动态", "retrofit"}, description = "静态代理 + 动态代理 + AOP")
 public class ProxyFragment extends BaseFragment {
 
     @Override
@@ -50,15 +50,22 @@ public class ProxyFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_proxy_static:
                 //静态代理
-                BenzProxy proxy1 = new BenzProxy();
+                ICar benz = new Benz();
+                ICar proxy1 = new BenzProxy(benz);
                 proxy1.move();
                 break;
             case R.id.btn_proxy_dynamic:
                 //动态代理
-                ICar car1 = new Benz();
-                InvocationHandler handler = new CarHandler(car1);
+                ICar bmw = new Benz();
+                InvocationHandler handler = new CarHandler(bmw);
                 ICar proxy2 = (ICar) Proxy.newProxyInstance(ICar.class.getClassLoader(), new Class[]{ICar.class}, handler);
                 proxy2.move();
+                //另一种写法
+                ICar proxy3 = (ICar) Proxy.newProxyInstance(ICar.class.getClassLoader(), new Class[]{ICar.class}, (proxy, method, args) -> {
+                    //调用被代理类的方法
+                    return method.invoke(bmw, args);
+                });
+                proxy3.move();
                 break;
             case R.id.btn_proxy_dynamic_factory:
                 //动态代理+简单工厂
@@ -113,10 +120,10 @@ public class ProxyFragment extends BaseFragment {
 
     //代理类
     private class BenzProxy implements ICar {
-        private Benz benz;
+        private ICar benz;
 
-        public BenzProxy() {
-            benz = new Benz();
+        public BenzProxy(ICar benz) {
+            this.benz = benz;
         }
 
         @Override
