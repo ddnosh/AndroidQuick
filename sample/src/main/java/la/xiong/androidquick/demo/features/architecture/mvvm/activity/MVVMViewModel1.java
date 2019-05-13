@@ -13,7 +13,6 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
-import la.xiong.androidquick.demo.bean.NameBean;
 import la.xiong.androidquick.demo.features.module.network.retrofit.GankRes;
 import la.xiong.androidquick.module.network.retrofit.exeception.ApiException;
 import la.xiong.androidquick.module.rxjava.BaseObserver;
@@ -23,14 +22,14 @@ import la.xiong.androidquick.tool.RxUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MVVMViewModel extends ViewModel {
+public class MVVMViewModel1 extends ViewModel {
 
-    private MVVMRepository repository;
+    private MVVMRepository1 repository;
     private LifecycleProvider<ActivityEvent> lifecycleProvider;
 
     MutableLiveData<List<String>> liveData = new MutableLiveData<>();
 
-    public MVVMViewModel(MVVMRepository repository, LifecycleProvider<ActivityEvent> activityEventLifecycleProvider) {
+    public MVVMViewModel1(MVVMRepository1 repository, LifecycleProvider<ActivityEvent> activityEventLifecycleProvider) {
         this.repository = repository;
         this.lifecycleProvider = activityEventLifecycleProvider;
     }
@@ -63,9 +62,5 @@ public class MVVMViewModel extends ViewModel {
                         liveData.setValue(s);
                     }
                 });
-    }
-
-    public MutableLiveData<List<NameBean>> getTestData() {
-        return repository.getTestData();
     }
 }

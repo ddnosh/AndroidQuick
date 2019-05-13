@@ -30,7 +30,9 @@ public class MVVMActivity extends BaseActivity {
     @BindView(R.id.tv_activity_mvvm2)
     TextView mTextView2;
 
-    private MVVMViewModel viewModel;
+    private MVVMViewModel1 viewModel1;
+
+    private MVVMViewModel2 viewModel2;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -39,16 +41,18 @@ public class MVVMActivity extends BaseActivity {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        viewModel = ViewModelProviders.of(this, new MVVMFactory(new MVVMRepository(), this)).get(MVVMViewModel.class);
+        viewModel1 = ViewModelProviders.of(this, new MVVMFactory1(new MVVMRepository1(), this)).get(MVVMViewModel1.class);
 
-        viewModel.getData().observe(this, new Observer<List<String>>() {
+        viewModel1.getData().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> s) {
                 mTextView1.setText("size is " + s.size());
             }
         });
 
-        viewModel.getTestData().observe(this, new Observer<List<NameBean>>() {
+        viewModel2 = ViewModelProviders.of(this, new MVVMFactory2(new MVVMRepository2(this))).get(MVVMViewModel2.class);
+
+        viewModel2.getTestData().observe(this, new Observer<List<NameBean>>() {
             @Override
             public void onChanged(@Nullable List<NameBean> nameBeans) {
                 mTextView2.setText("size is " + nameBeans.size());
@@ -60,10 +64,10 @@ public class MVVMActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_activity_mvvm1:
-                viewModel.getGankResData();
+                viewModel1.getGankResData();
                 break;
             case R.id.btn_activity_mvvm2:
-                viewModel.getTestData();
+                viewModel2.getTestData();
                 break;
         }
     }

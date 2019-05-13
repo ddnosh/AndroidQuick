@@ -19,7 +19,7 @@ import la.xiong.androidquick.module.rxjava.BaseObserver;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MVVMRepository {
+public class MVVMRepository1 {
 
     private MutableLiveData<List<NameBean>> testLiveData = new MutableLiveData<>();
 
