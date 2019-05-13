@@ -5,14 +5,26 @@
     android:background="@color/base_bg">
 
     <Button
-        android:id="@+id/btn_activity_mvvm"
+        android:id="@+id/btn_activity_mvvm1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click to try MVVM"/>
+        android:text="Click to try MVVM (1)"/>
     <TextView
-        android:id="@+id/tv_activity_mvvm"
+        android:id="@+id/tv_activity_mvvm1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_below="@+id/btn_activity_mvvm1"
+        android:textSize="30sp"/>
+    <Button
+        android:id="@+id/btn_activity_mvvm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_activity_mvvm1"
+        android:text="Click to try MVVM (2)"/>
+    <TextView
+        android:id="@+id/tv_activity_mvvm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_activity_mvvm2"
+        android:textSize="30sp"/>
 </RelativeLayout>

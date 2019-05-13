@@ -36,6 +36,7 @@ public class StrategyFragment extends BaseFragment {
             case R.id.btn_log2:
                 LogLoader.load(new DefaultLogProcessor());
                 LogLoader.getInstance().d("this is system default log");
+                // LogLoader2.getInstance().useDmode("this is system default log");
                 break;
         }
     }

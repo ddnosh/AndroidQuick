@@ -14,6 +14,7 @@ import io.reactivex.schedulers.Schedulers;
 import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseFragment;
+import la.xiong.androidquick.demo.bean.NameBean;
 import la.xiong.androidquick.demo.bean.TestBean;
 import la.xiong.androidquick.demo.features.module.network.retrofit.TestApis;
 import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
@@ -105,6 +106,26 @@ public class Network2Fragment extends BaseFragment {
                            }
                 );
 //        mCompositeSubscription.add(subscription);
+
+        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+                .getTestData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseObserver<List<NameBean>>() {
+
+                               @Override
+                               public void onError(ApiException exception) {
+                                   LogUtil.e(TAG, "error:" + exception.getMessage());
+                               }
+
+                               @Override
+                               public void onSuccess(List<NameBean> testBeans) {
+                                   dismissLoadingDialog();
+                                   LogUtil.i(TAG, testBeans.toString());
+                                   ToastUtil.showToast(testBeans.toString());
+                               }
+                           }
+                );
     }
 
     @Override
