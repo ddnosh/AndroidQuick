@@ -4,11 +4,13 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.mvvm.BaseMVVMFragment;
 import la.xiong.androidquick.demo.bean.NameBean;
@@ -29,7 +31,7 @@ public class TomFragment extends BaseMVVMFragment<TomViewModel> {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        viewModel.getTomData().observe(this, new Observer<List<NameBean>>() {
+        viewModel.getData().observe(this, new Observer<List<NameBean>>() {
             @Override
             public void onChanged(@Nullable List<NameBean> s) {
                 tvMVVM.setText(s.toString());
@@ -40,5 +42,14 @@ public class TomFragment extends BaseMVVMFragment<TomViewModel> {
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.fragment_architecture_mvvm;
+    }
+
+    @OnClick(R.id.btn_fragment_mvvm)
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_fragment_mvvm:
+                viewModel.loadData();
+                break;
+        }
     }
 }

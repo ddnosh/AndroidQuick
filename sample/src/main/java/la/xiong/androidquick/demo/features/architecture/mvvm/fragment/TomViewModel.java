@@ -2,6 +2,7 @@ package la.xiong.androidquick.demo.features.architecture.mvvm.fragment;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 
 import java.util.List;
@@ -23,7 +24,12 @@ public class TomViewModel extends BaseViewModel<TomRepository> {
         return new TomRepository(context);
     }
 
-    public LiveData<List<NameBean>> getTomData() {
-        return repository.getTomData();
+    public LiveData<List<NameBean>> getData() {
+        final MutableLiveData<List<NameBean>> liveData = repository.getData();
+        return liveData;
+    }
+
+    public void loadData() {
+        repository.getTomData();
     }
 }

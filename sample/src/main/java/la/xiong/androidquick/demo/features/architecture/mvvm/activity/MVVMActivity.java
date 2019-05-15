@@ -61,7 +61,7 @@ public class MVVMActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_activity_mvvm1, R.id.btn_activity_mvvm2, R.id.btn_activity_mvvm3})
+    @OnClick({R.id.btn_activity_mvvm1, R.id.btn_activity_mvvm2, R.id.btn_activity_mvvm3, R.id.btn_activity_mvvm4})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_activity_mvvm1:
@@ -72,6 +72,9 @@ public class MVVMActivity extends BaseActivity {
                 break;
             case R.id.btn_activity_mvvm3:
                 readyGo(TomFragment.class);
+                break;
+            case R.id.btn_activity_mvvm4:
+                // readyGo(JerryFragment.class);
                 break;
         }
     }

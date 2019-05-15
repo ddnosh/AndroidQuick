@@ -33,4 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_activity_mvvm2"
         android:text="Click to try MVVM (3)"/>
+    <Button
+        android:id="@+id/btn_activity_mvvm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_activity_mvvm3"
+        android:text="Click to try MVVM (4)"/>
 </RelativeLayout>
