@@ -17,6 +17,7 @@ import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.BaseActivity;
 import la.xiong.androidquick.demo.bean.NameBean;
+import la.xiong.androidquick.demo.features.architecture.mvvm.fragment.TomFragment;
 
 /**
  * @author ddnosh
@@ -60,7 +61,7 @@ public class MVVMActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_activity_mvvm1, R.id.btn_activity_mvvm2})
+    @OnClick({R.id.btn_activity_mvvm1, R.id.btn_activity_mvvm2, R.id.btn_activity_mvvm3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_activity_mvvm1:
@@ -68,6 +69,9 @@ public class MVVMActivity extends BaseActivity {
                 break;
             case R.id.btn_activity_mvvm2:
                 viewModel2.getTestData();
+                break;
+            case R.id.btn_activity_mvvm3:
+                readyGo(TomFragment.class);
                 break;
         }
     }

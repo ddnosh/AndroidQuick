@@ -1,29 +1,23 @@
 package la.xiong.androidquick.demo.base.mvvm;
 
+import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
 
+/**
+ * @author ddnosh
+ * @website http://blog.csdn.net/ddnosh
+ */
+public class BaseRepository<T> {
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
+    protected Context context;
+    protected final MutableLiveData<T> liveData;
 
-public abstract class BaseRepository {
-
-    private CompositeDisposable mCompositeDisposable;
-
-
-    public BaseRepository() {
-
+    public BaseRepository(Context context) {
+        this.context = context;
+        liveData = new MutableLiveData<>();
     }
 
-    protected void addDisposable(Disposable disposable) {
-        if (mCompositeDisposable == null) {
-            mCompositeDisposable = new CompositeDisposable();
-        }
-        mCompositeDisposable.add(disposable);
-    }
-
-    public void unDisposable() {
-        if (mCompositeDisposable != null && mCompositeDisposable.isDisposed()) {
-            mCompositeDisposable.clear();
-        }
+    public MutableLiveData<T> getData() {
+        return liveData;
     }
 }
