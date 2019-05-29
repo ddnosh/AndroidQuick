@@ -14,7 +14,7 @@ public class QuickAppManager {
     private static final String TAG = "QuickAppManager";
 
     private static QuickAppManager instance = null;
-    private static List<Activity> mActivities = new LinkedList<Activity>();
+    private List<Activity> mActivities = new LinkedList<Activity>();
 
     private QuickAppManager() {
 

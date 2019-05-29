@@ -7,13 +7,10 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import la.xiong.androidquick.demo.R;
 import la.xiong.androidquick.demo.base.mvvm.BaseMVVMFragment;
-import la.xiong.androidquick.demo.bean.NameBean;
 
 /**
  * @author ddnosh
@@ -31,10 +28,10 @@ public class TomFragment extends BaseMVVMFragment<TomViewModel> {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        viewModel.getData().observe(this, new Observer<List<NameBean>>() {
+        viewModel.getData().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(@Nullable List<NameBean> s) {
-                tvMVVM.setText(s.toString());
+            public void onChanged(@Nullable String s) {
+                tvMVVM.setText(s);
             }
         });
     }

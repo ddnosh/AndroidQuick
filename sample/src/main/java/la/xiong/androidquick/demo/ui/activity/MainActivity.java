@@ -130,7 +130,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         root = TreeNode.root();
-        menuList = MenuUtil.getPositions(getApplicationContext(), "menu.txt");
+        menuList = new MenuUtil().getPositions(getApplicationContext(), "menu.txt");
         initMenus();
         //init AndroidTreeView
         tView = new AndroidTreeView(getApplicationContext(), root);
@@ -141,7 +141,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         mContainer.addView(tView.getView());
         //version
         String versionStr = getResources().getString(R.string.version);
-        String version = String.format(versionStr, AppUtil.getVersionName(this));
+        String version = String.format(versionStr, AppUtil.getVersionName(getApplicationContext()));
         tvMainVersion.setText(version);
         //search
         mAdapter = new SearchAdapter(MainActivity.this, android.R.layout.simple_list_item_1, SearchManager.getInstance().searchResults);

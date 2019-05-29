@@ -45,8 +45,8 @@ dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
     provided files('libs/org.apache.http.legacy.jar')
     //library
-    api project(':core')
-    api project(':treeview')
+    implementation project(':core')
+    implementation project(':treeview')
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
     //butterknife

@@ -5,10 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 
-import java.util.List;
-
 import la.xiong.androidquick.demo.base.mvvm.BaseViewModel;
-import la.xiong.androidquick.demo.bean.NameBean;
 
 /**
  * @author ddnosh
@@ -24,8 +21,8 @@ public class TomViewModel extends BaseViewModel<TomRepository> {
         return new TomRepository(context);
     }
 
-    public LiveData<List<NameBean>> getData() {
-        final MutableLiveData<List<NameBean>> liveData = repository.getData();
+    public LiveData<String> getData() {
+        final MutableLiveData<String> liveData = repository.getData();
         return liveData;
     }
 

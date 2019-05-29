@@ -17,16 +17,16 @@ import la.xiong.androidquick.demo.bean.MenuBean;
  */
 public class MenuUtil {
 
-    public static List<MenuBean> position;
+    private List<MenuBean> position;
 
-    public static List<MenuBean> getPositions(Context context, String fileName) {
+    public List<MenuBean> getPositions(Context context, String fileName) {
         if (position == null) {
             initPositions(context, fileName);
         }
         return position;
     }
 
-    private static void initPositions(Context context, String fileName) {
+    private void initPositions(Context context, String fileName) {
         String industryString = readAssetsTXT(context, fileName);
         String[] strings = industryString.split(";");
         position = new ArrayList<MenuBean>();
@@ -40,7 +40,7 @@ public class MenuUtil {
         }
     }
 
-    public static String readAssetsTXT(Context context, String fName) {
+    public String readAssetsTXT(Context context, String fName) {
         try {
             AssetManager assetManager = context.getAssets();
             InputStream is = assetManager.open(fName);
