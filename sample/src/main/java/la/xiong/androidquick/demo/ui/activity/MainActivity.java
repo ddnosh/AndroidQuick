@@ -36,6 +36,7 @@ import la.xiong.androidquick.demo.features.design_patterns.builder.BuilderFragme
 import la.xiong.androidquick.demo.features.design_patterns.factory.FactoryFragment;
 import la.xiong.androidquick.demo.features.design_patterns.observer.ObserverFragment;
 import la.xiong.androidquick.demo.features.design_patterns.proxy.ProxyFragment;
+import la.xiong.androidquick.demo.features.design_patterns.responsibilitychain.ResponsibilityChainFragment;
 import la.xiong.androidquick.demo.features.design_patterns.single.SingleFragment;
 import la.xiong.androidquick.demo.features.design_patterns.strategy.StrategyFragment;
 import la.xiong.androidquick.demo.features.function.annotation.AnnotationFragment;
@@ -399,6 +400,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(ImmersionActivity.class);
             } else if (name.equals("AOP")) {
                 readyGo(AOPFragment.class);
+            } else if (name.equals("Chain of Responsibility")) {
+                readyGo(ResponsibilityChainFragment.class);
             }
         }
     }
