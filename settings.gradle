@@ -1,2 +1,2 @@
-include ':sample', ':core', ':aop-compiler', ':aop-annotation', ':treeview', ':aop-core'
+include ':sample', ':aop-compiler', ':aop-annotation', ':treeview', ':aop-core'
 project(":treeview").projectDir = new File("library/treeview")

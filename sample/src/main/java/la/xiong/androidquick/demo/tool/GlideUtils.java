@@ -45,14 +45,14 @@ public class GlideUtils {
     }
 
     //设置加载中以及加载失败图片
-    public static void loadImageViewLoding(String path, ImageView mImageView, int lodingImage, int errorImageView) {
+    public static void loadImageViewLoading(String path, ImageView mImageView, int loadingImage, int errorImageView) {
         if (AppUtil.isContextValid(mImageView.getContext())) {
-            Glide.with(mImageView.getContext()).load(path).placeholder(lodingImage).error(errorImageView).into(mImageView);
+            Glide.with(mImageView.getContext()).load(path).placeholder(loadingImage).error(errorImageView).into(mImageView);
         }
     }
 
     //设置加载中以及加载失败图片并且指定大小
-    public static void loadImageViewLodingSize(String path, int width, int height, ImageView mImageView, int lodingImage, int errorImageView) {
+    public static void loadImageViewLoadingSize(String path, int width, int height, ImageView mImageView, int lodingImage, int errorImageView) {
         if (AppUtil.isContextValid(mImageView.getContext())) {
             Glide.with(mImageView.getContext()).load(path).override(width, height).placeholder(lodingImage).error(errorImageView).into(mImageView);
         }
