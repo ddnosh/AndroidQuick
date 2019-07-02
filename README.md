@@ -30,6 +30,3 @@ core封装了通用的功能，我们将其打包成一个aar包，提供给APP�
 ### APP
 <img src="https://raw.githubusercontent.com/ddnosh/AndroidQuick/master/art/screenshot.jpg"  height="900" width="100">
 
-## 支持
-如果您觉得项目不错，请支持本项目。  
-<img src="https://github.com/ddnosh/AndroidQuick/blob/master/art/wxskm.jpg"  height="370" width="270">
