@@ -26,13 +26,13 @@ public class MVVMRepository1 {
     private RetrofitManager mRetrofitManager = new RetrofitManager();
 
     public Observable getGankResData() {
-        return mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), GankApis.class)
+        return mRetrofitManager.createApi(GankApis.class)
                 .getHistoryDate();
     }
 
     public MutableLiveData<List<NameBean>> getTestData() {
 
-        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+        mRetrofitManager.createApi(TestApis.class)
                 .getTestData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

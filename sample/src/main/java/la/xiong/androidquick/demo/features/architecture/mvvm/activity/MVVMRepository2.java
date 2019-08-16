@@ -33,7 +33,7 @@ public class MVVMRepository2 {
 
     public MutableLiveData<List<NameBean>> getTestData() {
 
-        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+        mRetrofitManager.createApi(TestApis.class)
                 .getTestData()
                 .compose(RxUtil.applySchedulers())
                 .compose(lifecycleProvider.bindToLifecycle())

@@ -79,7 +79,7 @@ public class Network2Fragment extends BaseFragment {
 //        mCompositeSubscription = new CompositeSubscription();
         mRetrofitManager = new RetrofitManager();
 //        Subscription subscription =
-        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+        mRetrofitManager.createApi(TestApis.class)
                 // .getOctocat("https://api.github.com/repos/octocat/Hello-World/contributors")
                 .getOctocat()
                 .subscribeOn(Schedulers.io())
@@ -107,7 +107,7 @@ public class Network2Fragment extends BaseFragment {
                 );
 //        mCompositeSubscription.add(subscription);
 
-        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+        mRetrofitManager.createApi(TestApis.class)
                 .getTestData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

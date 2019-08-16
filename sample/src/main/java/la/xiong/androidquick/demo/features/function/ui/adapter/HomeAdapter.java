@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.adapter;
+package la.xiong.androidquick.demo.features.function.ui.adapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;

@@ -6,7 +6,6 @@ import android.content.Context;
 import java.util.List;
 
 import io.reactivex.functions.Function;
-import la.xiong.androidquick.demo.MyApplication;
 import la.xiong.androidquick.demo.base.mvvm.BaseRepository;
 import la.xiong.androidquick.demo.bean.NameBean;
 import la.xiong.androidquick.demo.features.module.network.retrofit.TestApis;
@@ -28,7 +27,7 @@ public class TomRepository extends BaseRepository<String> {
     }
 
     public MutableLiveData<String> getTomData() {
-        mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), TestApis.class)
+        mRetrofitManager.createApi(TestApis.class)
                 .getTestData()
                 .map(new Function<List<NameBean>, String>() {
                     @Override

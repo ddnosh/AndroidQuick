@@ -1,4 +1,4 @@
-package la.xiong.androidquick.demo.adapter;
+package la.xiong.androidquick.demo.features.function.ui.adapter;
 
 import android.support.annotation.Nullable;
 
@@ -7,9 +7,9 @@ import com.chad.library.adapter.base.MultipleItemRvAdapter;
 
 import java.util.List;
 
-import la.xiong.androidquick.demo.adapter.provider.ImgItemProvider;
-import la.xiong.androidquick.demo.adapter.provider.TextImgItemProvider;
-import la.xiong.androidquick.demo.adapter.provider.TextItemProvider;
+import la.xiong.androidquick.demo.features.function.ui.adapter.provider.ImgItemProvider;
+import la.xiong.androidquick.demo.features.function.ui.adapter.provider.TextImgItemProvider;
+import la.xiong.androidquick.demo.features.function.ui.adapter.provider.TextItemProvider;
 import la.xiong.androidquick.demo.bean.CBean;
 
 /**

@@ -49,7 +49,7 @@ public class MVCActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_activity_mvc:
-                mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), GankApis.class)
+                mRetrofitManager.createApi(GankApis.class)
                         .getHistoryDate()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())

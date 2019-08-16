@@ -53,7 +53,7 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
         //init greendao
         DBManager.getInstance().init(getApplicationContext());
         //init retrofit url
-        RetrofitManager.initBaseUrl("http://gank.io/api/");
+        RetrofitManager.getInstance().initBaseUrl("http://gank.io/api/");
         //init immersion
 
         //init stetho

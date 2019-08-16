@@ -41,7 +41,7 @@ public class Network1Presenter extends BasePresenter<Network1Contract.View> impl
     public void initData(String type) {
         if ("get".equals(type)) {
             //获取接口实例
-            Gank2Apis gank2Apis = mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), Gank2Apis.class);
+            Gank2Apis gank2Apis = mRetrofitManager.createApi(Gank2Apis.class);
             //调用方法得到一个Call
             Call<GankRes<List<String>>> call = gank2Apis.getHistoryDate();
             //进行网络请求
@@ -57,7 +57,7 @@ public class Network1Presenter extends BasePresenter<Network1Contract.View> impl
                 }
             });
         } else {
-            mRetrofitManager.createApi(MyApplication.getInstance().getApplicationContext(), GankApis.class)
+            mRetrofitManager.createApi(GankApis.class)
                     .getHistoryDate()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
