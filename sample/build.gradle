@@ -47,7 +47,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'la.xiong.androidquick:AndroidQuick:1.2.5'
+    implementation 'la.xiong.androidquick:AndroidQuick:1.2.6'
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
     //butterknife
