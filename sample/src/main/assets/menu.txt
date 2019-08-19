@@ -6,6 +6,7 @@
         32100405,Builder,16;
         32100406,Observer,16;
         32100407,Chain of Responsibility,16;
+        32100408,Template,16;
 10,Architecture,0;
     21000,MVC,10;
     21001,MVP,10;
