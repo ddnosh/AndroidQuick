@@ -65,6 +65,8 @@ dependencies {
     implementation 'la.xiong.androidquick:AndroidQuick:1.2.6'
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
+    //tiny series: tinypermission
+    implementation 'com.androidwind:tinypermission:1.0.0'
     //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
     //rxjava

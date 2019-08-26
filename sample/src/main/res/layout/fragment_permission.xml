@@ -15,5 +15,11 @@
             style="@style/button_common_style"
             android:text="Make a call" />
 
+        <Button
+            android:id="@+id/btn_permission_audio"
+            style="@style/button_common_style"
+            android:layout_below="@+id/btn_permission_call"
+            android:text="Record an audio" />
+
     </RelativeLayout>
 </RelativeLayout>

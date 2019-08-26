@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
+import com.androidwind.permission.OnPermission;
+import com.androidwind.permission.Permission;
+import com.androidwind.permission.TinyPermission;
 
 import java.util.List;
 
@@ -38,13 +42,42 @@ public class PermissionFragment extends BaseFragment {
         return R.layout.fragment_permission;
     }
 
-    @OnClick({R.id.btn_permission_call})
+    @OnClick({R.id.btn_permission_call, R.id.btn_permission_audio})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_permission_call:
                 permissionsCheck();
                 break;
+            case R.id.btn_permission_audio:
+                tinyPermissionCheck();
+                break;
         }
+    }
+
+    private void tinyPermissionCheck() {
+        TinyPermission.start(getActivity())
+                .permission(Permission.RECORD_AUDIO)
+                .request(new OnPermission() {
+
+                    @Override
+                    public void hasPermission(List<String> granted, boolean isAll) {
+                        if (isAll) {
+                            Toast.makeText(getActivity(), "授予所有权限成功", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(getActivity(), "部分权限授予成功，部分权限未正常授予", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void noPermission(List<String> denied, boolean permanent) {
+                        if(permanent) {
+                            Toast.makeText(getActivity(), "被永久拒绝授权，请手动到设置页面授予权限", Toast.LENGTH_SHORT).show();
+                            TinyPermission.gotoPermissionSettings(getActivity());
+                        } else {
+                            Toast.makeText(getActivity(), "获取权限失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private void permissionsCheck() {
