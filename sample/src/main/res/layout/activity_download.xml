@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="la.xiong.androidquick.demo.ui.activity.DownloadActivity">
+    tools:context="com.androidwind.androidquick.demo.ui.activity.DownloadActivity">
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_download"

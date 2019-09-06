@@ -1,0 +1,86 @@
+package com.androidwind.androidquick.demo.features.function.ui.adapter;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.androidwind.androidquick.demo.R;
+import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.bean.BBean;
+import com.androidwind.androidquick.ui.adapter.CommonViewHolder;
+import com.androidwind.androidquick.ui.adapter.MultiItemCommonAdapter;
+import com.androidwind.androidquick.ui.adapter.MultiItemTypeSupport;
+import com.androidwind.annotation.annotation.BindTag;
+import com.androidwind.annotation.annotation.TagInfo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+
+
+/**
+ * @author ddnosh
+ * @website http://blog.csdn.net/ddnosh
+ */
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"adapter"}, description = "MultiViewTypeAdapter实例")
+public class MultiViewTypeAdapterFragment extends BaseFragment {
+
+    private static String TAG = "AdapterActivity";
+
+    @BindView(R.id.rv_adapter)
+    RecyclerView mRecyclerView;
+
+    private List<BBean> mBBeanList;
+
+    @Override
+    protected int getContentViewLayoutID() {
+        return R.layout.fragment_adapter;
+    }
+
+    @Override
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+        mBBeanList = new ArrayList<BBean>();
+        mBBeanList.add(new BBean("left", "here is left loaded"));
+        mBBeanList.add(new BBean("right", "https://www.baidu.com/img/bd_logo1.png"));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(new ChatAdapter(getActivity(), mBBeanList));
+    }
+
+    class ChatAdapter extends MultiItemCommonAdapter<BBean> {
+
+        public ChatAdapter(Context context, List<BBean> datas) {
+            super(context, datas, new MultiItemTypeSupport<BBean>() {
+                @Override
+                public int getLayoutId(int itemType) {
+                    if (itemType == 1) {
+                        return R.layout.item_multiviewtype_text;
+                    } else {
+                        return R.layout.item_multiviewtype_img;
+                    }
+                }
+
+                @Override
+                public int getItemViewType(int position, BBean bean) {
+                    if (bean.getType().equals("left")) {
+                        return 1;
+                    }
+                    return 2;
+                }
+
+            });
+
+        }
+
+        @Override
+        public void convert(CommonViewHolder holder, BBean bean) {
+            if (holder.getItemViewType() == 1) {
+                holder.setText(R.id.tv_text, bean.getValue());
+            } else {
+                holder.setImageResourceWithGlide(R.id.iv_img, bean.getValue());
+            }
+        }
+    }
+}

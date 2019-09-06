@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomBar" />
 
-    <la.xiong.androidquick.ui.view.BottomBar
+    <com.androidwind.androidquick.ui.view.BottomBar
         android:id="@+id/bottomBar"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
-        applicationId "la.xiong.androidquick"
+        applicationId "com.androidwind.androidquick"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -62,7 +62,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'la.xiong.androidquick:AndroidQuick:1.2.6'
+    implementation 'com.androidwind.androidquick:AndroidQuick:2.0.0'
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
     //tiny series: tinypermission

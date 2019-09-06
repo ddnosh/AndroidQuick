@@ -10,12 +10,12 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <la.xiong.androidquick.demo.view.expandablelistview.AnimatedExpandableListView
+        <com.androidwind.androidquick.demo.view.expandablelistview.AnimatedExpandableListView
             android:id="@+id/explv_ui"
             style="@style/match_match"
             android:divider="@null">
 
-        </la.xiong.androidquick.demo.view.expandablelistview.AnimatedExpandableListView>
+        </com.androidwind.androidquick.demo.view.expandablelistview.AnimatedExpandableListView>
 
         <!--<Button-->
         <!--android:id="@+id/btn_ui_fragment"-->

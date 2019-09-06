@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <la.xiong.androidquick.ui.view.CommonToolBar
+    <com.androidwind.androidquick.ui.view.CommonToolBar
         android:id="@+id/common_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
