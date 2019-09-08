@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import com.androidwind.androidquick.module.network.retrofit.RetrofitManager;
+import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.rxjava.BaseConsumer;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.RxUtil;

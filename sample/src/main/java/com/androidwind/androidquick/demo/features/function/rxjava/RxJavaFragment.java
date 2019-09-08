@@ -17,7 +17,7 @@ import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.demo.features.function.ui.webview.WebViewActivity;
 import com.androidwind.androidquick.demo.tool.AssetsUtil;
 import com.androidwind.androidquick.demo.tool.GlideUtils;
-import com.androidwind.androidquick.module.network.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.RxUtil;
 import com.androidwind.androidquick.util.StringUtil;

@@ -1,16 +1,16 @@
 package com.androidwind.androidquick.demo.tool;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
+import com.androidwind.androidquick.util.AppUtil;
+import com.bumptech.glide.GenericTransitionOptions;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.SimpleTarget;
-
-import com.androidwind.androidquick.util.AppUtil;
+import com.bumptech.glide.request.target.Target;
 
 /**
  * @author ddnosh
@@ -98,7 +98,7 @@ public class GlideUtils {
     //设置加载动画
     public static void loadImageViewAnim(String path, int anim, ImageView mImageView) {
         if (AppUtil.isContextValid(mImageView.getContext())) {
-            Glide.with(mImageView.getContext()).load(path).animate(anim).into(mImageView);
+            Glide.with(mImageView.getContext()).load(path).transition(GenericTransitionOptions.with(anim)).into(mImageView);
         }
     }
 
@@ -127,30 +127,30 @@ public class GlideUtils {
     //设置动态GIF加载方式
     public static void loadImageViewDynamicGif(String path, ImageView mImageView) {
         if (AppUtil.isContextValid(mImageView.getContext())) {
-            Glide.with(mImageView.getContext()).load(path).asGif().into(mImageView);
+            Glide.with(mImageView.getContext()).load(path).into(mImageView);
         }
     }
 
     //设置静态GIF加载方式
     public static void loadImageViewStaticGif(String path, ImageView mImageView) {
         if (AppUtil.isContextValid(mImageView.getContext())) {
-            Glide.with(mImageView.getContext()).load(path).asBitmap().into(mImageView);
+            Glide.with(mImageView.getContext()).asBitmap().load(path).into(mImageView);
         }
     }
 
     //设置监听的用处 可以用于监控请求发生错误来源，以及图片来源 是内存还是磁盘
 
     //设置监听请求接口
-    public static void loadImageViewListener(String path, ImageView mImageView, RequestListener<String, GlideDrawable> requstlistener) {
+    public static void loadImageViewListener(String path, ImageView mImageView, RequestListener<Drawable> requestlistener) {
         if (AppUtil.isContextValid(mImageView.getContext())) {
-            Glide.with(mImageView.getContext()).load(path).listener(requstlistener).into(mImageView);
+            Glide.with(mImageView.getContext()).load(path).listener(requestlistener).into(mImageView);
         }
     }
 
     //项目中有很多需要先下载图片然后再做一些合成的功能，比如项目中出现的图文混排
 
     //设置要加载的内容
-    public static void loadImageViewContent(Context mContext, String path, SimpleTarget<GlideDrawable> simpleTarget) {
+    public static void loadImageViewContent(Context mContext, String path, Target<Drawable> simpleTarget) {
         Glide.with(mContext).load(path).centerCrop().into(simpleTarget);
     }
 

@@ -13,7 +13,7 @@ import com.androidwind.androidquick.demo.injector.component.ApplicationComponent
 import com.androidwind.androidquick.demo.injector.component.DaggerApplicationComponent;
 import com.androidwind.androidquick.demo.injector.module.ApplicationModule;
 import com.androidwind.androidquick.demo.ui.AQActivityLifecycleCallbacks;
-import com.androidwind.androidquick.module.network.retrofit.RetrofitManager;
+import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.SpUtil;
 import com.androidwind.androidquick.util.ToastUtil;

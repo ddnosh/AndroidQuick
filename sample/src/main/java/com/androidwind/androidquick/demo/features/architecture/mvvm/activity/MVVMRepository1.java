@@ -11,8 +11,8 @@ import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.bean.NameBean;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
-import com.androidwind.androidquick.module.network.retrofit.RetrofitManager;
-import com.androidwind.androidquick.module.network.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.retrofit.RetrofitManager;
+import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 
 /**

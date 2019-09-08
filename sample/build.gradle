@@ -62,7 +62,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind.androidquick:AndroidQuick:2.0.0'
+    implementation 'com.androidwind:androidquick:2.0.1'
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
     //tiny series: tinypermission

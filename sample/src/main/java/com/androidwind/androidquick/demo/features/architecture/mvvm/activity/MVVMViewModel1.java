@@ -14,7 +14,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
-import com.androidwind.androidquick.module.network.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.RxUtil;
 

@@ -7,7 +7,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.injector.module.ApplicationModule;
-import com.androidwind.androidquick.module.network.retrofit.RetrofitManager;
+import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 
 /**
  * @author  ddnosh
