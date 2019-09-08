@@ -30,7 +30,6 @@ import io.reactivex.schedulers.Schedulers;
 @BindTag(type = TagInfo.Type.ACTIVITY, tags = {"MVC"}, description = "Activity + MVC实例")
 public class MVCActivity extends BaseActivity {
 
-    RetrofitManager mRetrofitManager;
     @BindView(R.id.tv_activity_mvc)
     TextView mTextView;
 
@@ -42,14 +41,13 @@ public class MVCActivity extends BaseActivity {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         mTextView.setText("I don't do anything, but this is a MVC show anyway. Click me!");
-        mRetrofitManager = new RetrofitManager();
     }
 
     @OnClick(R.id.tv_activity_mvc)
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_activity_mvc:
-                mRetrofitManager.createApi(GankApis.class)
+                RetrofitManager.getInstance().createApi(GankApis.class)
                         .getHistoryDate()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())

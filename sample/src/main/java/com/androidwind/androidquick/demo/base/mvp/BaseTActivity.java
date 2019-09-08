@@ -21,23 +21,24 @@ public abstract class BaseTActivity<T extends BasePresenter> extends BaseActivit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         mPresenter = TUtil.getInstance(this, 0);
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
         LogUtil.i(TAG, "onCreate:" + getClass().getSimpleName());
+
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
         LogUtil.i(TAG, "onDestroy:" + getClass().getSimpleName());
+
+        super.onDestroy();
     }
 
 }

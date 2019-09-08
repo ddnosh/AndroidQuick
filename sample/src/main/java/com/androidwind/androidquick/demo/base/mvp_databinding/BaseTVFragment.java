@@ -37,12 +37,13 @@ public abstract class BaseTVFragment<T extends BasePresenter, V extends ViewData
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         //dagger2
         initInjector();
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+
+        super.onCreate(savedInstanceState);
     }
 
     @Override

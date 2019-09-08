@@ -27,25 +27,25 @@ public abstract class BaseTActivity<T extends BasePresenter> extends BaseActivit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         LogUtil.i(TAG, "onCreate:" + getClass().getSimpleName());
         //dagger2
         initInjector();
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-
         LogUtil.i(TAG, "onDestroy:" + getClass().getSimpleName());
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
+
+        super.onDestroy();
     }
 
     protected void initInjector() {

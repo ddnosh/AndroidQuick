@@ -62,7 +62,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind:androidquick:2.0.1'
+    implementation 'com.androidwind:androidquick:2.0.2'
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
     //tiny series: tinypermission
@@ -115,6 +115,8 @@ dependencies {
     implementation 'com.blankj:utilcode:1.23.7'
     //aspectj
     implementation 'org.aspectj:aspectjrt:1.8.9'
+    //retrofit converter
+    implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
 
     implementation project(':aop-annotation')
     annotationProcessor  project(':aop-compiler')

@@ -68,6 +68,7 @@ import com.androidwind.androidquick.demo.features.module.ioc.butterknife.ButterK
 import com.androidwind.androidquick.demo.features.module.ioc.dagger2.Dagger2Fragment;
 import com.androidwind.androidquick.demo.features.module.network.common.CommonHttpFragment;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.NetworkActivity;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.network1.Network1Fragment;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.network2.Network2Fragment;
 import com.androidwind.androidquick.demo.features.module.task.TaskRxJavaFragment;
@@ -80,7 +81,11 @@ import com.androidwind.androidquick.demo.features.search.SearchAdapter;
 import com.androidwind.androidquick.demo.features.search.SearchManager;
 import com.androidwind.androidquick.demo.features.solution.aop.AOPFragment;
 import com.androidwind.androidquick.demo.tool.MenuUtil;
+import com.androidwind.androidquick.module.retrofit.RetrofitManager;
+import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.AppUtil;
+import com.androidwind.androidquick.util.RxUtil;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.core.SearchEngine;
@@ -92,6 +97,9 @@ import com.unnamed.b.atv.view.AndroidTreeView;
 import java.util.List;
 
 import butterknife.BindView;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 
 /**
@@ -109,6 +117,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     RelativeLayout mContainer;
     @BindView(R.id.tv_main_version)
     TextView tvMainVersion;
+    @BindView(R.id.tv_sdk_version)
+    TextView tvSdkVersion;
 
     private TreeNode root;
     private AndroidTreeView tView;
@@ -142,8 +152,9 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         tView.setDefaultContainerStyle(R.style.TreeNodeStyleCustom);
         tView.setDefaultNodeClickListener(this);
         mContainer.addView(tView.getView());
-        //version
-        String versionStr = getResources().getString(R.string.version);
+        //app version
+        String versionStr = getResources().getString(R.string.app_version);
+        getSdkVersion();
         String version = String.format(versionStr, AppUtil.getVersionName(getApplicationContext()));
         tvMainVersion.setText(version);
         //search
@@ -192,6 +203,43 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 return false;
             }
         });
+    }
+
+    private void getSdkVersion() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.github.com")
+                .client(RetrofitManager.getInstance().getOkHttpClient())
+                .addConverterFactory(ScalarsConverterFactory.create())//添加 string 转换器
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//添加 RxJava 适配器
+                .build();
+        retrofit.create(TestApis.class)
+                .getSdkVersion()
+                .compose(RxUtil.<String>applySchedulers())
+                .compose(this.<String>bindToLifecycle())
+                .subscribe(new BaseObserver<String>() {
+
+                               @Override
+                               public void onError(ApiException exception) {
+
+                               }
+
+                               @Override
+                               public void onSuccess(String html) {
+                                   if (!StringUtil.isEmpty(html)) {
+                                       if (html.contains("</text></g> </svg>")) {
+                                           String[] sArray = html.split("</text></g> </svg>");
+                                           int position = sArray[0].lastIndexOf(">");
+                                           if (position > 0) {
+                                               String sdk = sArray[0].substring(position + 1);
+                                               String sdkVersion = getResources().getString(R.string.sdk_version);
+                                               String version = String.format(sdkVersion, sdk);
+                                               tvSdkVersion.setText(version);
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                );
     }
 
     @Override

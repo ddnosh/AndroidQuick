@@ -24,23 +24,23 @@ public abstract class BaseTFragment<T extends BasePresenter> extends BaseFragmen
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         //dagger2
         initInjector();
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
-
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
+
+        super.onDestroy();
     }
 
     protected void initInjector() {

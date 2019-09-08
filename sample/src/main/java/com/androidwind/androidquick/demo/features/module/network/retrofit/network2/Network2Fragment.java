@@ -42,8 +42,6 @@ public class Network2Fragment extends BaseFragment {
     private CommonAdapter mCommonAdapter;
 
     private List<TestBean> mTestBeanList;
-
-    private RetrofitManager mRetrofitManager;
 //    private CompositeSubscription mCompositeSubscription;
 
     @Override
@@ -78,9 +76,8 @@ public class Network2Fragment extends BaseFragment {
         mRecyclerView.setAdapter(mCommonAdapter);
 
 //        mCompositeSubscription = new CompositeSubscription();
-        mRetrofitManager = new RetrofitManager();
 //        Subscription subscription =
-        mRetrofitManager.createApi(TestApis.class)
+        RetrofitManager.getInstance().createApi(TestApis.class)
                 // .getOctocat("https://api.github.com/repos/octocat/Hello-World/contributors")
                 .getOctocat()
                 .subscribeOn(Schedulers.io())
@@ -108,7 +105,7 @@ public class Network2Fragment extends BaseFragment {
                 );
 //        mCompositeSubscription.add(subscription);
 
-        mRetrofitManager.createApi(TestApis.class)
+        RetrofitManager.getInstance().createApi(TestApis.class)
                 .getTestData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

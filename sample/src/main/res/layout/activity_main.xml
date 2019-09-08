@@ -10,8 +10,8 @@
         style="@style/text_large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="An app will always use"
+        android:layout_marginTop="18dp"
+        android:text="Android开发库[一旦拥有别无所求]"
         />
 
     <android.support.v7.widget.SearchView
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
         app:iconifiedByDefault="false"
-        app:queryHint="please input your keywords" />
+        app:queryHint="输入关键字查询" />
 
     <RelativeLayout
         android:id="@+id/container"

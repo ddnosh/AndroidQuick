@@ -38,17 +38,19 @@ public abstract class BaseTVActivity<T extends BasePresenter, V extends ViewData
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+
         super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void onDestroy() {
+        LogUtil.i(TAG, "onDestroy:" + getClass().getSimpleName());
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
         }
+
         super.onDestroy();
-        LogUtil.i(TAG, "onDestroy:" + getClass().getSimpleName());
     }
 
     protected void initInjector() {
