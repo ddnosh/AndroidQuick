@@ -117,7 +117,9 @@ dependencies {
     implementation 'org.aspectj:aspectjrt:1.8.9'
     //retrofit converter
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
-
+    //rxpermissions
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    //aop
     implementation project(':aop-annotation')
     annotationProcessor  project(':aop-compiler')
     implementation project(':aop-core')

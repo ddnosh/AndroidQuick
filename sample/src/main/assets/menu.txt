@@ -74,8 +74,8 @@
         32120011,Resolution,21200;
         32120012,ConstraintLayout,21200;
     21201,Permission,12;
-        32120100,Permission-Camera,21201;
-        32120101,Permission-Fragment-Call,21201;
+        32120100,Permission-Activity,21201;
+        32120101,Permission-Fragment,21201;
     21202,Json,12;
     21203,RxJava,12;
     21204,Annotation,12;

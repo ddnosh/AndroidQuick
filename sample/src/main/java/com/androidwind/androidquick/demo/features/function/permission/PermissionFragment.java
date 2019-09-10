@@ -13,11 +13,13 @@ import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
 import com.androidwind.androidquick.ui.permission.EasyPermissions;
+import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 import com.androidwind.permission.OnPermission;
 import com.androidwind.permission.Permission;
 import com.androidwind.permission.TinyPermission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.List;
 
@@ -28,10 +30,12 @@ import butterknife.OnClick;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"permission", "权限"}, description = "Fragment + 权限实例")
+@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"permission", "权限", "TinyPermission", "RxPermission"}, description = "Fragment + 权限实例")
 public class PermissionFragment extends BaseFragment {
 
     public static final String TAG = "PermissionFragment";
+
+    private RxPermissions rxPermissions;
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class PermissionFragment extends BaseFragment {
         return R.layout.fragment_permission;
     }
 
-    @OnClick({R.id.btn_permission_call, R.id.btn_permission_audio})
+    @OnClick({R.id.btn_permission_call, R.id.btn_permission_audio, R.id.btn_permission_camera})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_permission_call:
@@ -52,7 +56,23 @@ public class PermissionFragment extends BaseFragment {
             case R.id.btn_permission_audio:
                 tinyPermissionCheck();
                 break;
+            case R.id.btn_permission_camera:
+                rxPermissionsCheck();
+                break;
         }
+    }
+
+    private void rxPermissionsCheck() {
+        rxPermissions = new RxPermissions(this);
+        rxPermissions
+                .request(Manifest.permission.CAMERA)
+                .subscribe(granted -> {
+                    if (granted) { // Always true pre-M
+                        ToastUtil.showToast("授权成功！");
+                    } else {
+                        ToastUtil.showToast("授权失败！");
+                    }
+                });
     }
 
     private void tinyPermissionCheck() {

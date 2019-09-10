@@ -52,7 +52,7 @@ public class SearchEngine {
         } else if (tagInfo.getType() == TagInfo.Type.FRAGMENT) {
             Intent intent = null;
             try {
-                intent = new Intent(context, Class.forName("la.xiong.androidquick.demo.ui.activity.FrameActivity"));
+                intent = new Intent(context, Class.forName("com.androidwind.androidquick.demo.ui.activity.FrameActivity"));
                 intent.putExtra("fragmentName", tagInfo.getLocation());
                 ActivityCompat.startActivity(context, intent, null);
             } catch (ClassNotFoundException e) {

@@ -370,9 +370,9 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(BannerFragment.class);
             } else if (name.equals("Code")) {
                 readyGo(CodeFragment.class);
-            } else if (name.equals("Permission-Camera")) {
+            } else if (name.equals("Permission-Activity")) {
                 readyGo(PermissionActivity.class);
-            } else if (name.equals("Permission-Fragment-Call")) {
+            } else if (name.equals("Permission-Fragment")) {
                 readyGo(PermissionFragment.class);
             } else if (name.equals("SwipeRefreshLayout")) {
                 readyGo(SwipeRefreshLayoutFragment.class);

@@ -21,5 +21,11 @@
             android:layout_below="@+id/btn_permission_call"
             android:text="Record an audio" />
 
+        <Button
+            android:id="@+id/btn_permission_camera"
+            style="@style/button_common_style"
+            android:layout_below="@+id/btn_permission_audio"
+            android:text="Take a picture" />
+
     </RelativeLayout>
 </RelativeLayout>
