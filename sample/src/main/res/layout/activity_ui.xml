@@ -26,7 +26,7 @@
         <!--android:id="@+id/btn_ui_adapter"-->
         <!--style="@style/button_common_style"-->
         <!--android:layout_below="@id/btn_ui_fragment"-->
-        <!--android:text="Adapter" />-->
+        <!--android:text="AdapterFragment" />-->
 
         <!--<Button-->
         <!--android:id="@+id/btn_ui_dialog"-->

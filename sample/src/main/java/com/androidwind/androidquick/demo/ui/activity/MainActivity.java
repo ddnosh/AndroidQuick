@@ -23,6 +23,7 @@ import com.androidwind.androidquick.demo.features.architecture.mvvm.activity.MVV
 import com.androidwind.androidquick.demo.features.architecture.segment.type1.Architecture1Fragment;
 import com.androidwind.androidquick.demo.features.architecture.segment.type2.Architecture2Fragment;
 import com.androidwind.androidquick.demo.features.architecture.segment.type3.WebViewJavascriptActivity;
+import com.androidwind.androidquick.demo.features.design_patterns.adapter.AdapterFragment;
 import com.androidwind.androidquick.demo.features.design_patterns.builder.BuilderFragment;
 import com.androidwind.androidquick.demo.features.design_patterns.factory.FactoryFragment;
 import com.androidwind.androidquick.demo.features.design_patterns.observer.ObserverFragment;
@@ -454,6 +455,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 readyGo(ResponsibilityChainFragment.class);
             } else if (name.equals("Template")) {
                 readyGo(TemplateFragment.class);
+            } else if (name.equals("Adapter")) {
+                readyGo(AdapterFragment.class);
             }
         }
     }
