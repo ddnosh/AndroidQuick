@@ -1,6 +1,5 @@
 # AndroidQuick
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Download](https://api.bintray.com/packages/ddnosh/maven/androidquick/images/download.svg) ](https://bintray.com/ddnosh/maven/androidquick/_latestVersion)  
 ![image](https://github.com/ddnosh/androidquick/blob/master/logo.png)  
 <br />
 欢迎加入QQ群：
