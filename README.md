@@ -1,5 +1,5 @@
 # AndroidQuick
-[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)  
 ![image](https://github.com/ddnosh/androidquick/blob/master/logo.png)  
 <br />
 欢迎加入QQ群：
@@ -12,9 +12,9 @@ AndroidQuick覆盖了开发一个APP所用到的常用的架构、模块、功�
 
 开发者在开发的过程中可以从AndroidQuick项目中找到常用的实例进行参考，甚至直接Copy then Paste。  
 
-AndroidQuick还提供了一个库文件[![Download](https://api.bintray.com/packages/ddnosh/maven/androidquick/images/download.svg) ](https://bintray.com/ddnosh/maven/androidquick/_latestVersion) ，集合了通用的功能，供开发快速开发使用。  
+AndroidQuick还提供了一个库文件QuickBase[![Download](https://api.bintray.com/packages/ddnosh/maven/androidquick/images/download.svg) ](https://bintray.com/ddnosh/maven/androidquick/_latestVersion) ，集合了通用的功能，供开发快速开发使用。  
 
-关于库文件：https://github.com/ddnosh/QuickBase
+> 关于库文件QuickBase：https://github.com/ddnosh/QuickBase
 
 ## 适用范围
 本项目适用于以下几种情形：
