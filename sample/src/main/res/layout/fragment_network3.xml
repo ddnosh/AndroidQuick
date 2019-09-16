@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bg">
+
+    <Button
+        android:id="@+id/btnSyncFlatMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="串行(RxJava -> flatMap)" />
+
+    <Button
+        android:id="@+id/btnSyncConcat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSyncFlatMap"
+        android:text="串行(RxJava -> concat)" />
+
+    <Button
+        android:id="@+id/btnAsyncMerge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSyncConcat"
+        android:text="并行(RxJava -> merge)" />
+
+    <Button
+        android:id="@+id/btnAsyncZip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSyncConcat"
+        android:text="并行(RxJava -> zip)" />
+</RelativeLayout>

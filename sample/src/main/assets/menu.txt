@@ -27,6 +27,7 @@
         32110002,Retrofit+Download,21100;
         32110003,Retrofit+CommonUrl+Get,21100;
         32110004,Common Http,21100;
+        32110005,串行&&并行,21100;
     21101,Database,11;
         32110100,GreenDao,21101;
         32110101,OrmLite,21101;

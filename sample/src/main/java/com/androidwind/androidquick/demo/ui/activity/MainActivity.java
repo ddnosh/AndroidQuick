@@ -72,6 +72,7 @@ import com.androidwind.androidquick.demo.features.module.network.retrofit.Networ
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.network1.Network1Fragment;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.network2.Network2Fragment;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.network3.Network3Fragment;
 import com.androidwind.androidquick.demo.features.module.task.TaskRxJavaFragment;
 import com.androidwind.androidquick.demo.features.module.task.TaskTinyFragment;
 import com.androidwind.androidquick.demo.features.other.callback.CallBackFragment;
@@ -322,6 +323,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("type", "get");
                 readyGo(Network1Fragment.class, bundle1);
+            } else if (name.equals("串行&&并行")) {
+                readyGo(Network3Fragment.class);
             } else if (name.equals("GreenDao")) {
                 readyGo(GreenDaoFragment.class);
             } else if (name.equals("Glide")) {
