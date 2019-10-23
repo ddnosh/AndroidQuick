@@ -10,6 +10,9 @@ public class Student {
     private int age;
     private boolean sex;
 
+    public Student() {
+    }
+
     public Student(StudentBuilder studentBuilder) {
         this.name = studentBuilder.name;
         this.age = studentBuilder.age;
@@ -55,5 +58,20 @@ public class Student {
                 ", age=" + age +
                 ", sex=" + sex +
                 '}';
+    }
+
+    public Student setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Student setAge(int age) {
+        this.age = age;
+        return this;
+    }
+
+    public Student setSex(boolean sex) {
+        this.sex = sex;
+        return this;
     }
 }
