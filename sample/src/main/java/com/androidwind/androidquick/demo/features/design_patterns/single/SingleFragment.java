@@ -32,6 +32,7 @@ public class SingleFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_single:
                 SingletonDemo.getInstance().printSomething();
+                SingletonEnumDemo.INSTANCE.printSomething();
                 break;
             case R.id.btn_static:
                 StaticDemo.printSomething();
