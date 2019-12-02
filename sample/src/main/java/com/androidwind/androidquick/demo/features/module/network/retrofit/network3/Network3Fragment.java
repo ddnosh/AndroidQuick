@@ -6,8 +6,9 @@ import android.widget.Button;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.constant.Constants;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.LogUtil;
@@ -65,7 +66,7 @@ public class Network3Fragment extends BaseFragment implements View.OnClickListen
     }
 
     private void clickAsyncZip() {
-        TestApis testApis = RetrofitManager.getInstance().createApi(TestApis.class);
+        TestApis testApis = RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class);
         Observable<TSSCRes<TSSCResult>> o1 = testApis.getTangShiSongCi();
         Observable<XHYRes<XHYResult>> o2 = testApis.getXHY();
         Observable.zip(o1, o2, new BiFunction<TSSCRes<TSSCResult>, XHYRes<XHYResult>, Integer>() {
@@ -91,7 +92,7 @@ public class Network3Fragment extends BaseFragment implements View.OnClickListen
     }
 
     private void clickAsyncMerge() {
-        TestApis testApis = RetrofitManager.getInstance().createApi(TestApis.class);
+        TestApis testApis = RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class);
         Observable<TSSCRes<TSSCResult>> o1 = testApis.getTangShiSongCi();
         Observable<XHYRes<XHYResult>> o2 = testApis.getXHY();
         Observable
@@ -118,7 +119,7 @@ public class Network3Fragment extends BaseFragment implements View.OnClickListen
     }
 
     private void clickSyncConcat() {
-        TestApis testApis = RetrofitManager.getInstance().createApi(TestApis.class);
+        TestApis testApis = RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class);
         Observable<TSSCRes<TSSCResult>> o1 = testApis.getTangShiSongCi();
         Observable<XHYRes<XHYResult>> o2 = testApis.getXHY();
         Observable
@@ -145,7 +146,7 @@ public class Network3Fragment extends BaseFragment implements View.OnClickListen
     }
 
     public void clickSyncFlatMap() {
-        TestApis testApis = RetrofitManager.getInstance().createApi(TestApis.class);
+        TestApis testApis = RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class);
         testApis.getTangShiSongCi() // 先访问唐诗宋词接口
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())

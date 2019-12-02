@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.androidwind.androidquick.demo.ui.activity.FrameActivity;
-import com.androidwind.androidquick.eventbus.EventCenter;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.base.QuickActivity;
 import com.androidwind.androidquick.util.LogUtil;
 

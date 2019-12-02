@@ -3,9 +3,10 @@ package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.androidwind.androidquick.demo.bean.NameBean;
+import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 
@@ -24,13 +25,12 @@ public class MVVMRepository1 {
     private MutableLiveData<List<NameBean>> testLiveData = new MutableLiveData<>();
 
     public Observable getGankResData() {
-        return RetrofitManager.getInstance().createApi(GankApis.class)
+        return RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(GankApis.class)
                 .getHistoryDate();
     }
 
     public MutableLiveData<List<NameBean>> getTestData() {
-
-        RetrofitManager.getInstance().createApi(TestApis.class)
+        RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class)
                 .getTestData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

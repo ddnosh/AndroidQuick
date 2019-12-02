@@ -1,14 +1,13 @@
 package com.androidwind.androidquick.demo.features.module.network.retrofit.network1;
 
 import com.androidwind.androidquick.ui.mvp.BaseContract;
-import com.androidwind.androidquick.ui.mvp.BaseModel;
 
 /**
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 public interface Network1Contract {
-    interface Model extends BaseModel {
+    interface Model extends BaseContract.BaseModel {
 
     }
 

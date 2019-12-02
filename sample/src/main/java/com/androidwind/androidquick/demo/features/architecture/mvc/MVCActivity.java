@@ -6,9 +6,10 @@ import android.widget.TextView;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseActivity;
+import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.LogUtil;
@@ -47,7 +48,7 @@ public class MVCActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_activity_mvc:
-                RetrofitManager.getInstance().createApi(GankApis.class)
+                RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(GankApis.class)
                         .getHistoryDate()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())

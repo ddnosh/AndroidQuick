@@ -1,7 +1,6 @@
 package com.androidwind.androidquick.demo.features.architecture.mvp.activity_dagger;
 
 import com.androidwind.androidquick.ui.mvp.BaseContract;
-import com.androidwind.androidquick.ui.mvp.BaseModel;
 import com.androidwind.androidquick.ui.mvp.BasePresenter;
 
 /**
@@ -9,7 +8,7 @@ import com.androidwind.androidquick.ui.mvp.BasePresenter;
  * @website http://blog.csdn.net/ddnosh
  */
 public interface MVPDaggerContract {
-    interface Model extends BaseModel {
+    interface Model extends BaseContract.BaseModel {
 
     }
 

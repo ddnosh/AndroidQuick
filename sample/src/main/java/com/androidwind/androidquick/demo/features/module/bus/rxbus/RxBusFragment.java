@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.androidquick.eventbus.EventCenter;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.util.ToastUtil;
 
 import butterknife.OnClick;

@@ -2,21 +2,22 @@ package com.androidwind.androidquick.demo.features.module.network.retrofit.netwo
 
 import android.content.Context;
 
+import com.androidwind.androidquick.demo.constant.Constants;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.Gank2Apis;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
+import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.rxjava.BaseObserver;
+import com.androidwind.androidquick.ui.mvp.BasePresenter;
+import com.androidwind.androidquick.util.LogUtil;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import com.androidwind.androidquick.demo.MyApplication;
-import com.androidwind.androidquick.demo.features.module.network.retrofit.Gank2Apis;
-import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
-import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
-import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
-import com.androidwind.androidquick.module.rxjava.BaseObserver;
-import com.androidwind.androidquick.util.LogUtil;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,20 +29,18 @@ import retrofit2.Response;
 public class Network1Presenter extends BasePresenter<Network1Contract.View> implements Network1Contract.Presenter {
 
     private static final String TAG = "MVPPresenter";
-    private RetrofitManager mRetrofitManager;
     private Context mContext;
 
     @Inject
-    public Network1Presenter(Context mContext, RetrofitManager mRetrofitManager) {
+    public Network1Presenter(Context mContext) {
         this.mContext = mContext;
-        this.mRetrofitManager = mRetrofitManager;
     }
 
     @Override
     public void initData(String type) {
         if ("get".equals(type)) {
             //获取接口实例
-            Gank2Apis gank2Apis = mRetrofitManager.createApi(Gank2Apis.class);
+            Gank2Apis gank2Apis = RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(Gank2Apis.class);
             //调用方法得到一个Call
             Call<GankRes<List<String>>> call = gank2Apis.getHistoryDate();
             //进行网络请求
@@ -57,7 +56,7 @@ public class Network1Presenter extends BasePresenter<Network1Contract.View> impl
                 }
             });
         } else {
-            mRetrofitManager.createApi(GankApis.class)
+            RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(GankApis.class)
                     .getHistoryDate()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

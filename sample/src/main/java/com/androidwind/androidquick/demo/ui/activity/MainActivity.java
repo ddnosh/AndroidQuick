@@ -83,7 +83,6 @@ import com.androidwind.androidquick.demo.features.search.SearchAdapter;
 import com.androidwind.androidquick.demo.features.search.SearchManager;
 import com.androidwind.androidquick.demo.features.solution.aop.AOPFragment;
 import com.androidwind.androidquick.demo.tool.MenuUtil;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.AppUtil;
@@ -99,6 +98,7 @@ import com.unnamed.b.atv.view.AndroidTreeView;
 import java.util.List;
 
 import butterknife.BindView;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -210,7 +210,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     private void getSdkVersion() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.github.com")
-                .client(RetrofitManager.getInstance().getOkHttpClient())
+                .client(new OkHttpClient.Builder().build())
                 .addConverterFactory(ScalarsConverterFactory.create())//添加 string 转换器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//添加 RxJava 适配器
                 .build();

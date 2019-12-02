@@ -3,7 +3,6 @@ package com.androidwind.androidquick.demo.injector.module;
 import android.content.Context;
 
 import com.androidwind.androidquick.demo.MyApplication;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 
 import javax.inject.Singleton;
 
@@ -26,11 +25,5 @@ public class ApplicationModule {
     @Singleton
     Context provideApplicationContext() {
         return context;
-    }
-
-    @Provides
-    @Singleton
-    RetrofitManager provideRetrofitManager() {
-        return new RetrofitManager("http://gank.io/api/");
     }
 }

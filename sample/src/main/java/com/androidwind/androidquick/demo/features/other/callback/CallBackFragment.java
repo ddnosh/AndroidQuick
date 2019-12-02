@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.androidquick.eventbus.EventCenter;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;

@@ -9,8 +9,9 @@ import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.demo.bean.NameBean;
 import com.androidwind.androidquick.demo.bean.TestBean;
+import com.androidwind.androidquick.demo.constant.Constants;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
-import com.androidwind.androidquick.module.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.ui.adapter.CommonAdapter;
@@ -77,7 +78,7 @@ public class Network2Fragment extends BaseFragment {
 
 //        mCompositeSubscription = new CompositeSubscription();
 //        Subscription subscription =
-        RetrofitManager.getInstance().createApi(TestApis.class)
+        RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class)
                 // .getOctocat("https://api.github.com/repos/octocat/Hello-World/contributors")
                 .getOctocat()
                 .subscribeOn(Schedulers.io())
@@ -105,7 +106,7 @@ public class Network2Fragment extends BaseFragment {
                 );
 //        mCompositeSubscription.add(subscription);
 
-        RetrofitManager.getInstance().createApi(TestApis.class)
+        RetrofitManager.INSTANCE.getRetrofit(Constants.GANK_API_URL).create(TestApis.class)
                 .getTestData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
