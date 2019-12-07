@@ -1,7 +1,7 @@
 package com.androidwind.androidquick.demo.features.architecture.mvp.activity_dagger;
 
-import com.androidwind.androidquick.ui.mvp.BaseContract;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
+import com.androidwind.androidquick.demo.base.mvp.BaseContract;
+import com.androidwind.androidquick.demo.base.mvp.BasePresenter;
 
 /**
  * @author ddnosh

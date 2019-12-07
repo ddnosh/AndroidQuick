@@ -1,16 +1,16 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.androidwind.androidquick.demo.bean.NameBean;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
+import com.androidwind.androidquick.demo.tool.RxUtil;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
-import com.androidwind.androidquick.util.RxUtil;
 import com.trello.rxlifecycle2.LifecycleProvider;
-import com.trello.rxlifecycle2.android.ActivityEvent;
 
 import java.util.List;
 
@@ -20,11 +20,11 @@ import java.util.List;
  */
 public class MVVMRepository2 {
 
-    private LifecycleProvider<ActivityEvent> lifecycleProvider;
+    private LifecycleProvider<Lifecycle.Event> lifecycleProvider;
 
     private MutableLiveData<List<NameBean>> testLiveData = new MutableLiveData<>();
 
-    public MVVMRepository2(LifecycleProvider<ActivityEvent> activityEventLifecycleProvider) {
+    public MVVMRepository2(LifecycleProvider<Lifecycle.Event> activityEventLifecycleProvider) {
         lifecycleProvider = activityEventLifecycleProvider;
     }
 

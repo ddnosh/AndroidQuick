@@ -1,5 +1,6 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import com.androidwind.androidquick.demo.bean.NameBean;
 import com.androidwind.androidquick.demo.features.architecture.mvvm.fragment.TomFragment;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
+import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
+import com.trello.rxlifecycle2.LifecycleProvider;
 
 import java.util.List;
 
@@ -43,7 +46,8 @@ public class MVVMActivity extends BaseActivity {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        viewModel1 = ViewModelProviders.of(this, new MVVMFactory1(new MVVMRepository1(), this)).get(MVVMViewModel1.class);
+        LifecycleProvider<Lifecycle.Event> lifecycleProvider = AndroidLifecycle.createLifecycleProvider(this);
+        viewModel1 = ViewModelProviders.of(this, new MVVMFactory1(new MVVMRepository1(), lifecycleProvider)).get(MVVMViewModel1.class);
 
         viewModel1.getData().observe(this, new Observer<List<String>>() {
             @Override
@@ -52,7 +56,7 @@ public class MVVMActivity extends BaseActivity {
             }
         });
 
-        viewModel2 = ViewModelProviders.of(this, new MVVMFactory2(new MVVMRepository2(this))).get(MVVMViewModel2.class);
+        viewModel2 = ViewModelProviders.of(this, new MVVMFactory2(new MVVMRepository2(lifecycleProvider))).get(MVVMViewModel2.class);
 
         viewModel2.getTestData().observe(this, new Observer<List<NameBean>>() {
             @Override

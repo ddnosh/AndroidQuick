@@ -6,10 +6,10 @@ import android.os.Bundle;
 
 import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.base.BaseActivity;
+import com.androidwind.androidquick.demo.base.mvp.BasePresenter;
 import com.androidwind.androidquick.demo.injector.component.ActivityComponent;
 import com.androidwind.androidquick.demo.injector.component.DaggerActivityComponent;
 import com.androidwind.androidquick.demo.injector.module.ActivityModule;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
 import com.androidwind.androidquick.util.LogUtil;
 
 import javax.inject.Inject;

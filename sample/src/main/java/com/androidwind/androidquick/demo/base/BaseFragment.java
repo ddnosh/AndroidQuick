@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 import com.androidwind.androidquick.demo.ui.activity.FrameActivity;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.base.QuickFragment;
@@ -12,7 +13,7 @@ import com.androidwind.androidquick.ui.base.QuickFragment;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class BaseFragment extends QuickFragment {
+public abstract class BaseFragment extends QuickFragment implements BaseContract.BaseView{
 
     @Override
     public void onAttach(Context context) {
@@ -38,6 +39,11 @@ public abstract class BaseFragment extends QuickFragment {
     @Override
     protected View setDefaultVaryViewRoot() {
         return null;
+    }
+
+    @Override
+    protected boolean isBindEventBus() {
+        return false;
     }
 
     @Override

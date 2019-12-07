@@ -62,7 +62,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind:androidquick:2.0.5'
+    implementation 'com.androidwind:androidquick:2.1.1'
     //tiny series: tinytask
     implementation 'com.androidwind:tinytask:1.0.0'
     //tiny series: tinypermission
@@ -116,6 +116,8 @@ dependencies {
     //aspectj
     implementation 'org.aspectj:aspectjrt:1.8.9'
     //retrofit converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.5.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
     //rxpermissions
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
@@ -123,4 +125,7 @@ dependencies {
     implementation project(':aop-annotation')
     annotationProcessor  project(':aop-compiler')
     implementation project(':aop-core')
+    //rxlifecycle
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.1'
 }

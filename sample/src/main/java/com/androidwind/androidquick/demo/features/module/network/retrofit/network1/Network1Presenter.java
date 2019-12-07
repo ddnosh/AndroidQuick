@@ -2,6 +2,7 @@ package com.androidwind.androidquick.demo.features.module.network.retrofit.netwo
 
 import android.content.Context;
 
+import com.androidwind.androidquick.demo.base.mvp.BasePresenter;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.Gank2Apis;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
@@ -9,7 +10,6 @@ import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRe
 import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
 import com.androidwind.androidquick.util.LogUtil;
 
 import java.util.List;

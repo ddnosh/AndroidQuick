@@ -1,5 +1,6 @@
 package com.androidwind.androidquick.demo.ui.activity;
 
+import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
@@ -83,13 +84,15 @@ import com.androidwind.androidquick.demo.features.search.SearchAdapter;
 import com.androidwind.androidquick.demo.features.search.SearchManager;
 import com.androidwind.androidquick.demo.features.solution.aop.AOPFragment;
 import com.androidwind.androidquick.demo.tool.MenuUtil;
+import com.androidwind.androidquick.demo.tool.RxUtil;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.AppUtil;
-import com.androidwind.androidquick.util.RxUtil;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.core.SearchEngine;
+import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
+import com.trello.rxlifecycle2.LifecycleProvider;
 import com.unnamed.b.atv.holder.IconTreeItemHolder;
 import com.unnamed.b.atv.holder.SelectableHeaderHolder;
 import com.unnamed.b.atv.model.TreeNode;
@@ -132,6 +135,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     ListView mListView;
     private ArrayAdapter mAdapter;
 
+    private LifecycleProvider<Lifecycle.Event> lifecycleProvider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,6 +149,8 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
+        lifecycleProvider = AndroidLifecycle.createLifecycleProvider(this);
+
         root = TreeNode.root();
         menuList = new MenuUtil().getPositions(getApplicationContext(), "menu.txt");
         initMenus();
@@ -217,7 +224,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         retrofit.create(TestApis.class)
                 .getSdkVersion()
                 .compose(RxUtil.<String>applySchedulers())
-                .compose(this.<String>bindToLifecycle())
+                .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
                 .subscribe(new BaseObserver<String>() {
 
                                @Override

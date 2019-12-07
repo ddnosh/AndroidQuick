@@ -6,10 +6,10 @@ import android.os.Bundle;
 
 import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.base.mvp.BasePresenter;
 import com.androidwind.androidquick.demo.injector.component.DaggerFragmentComponent;
 import com.androidwind.androidquick.demo.injector.component.FragmentComponent;
 import com.androidwind.androidquick.demo.injector.module.FragmentModule;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
 
 import javax.inject.Inject;
 

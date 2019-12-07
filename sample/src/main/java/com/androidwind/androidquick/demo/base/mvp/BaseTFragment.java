@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.demo.tool.TUtil;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
 
 /**
  * mvp

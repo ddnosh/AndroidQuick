@@ -1,10 +1,11 @@
 package com.androidwind.androidquick.demo.features.other.rxlifecycle;
 
+import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
+import com.androidwind.androidquick.demo.base.mvp.BasePresenter;
+import com.androidwind.androidquick.demo.tool.RxUtil;
 import com.androidwind.androidquick.util.LogUtil;
-import com.androidwind.androidquick.util.RxUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 
 import java.util.concurrent.TimeUnit;
@@ -33,7 +34,7 @@ public class RxJavaLifecyclePresenter extends BasePresenter<RxJavaLifecycleContr
     public void initDataRxLifecycle() {
         Observable.interval(1, TimeUnit.SECONDS)//execute by every 1 second
                 .compose(RxUtil.applySchedulers())
-                .compose(getView().<Object>bindToLife()) //使用rxlifecycle
+                .compose(getLifecycleProvider().bindUntilEvent(Lifecycle.Event.ON_DESTROY)) //使用rxlifecycle
                 .subscribe(new Observer<Object>() {
 
                     @Override

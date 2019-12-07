@@ -11,7 +11,7 @@ import com.androidwind.androidquick.demo.bean.FuliBean;
 import com.androidwind.androidquick.demo.bean.GankFuliBean;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
 import com.androidwind.androidquick.demo.tool.FastJsonHelper;
-import com.androidwind.androidquick.util.GsonHelper;
+import com.androidwind.androidquick.util.GsonUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
@@ -79,7 +79,7 @@ public class JsonFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_tools_gsonhelper_common:
                 long startTime1 = System.nanoTime();
-                GankFuliBean gsonObj = GsonHelper.fromJson(testJsonString, GankFuliBean.class);
+                GankFuliBean gsonObj = GsonUtil.fromJson(testJsonString, GankFuliBean.class);
                 List<GankFuliBean.FuliBean> fulis =  gsonObj.getResults();
                 String desc = " ";
                 for(GankFuliBean.FuliBean fuli : fulis ){
@@ -90,7 +90,7 @@ public class JsonFragment extends BaseFragment {
                 break;
             case R.id.btn_tools_gsonhelper_generic:
                 long startTime2 = System.nanoTime();
-                GankRes<List<FuliBean>> gsonObj2 = GsonHelper.fromJson(testJsonString, new TypeToken<GankRes<List<FuliBean>>>() {
+                GankRes<List<FuliBean>> gsonObj2 = GsonUtil.fromJson(testJsonString, new TypeToken<GankRes<List<FuliBean>>>() {
                 });
                 long consumingTime2 = System.nanoTime() - startTime2;
                 ToastUtil.showToast("耗时" + consumingTime2 / 1000 + "微秒");

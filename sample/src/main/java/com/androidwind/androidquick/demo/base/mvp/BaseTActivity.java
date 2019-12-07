@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.androidwind.androidquick.demo.base.BaseActivity;
 import com.androidwind.androidquick.demo.tool.TUtil;
-import com.androidwind.androidquick.ui.mvp.BasePresenter;
 import com.androidwind.androidquick.util.LogUtil;
 
 /**

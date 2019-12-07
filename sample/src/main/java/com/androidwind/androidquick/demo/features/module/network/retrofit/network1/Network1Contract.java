@@ -1,6 +1,6 @@
 package com.androidwind.androidquick.demo.features.module.network.retrofit.network1;
 
-import com.androidwind.androidquick.ui.mvp.BaseContract;
+import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 
 /**
  * @author  ddnosh

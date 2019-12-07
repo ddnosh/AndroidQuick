@@ -1,5 +1,6 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
@@ -12,10 +13,10 @@ import com.trello.rxlifecycle2.android.ActivityEvent;
  * @website http://blog.csdn.net/ddnosh
  */
 public class MVVMFactory1 extends ViewModelProvider.NewInstanceFactory {
-    private LifecycleProvider<ActivityEvent> mActivityEventLifecycleProvider;
+    private LifecycleProvider<Lifecycle.Event> mActivityEventLifecycleProvider;
     private MVVMRepository1 mRepository;
 
-    public MVVMFactory1(MVVMRepository1 repository, LifecycleProvider<ActivityEvent> activityEventLifecycleProvider) {
+    public MVVMFactory1(MVVMRepository1 repository, LifecycleProvider<Lifecycle.Event> activityEventLifecycleProvider) {
         mActivityEventLifecycleProvider = activityEventLifecycleProvider;
         mRepository = repository;
     }

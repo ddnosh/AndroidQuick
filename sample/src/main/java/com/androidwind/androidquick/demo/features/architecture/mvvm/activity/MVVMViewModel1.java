@@ -1,11 +1,15 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
+import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
+import com.androidwind.androidquick.demo.tool.RxUtil;
+import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.trello.rxlifecycle2.LifecycleProvider;
-import com.trello.rxlifecycle2.android.ActivityEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +17,6 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
-import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
-import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
-import com.androidwind.androidquick.module.rxjava.BaseObserver;
-import com.androidwind.androidquick.util.RxUtil;
 
 /**
  * @author ddnosh
@@ -25,11 +25,11 @@ import com.androidwind.androidquick.util.RxUtil;
 public class MVVMViewModel1 extends ViewModel {
 
     private MVVMRepository1 repository;
-    private LifecycleProvider<ActivityEvent> lifecycleProvider;
+    private LifecycleProvider<Lifecycle.Event> lifecycleProvider;
 
     MutableLiveData<List<String>> liveData = new MutableLiveData<>();
 
-    public MVVMViewModel1(MVVMRepository1 repository, LifecycleProvider<ActivityEvent> activityEventLifecycleProvider) {
+    public MVVMViewModel1(MVVMRepository1 repository, LifecycleProvider<Lifecycle.Event> activityEventLifecycleProvider) {
         this.repository = repository;
         this.lifecycleProvider = activityEventLifecycleProvider;
     }

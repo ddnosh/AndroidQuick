@@ -1,5 +1,6 @@
 package com.androidwind.androidquick.demo.features.function.rxjava;
 
+import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,15 +18,17 @@ import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.demo.features.function.ui.webview.WebViewActivity;
 import com.androidwind.androidquick.demo.tool.AssetsUtil;
 import com.androidwind.androidquick.demo.tool.GlideUtils;
+import com.androidwind.androidquick.demo.tool.RxUtil;
 import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
-import com.androidwind.androidquick.util.RxUtil;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
+import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
+import com.trello.rxlifecycle2.LifecycleProvider;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -73,9 +76,11 @@ public class RxJavaFragment extends BaseFragment {
     @BindView(R.id.iv_example)
     ImageView mExample;
 
+    private LifecycleProvider<Lifecycle.Event> lifecycleProvider;
+
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-
+        lifecycleProvider = AndroidLifecycle.createLifecycleProvider(this);
     }
 
     @Override
@@ -432,7 +437,7 @@ public class RxJavaFragment extends BaseFragment {
                 return "here is triggered by manual";
             }
         }).compose(RxUtil.applySchedulers())
-                .compose(bindToLife())
+                .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
                 .subscribe(new Observer<String>() {
 
                     @Override
@@ -540,7 +545,7 @@ public class RxJavaFragment extends BaseFragment {
         });
         Observable.concat(o1, o2, getObservable())
                 .compose(RxUtil.applySchedulers())
-                .compose(bindToLife())
+                .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
                 .subscribeWith(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -653,7 +658,7 @@ public class RxJavaFragment extends BaseFragment {
                 }
         )
                 .compose(RxUtil.applySchedulers())
-                .compose(bindToLife())
+                .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
                 .subscribe(new BaseObserver<Boolean>() {
                     @Override
                     public void onError(ApiException exception) {

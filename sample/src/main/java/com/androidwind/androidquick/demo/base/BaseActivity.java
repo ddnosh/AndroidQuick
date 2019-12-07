@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 import com.androidwind.androidquick.demo.ui.activity.FrameActivity;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.base.QuickActivity;
@@ -15,7 +16,7 @@ import com.androidwind.androidquick.util.LogUtil;
  * @author  ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public abstract class BaseActivity extends QuickActivity {
+public abstract class BaseActivity extends QuickActivity implements BaseContract.BaseView{
 
     protected static String TAG = "BaseActivity";
 
@@ -26,6 +27,11 @@ public abstract class BaseActivity extends QuickActivity {
 
     @Override
     protected void getBundleExtras(Bundle extras) {
+    }
+
+    @Override
+    protected boolean isBindEventBus() {
+        return false;
     }
 
     @Override
