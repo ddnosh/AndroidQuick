@@ -1,8 +1,6 @@
 package com.androidwind.androidquick.demo.features.module.network.retrofit.network2;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
@@ -22,6 +20,8 @@ import com.androidwind.androidquick.util.ToastUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

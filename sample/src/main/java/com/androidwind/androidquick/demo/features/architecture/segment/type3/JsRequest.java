@@ -1,9 +1,9 @@
 package com.androidwind.androidquick.demo.features.architecture.segment.type3;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import com.androidwind.androidquick.module.asynchronize.Task;
 
-import com.androidwind.task.AdvancedTask;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * @author ddnosh
@@ -18,7 +18,7 @@ public class JsRequest<T> {
     @Nullable
     private JsResponse<T> mJsResponse;
     @Nullable
-    private AdvancedTask mTask;
+    private Task mTask;
     @Nullable
     private boolean isPending;
 
@@ -50,11 +50,11 @@ public class JsRequest<T> {
     }
 
     @Nullable
-    public AdvancedTask getTask() {
+    public Task getTask() {
         return mTask;
     }
 
-    public void setTask(@Nullable AdvancedTask mTask) {
+    public void setTask(@Nullable Task mTask) {
         this.mTask = mTask;
     }
 

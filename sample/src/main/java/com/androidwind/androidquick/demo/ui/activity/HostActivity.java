@@ -1,12 +1,13 @@
 package com.androidwind.androidquick.demo.ui.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseActivity;
 import com.androidwind.androidquick.demo.ui.fragment.ExampleFragment;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 /**
  * @author  ddnosh

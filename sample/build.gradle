@@ -62,13 +62,13 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind:androidquick:2.1.1'
-    //tiny series: tinytask
-    implementation 'com.androidwind:tinytask:1.0.0'
+    implementation 'com.androidwind:androidquick:2.2.0'
+    //tinylog
+    implementation 'com.androidwind:tinylog:1.0.6'
     //tiny series: tinypermission
     implementation 'com.androidwind:tinypermission:1.0.0'
     //butterknife
-    annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
+    annotationProcessor "com.jakewharton:butterknife-compiler:10.0.0"
     //rxjava
     implementation "io.reactivex.rxjava2:rxjava:2.2.4"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
@@ -98,6 +98,8 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     //stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
+    //swiperefreshlayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03'
     //smartrefreshlayout
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
     //ormlite
@@ -109,8 +111,6 @@ dependencies {
     //mvvm
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
-    //tinylog
-    implementation 'com.androidwind:tinylog:1.0.1'
     //AndroidUtilCode
     implementation 'com.blankj:utilcode:1.23.7'
     //aspectj

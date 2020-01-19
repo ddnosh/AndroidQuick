@@ -2,10 +2,6 @@ package com.androidwind.androidquick.demo;
 
 import android.app.Activity;
 
-import com.androidwind.log.TinyLog;
-import com.facebook.stetho.Stetho;
-import com.squareup.leakcanary.LeakCanary;
-
 import com.androidwind.androidquick.demo.crash.CrashHandler;
 import com.androidwind.androidquick.demo.features.module.db.greendao.DBManager;
 import com.androidwind.androidquick.demo.features.search.SearchManager;
@@ -16,12 +12,17 @@ import com.androidwind.androidquick.demo.ui.AQActivityLifecycleCallbacks;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.SpUtil;
 import com.androidwind.androidquick.util.ToastUtil;
+import com.androidwind.log.TinyLog;
+import com.facebook.stetho.Stetho;
+import com.squareup.leakcanary.LeakCanary;
+
+import androidx.multidex.MultiDexApplication;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class MyApplication extends android.support.multidex.MultiDexApplication {
+public class MyApplication extends MultiDexApplication {
 
     private static MyApplication INSTANCE;
 

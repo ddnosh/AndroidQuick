@@ -1,7 +1,5 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
-import android.arch.lifecycle.MutableLiveData;
-
 import com.androidwind.androidquick.demo.bean.NameBean;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
@@ -12,6 +10,7 @@ import com.androidwind.androidquick.module.rxjava.BaseObserver;
 
 import java.util.List;
 
+import androidx.lifecycle.MutableLiveData;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

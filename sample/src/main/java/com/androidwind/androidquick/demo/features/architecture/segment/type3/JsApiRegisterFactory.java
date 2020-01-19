@@ -1,10 +1,11 @@
 package com.androidwind.androidquick.demo.features.architecture.segment.type3;
 
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
 
 /**
  * @author  ddnosh

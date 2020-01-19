@@ -3,7 +3,6 @@ package com.androidwind.androidquick.demo.ui.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 
 import com.androidwind.androidquick.demo.R;
@@ -11,6 +10,7 @@ import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 
 

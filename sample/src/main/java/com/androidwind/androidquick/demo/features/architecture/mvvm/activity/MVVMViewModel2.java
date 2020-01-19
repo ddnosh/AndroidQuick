@@ -1,11 +1,11 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+import com.androidwind.androidquick.demo.bean.NameBean;
 
 import java.util.List;
 
-import com.androidwind.androidquick.demo.bean.NameBean;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 /**
  * @author ddnosh

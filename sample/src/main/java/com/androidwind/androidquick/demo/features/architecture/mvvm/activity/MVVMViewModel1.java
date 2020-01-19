@@ -1,8 +1,5 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.activity;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
@@ -14,6 +11,9 @@ import com.trello.rxlifecycle2.LifecycleProvider;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;

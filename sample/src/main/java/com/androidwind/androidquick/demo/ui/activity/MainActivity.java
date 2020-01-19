@@ -1,8 +1,6 @@
 package com.androidwind.androidquick.demo.ui.activity;
 
-import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -100,6 +98,8 @@ import com.unnamed.b.atv.view.AndroidTreeView;
 
 import java.util.List;
 
+import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.Lifecycle;
 import butterknife.BindView;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

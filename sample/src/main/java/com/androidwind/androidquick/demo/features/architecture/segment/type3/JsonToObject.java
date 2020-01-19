@@ -1,14 +1,13 @@
 package com.androidwind.androidquick.demo.features.architecture.segment.type3;
 
-import android.support.annotation.Nullable;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.androidwind.androidquick.util.LogUtil;
 
 import java.util.List;
 
-import com.androidwind.androidquick.util.LogUtil;
+import androidx.annotation.Nullable;
 
 /**
  * @author ddnosh

@@ -1,6 +1,5 @@
 package com.androidwind.androidquick.demo.features.other.rxlifecycle;
 
-import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 
 import com.androidwind.androidquick.demo.base.mvp.BasePresenter;
@@ -12,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import androidx.lifecycle.Lifecycle;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;

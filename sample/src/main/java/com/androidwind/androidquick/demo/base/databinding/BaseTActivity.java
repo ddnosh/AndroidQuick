@@ -1,8 +1,8 @@
 package com.androidwind.androidquick.demo.base.databinding;
 
-import android.databinding.ViewDataBinding;
-
 import com.androidwind.androidquick.demo.base.BaseActivity;
+
+import androidx.databinding.ViewDataBinding;
 
 /**
  * 集成databinding

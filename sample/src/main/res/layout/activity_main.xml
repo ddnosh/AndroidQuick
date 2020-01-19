@@ -14,7 +14,7 @@
         android:text="Android开发库[一旦拥有别无所求]"
         />
 
-    <android.support.v7.widget.SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/sv_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

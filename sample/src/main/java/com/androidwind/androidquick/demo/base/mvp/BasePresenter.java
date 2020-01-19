@@ -1,8 +1,5 @@
 package com.androidwind.androidquick.demo.base.mvp;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-
 import com.androidwind.androidquick.constant.Constant;
 import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
 import com.trello.rxlifecycle2.LifecycleProvider;
@@ -10,6 +7,8 @@ import com.trello.rxlifecycle2.LifecycleProvider;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

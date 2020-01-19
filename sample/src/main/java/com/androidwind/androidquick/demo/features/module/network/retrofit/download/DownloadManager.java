@@ -1,21 +1,21 @@
 package com.androidwind.androidquick.demo.features.module.network.retrofit.download;
 
-import android.support.annotation.NonNull;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.DownloadApis;
+import com.androidwind.androidquick.demo.features.module.network.retrofit.exception.CustomizeException;
+import com.androidwind.androidquick.util.FileUtil;
+import com.androidwind.androidquick.util.LogUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import com.androidwind.androidquick.demo.features.module.network.retrofit.DownloadApis;
-import com.androidwind.androidquick.demo.features.module.network.retrofit.exception.CustomizeException;
-import com.androidwind.androidquick.util.FileUtil;
-import com.androidwind.androidquick.util.LogUtil;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;

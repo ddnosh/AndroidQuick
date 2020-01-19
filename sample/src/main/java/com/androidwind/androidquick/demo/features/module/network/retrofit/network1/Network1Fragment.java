@@ -1,7 +1,6 @@
 package com.androidwind.androidquick.demo.features.module.network.retrofit.network1;
 
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
@@ -11,6 +10,7 @@ import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.mvp_dagger2.BaseTFragment;
 import com.androidwind.androidquick.util.LogUtil;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import butterknife.BindView;
 
 

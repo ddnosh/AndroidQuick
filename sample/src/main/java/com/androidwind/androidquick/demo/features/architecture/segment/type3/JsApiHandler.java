@@ -1,7 +1,6 @@
 package com.androidwind.androidquick.demo.features.architecture.segment.type3;
 
-import android.support.annotation.Nullable;
-
+import androidx.annotation.Nullable;
 
 /**
  * js -> native

@@ -3,18 +3,19 @@ package com.androidwind.androidquick.demo.features.module.network.retrofit.servi
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.Environment;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import java.io.File;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.download.Download;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.download.DownloadManager;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.download.DownloadProgressListener;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.network1.Network1Fragment;
 import com.androidwind.androidquick.util.StringUtil;
+
+import java.io.File;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @author ddnosh

@@ -1,11 +1,12 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.fragment;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
 
 import com.androidwind.androidquick.demo.base.mvvm.BaseViewModel;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 /**
  * @author ddnosh

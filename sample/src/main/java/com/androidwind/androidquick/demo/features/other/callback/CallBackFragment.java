@@ -12,18 +12,19 @@ import android.widget.Toast;
 import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.module.asynchronize.Task;
+import com.androidwind.androidquick.module.asynchronize.TinyTaskExecutor;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
-import com.androidwind.task.AdvancedTask;
-import com.androidwind.task.TinyTaskExecutor;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
 import butterknife.OnClick;
-import de.greenrobot.event.EventBus;
 
 
 /**
@@ -141,7 +142,7 @@ public class CallBackFragment extends BaseFragment {
         }
 
         public static void notifyObserver() {
-            TinyTaskExecutor.execute(new AdvancedTask<String>() {
+            TinyTaskExecutor.execute(new Task<String>() {
                 @Override
                 public String doInBackground() {
                     System.out.println("[new] thread id in tinytask: " + Thread.currentThread().getId());

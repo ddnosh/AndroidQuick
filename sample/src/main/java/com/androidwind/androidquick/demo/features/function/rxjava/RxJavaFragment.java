@@ -1,6 +1,5 @@
 package com.androidwind.androidquick.demo.features.function.rxjava;
 
-import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -42,6 +41,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.Callable;
 
+import androidx.lifecycle.Lifecycle;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.BackpressureStrategy;

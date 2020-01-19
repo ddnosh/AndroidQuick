@@ -8,8 +8,9 @@ import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.OnClick;
-import de.greenrobot.event.EventBus;
 
 /**
  * @author ddnosh

@@ -1,6 +1,5 @@
 package com.androidwind.androidquick.demo.features.architecture.mvvm.fragment;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
 import com.androidwind.androidquick.demo.base.mvvm.BaseRepository;
@@ -14,6 +13,7 @@ import com.androidwind.androidquick.module.rxjava.BaseObserver;
 
 import java.util.List;
 
+import androidx.lifecycle.MutableLiveData;
 import io.reactivex.functions.Function;
 
 /**

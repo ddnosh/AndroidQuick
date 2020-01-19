@@ -2,8 +2,6 @@ package com.androidwind.androidquick.demo.features.function.ui.adapter;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
@@ -19,6 +17,8 @@ import com.androidwind.annotation.annotation.TagInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 

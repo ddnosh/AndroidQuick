@@ -6,19 +6,18 @@ import android.widget.Toast;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.task.AdvancedTask;
-import com.androidwind.task.SimpleTask;
-import com.androidwind.task.TinyTaskExecutor;
+import com.androidwind.androidquick.module.asynchronize.SimpleTask;
+import com.androidwind.androidquick.module.asynchronize.Task;
+import com.androidwind.androidquick.module.asynchronize.TinyTaskExecutor;
 
 import butterknife.OnClick;
 
 
 /**
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
- *
+ * <p>
  * about tinytask: ---> https://github.com/ddnosh/android-tiny-task
- *
  */
 public class TaskTinyFragment extends BaseFragment {
 
@@ -45,7 +44,7 @@ public class TaskTinyFragment extends BaseFragment {
     }
 
     private void withResult() {
-        TinyTaskExecutor.execute(new AdvancedTask<String>() {
+        TinyTaskExecutor.execute(new Task<String>() {
             @Override
             public String doInBackground() {
                 System.out.println("[new] thread id in tinytask: " + Thread.currentThread().getId());
@@ -71,9 +70,10 @@ public class TaskTinyFragment extends BaseFragment {
     }
 
     private void noResult() {
-        TinyTaskExecutor.execute(new SimpleTask<String>() {
+        TinyTaskExecutor.execute(new SimpleTask() {
+
             @Override
-            public String doInBackground() {
+            public void run() {
                 System.out.println("[new] thread id in tinytask: " + Thread.currentThread().getId());
                 try {
                     Thread.sleep(5000);
@@ -81,7 +81,6 @@ public class TaskTinyFragment extends BaseFragment {
                     e.printStackTrace();
                 }
                 System.out.println("[new] no callback after 5 sec");
-                return "simple task with sleep 5 sec";
             }
         });
     }

@@ -1,11 +1,12 @@
 package com.androidwind.androidquick.demo.injector.module;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 
+import com.androidwind.androidquick.demo.injector.FragmentScope;
+
+import androidx.fragment.app.Fragment;
 import dagger.Module;
 import dagger.Provides;
-import com.androidwind.androidquick.demo.injector.FragmentScope;
 
 /**
  * @author  ddnosh

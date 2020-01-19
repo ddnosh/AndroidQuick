@@ -1,7 +1,6 @@
 package com.androidwind.androidquick.demo.base.mvp_databinding;
 
 import android.content.Context;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 
 import com.androidwind.androidquick.demo.MyApplication;
@@ -13,6 +12,8 @@ import com.androidwind.androidquick.demo.injector.module.ActivityModule;
 import com.androidwind.androidquick.util.LogUtil;
 
 import javax.inject.Inject;
+
+import androidx.databinding.ViewDataBinding;
 
 /**
  * mvp:集成dagger2 + databinding

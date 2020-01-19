@@ -1,8 +1,8 @@
 package com.androidwind.androidquick.demo.tool;
 
-import android.support.annotation.NonNull;
-
 import java.lang.reflect.ParameterizedType;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author ddnosh

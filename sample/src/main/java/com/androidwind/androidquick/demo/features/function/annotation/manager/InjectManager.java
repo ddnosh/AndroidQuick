@@ -1,8 +1,9 @@
 package com.androidwind.androidquick.demo.features.function.annotation.manager;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
 
 public class InjectManager {
 

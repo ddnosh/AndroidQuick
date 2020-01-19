@@ -1,16 +1,15 @@
 package com.androidwind.androidquick.demo.features.function.ui.adapter;
 
-import android.support.annotation.Nullable;
-
+import com.androidwind.androidquick.demo.bean.CBean;
+import com.androidwind.androidquick.demo.features.function.ui.adapter.provider.ImgItemProvider;
+import com.androidwind.androidquick.demo.features.function.ui.adapter.provider.TextImgItemProvider;
+import com.androidwind.androidquick.demo.features.function.ui.adapter.provider.TextItemProvider;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.MultipleItemRvAdapter;
 
 import java.util.List;
 
-import com.androidwind.androidquick.demo.features.function.ui.adapter.provider.ImgItemProvider;
-import com.androidwind.androidquick.demo.features.function.ui.adapter.provider.TextImgItemProvider;
-import com.androidwind.androidquick.demo.features.function.ui.adapter.provider.TextItemProvider;
-import com.androidwind.androidquick.demo.bean.CBean;
+import androidx.annotation.Nullable;
 
 /**
  * @author  ddnosh

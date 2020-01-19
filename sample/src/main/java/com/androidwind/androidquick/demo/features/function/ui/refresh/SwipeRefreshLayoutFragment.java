@@ -3,10 +3,6 @@ package com.androidwind.androidquick.demo.features.function.ui.refresh;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +17,11 @@ import com.androidwind.annotation.annotation.TagInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
-
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_DRAGGING;
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_SETTLING;
 
 /**
  * @author ddnosh
@@ -161,7 +158,7 @@ public class SwipeRefreshLayoutFragment extends BaseFragment {
 
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-            if (newState == SCROLL_STATE_DRAGGING || newState == SCROLL_STATE_SETTLING) {
+            if (newState == recyclerView.SCROLL_STATE_DRAGGING || newState == recyclerView.SCROLL_STATE_SETTLING) {
                 isScolled = true;
             } else {
                 isScolled = false;

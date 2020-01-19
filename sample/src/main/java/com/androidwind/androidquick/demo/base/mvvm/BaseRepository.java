@@ -1,7 +1,8 @@
 package com.androidwind.androidquick.demo.base.mvvm;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
+
+import androidx.lifecycle.MutableLiveData;
 
 /**
  * @author ddnosh

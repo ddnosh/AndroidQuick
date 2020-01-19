@@ -1,7 +1,6 @@
 package com.androidwind.androidquick.demo.features.function.ui.barbottom;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
@@ -13,6 +12,7 @@ import com.androidwind.androidquick.demo.ui.fragment.ExampleFragment;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 
+import androidx.fragment.app.Fragment;
 import butterknife.OnClick;
 
 
