@@ -6,7 +6,7 @@
 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=5867e988b85eecbb8c50bedab9810624fc017ce71098ae9394e7c935a4125281"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Android开发技术交流" title="Android开发技术交流"></a>
 
 ## 项目简介
-AndroidQuick项目旨在提供一套进行Android APP快速开发的代码参考库。   
+AndroidQuick项目旨在提供一套进行Android APP快速开发的代码参考库。 目前已支持AndroidX。  
 
 AndroidQuick覆盖了开发一个APP所用到的常用的架构、模块、功能、技术点等，每个部分都有详细的说明和demo实例。  
 
