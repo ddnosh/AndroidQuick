@@ -83,7 +83,7 @@ import com.androidwind.androidquick.demo.features.search.SearchManager;
 import com.androidwind.androidquick.demo.features.solution.aop.AOPFragment;
 import com.androidwind.androidquick.demo.tool.MenuUtil;
 import com.androidwind.androidquick.demo.tool.RxUtil;
-import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.exception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.AppUtil;
 import com.androidwind.androidquick.util.StringUtil;
@@ -173,7 +173,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // ToastUtil.showToast("You clicked " + SearchManager.getInstance().searchResults.get(position));
+                // ToastUtil.INSTANCE.showToast("You clicked " + SearchManager.getInstance().searchResults.get(position));
                 mSearchView.clearFocus();
                 SearchEngine.getsInstance().jumpTo(MainActivity.this, SearchManager.getInstance().searchResults.get(position));
             }
@@ -430,6 +430,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("QuickGank")) {
                 Bundle bundle = new Bundle();
                 bundle.putString("url", "https://github.com/ddnosh/QuickGank");
+                readyGo(WebViewActivity.class, bundle);
+            } else if (name.equals("QuickGank-Kotlin")) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "https://github.com/ddnosh/QuickGank-Kotlin");
                 readyGo(WebViewActivity.class, bundle);
             } else if (name.equals("QuickTV")) {
                 Bundle bundle = new Bundle();

@@ -6,9 +6,9 @@ import android.widget.Toast;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.androidquick.module.asynchronize.SimpleTask;
-import com.androidwind.androidquick.module.asynchronize.Task;
-import com.androidwind.androidquick.module.asynchronize.TinyTaskExecutor;
+import com.androidwind.task.SimpleTask;
+import com.androidwind.task.Task;
+import com.androidwind.task.TinyTaskExecutor;
 
 import butterknife.OnClick;
 

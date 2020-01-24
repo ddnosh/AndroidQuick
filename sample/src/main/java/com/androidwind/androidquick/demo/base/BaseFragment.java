@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.view.View;
 
 import com.androidwind.androidquick.demo.base.mvp.BaseContract;
+import com.androidwind.androidquick.demo.features.function.permission.PermissionActivity;
 import com.androidwind.androidquick.demo.ui.activity.FrameActivity;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
+import com.androidwind.androidquick.ui.base.QuickActivity;
 import com.androidwind.androidquick.ui.base.QuickFragment;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author  ddnosh
@@ -62,4 +66,10 @@ public abstract class BaseFragment extends QuickFragment implements BaseContract
         }
     }
 
+    public void performCodeWithPermission(@NonNull int dialogType,
+                                          final int requestCode, @NonNull String[] perms, @NonNull PermissionActivity.PermissionCallback callback) {
+        if (getActivity() != null && getActivity() instanceof QuickActivity) {
+            ((BaseActivity) getActivity()).performCodeWithPermission(dialogType, requestCode, perms, callback);
+        }
+    }
 }

@@ -8,7 +8,7 @@ import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.TestApis;
 import com.androidwind.androidquick.demo.tool.RxUtil;
-import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.exception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 
 import java.util.List;

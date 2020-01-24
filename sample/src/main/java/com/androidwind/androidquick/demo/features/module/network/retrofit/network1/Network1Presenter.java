@@ -8,7 +8,7 @@ import com.androidwind.androidquick.demo.features.module.network.retrofit.Gank2A
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankApis;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.GankRes;
 import com.androidwind.androidquick.demo.features.module.network.retrofit.RetrofitManager;
-import com.androidwind.androidquick.module.retrofit.exeception.ApiException;
+import com.androidwind.androidquick.module.exception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
 import com.androidwind.androidquick.util.LogUtil;
 

@@ -31,11 +31,11 @@ import android.widget.TextView;
 
 import com.androidwind.androidquick.R;
 import com.androidwind.androidquick.demo.base.mvp.BaseContract;
+import com.androidwind.androidquick.demo.features.function.permission.EasyPermissions;
 import com.androidwind.androidquick.manager.QuickAppManager;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.LoadingDialog;
-import com.androidwind.androidquick.ui.permission.EasyPermissions;
 import com.androidwind.androidquick.ui.receiver.NetStateReceiver;
 import com.androidwind.androidquick.ui.viewstatus.VaryViewHelperController;
 import com.androidwind.androidquick.util.StringUtil;
@@ -112,7 +112,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
         super.onCreate(savedInstanceState);
         mContext = this;
         // activity manager
-        QuickAppManager.getInstance().addActivity(this);
+        QuickAppManager.addActivity(this);
         // animation
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
@@ -253,7 +253,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
     @Override
     public void finish() {
         super.finish();
-        QuickAppManager.getInstance().removeActivity(this);
+        QuickAppManager.removeActivity(this);
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:

@@ -26,8 +26,8 @@ public abstract class BaseTVFragment<T extends BasePresenter, V extends ViewData
     public T mPresenter;
     protected Context mContext;
     protected String TAG = "BaseTVFragment";
-    public V getBinding(){
-        return (V) binding;
+    public V getViewBinding(){
+        return (V) getBinding();
     }
 
     @Override

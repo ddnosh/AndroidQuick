@@ -14,8 +14,8 @@ public abstract class BaseTFragment<T extends ViewDataBinding> extends BaseFragm
 
     protected String TAG = "BaseTFragment";
 
-    public T getBinding() {
-        return (T) binding;
+    public T getViewBinding() {
+        return (T) getBinding();
     }
 
 }

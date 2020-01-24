@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -62,19 +65,21 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind:androidquick:2.2.0'
-    //tinylog
+    implementation 'com.androidwind:androidquick:3.0.0'
+    //tiny series: tinylog
     implementation 'com.androidwind:tinylog:1.0.6'
+    //tiny series: tinytask
+    implementation 'com.androidwind:tinytask:2.0.0'
     //tiny series: tinypermission
     implementation 'com.androidwind:tinypermission:1.0.0'
     //butterknife
-    annotationProcessor "com.jakewharton:butterknife-compiler:10.0.0"
+    kapt 'com.jakewharton:butterknife-compiler:10.0.0'
     //rxjava
     implementation "io.reactivex.rxjava2:rxjava:2.2.4"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
     //dagger2
     implementation 'com.google.dagger:dagger:2.7'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+    kapt 'com.google.dagger:dagger-compiler:2.7'
     //greendao
     implementation 'de.greenrobot:greendao:2.1.0'
     //markdown

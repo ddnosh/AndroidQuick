@@ -9,7 +9,6 @@ import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseActivity;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
-import com.androidwind.androidquick.ui.permission.EasyPermissions;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;

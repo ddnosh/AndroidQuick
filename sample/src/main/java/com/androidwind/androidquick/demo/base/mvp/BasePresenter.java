@@ -1,6 +1,6 @@
 package com.androidwind.androidquick.demo.base.mvp;
 
-import com.androidwind.androidquick.constant.Constant;
+import com.androidwind.androidquick.demo.constant.Constants;
 import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
@@ -21,7 +21,7 @@ public class BasePresenter<V extends BaseContract.BaseView> implements BaseContr
 
     protected V getView() {
         if (!isViewAttached()) {
-            throw new IllegalStateException(Constant.EXCEPTION_MVP_VIEW_NOT_ATTACHED);
+            throw new IllegalStateException(Constants.EXCEPTION_MVP_VIEW_NOT_ATTACHED);
         }
         return mRefView.get();
     }

@@ -42,7 +42,7 @@ public class DialogFragmentDemo extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_diaglogfragment_alert:
-                CommonDialog.newInstance()
+                CommonDialog.Companion.newInstance()
                         .setDialogLayout(R.layout.dialogfragment_alert)
                         .setConvertListener((ViewConvertListener) (holder, dialog) -> {
                             ((TextView)holder.getView(R.id.df_title)).setText("Alert");
@@ -56,7 +56,7 @@ public class DialogFragmentDemo extends BaseFragment {
                         .show(getSupportFragmentManager());
                 break;
             case R.id.btn_diaglogfragment_confirm:
-                CommonDialog.newInstance()
+                CommonDialog.Companion.newInstance()
                         .setDialogLayout(R.layout.dialogfragment_confirm)
                         .setConvertListener((ViewConvertListener) (holder, dialog) -> {
                             ((TextView)holder.getView(R.id.df_title)).setText("Title");

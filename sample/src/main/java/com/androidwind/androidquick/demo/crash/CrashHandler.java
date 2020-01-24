@@ -2,7 +2,7 @@ package com.androidwind.androidquick.demo.crash;
 
 import android.content.Context;
 
-import com.androidwind.androidquick.constant.Constant;
+import com.androidwind.androidquick.demo.constant.Constants;
 
 /**
  * @author ddnosh
@@ -27,7 +27,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread t, Throwable e) {
         if (mDefaultHandler != null) {
-            if (Constant.EXCEPTION_MVP_VIEW_NOT_ATTACHED.equals(e.getMessage())) {// for MVP when presenter calls view but view has already destroyed
+            if (Constants.EXCEPTION_MVP_VIEW_NOT_ATTACHED.equals(e.getMessage())) {// for MVP when presenter calls view but view has already destroyed
                 return;
             }
             mDefaultHandler.uncaughtException(t, e);// 退出程序

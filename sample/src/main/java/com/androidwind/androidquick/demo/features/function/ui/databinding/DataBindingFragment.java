@@ -25,8 +25,8 @@ public class DataBindingFragment extends BaseTFragment<FragmentDatabindingBindin
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        getBinding().setAct(this);
-        getBinding().tvDatabindingEmpty.setText("this is a databinding view");
+        getViewBinding().setAct(this);
+        getViewBinding().tvDatabindingEmpty.setText("this is a databinding view");
     }
 
     public void onConfirmClick() {

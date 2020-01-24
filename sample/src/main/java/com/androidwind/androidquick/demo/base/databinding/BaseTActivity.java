@@ -14,8 +14,8 @@ public abstract class BaseTActivity<T extends ViewDataBinding> extends BaseActiv
 
     protected String TAG = "BaseTActivity";
 
-    public T getBinding() {
-        return (T) binding;
+    public T getViewBinding() {
+        return (T) getBinding();
     }
 
 }

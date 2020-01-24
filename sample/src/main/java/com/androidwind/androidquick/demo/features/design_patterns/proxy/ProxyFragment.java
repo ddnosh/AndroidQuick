@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
+import com.androidwind.androidquick.demo.base.BaseActivity;
 import com.androidwind.androidquick.demo.base.BaseFragment;
 import com.androidwind.androidquick.demo.constant.Constants;
-import com.androidwind.androidquick.ui.base.QuickActivity;
+import com.androidwind.androidquick.demo.features.function.permission.EasyPermissions;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
-import com.androidwind.androidquick.ui.permission.EasyPermissions;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
@@ -256,7 +256,7 @@ public class ProxyFragment extends BaseFragment {
     private void permissionsCheck() {
         String[] perms = {Manifest.permission.CALL_PHONE//电话
         };
-        performCodeWithPermission(1, Constants.RC_PERMISSION_PERMISSION_FRAGMENT, perms, new QuickActivity.PermissionCallback() {
+        performCodeWithPermission(1, Constants.RC_PERMISSION_PERMISSION_FRAGMENT, perms, new BaseActivity.PermissionCallback() {
             @Override
             public void hasPermission(List<String> allPerms) {
                 startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:000")));

@@ -1,6 +1,6 @@
 package com.androidwind.androidquick.demo.features.architecture.segment.type3;
 
-import com.androidwind.androidquick.module.asynchronize.Task;
+import com.androidwind.task.Task;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

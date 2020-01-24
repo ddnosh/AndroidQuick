@@ -47,7 +47,7 @@
         32120000,Fragment,21200;
             43212000000,CommonFragment,32120000;
             43212000001,Fragmentation,32120000;
-        32120001,Adapter,21200;
+        32120001,[Adapter],21200;
             43212000100,CommonAdapter,32120001;
             43212000101,MultiViewTypeAdapter,32120001;
             43212000102,BaseRecycleViewAdapterHelper,32120001;
@@ -92,4 +92,5 @@
     21303,CallBack,13;
 14,Which app use AndroidQuick,0;
     21400,QuickGank,14;
-    21401,QuickTV,14;
+    21401,QuickGank-Kotlin,14;
+    21402,QuickTV,14;
