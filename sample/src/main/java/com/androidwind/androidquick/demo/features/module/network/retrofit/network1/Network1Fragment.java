@@ -45,11 +45,6 @@ public class Network1Fragment extends BaseTFragment<Network1Presenter> implement
     }
 
     @Override
-    protected View setDefaultVaryViewRoot() {
-        return mContainer;
-    }
-
-    @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         mBundle = getActivity().getIntent().getExtras();
 //        toggleShowLoading(true, "loading...");

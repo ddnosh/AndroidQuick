@@ -17,7 +17,7 @@ import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.base.QuickActivity;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
-import com.androidwind.androidquick.ui.viewstatus.VaryViewHelperController;
+import com.androidwind.androidquick.ui.multipleviewstatus.MultipleStatusView;
 import com.androidwind.androidquick.util.StringUtil;
 import com.google.android.material.snackbar.Snackbar;
 import com.trello.rxlifecycle2.components.support.RxFragment;
@@ -52,7 +52,7 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
     private boolean isFirstInvisible = true;
     private boolean isPrepared;
 
-    private VaryViewHelperController mVaryViewHelperController = null;
+    protected MultipleStatusView mLayoutStatusView;
 
     /**
      * butterknife 8+ support
@@ -104,10 +104,6 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mUnbinder = ButterKnife.bind(this, view);
-
-        if (null != setDefaultVaryViewRoot()) {
-            mVaryViewHelperController = new VaryViewHelperController(setDefaultVaryViewRoot());
-        }
 
         initViewsAndEvents(savedInstanceState);
     }
@@ -227,11 +223,6 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
     protected abstract void onUserInvisible();
 
     /**
-     * get loading target view
-     */
-    protected abstract View setDefaultVaryViewRoot();
-
-    /**
      * init all views and add events
      */
     protected abstract void initViewsAndEvents(Bundle savedInstanceState);
@@ -321,74 +312,6 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
     protected void showToast(String msg) {
         if (null != msg && !StringUtil.isEmpty(msg)) {
             Snackbar.make(((Activity) mContext).getWindow().getDecorView(), msg, Snackbar.LENGTH_SHORT).show();
-        }
-    }
-
-    /**
-     * toggle show loading
-     *
-     * @param toggle
-     */
-    protected void toggleShowLoading(boolean toggle, String msg) {
-        if (null == mVaryViewHelperController) {
-            throw new IllegalArgumentException("You must return a right target view for loading");
-        }
-
-        if (toggle) {
-            mVaryViewHelperController.showLoading(msg);
-        } else {
-            mVaryViewHelperController.restore();
-        }
-    }
-
-    /**
-     * toggle show empty
-     *
-     * @param toggle
-     */
-    protected void toggleShowEmpty(boolean toggle, String msg, View.OnClickListener onClickListener) {
-        if (null == mVaryViewHelperController) {
-            throw new IllegalArgumentException("You must return a right target view for loading");
-        }
-
-        if (toggle) {
-            mVaryViewHelperController.showEmpty(msg, onClickListener);
-        } else {
-            mVaryViewHelperController.restore();
-        }
-    }
-
-    /**
-     * toggle show error
-     *
-     * @param toggle
-     */
-    protected void toggleShowError(boolean toggle, String msg, View.OnClickListener onClickListener) {
-        if (null == mVaryViewHelperController) {
-            throw new IllegalArgumentException("You must return a right target view for loading");
-        }
-
-        if (toggle) {
-            mVaryViewHelperController.showError(msg, onClickListener);
-        } else {
-            mVaryViewHelperController.restore();
-        }
-    }
-
-    /**
-     * toggle show network error
-     *
-     * @param toggle
-     */
-    protected void toggleNetworkError(boolean toggle, View.OnClickListener onClickListener) {
-        if (null == mVaryViewHelperController) {
-            throw new IllegalArgumentException("You must return a right target view for loading");
-        }
-
-        if (toggle) {
-            mVaryViewHelperController.showNetworkError(onClickListener);
-        } else {
-            mVaryViewHelperController.restore();
         }
     }
 

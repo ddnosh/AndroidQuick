@@ -41,11 +41,6 @@ public abstract class BaseFragment extends QuickFragment implements BaseContract
     }
 
     @Override
-    protected View setDefaultVaryViewRoot() {
-        return null;
-    }
-
-    @Override
     protected boolean isBindEventBus() {
         return false;
     }

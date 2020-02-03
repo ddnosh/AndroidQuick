@@ -6,9 +6,7 @@ import android.widget.Button;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.androidquick.demo.features.function.annotation.aspect.CheckNetwork;
 import com.androidwind.androidquick.demo.features.function.annotation.manager.InjectManager;
-import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
@@ -56,15 +54,16 @@ public class AnnotationFragment extends BaseFragment {
                 ToastUtil.showToast("参考aop-annotation && aop-compiler && aop-core工程的实现");
                 break;
             case R.id.btn_annotation_with_aspectj:
-                checkNetwork();
+                // checkNetwork();
+                ToastUtil.showToast("参考https://github.com/ddnosh/QuickAOP工程");
                 break;
             default:
                 break;
         }
     }
 
-    @CheckNetwork()
-    private void checkNetwork() {
-        LogUtil.i("AnnotationFragment", "检测完毕");
-    }
+    // @CheckNetwork()
+    // private void checkNetwork() {
+    //     LogUtil.i("AnnotationFragment", "检测完毕");
+    // }
 }

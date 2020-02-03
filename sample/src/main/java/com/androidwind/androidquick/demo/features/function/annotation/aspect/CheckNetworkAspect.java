@@ -13,7 +13,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 
 @Aspect
 public class CheckNetworkAspect {
-    private static final String TAG = CheckNetworkAspect.class.getSimpleName();
+    private static final String TAG = "CheckNetworkAspect";
 
     /**
      * 找到处理的切点

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.ui.multipleviewstatus.MultipleStatusView;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 
@@ -31,15 +32,12 @@ public class VaryPageStatusFragment extends BaseFragment {
     Button mNetworkError;
     @BindView(R.id.container)
     LinearLayout mContainer;
+    @BindView(R.id.multiple_status_view)
+    MultipleStatusView mLayoutStatusView;
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
 
-    }
-
-    @Override
-    protected View setDefaultVaryViewRoot() {
-        return mContainer;
     }
 
     @Override
@@ -51,31 +49,16 @@ public class VaryPageStatusFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_ui_pagestatus_loading:
-                toggleShowLoading(true, "try to load......");
+                mLayoutStatusView.showLoading();
                 break;
             case R.id.btn_ui_pagestatus_empty:
-                toggleShowEmpty(true, "test", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getActivity(), "empty!", Toast.LENGTH_LONG).show();
-                    }
-                });
+                mLayoutStatusView.showEmpty();
                 break;
             case R.id.btn_ui_pagestatus_error:
-                toggleShowError(true, "error", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getActivity(), "error!", Toast.LENGTH_LONG).show();
-                    }
-                });
+                mLayoutStatusView.showError();
                 break;
             case R.id.btn_ui_pagestatus_networkerror:
-                toggleNetworkError(true, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getActivity(), "network error!", Toast.LENGTH_LONG).show();
-                    }
-                });
+                mLayoutStatusView.showNoNetwork();
                 break;
             default:
                 break;

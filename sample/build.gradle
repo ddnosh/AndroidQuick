@@ -65,7 +65,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind:androidquick:3.0.0'
+    implementation 'com.androidwind:androidquick:3.0.1'
     //tiny series: tinylog
     implementation 'com.androidwind:tinylog:1.0.6'
     //tiny series: tinytask
@@ -121,6 +121,7 @@ dependencies {
     //aspectj
     implementation 'org.aspectj:aspectjrt:1.8.9'
     //retrofit converter
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.retrofit2:converter-simplexml:2.5.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
