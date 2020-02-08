@@ -78,6 +78,8 @@ import io.reactivex.subjects.Subject;
 @BindTag(type = TagInfo.Type.FRAGMENT, tags = {"rxjava"}, description = "RxJava多种实例")
 public class RxJavaFragment extends BaseFragment {
 
+    private String TAG = "RxJavaFragment";
+
     @BindView(R.id.tv_flowable_result)
     TextView mFlowableResult;
     @BindView(R.id.iv_example)
@@ -98,7 +100,7 @@ public class RxJavaFragment extends BaseFragment {
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
             R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_by_manual,
             R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2,
-            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example, R.id.btn_rxjava_error, R.id.btn_rxjava_zip})
+            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example, R.id.btn_rxjava_error, R.id.btn_rxjava_zip, R.id.btn_rxjava_merge, R.id.btn_rxjava_zip_async})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -133,8 +135,14 @@ public class RxJavaFragment extends BaseFragment {
             case R.id.btn_rxjava_concat:
                 testConcat();
                 break;
+            case R.id.btn_rxjava_merge:
+                testMerge();
+                break;
             case R.id.btn_rxjava_zip:
                 testZip();
+                break;
+            case R.id.btn_rxjava_zip_async:
+                testZipAsync();
                 break;
             case R.id.btn_rxjava_lifecycle1:
                 testLifeCycle1();
@@ -193,7 +201,6 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
-    //--------Create
     //--------Just
     private void testJust() {
         Observable.just("A", "B", "C", "D").subscribe(new Observer<String>() {
@@ -220,7 +227,6 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
-    //--------Just
     //--------From
     Integer[] items = {0, 1, 2, 3, 4, 5};
 
@@ -249,7 +255,6 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
-    //--------From
     //--------Map
     private void testMap() {
 //        String pathString = Environment.getExternalStorageDirectory() + File.separator + "Pictures" + File.separator + "test.png";
@@ -353,7 +358,6 @@ public class RxJavaFragment extends BaseFragment {
 //                });
     }
 
-    //--------Map
     //--------FlatMap
     private void testFlatMap() {
         final String originalPath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -392,7 +396,6 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
-    //--------FlatMap
     //--------Thread
     private void testThread() {
         //write way 1
@@ -438,7 +441,6 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
-    //--------Thread
     //--------Manual
     private Subject<String> lifecycle = PublishSubject.create();
 
@@ -475,9 +477,8 @@ public class RxJavaFragment extends BaseFragment {
                     }
                 });
     }
-    //--------Compose
-    //--------Flowable
 
+    //--------Flowable
     /**
      * 注意：只有在有背压需求的时候才需要使用Flowable, 否则使用Observable, 不然会影响性能
      */
@@ -521,7 +522,6 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
-    //--------Flowable
     //--------Concat
     private Observable<String> getObservable() {
         return Observable.fromCallable(new Callable<String>() {
@@ -539,12 +539,17 @@ public class RxJavaFragment extends BaseFragment {
     }
 
     /**
-     * 将多个数据源连接起来一起处理
+     * concat将多个发射器合并成一个发射器, 依次发送，发送完一个再接着发送第二个
      */
     private void testConcat() {
         Observable<String> o1 = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
                 e.onNext("1");
                 e.onComplete();//必须加这个, 否则o2出现不了
             }
@@ -552,6 +557,11 @@ public class RxJavaFragment extends BaseFragment {
         Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
                 e.onNext("2");
                 e.onComplete();
             }
@@ -567,6 +577,7 @@ public class RxJavaFragment extends BaseFragment {
 
                     @Override
                     public void onNext(String s) {
+                        Log.d(TAG, s);
                         if ("1".equals(s)) {
                             ToastUtil.showToast("concat: 1");
                         } else if ("2".equals(s)) {
@@ -588,7 +599,6 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
-    //--------Concat
     //--------Lifecycle CompositeDisposable
     private final CompositeDisposable disposables = new CompositeDisposable();
 
@@ -657,7 +667,6 @@ public class RxJavaFragment extends BaseFragment {
         disposables.clear();
     }
 
-    //--------Lifecycle CompositeDisposable
     //--------Lifecycle RxLifecycle
     private void testLifeCycle3() {
         Observable.create((ObservableOnSubscribe<Boolean>) emitter -> {
@@ -685,7 +694,6 @@ public class RxJavaFragment extends BaseFragment {
                 });
     }
 
-    //--------Lifecycle RxLifecycle
     //--------Example
     private void testExample() {
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<File>() {
@@ -744,7 +752,6 @@ public class RxJavaFragment extends BaseFragment {
             }
         }
     }
-    //--------Example
 
     //--------Error
     private void testError() {
@@ -840,7 +847,7 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
-    //--------Merge
+    //--------Zip: zip操作符可以合并两个发射器，最终合并出结果，且最终结果的数目只和结果集少的那个相同，结果集是以发送时最少的为主输出合并数量
     Observable observable1 = Observable.create(new ObservableOnSubscribe<Integer>() {
         @Override
         public void subscribe(ObservableEmitter<Integer> e) throws Exception {
@@ -868,6 +875,45 @@ public class RxJavaFragment extends BaseFragment {
     });
 
     private void testZip() {
+        Observable.zip(observable1, observable2, new BiFunction<Integer, String, String>() {
+            @Override
+            public String apply(Integer a, String b) throws Exception {
+                return a + b;
+            }
+        }).compose(RxUtil.applySchedulers()).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String o) throws Exception {
+                Log.d(TAG, o);
+            }
+        });
+    }
+
+    //merge: 会让合并的Observables发射的数据交错，这也就是和concat的较大区别(挨个发送)
+    private void testMerge() {
+        Observable<Integer> o1 = Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
+                e.onNext(100);
+                e.onComplete();
+            }
+        });
+
+        Observable.merge(o1, Observable.just(3, 4, 5)).subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.d(TAG, integer + "");
+            }
+        });
+    }
+
+    private void testZipAsync() {
+        observable1 = observable1.subscribeOn(Schedulers.io());
+        observable2 = observable2.subscribeOn(Schedulers.io());
         Observable.zip(observable1, observable2, new BiFunction<Integer, String, String>() {
             @Override
             public String apply(Integer a, String b) throws Exception {

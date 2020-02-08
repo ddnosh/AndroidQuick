@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.androidwind.androidquick.demo.MyApplication;
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventBusUtil;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
@@ -64,7 +65,7 @@ public class CallBackFragment extends BaseFragment {
                 DemoObserver.notifyObserver();
                 break;
             case R.id.btn_callback_eventbus:
-                EventBus.getDefault().post(new EventCenter(10003, "this is an event"));
+                EventBusUtil.sendEvent(new EventCenter(10003, "this is an event"));
                 break;
             case R.id.btn_callback_broadcast:
                 registerBroadcastReceiver();

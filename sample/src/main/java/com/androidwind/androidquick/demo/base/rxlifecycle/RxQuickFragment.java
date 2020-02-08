@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidwind.androidquick.demo.base.mvp.BaseContract;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventBusUtil;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.base.QuickActivity;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
@@ -75,7 +76,7 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (isBindEventBus()) {
-            EventBus.getDefault().register(this);
+            EventBusUtil.register(this);
         }
     }
 
@@ -120,7 +121,7 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
             mUnbinder.unbind();
         }
         if (isBindEventBus()) {
-            EventBus.getDefault().unregister(this);
+            EventBusUtil.unregister(this);
         }
     }
 

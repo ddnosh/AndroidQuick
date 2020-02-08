@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventBusUtil;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 
 import org.greenrobot.eventbus.EventBus;
@@ -33,7 +34,7 @@ public class EventBusFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_eventbus:
-                EventBus.getDefault().post(new EventCenter(10003, "this is an event"));
+                EventBusUtil.sendEvent(new EventCenter(10003, "this is an event"));
                 break;
         }
     }

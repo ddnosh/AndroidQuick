@@ -121,10 +121,24 @@
             android:textAllCaps="false" />
 
         <Button
+            android:id="@+id/btn_rxjava_merge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="merge"
+            android:textAllCaps="false" />
+
+        <Button
             android:id="@+id/btn_rxjava_zip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="zip"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_rxjava_zip_async"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="zip异步"
             android:textAllCaps="false" />
     </LinearLayout>
 

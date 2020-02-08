@@ -32,7 +32,7 @@ import android.widget.TextView;
 import com.androidwind.androidquick.R;
 import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 import com.androidwind.androidquick.demo.features.function.permission.EasyPermissions;
-import com.androidwind.androidquick.manager.QuickAppManager;
+import com.androidwind.androidquick.module.asynchronize.eventbus.EventBusUtil;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.LoadingDialog;
@@ -40,6 +40,7 @@ import com.androidwind.androidquick.ui.multipleviewstatus.MultipleStatusView;
 import com.androidwind.androidquick.ui.receiver.NetStateReceiver;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.immersion.StatusBarUtil;
+import com.androidwind.androidquick.util.manager.QuickAppManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -143,7 +144,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
         }
         // eventbus
         if (isBindEventBus()) {
-            EventBus.getDefault().register(this);
+            EventBusUtil.register(this);
         }
         // layout
         int layoutId = getContentViewLayoutID();
@@ -283,7 +284,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
         }
         NetStateReceiver.unRegisterNetworkStateReceiver(mContext);
         if (isBindEventBus()) {
-            EventBus.getDefault().unregister(this);
+            EventBusUtil.unregister(this);
         }
         dismissLoadingDialog();
     }
