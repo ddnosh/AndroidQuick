@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,6 +30,7 @@ import com.bumptech.glide.request.target.Target;
 import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
+import org.jetbrains.annotations.NotNull;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
@@ -37,7 +39,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Callable;
 
@@ -56,6 +61,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiConsumer;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
@@ -91,7 +98,7 @@ public class RxJavaFragment extends BaseFragment {
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
             R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_by_manual,
             R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2,
-            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example})
+            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example, R.id.btn_rxjava_error, R.id.btn_rxjava_zip})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -126,6 +133,9 @@ public class RxJavaFragment extends BaseFragment {
             case R.id.btn_rxjava_concat:
                 testConcat();
                 break;
+            case R.id.btn_rxjava_zip:
+                testZip();
+                break;
             case R.id.btn_rxjava_lifecycle1:
                 testLifeCycle1();
                 break;
@@ -137,6 +147,9 @@ public class RxJavaFragment extends BaseFragment {
                 break;
             case R.id.btn_rxjava_example:
                 testExample();
+                break;
+            case R.id.btn_rxjava_error:
+                testError();
                 break;
         }
     }
@@ -546,7 +559,7 @@ public class RxJavaFragment extends BaseFragment {
         Observable.concat(o1, o2, getObservable())
                 .compose(RxUtil.applySchedulers())
                 .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
-                .subscribeWith(new Observer<String>() {
+                .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
@@ -700,6 +713,7 @@ public class RxJavaFragment extends BaseFragment {
         };
         disposables.add(observable.compose(RxUtil.applySchedulers()).subscribe(observer));
     }
+
     private String savePicture(Context context, File sourceFile, String fileName) {
         File save = new File(Environment.getExternalStorageDirectory() + File.separator + "AndroidQuick" +
                 File.separator + "Picture");
@@ -731,4 +745,139 @@ public class RxJavaFragment extends BaseFragment {
         }
     }
     //--------Example
+
+    //--------Error
+    private void testError() {
+        //onErrorReturn: 出现错误的时候，用一个默认的数据项将错误替代
+        Observable
+                .fromCallable(new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        return null; //返回null,即出现错误
+                    }
+                })
+                .onErrorReturn(new Function<Throwable, Integer>() {
+                    @Override
+                    public Integer apply(Throwable throwable) throws Exception {
+                        //出现错误时，用一个默认的数据项将其替代,这里根据不同的错误返回不同的数据项
+                        return 100;
+                    }
+                })
+                .subscribe(new BaseObserver<Integer>() {
+                    @Override
+                    public void onError(@NotNull ApiException e) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Integer integer) {
+
+                    }
+                });
+        //onErrorResumeNext: 在遇到错误时开始发射第二个Observable的数据序列
+        Observable
+                .fromCallable(new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        return null; //返回null,即出现错误
+                    }
+                })
+                .onErrorResumeNext(new Function<Throwable, ObservableSource<? extends Integer>>() {
+                    @Override
+                    public ObservableSource<? extends Integer> apply(Throwable throwable) throws Exception {
+                        //出现错误时开始发射新的Observable的数据序列
+                        return Observable.just(1, 2, 3);
+                    }
+                })
+                .subscribe(new BaseObserver<Integer>() {
+                    @Override
+                    public void onError(@NotNull ApiException e) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Integer integer) {
+
+                    }
+                });
+        //实例
+        Observable observable1 = Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                Log.d(TAG, "1");
+                e.onNext(1);
+                e.onComplete();
+            }
+        });
+        //observable2出现错误时不应该影响整个流程，所以使用Observable.empty()让这条数据源正常结束
+        Observable observable2 = Observable
+                .fromCallable(new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        return null; //返回null,即出现错误
+                    }
+                });
+        Observable observable3 = Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                Log.d(TAG, "2");
+                e.onNext(2);
+                e.onComplete();
+            }
+        });
+        Observable
+                .concatArrayDelayError(observable1, observable2.onErrorResumeNext(Observable.empty()), observable3)
+                .subscribe(new BaseObserver<Integer>() {
+            @Override
+            public void onError(@NotNull ApiException e) {
+
+            }
+
+            @Override
+            public void onSuccess(Integer integer) {
+                Log.d(TAG, "onSuccess" + integer);
+            }
+        });
+    }
+
+    //--------Merge
+    Observable observable1 = Observable.create(new ObservableOnSubscribe<Integer>() {
+        @Override
+        public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+            Log.d(TAG, "1");
+            e.onNext(1);
+            SystemClock.sleep(1000);
+            Log.d(TAG, "2");
+            e.onNext(2);
+            SystemClock.sleep(1000);
+            e.onComplete();
+        }
+    });
+
+    Observable observable2 = Observable.create(new ObservableOnSubscribe<String>() {
+        @Override
+        public void subscribe(ObservableEmitter<String> e) throws Exception {
+            Log.d(TAG, "A");
+            e.onNext("A");
+            SystemClock.sleep(1000);
+            Log.d(TAG, "B");
+            e.onNext("B");
+            SystemClock.sleep(1000);
+            e.onComplete();
+        }
+    });
+
+    private void testZip() {
+        Observable.zip(observable1, observable2, new BiFunction<Integer, String, String>() {
+            @Override
+            public String apply(Integer a, String b) throws Exception {
+                return a + b;
+            }
+        }).compose(RxUtil.applySchedulers()).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String o) throws Exception {
+                Log.d(TAG, o);
+            }
+        });
+    }
 }

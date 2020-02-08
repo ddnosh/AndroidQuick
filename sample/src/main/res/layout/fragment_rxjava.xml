@@ -108,12 +108,25 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_rxjava_concat"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="concat"
-        android:textAllCaps="false" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rxjava_concat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="concat"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_rxjava_zip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="zip"
+            android:textAllCaps="false" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -160,6 +173,13 @@
             android:layout_width="30dp"
             android:layout_height="30dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_rxjava_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="异常处理"
+        android:textAllCaps="false" />
 
     <TextView
         android:id="@+id/tv_rxjava_more"
