@@ -100,7 +100,8 @@ public class RxJavaFragment extends BaseFragment {
     @OnClick({R.id.btn_rxjava_create, R.id.btn_rxjava_just, R.id.btn_rxjava_from, R.id.btn_rxjava_map,
             R.id.btn_rxjava_flatmap, R.id.btn_rxjava_thread, R.id.tv_rxjava_more, R.id.btn_rxjava_by_manual,
             R.id.btn_rxjava_flowable, R.id.btn_rxjava_concat, R.id.btn_rxjava_lifecycle1, R.id.btn_rxjava_lifecycle2,
-            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example, R.id.btn_rxjava_error, R.id.btn_rxjava_zip, R.id.btn_rxjava_merge, R.id.btn_rxjava_zip_async})
+            R.id.btn_rxjava_lifecycle3, R.id.btn_rxjava_example, R.id.btn_rxjava_error, R.id.btn_rxjava_zip,
+            R.id.btn_rxjava_merge, R.id.btn_rxjava_zip_async, R.id.btn_rxjava_merge_async})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_rxjava_create:
@@ -137,6 +138,9 @@ public class RxJavaFragment extends BaseFragment {
                 break;
             case R.id.btn_rxjava_merge:
                 testMerge();
+                break;
+            case R.id.btn_rxjava_merge_async:
+                testMergeAsync();
                 break;
             case R.id.btn_rxjava_zip:
                 testZip();
@@ -479,6 +483,7 @@ public class RxJavaFragment extends BaseFragment {
     }
 
     //--------Flowable
+
     /**
      * 注意：只有在有背压需求的时候才需要使用Flowable, 否则使用Observable, 不然会影响性能
      */
@@ -835,16 +840,16 @@ public class RxJavaFragment extends BaseFragment {
         Observable
                 .concatArrayDelayError(observable1, observable2.onErrorResumeNext(Observable.empty()), observable3)
                 .subscribe(new BaseObserver<Integer>() {
-            @Override
-            public void onError(@NotNull ApiException e) {
+                    @Override
+                    public void onError(@NotNull ApiException e) {
 
-            }
+                    }
 
-            @Override
-            public void onSuccess(Integer integer) {
-                Log.d(TAG, "onSuccess" + integer);
-            }
-        });
+                    @Override
+                    public void onSuccess(Integer integer) {
+                        Log.d(TAG, "onSuccess" + integer);
+                    }
+                });
     }
 
     //--------Zip: zip操作符可以合并两个发射器，最终合并出结果，且最终结果的数目只和结果集少的那个相同，结果集是以发送时最少的为主输出合并数量
@@ -888,29 +893,6 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
-    //merge: 会让合并的Observables发射的数据交错，这也就是和concat的较大区别(挨个发送)
-    private void testMerge() {
-        Observable<Integer> o1 = Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> e) {
-                try {
-                    Thread.sleep(1000); // 假设此处是耗时操作
-                } catch (Exception ee) {
-                    ee.printStackTrace();
-                }
-                e.onNext(100);
-                e.onComplete();
-            }
-        });
-
-        Observable.merge(o1, Observable.just(3, 4, 5)).subscribe(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) throws Exception {
-                Log.d(TAG, integer + "");
-            }
-        });
-    }
-
     private void testZipAsync() {
         observable1 = observable1.subscribeOn(Schedulers.io());
         observable2 = observable2.subscribeOn(Schedulers.io());
@@ -923,6 +905,41 @@ public class RxJavaFragment extends BaseFragment {
             @Override
             public void accept(String o) throws Exception {
                 Log.d(TAG, o);
+            }
+        });
+    }
+
+    //merge: 会让合并的Observables发射的数据交错，这也就是和concat的较大区别(挨个发送)
+    Observable<Integer> o1 = Observable.create(new ObservableOnSubscribe<Integer>() {
+        @Override
+        public void subscribe(ObservableEmitter<Integer> e) {
+            try {
+                Thread.sleep(1000); // 假设此处是耗时操作
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+            e.onNext(100);
+            e.onComplete();
+        }
+    });
+    Observable<Integer> o2 = Observable.just(3, 4, 5);
+
+    private void testMerge() {
+        Observable.merge(o1, o2).compose(RxUtil.applySchedulers()).subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.d(TAG, integer + "");
+            }
+        });
+    }
+
+    private void testMergeAsync() {
+        o1 = o1.subscribeOn(Schedulers.io());
+        o2 = o2.subscribeOn(Schedulers.io());
+        Observable.merge(o1, o2).compose(RxUtil.applySchedulers()).subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.d(TAG, integer + "");
             }
         });
     }
