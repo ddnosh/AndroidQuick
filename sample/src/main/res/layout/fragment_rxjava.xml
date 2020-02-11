@@ -37,6 +37,23 @@
             android:text="from"
             android:textAllCaps="false" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_rxjava_flowable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="flowable"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/tv_flowable_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -56,13 +73,6 @@
             android:id="@+id/iv_testmap"
             android:layout_width="30dp"
             android:layout_height="30dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_rxjava_flatmap"
@@ -93,23 +103,6 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btn_rxjava_flowable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="flowable"
-            android:textAllCaps="false" />
-
-        <TextView
-            android:id="@+id/tv_flowable_result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -119,6 +112,13 @@
             android:layout_height="wrap_content"
             android:text="concat"
             android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_rxjava_merge"
@@ -133,10 +133,16 @@
             android:layout_height="wrap_content"
             android:text="merge异步"
             android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_rxjava_zip"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="zip"
             android:textAllCaps="false" />

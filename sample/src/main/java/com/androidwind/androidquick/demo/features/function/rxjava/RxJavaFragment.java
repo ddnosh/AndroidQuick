@@ -21,6 +21,7 @@ import com.androidwind.androidquick.demo.tool.GlideUtils;
 import com.androidwind.androidquick.demo.tool.RxUtil;
 import com.androidwind.androidquick.module.exception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
+import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
@@ -61,6 +62,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.BiConsumer;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
@@ -72,6 +74,14 @@ import io.reactivex.subjects.Subject;
 
 
 /**
+ * Rx1.0-----------Rx2.0
+ * <p>
+ * Func1--------Function
+ * Action1--------Action
+ * Action1--------Consumer
+ * Action2--------BiConsumer
+ * 后面的Action都去掉了，只保留了ActionN
+ *
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
@@ -166,6 +176,14 @@ public class RxJavaFragment extends BaseFragment {
         }
     }
 
+    private static class User {
+        public String name;
+
+        public User(String name) {
+            this.name = name;
+        }
+    }
+
     //--------Create
     private void testCreate() {
         Observable.create(new ObservableOnSubscribe<String>() {
@@ -203,6 +221,22 @@ public class RxJavaFragment extends BaseFragment {
                 ToastUtil.showToast("create done!");
             }
         });
+
+        Observable.create(emitter -> {
+            LogUtil.d(TAG, "【开始create】");
+            emitter.onNext("【begin!!!】");
+            emitter.onComplete();
+            LogUtil.d(TAG, "【结束create】");
+        })
+                .doOnNext(s -> LogUtil.d(TAG, "【doOnNext】"))
+                .doOnError(e -> LogUtil.d(TAG, "【doOnError】"))
+                .doOnComplete(() -> LogUtil.d(TAG, "【doOnComplete】"))
+                .doOnSubscribe(disposable -> LogUtil.d(TAG, "【doOnSubscribe】"))
+                .doFinally(() -> LogUtil.d(TAG, "【doFinally】"))
+                .subscribe(o -> LogUtil.d(TAG, "【onNext】"),
+                        e -> LogUtil.d(TAG, "【onError】"),
+                        () -> LogUtil.d(TAG, "【onComplete】"),
+                        d -> LogUtil.d(TAG, "【onSubscribe】"));
     }
 
     //--------Just
@@ -543,67 +577,6 @@ public class RxJavaFragment extends BaseFragment {
         });
     }
 
-    /**
-     * concat将多个发射器合并成一个发射器, 依次发送，发送完一个再接着发送第二个
-     */
-    private void testConcat() {
-        Observable<String> o1 = Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) {
-                try {
-                    Thread.sleep(1000); // 假设此处是耗时操作
-                } catch (Exception ee) {
-                    ee.printStackTrace();
-                }
-                e.onNext("1");
-                e.onComplete();//必须加这个, 否则o2出现不了
-            }
-        });
-        Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) {
-                try {
-                    Thread.sleep(1000); // 假设此处是耗时操作
-                } catch (Exception ee) {
-                    ee.printStackTrace();
-                }
-                e.onNext("2");
-                e.onComplete();
-            }
-        });
-        Observable.concat(o1, o2, getObservable())
-                .compose(RxUtil.applySchedulers())
-                .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        Log.d(TAG, s);
-                        if ("1".equals(s)) {
-                            ToastUtil.showToast("concat: 1");
-                        } else if ("2".equals(s)) {
-                            ToastUtil.showToast("concat: 2");
-                        } else if ("3".equals(s)) {
-                            ToastUtil.showToast("concat: 3");
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        ToastUtil.showToast("concat done!");
-                    }
-                });
-    }
-
     //--------Lifecycle CompositeDisposable
     private final CompositeDisposable disposables = new CompositeDisposable();
 
@@ -848,6 +821,67 @@ public class RxJavaFragment extends BaseFragment {
                     @Override
                     public void onSuccess(Integer integer) {
                         Log.d(TAG, "onSuccess" + integer);
+                    }
+                });
+    }
+
+    /**
+     * Concat: 将多个发射器合并成一个发射器, 依次发送，发送完一个再接着发送第二个
+     */
+    private void testConcat() {
+        Observable<String> o1 = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
+                e.onNext("1");
+                e.onComplete();//必须加这个, 否则o2出现不了
+            }
+        });
+        Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) {
+                try {
+                    Thread.sleep(1000); // 假设此处是耗时操作
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
+                e.onNext("2");
+                e.onComplete();
+            }
+        });
+        Observable.concat(o1, o2, getObservable())
+                .compose(RxUtil.applySchedulers())
+                .compose(lifecycleProvider.bindUntilEvent(Lifecycle.Event.ON_DESTROY))
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.d(TAG, s);
+                        if ("1".equals(s)) {
+                            ToastUtil.showToast("concat: 1");
+                        } else if ("2".equals(s)) {
+                            ToastUtil.showToast("concat: 2");
+                        } else if ("3".equals(s)) {
+                            ToastUtil.showToast("concat: 3");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        ToastUtil.showToast("concat done!");
                     }
                 });
     }
