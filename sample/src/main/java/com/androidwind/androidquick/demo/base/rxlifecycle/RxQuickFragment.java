@@ -17,7 +17,6 @@ import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventBusUtil;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
 import com.androidwind.androidquick.ui.base.QuickActivity;
-import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
 import com.androidwind.androidquick.ui.multipleviewstatus.MultipleStatusView;
 import com.androidwind.androidquick.util.StringUtil;
 import com.google.android.material.snackbar.Snackbar;
@@ -367,13 +366,6 @@ public abstract class RxQuickFragment extends RxFragment implements BaseContract
         if (getActivity() != null && getActivity() instanceof QuickActivity) {
             ((QuickActivity) getActivity()).dismissLoadingDialog();
         }
-    }
-
-    public CommonDialog.Builder getDialogBuilder(Context context) {
-        if (getActivity() != null && getActivity() instanceof QuickActivity) {
-            return ((QuickActivity) getActivity()).getDialogBuilder(context);
-        }
-        throw new IllegalStateException("CommonDialog can only be used in a class which extends QuickActivity!");
     }
 
 }

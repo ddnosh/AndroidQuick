@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.androidquick.ui.dialog.dialogfragment.CommonDialog;
-import com.androidwind.androidquick.ui.dialog.dialogfragment.ViewConvertListener;
+import com.androidwind.androidquick.ui.dialog.dialogfragment.BaseDialogFragment;
+import com.androidwind.androidquick.ui.dialog.dialogfragment.FDialog;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 
@@ -42,9 +42,9 @@ public class DialogFragmentDemo extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_diaglogfragment_alert:
-                CommonDialog.Companion.newInstance()
+                new FDialog()
                         .setDialogLayout(R.layout.dialogfragment_alert)
-                        .setConvertListener((ViewConvertListener) (holder, dialog) -> {
+                        .setConvertListener((BaseDialogFragment.ViewConvertListener) (holder, dialog) -> {
                             ((TextView)holder.getView(R.id.df_title)).setText("Alert");
                             ((TextView)holder.getView(R.id.df_message)).setText("This is a alert!");
                             holder.setOnClickListener(R.id.df_confirm, v -> {
@@ -56,9 +56,9 @@ public class DialogFragmentDemo extends BaseFragment {
                         .show(getSupportFragmentManager());
                 break;
             case R.id.btn_diaglogfragment_confirm:
-                CommonDialog.Companion.newInstance()
+                new FDialog()
                         .setDialogLayout(R.layout.dialogfragment_confirm)
-                        .setConvertListener((ViewConvertListener) (holder, dialog) -> {
+                        .setConvertListener((BaseDialogFragment.ViewConvertListener) (holder, dialog) -> {
                             ((TextView)holder.getView(R.id.df_title)).setText("Title");
                             ((TextView)holder.getView(R.id.df_message)).setText("This is content!");
                             holder.setOnClickListener(R.id.df_confirm, v -> {

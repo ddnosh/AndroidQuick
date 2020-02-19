@@ -1,6 +1,7 @@
 package com.androidwind.androidquick.demo.ui.activity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -85,6 +86,8 @@ import com.androidwind.androidquick.demo.tool.MenuUtil;
 import com.androidwind.androidquick.demo.tool.RxUtil;
 import com.androidwind.androidquick.module.exception.ApiException;
 import com.androidwind.androidquick.module.rxjava.BaseObserver;
+import com.androidwind.androidquick.ui.dialog.dialogactivity.ADialog;
+import com.androidwind.androidquick.ui.dialog.dialogactivity.BaseDialog;
 import com.androidwind.androidquick.util.AppUtil;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.ToastUtil;
@@ -212,6 +215,17 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
                 return false;
             }
         });
+
+        testLeakMemory();
+    }
+
+    private void testLeakMemory() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SystemClock.sleep(100000);
+            }
+        }).start();
     }
 
     private void getSdkVersion() {
@@ -363,15 +377,16 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("LoadingDialog")) {
                 showLoadingDialog();
             } else if (name.equals("CommonDialog")) {
-                getDialogBuilder(MainActivity.this)
-                        .setTitle(R.string.app_name)
-                        .setMessage("this is an information")
-                        .setPositiveButton("Confirm")
-                        .setNegativeButton("Cancel")
-                        .setBtnClickCallBack(isConfirm -> {
-                            if (isConfirm) {
+                new ADialog(mContext)
+                        .setConvertListener((BaseDialog.ViewConvertListener) (holder, dialog) -> {
+                            ((TextView)holder.getView(R.id.dialog_title)).setText(getString(R.string.app_name));
+                            ((TextView)holder.getView(R.id.dialog_info)).setText("this is an information");
+                            ((TextView)holder.getView(R.id.dialog_confirm)).setText("Confirm");
+                            ((TextView)holder.getView(R.id.dialog_cancel)).setText("Cancel");
+                            holder.setOnClickListener(R.id.dialog_confirm, v -> {
+                                dialog.dismiss();
                                 ToastUtil.showToast("Confirm clicked");
-                            }
+                            });
                         }).show();
             } else if (name.equals("SmartTabLayout")) {
                 readyGo(TabSTLFragment.class);

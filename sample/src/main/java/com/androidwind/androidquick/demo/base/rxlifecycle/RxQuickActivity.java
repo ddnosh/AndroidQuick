@@ -34,19 +34,20 @@ import com.androidwind.androidquick.demo.base.mvp.BaseContract;
 import com.androidwind.androidquick.demo.features.function.permission.EasyPermissions;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventBusUtil;
 import com.androidwind.androidquick.module.asynchronize.eventbus.EventCenter;
-import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
-import com.androidwind.androidquick.ui.dialog.dialogactivity.LoadingDialog;
+import com.androidwind.androidquick.ui.dialog.ViewHolder;
+import com.androidwind.androidquick.ui.dialog.dialogactivity.ADialog;
+import com.androidwind.androidquick.ui.dialog.dialogactivity.BaseDialog;
 import com.androidwind.androidquick.ui.multipleviewstatus.MultipleStatusView;
 import com.androidwind.androidquick.ui.receiver.NetStateReceiver;
 import com.androidwind.androidquick.util.StringUtil;
 import com.androidwind.androidquick.util.immersion.StatusBarUtil;
-import com.androidwind.androidquick.util.manager.QuickAppManager;
-import com.google.android.material.snackbar.Snackbar;
+import com.androidwind.androidquick.util.manager.QActivity;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -106,14 +107,14 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
     /**
      * dialog
      */
-    protected LoadingDialog loadingDialog;
+    protected ADialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
         // activity manager
-        QuickAppManager.addActivity(this);
+        QActivity.addActivity(this);
         // animation
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
@@ -251,7 +252,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
     @Override
     public void finish() {
         super.finish();
-        QuickAppManager.removeActivity(this);
+        QActivity.removeActivity(this);
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:
@@ -583,20 +584,32 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
         if (!isFinishing()) {
             try {
                 if (loadingDialog == null) {
-                    loadingDialog = new LoadingDialog(this);
+                    loadingDialog = new ADialog(this);
+                    loadingDialog.setDialogLayout(R.layout.dialog_loading);
                     if (!StringUtil.isEmpty(tips)) {
-                        loadingDialog.setTip(tips);
+                        loadingDialog.setConvertListener(new BaseDialog.ViewConvertListener() {
+                            @Override
+                            public void convertView(@NotNull ViewHolder viewHolder, @NotNull BaseDialog baseDialog) {
+                                ((TextView)viewHolder.getView(R.id.tip)).setText("正在努力加载...");
+                            }
+                        });
                     }
                     loadingDialog.show();
                 } else {
                     //相同的上下文，无需重新创建
-                    if (loadingDialog.getLoadingDialogContext() == this) {
+                    if (loadingDialog.getContext() == this) {
                         loadingDialog.show();
                     } else {
                         loadingDialog.dismiss();
-                        loadingDialog = new LoadingDialog(this);
+                        loadingDialog = new ADialog(this);
+                        loadingDialog.setDialogLayout(R.layout.dialog_loading);
                         if (!StringUtil.isEmpty(tips)) {
-                            loadingDialog.setTip(tips);
+                            loadingDialog.setConvertListener(new BaseDialog.ViewConvertListener() {
+                                @Override
+                                public void convertView(@NotNull ViewHolder viewHolder, @NotNull BaseDialog baseDialog) {
+                                    ((TextView)viewHolder.getView(R.id.tip)).setText("正在努力加载...");
+                                }
+                            });
                         }
                         loadingDialog.show();
                     }
@@ -614,10 +627,6 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
             }
         } catch (Throwable e) {
         }
-    }
-
-    public CommonDialog.Builder getDialogBuilder(Context context) {
-        return new CommonDialog.Builder(context);
     }
 
 }

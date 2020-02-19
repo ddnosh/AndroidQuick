@@ -4,12 +4,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseActivity;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.function.permission.EasyPermissions;
-import com.androidwind.androidquick.ui.dialog.dialogactivity.CommonDialog;
+import com.androidwind.androidquick.ui.dialog.dialogactivity.ADialog;
+import com.androidwind.androidquick.ui.dialog.dialogactivity.BaseDialog;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 
@@ -72,32 +74,28 @@ public class NetworkActivity extends BaseActivity {
             public void showDialog(int dialogType, final EasyPermissions.DialogCallback callback) {
                 switch (dialogType) {
                     case 1:
-                        getDialogBuilder(mContext).
-                                setTitle(getString(R.string.app_name)).
-                                setMessage(getString(R.string.dialog_storage_permission)).
-                                setPositiveButton("OK").
-                                setBtnClickCallBack(new CommonDialog.DialogBtnCallBack() {
-                                    @Override
-                                    public void onDialogButClick(boolean isConfirm) {
-                                        if (isConfirm) {
-                                            callback.onGranted();
-                                        }
-                                    }
-                                }).show().setCancelable(false);
+                        new ADialog(mContext)
+                                .setConvertListener((BaseDialog.ViewConvertListener) (holder, dialog) -> {
+                                    ((TextView)holder.getView(R.id.dialog_title)).setText(getString(R.string.app_name));
+                                    ((TextView)holder.getView(R.id.dialog_info)).setText(getString(R.string.dialog_storage_permission));
+                                    ((TextView)holder.getView(R.id.dialog_confirm)).setText("OK");
+                                    holder.setOnClickListener(R.id.dialog_confirm, v -> {
+                                        dialog.dismiss();
+                                        callback.onGranted();
+                                    });
+                                }).show();
                         break;
                     case 2:
-                        getDialogBuilder(mContext).
-                                setTitle(getString(R.string.app_name)).
-                                setMessage(getString(R.string.dialog_rationale_ask_again, deniedPermsString)).
-                                setPositiveButton("Go to setting").
-                                setBtnClickCallBack(new CommonDialog.DialogBtnCallBack() {
-                                    @Override
-                                    public void onDialogButClick(boolean isConfirm) {
-                                        if (isConfirm) {
-                                            callback.onGranted();
-                                        }
-                                    }
-                                }).show().setCancelable(false);
+                        new ADialog(mContext)
+                                .setConvertListener((BaseDialog.ViewConvertListener) (holder, dialog) -> {
+                                    ((TextView)holder.getView(R.id.dialog_title)).setText(getString(R.string.app_name));
+                                    ((TextView)holder.getView(R.id.dialog_info)).setText(getString(R.string.dialog_rationale_ask_again, deniedPermsString));
+                                    ((TextView)holder.getView(R.id.dialog_confirm)).setText("Go to setting");
+                                    holder.setOnClickListener(R.id.dialog_confirm, v -> {
+                                        dialog.dismiss();
+                                        callback.onGranted();
+                                    });
+                                }).show();
                         break;
                     default:
                         break;
