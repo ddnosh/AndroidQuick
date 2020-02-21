@@ -124,9 +124,9 @@ public class PermissionFragment extends BaseFragment {
                     case 1:
                         new ADialog(mContext)
                                 .setConvertListener((BaseDialog.ViewConvertListener) (holder, dialog) -> {
-                                    ((TextView)holder.getView(R.id.dialog_title)).setText(getString(R.string.app_name));
-                                    ((TextView)holder.getView(R.id.dialog_info)).setText(getString(R.string.dialog_phone_permission));
-                                    ((TextView)holder.getView(R.id.dialog_confirm)).setText("OK");
+                                    holder.setText(R.id.dialog_title, getString(R.string.app_name));
+                                    holder.setText(R.id.dialog_info, getString(R.string.dialog_phone_permission));
+                                    holder.setText(R.id.dialog_confirm, "OK");
                                     holder.setOnClickListener(R.id.dialog_confirm, v -> {
                                         dialog.dismiss();
                                         callback.onGranted();
@@ -136,9 +136,9 @@ public class PermissionFragment extends BaseFragment {
                     case 2:
                         new ADialog(mContext)
                                 .setConvertListener((BaseDialog.ViewConvertListener) (holder, dialog) -> {
-                                    ((TextView)holder.getView(R.id.dialog_title)).setText(getString(R.string.app_name));
-                                    ((TextView)holder.getView(R.id.dialog_info)).setText(getString(R.string.dialog_phone_permission));
-                                    ((TextView)holder.getView(R.id.dialog_confirm)).setText("Go to setting");
+                                    holder.setText(R.id.dialog_title, getString(R.string.app_name));
+                                    holder.setText(R.id.dialog_info, getString(R.string.dialog_phone_permission));
+                                    holder.setText(R.id.dialog_confirm, "Go to setting");
                                     holder.setOnClickListener(R.id.dialog_confirm, v -> {
                                         dialog.dismiss();
                                         callback.onGranted();

@@ -45,8 +45,8 @@ public class DialogFragmentDemo extends BaseFragment {
                 new FDialog()
                         .setDialogLayout(R.layout.dialogfragment_alert)
                         .setConvertListener((BaseDialogFragment.ViewConvertListener) (holder, dialog) -> {
-                            ((TextView)holder.getView(R.id.df_title)).setText("Alert");
-                            ((TextView)holder.getView(R.id.df_message)).setText("This is a alert!");
+                            holder.setText(R.id.df_title, "Alert");
+                            holder.setText(R.id.df_message, "This is a alert!");
                             holder.setOnClickListener(R.id.df_confirm, v -> {
                                 dialog.dismiss();
                             });
@@ -59,8 +59,8 @@ public class DialogFragmentDemo extends BaseFragment {
                 new FDialog()
                         .setDialogLayout(R.layout.dialogfragment_confirm)
                         .setConvertListener((BaseDialogFragment.ViewConvertListener) (holder, dialog) -> {
-                            ((TextView)holder.getView(R.id.df_title)).setText("Title");
-                            ((TextView)holder.getView(R.id.df_message)).setText("This is content!");
+                            holder.setText(R.id.df_title, "Title");
+                            holder.setText(R.id.df_message, "This is content!");
                             holder.setOnClickListener(R.id.df_confirm, v -> {
                                 dialog.dismiss();
                             });

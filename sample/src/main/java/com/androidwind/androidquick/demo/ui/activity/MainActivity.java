@@ -379,10 +379,10 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
             } else if (name.equals("CommonDialog")) {
                 new ADialog(mContext)
                         .setConvertListener((BaseDialog.ViewConvertListener) (holder, dialog) -> {
-                            ((TextView)holder.getView(R.id.dialog_title)).setText(getString(R.string.app_name));
-                            ((TextView)holder.getView(R.id.dialog_info)).setText("this is an information");
-                            ((TextView)holder.getView(R.id.dialog_confirm)).setText("Confirm");
-                            ((TextView)holder.getView(R.id.dialog_cancel)).setText("Cancel");
+                            holder.setText(R.id.dialog_title, getString(R.string.app_name));
+                            holder.setText(R.id.dialog_info, "this is an information");
+                            holder.setText(R.id.dialog_confirm, "Confirm");
+                            holder.setText(R.id.dialog_cancel, "Cancel");
                             holder.setOnClickListener(R.id.dialog_confirm, v -> {
                                 dialog.dismiss();
                                 ToastUtil.showToast("Confirm clicked");

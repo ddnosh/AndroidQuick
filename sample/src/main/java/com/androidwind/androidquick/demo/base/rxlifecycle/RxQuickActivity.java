@@ -590,7 +590,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
                         loadingDialog.setConvertListener(new BaseDialog.ViewConvertListener() {
                             @Override
                             public void convertView(@NotNull ViewHolder viewHolder, @NotNull BaseDialog baseDialog) {
-                                ((TextView)viewHolder.getView(R.id.tip)).setText("正在努力加载...");
+                                viewHolder.setText(R.id.tip, "正在努力加载...");
                             }
                         });
                     }
@@ -607,7 +607,7 @@ public abstract class RxQuickActivity extends RxAppCompatActivity implements Eas
                             loadingDialog.setConvertListener(new BaseDialog.ViewConvertListener() {
                                 @Override
                                 public void convertView(@NotNull ViewHolder viewHolder, @NotNull BaseDialog baseDialog) {
-                                    ((TextView)viewHolder.getView(R.id.tip)).setText("正在努力加载...");
+                                    viewHolder.setText(R.id.tip, "正在努力加载...");
                                 }
                             });
                         }
