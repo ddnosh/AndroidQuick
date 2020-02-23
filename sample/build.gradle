@@ -65,7 +65,7 @@ dependencies {
     //library
     implementation project(':treeview')
     //base
-    implementation 'com.androidwind:androidquick:3.0.3'
+    implementation 'com.androidwind:androidquick:3.0.4'
     //tiny series: tinylog
     implementation 'com.androidwind:tinylog:1.0.6'
     //tiny series: tinytask
