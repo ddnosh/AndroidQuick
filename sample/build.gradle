@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'android-aspectjx'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -61,7 +61,7 @@ android {
 
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided files('libs/org.apache.http.legacy.jar')
+    compileOnly files('libs/org.apache.http.legacy.jar')
     //library
     implementation project(':treeview')
     //base
@@ -115,11 +115,9 @@ dependencies {
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
     //mvvm
     implementation 'android.arch.lifecycle:extensions:1.1.1'
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    kapt "android.arch.lifecycle:compiler:1.1.1"
     //AndroidUtilCode
     implementation 'com.blankj:utilcode:1.23.7'
-    //aspectj
-    implementation 'org.aspectj:aspectjrt:1.8.9'
     //retrofit converter
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
@@ -129,7 +127,7 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     //aop
     implementation project(':aop-annotation')
-    annotationProcessor  project(':aop-compiler')
+    kapt  project(':aop-compiler')
     implementation project(':aop-core')
     //rxlifecycle
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
