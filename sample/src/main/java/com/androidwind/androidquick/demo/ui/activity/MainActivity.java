@@ -173,25 +173,17 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         mAdapter = new SearchAdapter(MainActivity.this, android.R.layout.simple_list_item_1, SearchManager.getInstance().searchResults);
         mListView.setAdapter(mAdapter);
         mListView.setTextFilterEnabled(true);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // ToastUtil.INSTANCE.showToast("You clicked " + SearchManager.getInstance().searchResults.get(position));
-                mSearchView.clearFocus();
-                SearchEngine.getsInstance().jumpTo(MainActivity.this, SearchManager.getInstance().searchResults.get(position));
-            }
+        mListView.setOnItemClickListener((parent, view, position, id) -> {
+            // ToastUtil.INSTANCE.showToast("You clicked " + SearchManager.getInstance().searchResults.get(position));
+            mSearchView.clearFocus();
+            SearchEngine.getsInstance().jumpTo(MainActivity.this, SearchManager.getInstance().searchResults.get(position));
         });
 
         mSearchView.setIconified(false);
         mSearchView.onActionViewExpanded();
         mSearchView.setIconifiedByDefault(false);
         mSearchView.clearFocus();
-        mSearchView.setOnSearchClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Open", Toast.LENGTH_SHORT).show();
-            }
-        });
+        mSearchView.setOnSearchClickListener(v -> Toast.makeText(getApplicationContext(), "Open", Toast.LENGTH_SHORT).show());
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -220,12 +212,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
     }
 
     private void testLeakMemory() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SystemClock.sleep(100000);
-            }
-        }).start();
+        new Thread(() -> SystemClock.sleep(100000)).start();
     }
 
     private void getSdkVersion() {

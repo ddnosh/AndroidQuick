@@ -43,6 +43,11 @@ public abstract class BaseActivity extends QuickActivity implements BaseContract
     }
 
     @Override
+    protected boolean isApplyButterKnife() {
+        return true;
+    }
+
+    @Override
     protected void onEventComing(EventCenter eventCenter) {
         LogUtil.INSTANCE.i(TAG, eventCenter.getEventCode() + "");
     }

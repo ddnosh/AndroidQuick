@@ -46,6 +46,11 @@ public abstract class BaseFragment extends QuickFragment implements BaseContract
     }
 
     @Override
+    protected boolean isApplyButterKnife() {
+        return true;
+    }
+
+    @Override
     protected void onEventComing(EventCenter eventCenter) {
 
     }
