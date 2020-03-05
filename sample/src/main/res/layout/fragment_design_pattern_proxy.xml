@@ -4,32 +4,36 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_proxy_static"
-        style="@style/button_common_style"
-        android:text="静态代理" />
+    <RelativeLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_proxy_dynamic"
-        style="@style/button_common_style"
-        android:text="动态代理" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:text="show code"
+            app:rippleColor="@color/color_ripple" />
 
-    <Button
-        android:id="@+id/btn_proxy_dynamic_factory"
-        style="@style/button_common_style"
-        android:text="动态代理+简单工厂" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_run"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:text="run code"
+            app:rippleColor="@color/color_ripple" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_proxy_aop"
-        style="@style/button_common_style"
-        android:text="简单AOP实现" />
-
-    <Button
-        android:id="@+id/btn_proxy_aop_retrofit"
-        style="@style/button_common_style"
-        android:text="仿Retrofit的api实现" />
+    <us.feras.mdv.MarkdownView
+        android:id="@+id/mv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </LinearLayout>

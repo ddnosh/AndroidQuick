@@ -57,4 +57,10 @@
         <!--<item name="android:divider">@android:drawable/divider_horizontal_bright</item>-->
     </style>
 
+    <!--底部弹框动画-->
+    <style name="df_bottom">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+
 </resources>

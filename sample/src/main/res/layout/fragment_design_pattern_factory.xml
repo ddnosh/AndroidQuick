@@ -16,26 +16,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_show"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="show code" />
+                android:layout_alignParentStart="true"
+                android:text="show code"
+                app:rippleColor="@color/color_ripple" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_run"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="run code" />
+                android:layout_alignParentEnd="true"
+                android:text="run code"
+                app:rippleColor="@color/color_ripple" />
         </RelativeLayout>
 
         <us.feras.mdv.MarkdownView
-            android:id="@+id/mv_factory"
+            android:id="@+id/mv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            android:layout_below="@+id/ll_top" />
+            android:layout_below="@+id/ll_top"
+            android:visibility="gone" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

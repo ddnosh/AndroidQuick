@@ -21,7 +21,7 @@ import us.feras.mdv.MarkdownView;
 @BindTag(type = TagInfo.Type.FRAGMENT, tags = {"factory", "工厂"}, description = "简单工厂 + 工厂方法 + 抽象工厂")
 public class FactoryFragment extends BaseFragment {
 
-    @BindView(R.id.mv_factory)
+    @BindView(R.id.mv)
     MarkdownView mMvCode;
     @BindView(R.id.btn_show)
     Button btnShow;
@@ -33,7 +33,7 @@ public class FactoryFragment extends BaseFragment {
                 mMvCode.setVisibility(View.VISIBLE);
                 break;
             case R.id.btn_run:
-                initCode();
+                runCode();
                 break;
         }
     }
@@ -48,7 +48,7 @@ public class FactoryFragment extends BaseFragment {
         mMvCode.loadMarkdownFile("file:///android_asset/FactoryFragment.md", "file:///android_asset/css-themes/classic.css");
     }
 
-    private void initCode() {
+    private void runCode() {
         //简单工厂
         ICar car1 = SimpleFactory.getCar(0);
         car1.move();
