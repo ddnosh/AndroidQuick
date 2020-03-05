@@ -2,26 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/base_bg">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_title"
-        style="@style/text_large"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="10dp"
-        android:text="Android代码库 by ddnosh"
-        />
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            style="@style/text_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Android代码库 by ddnosh" />
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/sv_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_title"
+        android:layout_below="@+id/mcv"
         app:iconifiedByDefault="false"
-        app:queryHint="输入关键字查询" />
+        app:queryHint="输入关键字找到代码" />
 
     <RelativeLayout
         android:id="@+id/container"
@@ -33,11 +40,9 @@
 
     <ListView
         android:id="@+id/lv_result"
-        android:background="@color/base_bg"
-        android:layout_below="@id/sv_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/sv_search" />
 
     <include
         layout="@layout/include_description"

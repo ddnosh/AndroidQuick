@@ -108,8 +108,6 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-
-
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
@@ -170,7 +168,7 @@ public class MainActivity extends BaseActivity implements TreeNode.TreeNodeClick
         String version = String.format(versionStr, AppUtil.getVersionName(getApplicationContext()));
         tvMainVersion.setText(version);
         //search
-        mAdapter = new SearchAdapter(MainActivity.this, android.R.layout.simple_list_item_1, SearchManager.getInstance().searchResults);
+        mAdapter = new SearchAdapter(MainActivity.this, R.layout.item_search_result, SearchManager.getInstance().searchResults);
         mListView.setAdapter(mAdapter);
         mListView.setTextFilterEnabled(true);
         mListView.setOnItemClickListener((parent, view, position, id) -> {

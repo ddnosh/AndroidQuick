@@ -26,8 +26,8 @@ public class CodeFragment extends BaseFragment {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        mBundle = getActivity().getIntent().getExtras();
-        mCommonToolBar.setTitle(mBundle.getString("title"));
+        // mBundle = getActivity().getIntent().getExtras();
+        // mCommonToolBar.setTitle(mBundle.getString("title"));
         mMvCode.loadMarkdownFile("file:///android_asset/HttpRequestCallbackString.md", "file:///android_asset/css-themes/classic.css");
     }
 

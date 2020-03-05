@@ -1,54 +1,6 @@
-package com.androidwind.androidquick.demo.features.design_patterns.factory;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.androidwind.androidquick.demo.R;
-import com.androidwind.androidquick.demo.base.BaseFragment;
-import com.androidwind.androidquick.util.ToastUtil;
-import com.androidwind.annotation.annotation.BindTag;
-import com.androidwind.annotation.annotation.TagInfo;
-
-import butterknife.BindView;
-import butterknife.OnClick;
-import us.feras.mdv.MarkdownView;
-
-/**
- * @author ddnosh
- * @website http://blog.csdn.net/ddnosh
- */
-@BindTag(type = TagInfo.Type.FRAGMENT, tags = {"factory", "工厂"}, description = "简单工厂 + 工厂方法 + 抽象工厂")
-public class FactoryFragment extends BaseFragment {
-
-    @BindView(R.id.mv_factory)
-    MarkdownView mMvCode;
-    @BindView(R.id.btn_show)
-    Button btnShow;
-
-    @OnClick({R.id.btn_show, R.id.btn_run})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_show:
-                mMvCode.setVisibility(View.VISIBLE);
-                break;
-            case R.id.btn_run:
-                initCode();
-                break;
-        }
-    }
-
-    @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_design_pattern_factory;
-    }
-
-    @Override
-    protected void initViewsAndEvents(Bundle savedInstanceState) {
-        mMvCode.loadMarkdownFile("file:///android_asset/FactoryFragment.md", "file:///android_asset/css-themes/classic.css");
-    }
-
-    private void initCode() {
+##FactoryFragment
+<pre>
+private void initCode() {
         //简单工厂
         ICar car1 = SimpleFactory.getCar(0);
         car1.move();
@@ -193,4 +145,4 @@ public class FactoryFragment extends BaseFragment {
             return new Prada();
         }
     }
-}
+</pre>
