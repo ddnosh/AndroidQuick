@@ -1,6 +1,7 @@
-##ProxyFragment
+## ProxyFragment
 <pre>
-private BottomDialogFragment.OnBottomItemClick listener = position -> {
+    @Override
+    public void clickItem(int position) {
         switch (position) {
             case 0:
                 //静态代理
@@ -41,6 +42,7 @@ private BottomDialogFragment.OnBottomItemClick listener = position -> {
                 car2.move();
                 break;
             case 3:
+                //简单AOP实现
                 ProxyAOPFactory aopFactory = new ProxyAOPFactory();
                 aopFactory.setClient(new Benz());
                 aopFactory.setBefore(new IBefore() {
@@ -53,12 +55,13 @@ private BottomDialogFragment.OnBottomItemClick listener = position -> {
                 car3.move();
                 break;
             case 4:
+                //仿Retrofit的api实现
                 IRequestAPI api = create(IRequestAPI.class);
                 api.getHistory("123");
                 api.getNew();
                 break;
         }
-    };
+    }
 
     private interface ICar {
         void move();

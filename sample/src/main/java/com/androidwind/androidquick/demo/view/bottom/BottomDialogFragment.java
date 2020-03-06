@@ -2,6 +2,7 @@ package com.androidwind.androidquick.demo.view.bottom;
 
 import android.app.Dialog;
 import android.app.LauncherActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class BottomDialogFragment extends BaseDialogFragment {
         listView.setTextFilterEnabled(true);
         listView.setOnItemClickListener((parent, v, position, id) -> {
             listener.onClick(position);
+            dismiss();
         });
         return view;
     }
@@ -66,6 +68,13 @@ public class BottomDialogFragment extends BaseDialogFragment {
         params.gravity = Gravity.BOTTOM;
         params.width = getResources().getDisplayMetrics().widthPixels;
         window.setAttributes(params);
+    }
+
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        listener = null;
+        dismiss();
+        super.onDismiss(dialog);
     }
 
     public static BottomDialogFragment newInstance(String[] itemData) {

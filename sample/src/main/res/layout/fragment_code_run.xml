@@ -2,17 +2,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/dimen_common_small"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginBottom="@dimen/dimen_common_small">
+    android:layout_margin="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RelativeLayout
-            android:id="@+id/ll_top"
+            android:id="@+id/function"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -21,6 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
                 android:text="show code"
                 app:rippleColor="@color/color_ripple" />
 
@@ -29,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
                 android:text="run code"
                 app:rippleColor="@color/color_ripple" />
         </RelativeLayout>
@@ -37,7 +36,31 @@
             android:id="@+id/mv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/ll_top"
+            android:layout_below="@+id/function"
             android:visibility="gone" />
+
+        <ScrollView
+            android:id="@+id/output"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/function"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/dimen_common_small"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/dimen_common_small">
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+        </ScrollView>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

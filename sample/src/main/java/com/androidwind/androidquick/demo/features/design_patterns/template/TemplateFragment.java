@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.features.CodeAndRunFragment;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 
@@ -16,21 +17,22 @@ import butterknife.OnClick;
  * @website http://blog.csdn.net/ddnosh
  */
 @BindTag(type = TagInfo.Type.FRAGMENT, tags = {"template", "模板"}, description = "模板设计模式")
-public class TemplateFragment extends BaseFragment {
-    @Override
-    protected void initViewsAndEvents(Bundle savedInstanceState) {
+public class TemplateFragment extends CodeAndRunFragment {
 
+    @Override
+    public String getMarkDownUrl() {
+        return "TemplateFragment";
     }
 
     @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_design_pattern_template;
+    public String[] getItems() {
+        return new String[]{"模板"};
     }
 
-    @OnClick({R.id.btn_template})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_template:
+    @Override
+    public void clickItem(int position) {
+        switch (position) {
+            case 0:
                 Car bmw = new BMW();
                 bmw.move();
                 Car benz = new Benz();

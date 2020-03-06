@@ -1,79 +1,67 @@
 package com.androidwind.androidquick.demo.features.design_patterns.factory;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.androidwind.androidquick.demo.R;
-import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.features.CodeAndRunFragment;
+import com.androidwind.androidquick.demo.view.bottom.BottomDialogFragment;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
-
-import butterknife.BindView;
-import butterknife.OnClick;
-import us.feras.mdv.MarkdownView;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 @BindTag(type = TagInfo.Type.FRAGMENT, tags = {"factory", "工厂"}, description = "简单工厂 + 工厂方法 + 抽象工厂")
-public class FactoryFragment extends BaseFragment {
+public class FactoryFragment extends CodeAndRunFragment {
 
-    @BindView(R.id.mv)
-    MarkdownView mMvCode;
-    @BindView(R.id.btn_show)
-    Button btnShow;
-
-    @OnClick({R.id.btn_show, R.id.btn_run})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_show:
-                mMvCode.setVisibility(View.VISIBLE);
-                break;
-            case R.id.btn_run:
-                runCode();
-                break;
-        }
+    @Override
+    public String getMarkDownUrl() {
+        return "FactoryFragment";
     }
 
     @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_design_pattern_factory;
+    public String[] getItems() {
+        return new String[]{"简单工厂", "工厂方法实现1", "工厂方法实现2", "工厂方法实现3", "抽象工厂"};
     }
 
     @Override
-    protected void initViewsAndEvents(Bundle savedInstanceState) {
-        mMvCode.loadMarkdownFile("file:///android_asset/FactoryFragment.md", "file:///android_asset/css-themes/classic.css");
-    }
-
-    private void runCode() {
-        //简单工厂
-        ICar car1 = SimpleFactory.getCar(0);
-        car1.move();
-        //工厂方法实现1
-        IFactory factory = new BenzFactory();
-        ICar car2 = factory.getCar();
-        car2.move();
-        //工厂方法实现2
-        ICar bmw = CarFactory.createCar(BMW.class);
-        if (bmw != null) {
-            bmw.move();
+    public void clickItem(int position) {
+        switch (position) {
+            case 0:
+                //简单工厂
+                ICar car1 = SimpleFactory.getCar(0);
+                car1.move();
+                break;
+            case 1:
+                //工厂方法实现1
+                IFactory factory = new BenzFactory();
+                ICar car2 = factory.getCar();
+                car2.move();
+                break;
+            case 2:
+                //工厂方法实现2
+                ICar bmw = CarFactory.createCar(BMW.class);
+                if (bmw != null) {
+                    bmw.move();
+                }
+                break;
+            case 3:
+                //工厂方法实现3
+                try {
+                    ICar ACar = EnumCarFactory.valueOf("Benz").create();
+                    ACar.move();
+                } catch (Exception e) {
+                    System.out.println("无效参数,无法初始化");
+                }
+                break;
+            case 4:
+                //抽象工厂
+                IAbsFactory absFactory = new ZhangSan();
+                ICar car = absFactory.getCar();
+                car.move();
+                IClothes clothes = absFactory.getClothes();
+                clothes.wear();
+                break;
         }
-        //工厂方法实现3
-        try {
-            ICar ACar = EnumCarFactory.valueOf("Benz").create();
-            ACar.move();
-        } catch (Exception e) {
-            System.out.println("无效参数,无法初始化");
-        }
-        //抽象工厂
-        IAbsFactory absFactory = new ZhangSan();
-        ICar car = absFactory.getCar();
-        car.move();
-        IClothes clothes = absFactory.getClothes();
-        clothes.wear();
     }
 
     private static class Benz implements ICar {

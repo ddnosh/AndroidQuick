@@ -1,31 +1,44 @@
-##FactoryFragment
+## FactoryFragment
 <pre>
-private void initCode() {
-        //简单工厂
-        ICar car1 = SimpleFactory.getCar(0);
-        car1.move();
-        //工厂方法实现1
-        IFactory factory = new BenzFactory();
-        ICar car2 = factory.getCar();
-        car2.move();
-        //工厂方法实现2
-        ICar bmw = CarFactory.createCar(BMW.class);
-        if (bmw != null) {
-            bmw.move();
+    f@Override
+    public void clickItem(int position) {
+        switch (position) {
+            case 0:
+                //简单工厂
+                ICar car1 = SimpleFactory.getCar(0);
+                car1.move();
+                break;
+            case 1:
+                //工厂方法实现1
+                IFactory factory = new BenzFactory();
+                ICar car2 = factory.getCar();
+                car2.move();
+                break;
+            case 2:
+                //工厂方法实现2
+                ICar bmw = CarFactory.createCar(BMW.class);
+                if (bmw != null) {
+                    bmw.move();
+                }
+                break;
+            case 3:
+                //工厂方法实现3
+                try {
+                    ICar ACar = EnumCarFactory.valueOf("Benz").create();
+                    ACar.move();
+                } catch (Exception e) {
+                    System.out.println("无效参数,无法初始化");
+                }
+                break;
+            case 4:
+                //抽象工厂
+                IAbsFactory absFactory = new ZhangSan();
+                ICar car = absFactory.getCar();
+                car.move();
+                IClothes clothes = absFactory.getClothes();
+                clothes.wear();
+                break;
         }
-        //工厂方法实现3
-        try {
-            ICar ACar = EnumCarFactory.valueOf("Benz").create();
-            ACar.move();
-        } catch (Exception e) {
-            System.out.println("无效参数,无法初始化");
-        }
-        //抽象工厂
-        IAbsFactory absFactory = new ZhangSan();
-        ICar car = absFactory.getCar();
-        car.move();
-        IClothes clothes = absFactory.getClothes();
-        clothes.wear();
     }
 
     private static class Benz implements ICar {

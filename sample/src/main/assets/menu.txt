@@ -90,7 +90,7 @@
     21301,RxJava_Lifecycle,13;
     21302,Lambda,13;
     21303,CallBack,13;
-14,Which app use AndroidQuick,0;
+14,Some Apps,0;
     21400,QuickGank,14;
     21401,QuickGank-Kotlin,14;
     21402,QuickTV,14;

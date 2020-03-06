@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.features.CodeAndRunFragment;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
 
@@ -16,27 +17,29 @@ import butterknife.OnClick;
  * @website http://blog.csdn.net/ddnosh
  */
 @BindTag(type = TagInfo.Type.FRAGMENT, tags = {"responsibility", "责任链"}, description = "责任链模式实例")
-public class ResponsibilityChainFragment extends BaseFragment {
+public class ResponsibilityChainFragment extends CodeAndRunFragment {
 
     @Override
-    protected void initViewsAndEvents(Bundle savedInstanceState) {
-
+    public String getMarkDownUrl() {
+        return "ResponsibilityChainFragment";
     }
 
     @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_design_pattern_responsibilitychain;
+    public String[] getItems() {
+        return new String[]{"责任链"};
     }
 
-    @OnClick(R.id.btn_rc)
-    public void onClick(View view) {
-        if (view.getId() == R.id.btn_rc) {
-            BaseFilter shape = new ShapeFilter();
-            BaseFilter weight = new WeightFilter();
-            BaseFilter date = new DateFilter();
-            shape.setFilter(weight);
-            weight.setFilter(date);
-            shape.doFilter("circle5kg2019");
+    @Override
+    public void clickItem(int position) {
+        switch (position) {
+            case 0:
+                BaseFilter shape = new ShapeFilter();
+                BaseFilter weight = new WeightFilter();
+                BaseFilter date = new DateFilter();
+                shape.setFilter(weight);
+                weight.setFilter(date);
+                shape.doFilter("circle5kg2019");
+                break;
         }
     }
 }

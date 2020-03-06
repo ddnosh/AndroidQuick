@@ -1,29 +1,20 @@
 package com.androidwind.androidquick.demo.features.design_patterns.proxy;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.DatePicker;
-
-import androidx.appcompat.app.AlertDialog;
 
 import com.androidwind.androidquick.demo.R;
 import com.androidwind.androidquick.demo.base.BaseActivity;
-import com.androidwind.androidquick.demo.base.BaseFragment;
+import com.androidwind.androidquick.demo.features.CodeAndRunFragment;
 import com.androidwind.androidquick.demo.constant.Constants;
 import com.androidwind.androidquick.demo.features.function.permission.EasyPermissions;
-import com.androidwind.androidquick.demo.view.bottom.BottomDialogFragment;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.ADialog;
 import com.androidwind.androidquick.ui.dialog.dialogactivity.BaseDialog;
 import com.androidwind.androidquick.util.LogUtil;
 import com.androidwind.androidquick.util.ToastUtil;
 import com.androidwind.annotation.annotation.BindTag;
 import com.androidwind.annotation.annotation.TagInfo;
-import com.google.android.material.button.MaterialButton;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
@@ -31,49 +22,29 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import us.feras.mdv.MarkdownView;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 @BindTag(type = TagInfo.Type.FRAGMENT, tags = {"proxy", "代理", "AOP", "静态", "动态", "retrofit"}, description = "静态代理 + 动态代理 + AOP")
-public class ProxyFragment extends BaseFragment {
-
-    @BindView(R.id.mv)
-    MarkdownView mMvCode;
-    @BindView(R.id.btn_run)
-    MaterialButton mBtnRun;
+public class ProxyFragment extends CodeAndRunFragment {
 
     @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_design_pattern_proxy;
+    public String getMarkDownUrl() {
+        return "ProxyFragment";
     }
 
     @Override
-    protected void initViewsAndEvents(Bundle savedInstanceState) {
-        mMvCode.loadMarkdownFile("file:///android_asset/ProxyFragment.md", "file:///android_asset/css-themes/classic.css");
+    public String[] getItems() {
+        return new String[]{"静态代理", "动态代理", "动态代理+简单工厂", "简单AOP实现", "仿Retrofit的api实现"};
     }
 
-    @OnClick({R.id.btn_show, R.id.btn_run})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_show:
-                mMvCode.setVisibility(View.VISIBLE);
-                break;
-            case R.id.btn_run:
-                String[] array = {"静态代理", "动态代理", "动态代理+简单工厂", "简单AOP实现", "仿Retrofit的api实现"};
-                BottomDialogFragment.showDialog(getActivity(), array).setListener(listener);
-                break;
-        }
-    }
-
-    private BottomDialogFragment.OnBottomItemClick listener = position -> {
+    @Override
+    public void clickItem(int position) {
         switch (position) {
             case 0:
                 //静态代理
@@ -114,6 +85,7 @@ public class ProxyFragment extends BaseFragment {
                 car2.move();
                 break;
             case 3:
+                //简单AOP实现
                 ProxyAOPFactory aopFactory = new ProxyAOPFactory();
                 aopFactory.setClient(new Benz());
                 aopFactory.setBefore(new IBefore() {
@@ -126,12 +98,13 @@ public class ProxyFragment extends BaseFragment {
                 car3.move();
                 break;
             case 4:
+                //仿Retrofit的api实现
                 IRequestAPI api = create(IRequestAPI.class);
                 api.getHistory("123");
                 api.getNew();
                 break;
         }
-    };
+    }
 
     private interface ICar {
         void move();
