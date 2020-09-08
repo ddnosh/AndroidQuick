@@ -119,5 +119,7 @@ AndroidQuick还提供了一个库文件ARabbit[![Download](https://api.bintray.c
   - QuickGank-Kotlin
   - QuickTV
     
-    
-
+## 微信公众号：国民程序员
+<p align="center">
+  <img src="https://img-blog.csdnimg.cn/20200909075440310.jpg" alt="公众号：国民程序员"/>
+</p>
