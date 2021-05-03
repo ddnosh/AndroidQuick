@@ -5,7 +5,7 @@
 
 # Deprecated
 由于技术更新迭代，此项目已不再继续更新。  
-请移步至最新的项目ARabbit：https://github.com/ddnosh/ARabbit
+请移步至最新的项目ARabbit：https://github.com/ddnosh/ARabbit  
 ARabbit是一套采用最新Android技术方案的代码库，让你开发App更轻松。
 
 ## 项目简介
