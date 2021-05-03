@@ -2,8 +2,11 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)  
 ![image](https://github.com/ddnosh/androidquick/blob/master/logo.png)  
 <br />
-欢迎加入QQ群：
-<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=5867e988b85eecbb8c50bedab9810624fc017ce71098ae9394e7c935a4125281"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Android开发技术交流" title="Android开发技术交流"></a>
+
+# Deprecated
+由于技术更新迭代，此项目已不再继续更新。  
+请移步至最新的项目ARabbit：https://github.com/ddnosh/ARabbit
+ARabbit是一套采用最新Android技术方案的代码库，让你开发App更轻松。
 
 ## 项目简介
 AndroidQuick项目旨在提供一套进行Android APP快速开发的代码参考库。 目前已支持AndroidX。  
